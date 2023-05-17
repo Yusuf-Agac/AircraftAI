@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &450213401208651619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450213401208651620}
+  - component: {fileID: 450213401208651621}
+  m_Layer: 11
+  m_Name: _hsi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450213401208651620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450213401208651619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &450213401208651621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450213401208651619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa2cf9eb2b3ec74f9d336e9a5f078dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_controller: {fileID: 0}
+  m_type: 3
+  m_lever:
+    m_controller: {fileID: 0}
+    m_base: {fileID: 0}
+    m_leverType: 0
+    m_stickType: 0
+    m_throttleMode: 0
+    m_lever: {fileID: 0}
+    m_yoke: {fileID: 0}
+    m_rollLimit: 20
+    m_pitchLimit: 5
+    m_deflectionLimit: 30
+    m_slidingLimit: 10
+    m_pedalDeflectionLimit: 30
+    m_pedalSlidingLimit: 10
+    m_rollAxisDeflection: {x: 0, y: 0, z: 0}
+    m_pitchAxisDeflection: {x: 0, y: 0, z: 0}
+    m_rotationAxisRoll: 0
+    m_directionRoll: 0
+    m_rotationAxisPitch: 0
+    m_directionPitch: 0
+    m_rotationAxis: 0
+    m_direction: 0
+    m_movementAxis: 0
+    m_movementDirection: 0
+    m_axisDeflection: {x: 0, y: 0, z: 0}
+    m_pedalType: 1
+    m_pedalMode: 1
+    m_leftPedal: {fileID: 0}
+    m_rightPedal: {fileID: 0}
+    m_rightRotationAxis: 0
+    m_leftRotationAxis: 0
+    m_rightDirection: 0
+    m_leftDirection: 1
+  m_dial:
+    m_base: {fileID: 0}
+    m_needles:
+    - _id: 
+      _needle: {fileID: 0}
+      _currentValue: 0
+      _axis: 0
+      _direction: 0
+      _lag: 0.1
+      _minValue: 0
+      _maxValue: 0
+      _minRotation: 0
+      _maxRotation: 0
+    m_values:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+  m_readout:
+    m_base: {fileID: 0}
+    m_type: 0
+    m_altimeterType: 1
+    digitOne: 0
+    digitTwo: 0
+    digitThree: 0
+    digitFour: 0
+    digitFive: 0
+    digitOneTranslation: 0
+    digitTwoTranslation: 0
+    digitThreeTranslation: 0
+    digitFourTranslation: 0
+    digitOneContainer: {fileID: 0}
+    digitTwoContainer: {fileID: 0}
+    digitThreeContainer: {fileID: 0}
+    digitFourContainer: {fileID: 0}
+    needle: {fileID: 0}
+    maximumValue: 0
+  m_hsi:
+    m_base: {fileID: 0}
+    pitchTape: {fileID: 0}
+    rollAnchor: {fileID: 0}
+    minimumPosition: 0
+    movementFactor: -50
+    maximumPitch: 90
+    minimumPitch: -90
+    minimumRoll: -180
+    maximumRoll: 180
+  m_roll: 0
+  m_pitch: 0
+  m_yaw: 0
+  m_throttle: 0
+  m_prop: 0
+  m_mixture: 0

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 3fb49f424d4a7cc4287e988a81cef80d
+timeCreated: 1563555584
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futura XBlkCnIt BT
+  fontNames:
+  - Futura XBlkCnIt BT
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

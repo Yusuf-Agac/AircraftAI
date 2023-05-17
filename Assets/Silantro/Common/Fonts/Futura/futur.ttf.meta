@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 11fcc67203cffaa4abe00209dec9eec6
+timeCreated: 1563555584
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Futura-Bold
+  fontNames:
+  - Futura-Bold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
