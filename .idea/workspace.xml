@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y0.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y1.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y10.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y11.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y12.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y2.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y3.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y4.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y5.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y6.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y7.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y8.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y9.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/SampleScene.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Materials/Effects/Engine/Exhaust Distortion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Materials/Effects/Engine/Exhaust Distortion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/WorldComposer/Update/WorldComposer/last_checked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/WorldComposer/Update/WorldComposer/last_checked.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/ProjectSettings/InputManager.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2cDh9PP7K7x4aBvBcBPQ0nh4ZU6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="" />
+      <created>1707651904518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707651904518</updated>
+      <workItem from="1707651905569" duration="3740000" />
+      <workItem from="1707655913894" duration="2583000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AircraftAI$activate_this.coverage" NAME="activate_this Coverage Results" MODIFIED="1707653046618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AircraftAI/venv/Scripts" />
+  </component>
+</project>
