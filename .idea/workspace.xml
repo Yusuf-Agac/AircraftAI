@@ -5,69 +5,81 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y0.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y1.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y10.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y11.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y12.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y2.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y3.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y4.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y5.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y6.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y7.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y8.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Terrain/Istanbul_x1_y9.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/SampleScene.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Materials/Effects/Engine/Exhaust Distortion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Materials/Effects/Engine/Exhaust Distortion.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/WorldComposer/Update/WorldComposer/last_checked.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/WorldComposer/Update/WorldComposer/last_checked.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/My Behavior.onnx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/My Behavior/My Behavior-384.onnx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/My Behavior/My Behavior-384.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/My Behavior/checkpoint.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/My Behavior/events.out.tfevents.1702590526.DESKTOP-IV5QCUS.14936.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/configuration.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/run_logs/timers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/TEST/run_logs/training_status.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/ppo/configuration.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/ppo/run_logs/timers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/results/ppo/run_logs/training_status.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="notebook://C:/Users/Yusuf/anaconda3/Lib/main.ipynb" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2cDh9PP7K7x4aBvBcBPQ0nh4ZU6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Yusuf\Documents\GitHub\AircraftAI\AircraftAI" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,6 +90,18 @@
       <updated>1707651904518</updated>
       <workItem from="1707651905569" duration="3740000" />
       <workItem from="1707655913894" duration="2583000" />
+      <workItem from="1709218323801" duration="10181000" />
+      <workItem from="1709228681935" duration="41000" />
+      <workItem from="1709228733135" duration="877000" />
+      <workItem from="1709308710124" duration="1020000" />
+      <workItem from="1709309829241" duration="4703000" />
+      <workItem from="1709383200265" duration="4663000" />
+      <workItem from="1709490447634" duration="7153000" />
+      <workItem from="1709502211220" duration="891000" />
+      <workItem from="1709543678437" duration="705000" />
+      <workItem from="1709553061179" duration="1011000" />
+      <workItem from="1709732331821" duration="2494000" />
+      <workItem from="1709812658620" duration="607000" />
     </task>
     <servers />
   </component>
