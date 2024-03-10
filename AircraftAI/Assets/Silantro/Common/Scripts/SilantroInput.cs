@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Oyedoyin.Mathematics;
+using Unity.MLAgents.Actuators;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -284,6 +285,17 @@ namespace Oyedoyin.Common
                 if (Mathf.Abs(_baseYawInput) > _yawDeadZone) { _presetYawInput = _baseYawInput; } else { _presetYawInput = 0f; }
                 return ((Mathf.Abs(_presetYawInput) - _yawDeadZone) / (1 - _yawDeadZone)) * _presetYawInput;
             }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public void SetAgentInputs(ActionBuffers actionBuffer)
+        {
+            _throttleInput = (actionBuffer.ContinuousActions[0] * 2) - 1;
+            _rawPitchInput = (actionBuffer.ContinuousActions[1] * 2) - 1;
+            _rawRollInput = (actionBuffer.ContinuousActions[2] * 2) - 1;
+            _rawYawInput = (actionBuffer.ContinuousActions[3] * 2) - 1;
         }
 
 
