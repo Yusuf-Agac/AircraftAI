@@ -1,4 +1,5 @@
 using DefaultNamespace;
+using Oyedoyin.FixedWing;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -20,8 +21,9 @@ public class AirportPositionNormalizer : MonoBehaviour
     private Vector3 GetResetPosition => GetStartPosition + GetAirportDirection * startOffset + Vector3.up * aircraftHeight;
     private Vector3 GetExitPosition => GetEndPosition - (GetAirportDirection * 100f) + Vector3.up * exitHeight;
     
-    [FormerlySerializedAs("plane")] [Space(10)] 
-    public Transform aircraft;
+    [Space(10)] 
+    public FixedController aircraftController;
+    private Transform Aircraft => aircraftController.transform;
     
     [Header("Configurations")]
     public float exitHeight = 100f;
@@ -31,31 +33,29 @@ public class AirportPositionNormalizer : MonoBehaviour
     public float aircraftWidth = 1f;
     public float aircraftLength = 10f;
     public float aircraftHeight = 1f;
-
-    private void Update()
-    {
-        DebugNormalizedPosition();
-    }
     
     public void ResetPlanePosition()
     {
-        aircraft.position = GetResetPosition;
-        aircraft.rotation = Quaternion.LookRotation(GetAirportDirection);
+        Aircraft.position = GetResetPosition;
+        Aircraft.rotation = Quaternion.LookRotation(GetAirportDirection);
     }
     
-    public Vector3 NormalizedAircraftPosition => GetNormalizedPosition(aircraft.position);
-    public Vector3 NormalizedAircraftSafePosition => GetNormalizedPosition(aircraft.position, true);
-    public Vector3 NormalizedAircraftExitDirection => GetNormalizedExitDirection(aircraft.position);
+    public Vector3 NormalizedAircraftPosition => GetNormalizedPosition(Aircraft.position);
+    public Vector3 NormalizedAircraftSafePosition => GetNormalizedPosition(Aircraft.position, true);
+    public Vector3 NormalizedAircraftExitDirection => GetNormalizedExitDirection(Aircraft.position);
     
     private Vector3 GetNormalizedPosition(Vector3 position, bool isSafe = false)
     {
         var pivot = isSafe ? AirportStartLeftSafe : airportStartLeft.position;
         
-        var zLine = isSafe ? AirportEndLeftSafe : airportEndLeft.position - pivot;
+        var zLine = (isSafe ? AirportEndLeftSafe : airportEndLeft.position) - pivot;
         var z = Vector3.Dot(position - pivot, zLine) / Vector3.Dot(zLine, zLine);
-        var xLine = isSafe ? AirportStartRightSafe : airportStartRight.position - pivot;
+        
+        var xLine = (isSafe ? AirportStartRightSafe : airportStartRight.position) - pivot;
         var x = Vector3.Dot(position - pivot, xLine) / Vector3.Dot(xLine, xLine);
-        var y = (position.y - pivot.y) / (exitHeight + additionMaxHeight);
+        
+        var y = (position.y - pivot.y + aircraftHeight) / (exitHeight + additionMaxHeight);
+        
         return new Vector3(Mathf.Clamp01(x), Mathf.Clamp01(y), Mathf.Clamp01(z));
     }
     private Vector3 GetNormalizedExitDirection(Vector3 position) => GetNormalizedPosition(GetExitPosition) - GetNormalizedPosition(position);
@@ -66,8 +66,7 @@ public class AirportPositionNormalizer : MonoBehaviour
         var normalizedPositionSafe = NormalizedAircraftSafePosition;
         var normalizedExitDirection = NormalizedAircraftExitDirection;
         
-        Debug.Log($"Normalized Position: {normalizedPosition} - Normalized Safe Position: {normalizedPositionSafe} \n " +
-                  $"Normalized Exit Direction: {normalizedExitDirection}");
+        Debug.Log($"Normalized Position: {normalizedPosition} - Normalized Safe Position: {normalizedPositionSafe} \n Normalized Exit Direction: {normalizedExitDirection}");
     }
     
     private void OnDrawGizmos()

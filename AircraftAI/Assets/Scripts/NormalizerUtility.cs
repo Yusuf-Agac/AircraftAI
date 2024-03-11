@@ -9,10 +9,12 @@ namespace DefaultNamespace
             return new Vector3(NormalizeAngle(rotation.x), NormalizeAngle(rotation.y), NormalizeAngle(rotation.z));
         }
         
-        private static float NormalizeAngle(float angle)
+        static float NormalizeAngle(float angle)
         {
-            Debug.LogError("!!Not Implemented Yet!!");
-            return ((angle % 360) + 180f) / 360f;
+            angle %= 360;
+            angle = (angle + 360) % 360;
+
+            return angle / 360f;
         }
     }
 }
