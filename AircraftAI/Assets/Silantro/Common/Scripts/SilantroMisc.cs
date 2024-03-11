@@ -265,8 +265,11 @@ namespace Oyedoyin.Common
         public Text heading;
         public Text gload;
         public Text pitchRate;
+        public Text pitchInput;
         public Text rollRate;
+        public Text rollInput;
         public Text yawRate;
+        public Text yawInput;
         public Text turnRate;
         public Text climb;
 
@@ -511,8 +514,11 @@ namespace Oyedoyin.Common
                     {
                         turnRate.text = m_vehicle.m_core.ωф.ToString("0.0") + " °/s";
                         pitchRate.text = (m_vehicle.m_core.q * Mathf.Rad2Deg).ToString("0.0") + " °/s";
+                        pitchInput.text = (m_vehicle._pitchInput * 100f).ToString("0.0") + " %";
                         rollRate.text = (m_vehicle.m_core.p * Mathf.Rad2Deg).ToString("0.0") + " °/s";
+                        rollInput.text = (m_vehicle._rollInput * 100f).ToString("0.0") + " %";
                         yawRate.text = (m_vehicle.m_core.r * Mathf.Rad2Deg).ToString("0.0") + " °/s";
+                        yawInput.text = (m_vehicle._yawInput * 100f).ToString("0.0") + " %";
                     }
 
                     if (m_vehicle.m_hardpoints == Oyedoyin.Common.Controller.StoreState.Disconnected)
@@ -993,6 +999,12 @@ namespace Oyedoyin.Common
                     extension.m_display.yawRate = EditorGUILayout.ObjectField("Yaw Rate Label", extension.m_display.yawRate, typeof(Text), true) as Text;
                     GUILayout.Space(3f);
                     extension.m_display.turnRate = EditorGUILayout.ObjectField("Turn Rate Label", extension.m_display.turnRate, typeof(Text), true) as Text;
+                    GUILayout.Space(3f);
+                    extension.m_display.pitchInput = EditorGUILayout.ObjectField("Pitch Input Label", extension.m_display.pitchInput, typeof(Text), true) as Text;
+                    GUILayout.Space(3f);
+                    extension.m_display.rollInput = EditorGUILayout.ObjectField("Roll Input Label", extension.m_display.rollInput, typeof(Text), true) as Text;
+                    GUILayout.Space(3f);
+                    extension.m_display.yawInput = EditorGUILayout.ObjectField("Yaw Input Label", extension.m_display.yawInput, typeof(Text), true) as Text;
 
                     GUILayout.Space(5f);
                     ///extension.m_display.commandPitch = EditorGUILayout.ObjectField("Command Pitch Label", extension.m_display.commandPitch, typeof(Text), true) as Text;
