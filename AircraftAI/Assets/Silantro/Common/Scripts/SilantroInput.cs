@@ -292,13 +292,12 @@ namespace Oyedoyin.Common
         /// </summary>
         public void SetAgentInputs(ActionBuffers actionBuffer)
         {
-            _throttleInput = (actionBuffer.ContinuousActions[0] * 2) - 1;
-            _rawPitchInput = (actionBuffer.ContinuousActions[1] * 2) - 1;
-            _rawRollInput = (actionBuffer.ContinuousActions[2] * 2) - 1;
-            _rawYawInput = (actionBuffer.ContinuousActions[3] * 2) - 1;
+            _throttleInput = (actionBuffer.ContinuousActions[0] + 1) / 2f;
+            _rawPitchInput = actionBuffer.ContinuousActions[1];
+            _rawRollInput = actionBuffer.ContinuousActions[2];
+            _rawYawInput = actionBuffer.ContinuousActions[3];
         }
-
-
+        
         #region Call Functions
 
         /// <summary>
