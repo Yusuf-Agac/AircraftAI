@@ -2,22 +2,22 @@
     "AircraftTakeOff": {
         "checkpoints": [
             {
-                "steps": 1650,
-                "file_path": "results\\AircraftTakeOff\\AircraftTakeOff\\AircraftTakeOff-1650.onnx",
-                "reward": -1.0,
-                "creation_time": 1710163061.911329,
+                "steps": 305204,
+                "file_path": "results\\AircraftTakeOff\\AircraftTakeOff\\AircraftTakeOff-305204.onnx",
+                "reward": -0.9873827753028185,
+                "creation_time": 1710250270.548954,
                 "auxillary_file_paths": [
-                    "results\\AircraftTakeOff\\AircraftTakeOff\\AircraftTakeOff-1650.pt"
+                    "results\\AircraftTakeOff\\AircraftTakeOff\\AircraftTakeOff-305204.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1650,
+            "steps": 305204,
             "file_path": "results\\AircraftTakeOff\\AircraftTakeOff.onnx",
-            "reward": -1.0,
-            "creation_time": 1710163061.911329,
+            "reward": -0.9873827753028185,
+            "creation_time": 1710250270.548954,
             "auxillary_file_paths": [
-                "results\\AircraftTakeOff\\AircraftTakeOff\\AircraftTakeOff-1650.pt"
+                "results\\AircraftTakeOff\\AircraftTakeOff\\AircraftTakeOff-305204.pt"
             ]
         }
     },
