@@ -928,7 +928,7 @@ namespace Oyedoyin.Common.Components
                 rigidbody.transform.position = controller.basePosition;
                 rigidbody.transform.rotation = controller.baseRotation;
 
-                controller.TurnOffEngines();
+                //controller.TurnOffEngines();
                 if (controller.gearActuator != null && controller.gearActuator.actuatorState == SilantroActuator.ActuatorState.Disengaged) { controller.gearActuator.EngageActuator(); }
             }
         }

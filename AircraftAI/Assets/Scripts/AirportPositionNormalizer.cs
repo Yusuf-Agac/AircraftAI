@@ -5,21 +5,28 @@ using UnityEngine.Serialization;
 
 public class AirportPositionNormalizer : MonoBehaviour
 {
-    private Vector3 AirportStartLeftSafe => airportStartLeft.position + airportStartLeft.right * aircraftWidth + airportStartLeft.forward * aircraftLength;
     [Header("Airport Positions")] 
     public Transform airportStartLeft;
-    private Vector3 AirportStartRightSafe => airportStartRight.position - airportStartRight.right * aircraftWidth + airportStartRight.forward * aircraftLength;
-    public Transform airportStartRight;
-    private Vector3 AirportEndLeftSafe => airportEndLeft.position + airportEndLeft.right * aircraftWidth - airportEndLeft.forward * aircraftLength;
-    public Transform airportEndLeft;
-    private Vector3 AirportEndRightSafe => airportEndRight.position - airportEndRight.right * aircraftWidth - airportEndRight.forward * aircraftLength;
-    public Transform airportEndRight;
+    private Vector3 AirportStartLeftSafe => airportStartLeft.position + airportStartLeft.right * aircraftWidth + airportStartLeft.forward * aircraftLength;
     
-    private Vector3 GetStartPosition => (airportStartLeft.position + airportStartRight.position) / 2;
-    private Vector3 GetEndPosition => (airportEndLeft.position + airportEndRight.position) / 2;
-    private Vector3 GetAirportDirection => (GetEndPosition - GetStartPosition).normalized;
-    private Vector3 GetResetPosition => GetStartPosition + GetAirportDirection * startOffset + Vector3.up * aircraftHeight;
-    private Vector3 GetExitPosition => GetEndPosition - (GetAirportDirection * 100f) + Vector3.up * exitHeight;
+    
+    public Transform airportStartRight;
+    private Vector3 AirportStartRightSafe => airportStartRight.position - airportStartRight.right * aircraftWidth + airportStartRight.forward * aircraftLength;
+    
+    
+    public Transform airportEndLeft;
+    private Vector3 AirportEndLeftSafe => airportEndLeft.position + airportEndLeft.right * aircraftWidth - airportEndLeft.forward * aircraftLength;
+    
+    
+    public Transform airportEndRight;
+    private Vector3 AirportEndRightSafe => airportEndRight.position - airportEndRight.right * aircraftWidth - airportEndRight.forward * aircraftLength;
+    
+    
+    private Vector3 AirportStartPosition => (airportStartLeft.position + airportStartRight.position) / 2;
+    private Vector3 AirportEndPosition => (airportEndLeft.position + airportEndRight.position) / 2;
+    private Vector3 AirportDirection => (AirportEndPosition - AirportStartPosition).normalized;
+    private Vector3 AirportResetPosition => AirportStartPosition + AirportDirection * startOffset + Vector3.up * aircraftHeight;
+    private Vector3 AirportExitPosition => AirportEndPosition - (AirportDirection * 100f) + Vector3.up * exitHeight;
     
     [Space(10)] 
     public FixedController aircraftController;
@@ -36,13 +43,15 @@ public class AirportPositionNormalizer : MonoBehaviour
     
     public void ResetPlanePosition()
     {
-        Aircraft.position = GetResetPosition;
-        Aircraft.rotation = Quaternion.LookRotation(GetAirportDirection);
+        Aircraft.position = AirportResetPosition;
+        Aircraft.rotation = Quaternion.LookRotation(AirportDirection);
     }
     
     public Vector3 NormalizedAircraftPosition => GetNormalizedPosition(Aircraft.position);
     public Vector3 NormalizedAircraftSafePosition => GetNormalizedPosition(Aircraft.position, true);
     public Vector3 NormalizedAircraftExitDirection => GetNormalizedExitDirection(Aircraft.position);
+    
+    private Vector3 GetNormalizedExitDirection(Vector3 position) => GetNormalizedPosition(AirportExitPosition) - GetNormalizedPosition(position);
     
     private Vector3 GetNormalizedPosition(Vector3 position, bool isSafe = false)
     {
@@ -58,15 +67,25 @@ public class AirportPositionNormalizer : MonoBehaviour
         
         return new Vector3(Mathf.Clamp01(x), Mathf.Clamp01(y), Mathf.Clamp01(z));
     }
-    private Vector3 GetNormalizedExitDirection(Vector3 position) => GetNormalizedPosition(GetExitPosition) - GetNormalizedPosition(position);
     
-    private void DebugNormalizedPosition()
+    public float NormalizedClosestOptimumPointDistance()
     {
-        var normalizedPosition = NormalizedAircraftPosition;
-        var normalizedPositionSafe = NormalizedAircraftSafePosition;
-        var normalizedExitDirection = NormalizedAircraftExitDirection;
-        
-        Debug.Log($"Normalized Position: {normalizedPosition} - Normalized Safe Position: {normalizedPositionSafe} \n Normalized Exit Direction: {normalizedExitDirection}");
+        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.transform.position);
+        return Vector3.Distance(closestPoint, Aircraft.transform.position) / ((AirportExitPosition - AirportResetPosition).y + additionMaxHeight);
+    }
+    
+    public Vector3 NormalizedClosestOptimumPointDirection()
+    {
+        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.transform.position);
+        return (closestPoint - Aircraft.transform.position).normalized;
+    }
+    
+    private Vector3 ClosestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
+    {
+        var lineDirection = (lineEnd - lineStart).normalized;
+        var pointDirection = (point - lineStart);
+        var distance = Vector3.Dot(pointDirection, lineDirection);
+        return lineStart + lineDirection * Mathf.Clamp(distance, 0, Vector3.Distance(lineStart, lineEnd));
     }
     
     private void OnDrawGizmos()
@@ -80,11 +99,11 @@ public class AirportPositionNormalizer : MonoBehaviour
         Gizmos.DrawSphere(airportEndRight.position, 2);
         
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(GetResetPosition, 5);
-        Gizmos.DrawSphere(GetExitPosition, 20f);
+        Gizmos.DrawWireSphere(AirportResetPosition, 5);
+        Gizmos.DrawSphere(AirportExitPosition, 20f);
         
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(GetResetPosition, GetExitPosition);
+        Gizmos.DrawLine(AirportResetPosition, AirportExitPosition);
         
         Gizmos.color = Color.red;
         Gizmos.DrawLine(airportStartLeft.position, airportStartRight.position);
@@ -107,5 +126,18 @@ public class AirportPositionNormalizer : MonoBehaviour
         Gizmos.DrawLine(AirportEndLeftSafe, AirportEndRightSafe);
         Gizmos.DrawLine(AirportStartLeftSafe, AirportEndLeftSafe);
         Gizmos.DrawLine(AirportStartRightSafe, AirportEndRightSafe);
+        
+        Gizmos.color = new Color(NormalizedClosestOptimumPointDistance(), 1 - NormalizedClosestOptimumPointDistance(), 0, 1);
+        Gizmos.DrawSphere(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.position), 2);
+        Gizmos.DrawLine(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.position), Aircraft.position);
+    }
+    
+    private void DebugNormalizedPosition()
+    {
+        var normalizedPosition = NormalizedAircraftPosition;
+        var normalizedPositionSafe = NormalizedAircraftSafePosition;
+        var normalizedExitDirection = NormalizedAircraftExitDirection;
+        
+        Debug.Log($"Normalized Position: {normalizedPosition} - Normalized Safe Position: {normalizedPositionSafe} \n Normalized Exit Direction: {normalizedExitDirection}");
     }
 }
