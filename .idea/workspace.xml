@@ -5,37 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16394.onnx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16394.onnx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16394.pt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16394.pt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16806.onnx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16806.onnx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16806.pt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-16806.pt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-64147.onnx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-64147.onnx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-64147.pt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/AircraftTakeOff-64147.pt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/events.out.tfevents.1710245195.Yusuf-PC.26764.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/events.out.tfevents.1710245195.Yusuf-PC.26764.0.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff.onnx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-348669.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-348669.onnx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-348669.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-348669.pt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-64133.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-64133.onnx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-64133.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-64133.pt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-65682.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-65682.onnx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-65682.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-65682.pt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-70029.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-70029.onnx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-70029.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/AircraftTakeOff-70029.pt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/checkpoint.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/AircraftTakeOff/checkpoint.pt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/configuration.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/configuration.yaml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/run_logs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/run_logs/timers.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/run_logs/timers.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/run_logs/training_status.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff2/run_logs/training_status.json.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/AircraftTakeOffPPO.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/AircraftTakeOffPPO.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftCollisionSensors.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftCollisionSensors.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportPositionNormalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportPositionNormalizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroComponents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff.onnx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/checkpoint.pt" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/checkpoint.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/events.out.tfevents.1710162960.Yusuf-PC.3656.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/AircraftTakeOff/events.out.tfevents.1710162960.Yusuf-PC.3656.0.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/configuration.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/configuration.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/run_logs/timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/run_logs/timers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/run_logs/training_status.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/results/AircraftTakeOff/run_logs/training_status.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +136,7 @@
       <workItem from="1710154765637" duration="3891000" />
       <workItem from="1710165013619" duration="1002000" />
       <workItem from="1710234891675" duration="1305000" />
-      <workItem from="1710241019045" duration="3654000" />
+      <workItem from="1710241019045" duration="11722000" />
     </task>
     <servers />
   </component>

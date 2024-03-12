@@ -171,16 +171,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &30607321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 30607320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!21 &397281797
 Material:
   serializedVersion: 8
@@ -324,7 +361,7 @@ GameObject:
   - component: {fileID: 606254926}
   m_Layer: 0
   m_Name: AtaturkAirport
-  m_TagString: Untagged
+  m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,7 +401,16 @@ MonoBehaviour:
   airportStartRight: {fileID: 1369214079}
   airportEndLeft: {fileID: 1230260408}
   airportEndRight: {fileID: 1316546270}
-  aircraftController: {fileID: 2209146688823179861}
+  aircraftControllers:
+  - {fileID: 2209146688823179861}
+  - {fileID: 1304073752}
+  - {fileID: 1414440578}
+  - {fileID: 1769014930}
+  - {fileID: 1709669142}
+  - {fileID: 30607321}
+  - {fileID: 1757062930}
+  - {fileID: 788820948}
+  - {fileID: 1945297996}
   exitHeight: 200
   additionMaxHeight: 20
   startOffset: 55
@@ -577,16 +623,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &788820948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 788820947}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,16 +877,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &1304073752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1304073751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316546269
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,16 +1113,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &1414440578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1414440577}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1709669141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1051,16 +1208,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &1709669142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1709669141}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1757062929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1109,16 +1303,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &1757062930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757062929}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1769014929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1167,16 +1398,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &1769014930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1769014929}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1945297995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1225,16 +1493,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: airportPositionNormalizer
+      value: 
+      objectReference: {fileID: 606254926}
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &1945297996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945297995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!850595691 &2038175344
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -6398,7 +6703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5671.2
+      value: 5629
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6406,7 +6711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17164.9
+      value: -17169
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6455,6 +6760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cessna 182 Skylane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678492145494361013, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DefaultNamespace;
 using Oyedoyin.FixedWing;
 using UnityEngine;
@@ -29,8 +30,7 @@ public class AirportPositionNormalizer : MonoBehaviour
     private Vector3 AirportExitPosition => AirportEndPosition - (AirportDirection * 100f) + Vector3.up * exitHeight;
     
     [Space(10)] 
-    public FixedController aircraftController;
-    private Transform Aircraft => aircraftController.transform;
+    public List<FixedController> aircraftControllers;
     
     [Header("Configurations")]
     public float exitHeight = 100f;
@@ -41,15 +41,15 @@ public class AirportPositionNormalizer : MonoBehaviour
     public float aircraftLength = 10f;
     public float aircraftHeight = 1f;
     
-    public void ResetPlanePosition()
+    public void ResetAircraftPosition(Transform aircraft)
     {
-        Aircraft.position = AirportResetPosition;
-        Aircraft.rotation = Quaternion.LookRotation(AirportDirection);
+        aircraft.position = AirportResetPosition;
+        aircraft.rotation = Quaternion.LookRotation(AirportDirection);
     }
     
-    public Vector3 NormalizedAircraftPosition => GetNormalizedPosition(Aircraft.position);
-    public Vector3 NormalizedAircraftSafePosition => GetNormalizedPosition(Aircraft.position, true);
-    public Vector3 NormalizedAircraftExitDirection => GetNormalizedExitDirection(Aircraft.position);
+    public Vector3 NormalizedAircraftPosition(Transform aircraft) => GetNormalizedPosition(aircraft.position);
+    public Vector3 NormalizedAircraftSafePosition(Transform aircraft) => GetNormalizedPosition(aircraft.position, true);
+    public Vector3 NormalizedAircraftExitDirection(Transform aircraft) => GetNormalizedExitDirection(aircraft.position);
     
     private Vector3 GetNormalizedExitDirection(Vector3 position) => GetNormalizedPosition(AirportExitPosition) - GetNormalizedPosition(position);
     
@@ -68,16 +68,16 @@ public class AirportPositionNormalizer : MonoBehaviour
         return new Vector3(Mathf.Clamp01(x), Mathf.Clamp01(y), Mathf.Clamp01(z));
     }
     
-    public float NormalizedClosestOptimumPointDistance()
+    public float NormalizedClosestOptimumPointDistance(Transform aircraft)
     {
-        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.transform.position);
-        return Vector3.Distance(closestPoint, Aircraft.transform.position) / ((AirportExitPosition - AirportResetPosition).y + additionMaxHeight);
+        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, aircraft.transform.position);
+        return Vector3.Distance(closestPoint, aircraft.transform.position) / ((AirportExitPosition - AirportResetPosition).y + additionMaxHeight);
     }
     
-    public Vector3 NormalizedClosestOptimumPointDirection()
+    public Vector3 NormalizedClosestOptimumPointDirection(Transform aircraft)
     {
-        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.transform.position);
-        return (closestPoint - Aircraft.transform.position).normalized;
+        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, aircraft.transform.position);
+        return (closestPoint - aircraft.transform.position).normalized;
     }
     
     private Vector3 ClosestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
@@ -126,17 +126,21 @@ public class AirportPositionNormalizer : MonoBehaviour
         Gizmos.DrawLine(AirportEndLeftSafe, AirportEndRightSafe);
         Gizmos.DrawLine(AirportStartLeftSafe, AirportEndLeftSafe);
         Gizmos.DrawLine(AirportStartRightSafe, AirportEndRightSafe);
-        
-        Gizmos.color = new Color(NormalizedClosestOptimumPointDistance(), 1 - NormalizedClosestOptimumPointDistance(), 0, 1);
-        Gizmos.DrawSphere(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.position), 2);
-        Gizmos.DrawLine(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, Aircraft.position), Aircraft.position);
+        foreach (var controller in aircraftControllers)
+        {
+            var transformAircraft = controller.transform;
+            var reward = Mathf.Clamp01(1 - (NormalizedClosestOptimumPointDistance(transformAircraft) * 3));
+            Gizmos.color = new Color(1 - reward, reward, 0, 1);
+            Gizmos.DrawSphere(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, transformAircraft.position), 0.75f);
+            Gizmos.DrawLine(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, transformAircraft.position), transformAircraft.position);
+        }
     }
     
-    private void DebugNormalizedPosition()
+    private void DebugNormalizedPosition(Transform aircraft)
     {
-        var normalizedPosition = NormalizedAircraftPosition;
-        var normalizedPositionSafe = NormalizedAircraftSafePosition;
-        var normalizedExitDirection = NormalizedAircraftExitDirection;
+        var normalizedPosition = NormalizedAircraftPosition(aircraft);
+        var normalizedPositionSafe = NormalizedAircraftSafePosition(aircraft);
+        var normalizedExitDirection = NormalizedAircraftExitDirection(aircraft);
         
         Debug.Log($"Normalized Position: {normalizedPosition} - Normalized Safe Position: {normalizedPositionSafe} \n Normalized Exit Direction: {normalizedExitDirection}");
     }
