@@ -75,3 +75,5 @@ crashlytics-build.properties
 AircraftAI/[Aa]ssets/[Tt]errain/[Tt]errains/[Tt]extures/
 # Model Files
 AircraftAI/[Aa]ssets/results/
+# Build Files
+AircraftAI/[Bb]uildsForTraining/

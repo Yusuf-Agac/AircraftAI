@@ -18,32 +18,32 @@ public class AircraftTakeOffAgent : Agent
     private float _sparseRewards;
     private float _denseRewards;
     
-    private List<float> _previousActions = new List<float>();
-    
     private Vector3 NormalizedAircraftPos => _aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded) ? 
-        airportPositionNormalizer.NormalizedAircraftSafePosition(transform) : 
-        airportPositionNormalizer.NormalizedAircraftPosition(transform);
-        
-    void Start () 
+        airportPositionNormalizer.GetNormalizedPosition(transform.position, true) : 
+        airportPositionNormalizer.GetNormalizedPosition(transform.position);
+
+    private void Start () 
     {
         _aircraftController = GetComponent<FixedController>();
     }
     
     public override void OnEpisodeBegin()
     {
-        _previousActions.Clear();
-        _previousActions.AddRange(Enumerable.Repeat(0f, 4));
         _aircraftController.RestoreAircraft();
-        airportPositionNormalizer.ResetAircraftPosition(transform);
+        airportPositionNormalizer.RandomResetAircraftPosition(transform);
     }
     
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(NormalizedAircraftPos);
-        sensor.AddObservation(airportPositionNormalizer.NormalizedAircraftExitDirection(transform));
+        sensor.AddObservation(airportPositionNormalizer.GetNormalizedExitDirection(_aircraftController.transform.position));
         
-        sensor.AddObservation(_aircraftController.m_rigidbody.velocity);
-        sensor.AddObservation(NormalizerUtility.NormalizeRotation(_aircraftController.transform.rotation.eulerAngles));
+        sensor.AddObservation(_aircraftController.m_rigidbody.velocity.normalized);
+        var u = _aircraftController.m_core.u;
+        var v = _aircraftController.m_core.v;
+        var speed = (float)Math.Sqrt((u * u) + (v * v)) * 1.944f;
+        sensor.AddObservation(Mathf.Clamp01(speed / 110f));
+        sensor.AddObservation(transform.forward);
         
         sensor.AddObservation(sensors.CollisionSensorsNormalizedLevels());
         
@@ -52,8 +52,6 @@ public class AircraftTakeOffAgent : Agent
         
         sensor.AddObservation(airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform));
         sensor.AddObservation(airportPositionNormalizer.NormalizedClosestOptimumPointDirection(transform));
-        
-        //sensor.AddObservation(_previousActions);
     }
     
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -66,7 +64,7 @@ public class AircraftTakeOffAgent : Agent
         
         var illegalAircraftRotation = Vector3.Dot(transform.forward, Vector3.up) > 0.6f || Vector3.Dot(transform.forward, Vector3.up) < -0.6f || Vector3.Dot(transform.up, Vector3.down) > 0;
         
-        if (airportPositionNormalizer.NormalizedAircraftExitDirection(transform).magnitude < 0.08f)
+        if (airportPositionNormalizer.GetNormalizedPosition(transform.position).magnitude < 0.08f)
         {
             SetReward(1);
             _sparseRewards++;
@@ -82,11 +80,10 @@ public class AircraftTakeOffAgent : Agent
         {
             AddReward(Mathf.Clamp01(1 - (airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform) * 3)) * 0.0005f);
             _denseRewards += Mathf.Clamp01(1 - (airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform) * 3)) * 0.0005f;
-            
-            _previousActions.Clear();
-            _previousActions.AddRange(actionBuffers.ContinuousActions.Select(x => x));
+            AddReward(-Mathf.Clamp01(airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform)) * 0.0005f);
+            _denseRewards -= Mathf.Clamp01(airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform)) * 0.0005f;
         }
 
-        if(Random.Range(0, 10) == 0) Debug.Log($"Sparse Rewards: {_sparseRewards}, Dense Rewards: {_denseRewards}");
+        Debug.Log($"Sparse Rewards: {_sparseRewards}, Dense Rewards: {_denseRewards}");
     }
 }
