@@ -174,7 +174,7 @@ namespace Oyedoyin.FixedWing
             else { m_stalling = false; }
             if (stallWarnerSource != null && stallWarner == ControlState.Active)
             {
-                if (m_stalling && !stallWarnerSource.isPlaying) { stallWarnerSource.Play(); }
+                if (m_stalling && !stallWarnerSource.isPlaying) { stallWarnerSource.Play(); } //TODO Add Stall Data To Reward Function
                 if (!m_stalling && stallWarnerSource.isPlaying) { stallWarnerSource.Stop(); }
             }
 

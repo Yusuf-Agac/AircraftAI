@@ -927,6 +927,7 @@ namespace Oyedoyin.Common.Components
                 rigidbody.angularVelocity = Vector3.zero;
                 rigidbody.transform.position = controller.basePosition;
                 rigidbody.transform.rotation = controller.baseRotation;
+                controller.m_fuelSystem.ActivateTankRefill();
 
                 //controller.TurnOffEngines();
                 if (controller.gearActuator != null && controller.gearActuator.actuatorState == SilantroActuator.ActuatorState.Disengaged) { controller.gearActuator.EngageActuator(); }
