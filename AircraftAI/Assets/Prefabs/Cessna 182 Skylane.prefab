@@ -249,6 +249,140 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &130933704802112430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3196312678011155224}
+  - component: {fileID: 3128596411352228220}
+  - component: {fileID: 4663145417844121456}
+  m_Layer: 5
+  m_Name: distance_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3196312678011155224
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130933704802112430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797080505257005640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 3.25, y: 0}
+  m_SizeDelta: {x: -6.5, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3128596411352228220
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130933704802112430}
+  m_CullTransparentMesh: 1
+--- !u!114 &4663145417844121456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130933704802112430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Distance: 1'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.41
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &150258862620229126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 420836867423733503}
   - component: {fileID: 7459721040457557504}
-  - component: {fileID: 3083687968911873992}
+  - component: {fileID: 7822012216464831748}
   m_Layer: 7
   m_Name: m_sensors
   m_TagString: Aircraft
@@ -1072,7 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a048d3202220c8548be6f589ea9c0d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  observationMultiplier: 5
+  observationMultiplier: 20
   sensors:
   - transform: {fileID: 5004808047939943797}
     maxDistance: 1
@@ -1081,8 +1215,8 @@ MonoBehaviour:
   - transform: {fileID: 5967929654511290653}
     maxDistance: 1
   - transform: {fileID: 7644638833306299622}
-    maxDistance: 0.3
---- !u!114 &3083687968911873992
+    maxDistance: 0.45
+--- !u!114 &7822012216464831748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1094,7 +1228,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b32f77da4bf5404699acf0614b09685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1779160321957818804}
+  posText: {fileID: 1779160321957818804}
+  rotText: {fileID: 9114140703578303103}
+  targetPointLookRotText: {fileID: 7053131616934513128}
+  idealPointDistanceText: {fileID: 4663145417844121456}
+  velocityDirText: {fileID: 6930066782762504763}
+  speedText: {fileID: 9027403909681219969}
+  exitDirectionText: {fileID: 7514392550092148578}
+  exitDistanceText: {fileID: 6994393940090055233}
 --- !u!1 &733694068963668756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1569,140 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &904250551046080199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6340306316328128782}
+  - component: {fileID: 9213156219850538566}
+  - component: {fileID: 9027403909681219969}
+  m_Layer: 5
+  m_Name: speed_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6340306316328128782
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904250551046080199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797080505257005640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 3.25, y: 1}
+  m_SizeDelta: {x: -6.5, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &9213156219850538566
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904250551046080199}
+  m_CullTransparentMesh: 1
+--- !u!114 &9027403909681219969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904250551046080199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Spd: 1'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.41
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &983727303094055180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,6 +3743,140 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1743565505320476348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3685609525813622925}
+  - component: {fileID: 3300928614440325038}
+  - component: {fileID: 7514392550092148578}
+  m_Layer: 5
+  m_Name: exit_test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3685609525813622925
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743565505320476348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797080505257005640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -3.2499995, y: -2}
+  m_SizeDelta: {x: -6.500001, y: -4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3300928614440325038
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743565505320476348}
+  m_CullTransparentMesh: 1
+--- !u!114 &7514392550092148578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743565505320476348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Ext(0.11, 0.11, 0.11)
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.41
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1789225948868851540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4415,13 +4824,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2166992347330895837}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.01745245, y: 0, z: 0, w: 0.99984777}
   m_LocalPosition: {x: 0.002, y: -1.01, z: 2.126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 420836867423733503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2, y: 0, z: 0}
 --- !u!1 &2212189545517021388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7559,6 +7968,140 @@ MonoBehaviour:
   m_throttle: 0
   m_prop: 0
   m_mixture: 0
+--- !u!1 &3393434088205617715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6529942602659864310}
+  - component: {fileID: 2526039682887532277}
+  - component: {fileID: 6994393940090055233}
+  m_Layer: 5
+  m_Name: exit_distance_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6529942602659864310
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393434088205617715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797080505257005640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 3.25, y: -2}
+  m_SizeDelta: {x: -6.5, y: -4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2526039682887532277
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393434088205617715}
+  m_CullTransparentMesh: 1
+--- !u!114 &6994393940090055233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393434088205617715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'ExtDist: 1'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.41
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3413611777183681057
 GameObject:
   m_ObjectHideFlags: 0
@@ -8929,7 +9472,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 5372.0854, y: 51.177998, z: -17345.084}
+  leadingRoot: {x: 5698.2856, y: 50.458, z: -17151.885}
   m_axisScale: 0.25
   subdivision: 5
   m_section: -1
@@ -8977,15 +9520,15 @@ MonoBehaviour:
     m_forward: {x: -0.8031583, y: 0, z: -0.5957657}
     m_right: {x: -0.5957657, y: 0, z: 0.8031583}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5372.677, y: 51.177998, z: -17344.697}
-    m_tipCenter: {x: 5372.8613, y: 51.177998, z: -17344.99}
-    m_quaterCenter: {x: 5372.4844, y: 51.177998, z: -17345.031}
+    m_rootCenter: {x: 5698.877, y: 50.458, z: -17151.498}
+    m_tipCenter: {x: 5699.0615, y: 50.458, z: -17151.791}
+    m_quaterCenter: {x: 5698.6846, y: 50.458, z: -17151.832}
     m_leading_tipLocal: {x: -0.20079936, y: -0.000019054178, z: 0.46689153}
     m_leading_rootLocal: {x: 0.0007187499, y: -0.000019054178, z: 0.49937552}
     m_trailing_tipLocal: {x: -0.19986413, y: -0.000019054178, z: -0.45867786}
     m_trailing_rootLocal: {x: -0.00006890229, y: -0.000019054178, z: -0.49995774}
-    m_quater_root: {x: 5372.381, y: 51.177998, z: -17344.89}
-    m_quater_tip: {x: 5372.588, y: 51.177998, z: -17345.17}
+    m_quater_root: {x: 5698.581, y: 50.458, z: -17151.691}
+    m_quater_tip: {x: 5698.788, y: 50.458, z: -17151.97}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9092,15 +9635,15 @@ MonoBehaviour:
     m_forward: {x: -0.8031583, y: 0, z: -0.5957657}
     m_right: {x: -0.5957657, y: 0, z: 0.8031583}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5372.8613, y: 51.177998, z: -17344.99}
-    m_tipCenter: {x: 5373.046, y: 51.177998, z: -17345.283}
-    m_quaterCenter: {x: 5372.6914, y: 51.177998, z: -17345.309}
+    m_rootCenter: {x: 5699.0615, y: 50.458, z: -17151.791}
+    m_tipCenter: {x: 5699.246, y: 50.458, z: -17152.084}
+    m_quaterCenter: {x: 5698.8916, y: 50.458, z: -17152.11}
     m_leading_tipLocal: {x: -0.4013706, y: -0.000019054178, z: 0.4336503}
     m_leading_rootLocal: {x: -0.20079936, y: -0.000019054178, z: 0.46689153}
     m_trailing_tipLocal: {x: -0.40060604, y: -0.000019054178, z: -0.41664088}
     m_trailing_rootLocal: {x: -0.19986413, y: -0.000019054178, z: -0.45867786}
-    m_quater_root: {x: 5372.588, y: 51.177998, z: -17345.17}
-    m_quater_tip: {x: 5372.795, y: 51.177998, z: -17345.45}
+    m_quater_root: {x: 5698.788, y: 50.458, z: -17151.97}
+    m_quater_tip: {x: 5698.995, y: 50.458, z: -17152.25}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9207,15 +9750,15 @@ MonoBehaviour:
     m_forward: {x: -0.80272144, y: 0, z: -0.5963545}
     m_right: {x: -0.5963545, y: 0, z: 0.80272144}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5373.046, y: 51.177998, z: -17345.283}
-    m_tipCenter: {x: 5373.2305, y: 51.177998, z: -17345.576}
-    m_quaterCenter: {x: 5372.898, y: 51.177998, z: -17345.588}
+    m_rootCenter: {x: 5699.246, y: 50.458, z: -17152.084}
+    m_tipCenter: {x: 5699.4307, y: 50.458, z: -17152.377}
+    m_quaterCenter: {x: 5699.098, y: 50.458, z: -17152.389}
     m_leading_tipLocal: {x: -0.6017868, y: -0.000019054178, z: 0.40069792}
     m_leading_rootLocal: {x: -0.4013706, y: -0.000019054178, z: 0.4336503}
     m_trailing_tipLocal: {x: -0.6015031, y: -0.000019054178, z: -0.3748926}
     m_trailing_rootLocal: {x: -0.40060604, y: -0.000019054178, z: -0.41664088}
-    m_quater_root: {x: 5372.795, y: 51.177998, z: -17345.45}
-    m_quater_tip: {x: 5373.001, y: 51.177998, z: -17345.727}
+    m_quater_root: {x: 5698.995, y: 50.458, z: -17152.25}
+    m_quater_tip: {x: 5699.201, y: 50.458, z: -17152.527}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9322,15 +9865,15 @@ MonoBehaviour:
     m_forward: {x: -0.8013126, y: 0, z: -0.59824586}
     m_right: {x: -0.59824586, y: 0, z: 0.8013126}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5373.2305, y: 51.177998, z: -17345.576}
-    m_tipCenter: {x: 5373.415, y: 51.177998, z: -17345.87}
-    m_quaterCenter: {x: 5373.1045, y: 51.177998, z: -17345.865}
+    m_rootCenter: {x: 5699.4307, y: 50.458, z: -17152.377}
+    m_tipCenter: {x: 5699.615, y: 50.458, z: -17152.67}
+    m_quaterCenter: {x: 5699.3047, y: 50.458, z: -17152.666}
     m_leading_tipLocal: {x: -0.8023581, y: -0.000019054178, z: 0.3674567}
     m_leading_rootLocal: {x: -0.6017868, y: -0.000019054178, z: 0.40069792}
     m_trailing_tipLocal: {x: -0.802245, y: -0.000019054178, z: -0.33285564}
     m_trailing_rootLocal: {x: -0.6015031, y: -0.000019054178, z: -0.3748926}
-    m_quater_root: {x: 5373.001, y: 51.177998, z: -17345.727}
-    m_quater_tip: {x: 5373.208, y: 51.177998, z: -17346.004}
+    m_quater_root: {x: 5699.201, y: 50.458, z: -17152.527}
+    m_quater_tip: {x: 5699.408, y: 50.458, z: -17152.805}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9437,15 +9980,15 @@ MonoBehaviour:
     m_forward: {x: -0.8031583, y: 0, z: -0.5957657}
     m_right: {x: -0.5957657, y: 0, z: 0.8031583}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5373.415, y: 51.177998, z: -17345.87}
-    m_tipCenter: {x: 5373.5996, y: 51.177998, z: -17346.162}
-    m_quaterCenter: {x: 5373.3115, y: 51.177998, z: -17346.145}
+    m_rootCenter: {x: 5699.615, y: 50.458, z: -17152.67}
+    m_tipCenter: {x: 5699.8, y: 50.458, z: -17152.963}
+    m_quaterCenter: {x: 5699.5117, y: 50.458, z: -17152.945}
     m_leading_tipLocal: {x: -1.0029293, y: -0.000019054178, z: 0.3342155}
     m_leading_rootLocal: {x: -0.8023581, y: -0.000019054178, z: 0.3674567}
     m_trailing_tipLocal: {x: -1.002987, y: -0.000019054178, z: -0.2908187}
     m_trailing_rootLocal: {x: -0.802245, y: -0.000019054178, z: -0.33285564}
-    m_quater_root: {x: 5373.208, y: 51.177998, z: -17346.004}
-    m_quater_tip: {x: 5373.415, y: 51.177998, z: -17346.283}
+    m_quater_root: {x: 5699.408, y: 50.458, z: -17152.805}
+    m_quater_tip: {x: 5699.615, y: 50.458, z: -17153.084}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -10208,6 +10751,140 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4166042227169594017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8816727310368992555}
+  - component: {fileID: 2874085012476966600}
+  - component: {fileID: 9114140703578303103}
+  m_Layer: 5
+  m_Name: rotation_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8816727310368992555
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166042227169594017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797080505257005640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -3.25, y: -1}
+  m_SizeDelta: {x: -6.5, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2874085012476966600
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166042227169594017}
+  m_CullTransparentMesh: 1
+--- !u!114 &9114140703578303103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166042227169594017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Rot(0.11, 0.11, 0.11)
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.41
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4166474403336648168
 GameObject:
   m_ObjectHideFlags: 0
@@ -15461,8 +16138,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.25, y: -1}
+  m_SizeDelta: {x: -6.5, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &321250407457927036
 CanvasRenderer:
@@ -15492,7 +16169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (0.11, 0.11, 0.11)
+  m_text: Pos(0.11, 0.11, 0.11)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15519,13 +16196,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.4
+  m_fontSize: 0.41
   m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -17652,7 +18329,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 5371.987, y: 51.177998, z: -17344.934}
+  leadingRoot: {x: 5698.187, y: 50.458, z: -17151.734}
   m_axisScale: 0.25
   subdivision: 5
   m_section: 1
@@ -17700,15 +18377,15 @@ MonoBehaviour:
     m_forward: {x: -0.86794144, y: 0, z: -0.4966668}
     m_right: {x: -0.4966668, y: 0, z: 0.86794144}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5372.578, y: 51.177998, z: -17344.547}
-    m_tipCenter: {x: 5372.385, y: 51.177998, z: -17344.262}
-    m_quaterCenter: {x: 5372.197, y: 51.177998, z: -17344.59}
+    m_rootCenter: {x: 5698.7783, y: 50.458, z: -17151.348}
+    m_tipCenter: {x: 5698.585, y: 50.458, z: -17151.062}
+    m_quaterCenter: {x: 5698.397, y: 50.458, z: -17151.39}
     m_leading_tipLocal: {x: 0.19943182, y: -0.000019054178, z: 0.46636412}
     m_leading_rootLocal: {x: 0.0006313827, y: -0.000019054178, z: 0.499417}
     m_trailing_tipLocal: {x: 0.20036678, y: -0.000019054178, z: -0.45920527}
     m_trailing_rootLocal: {x: -0.00015633859, y: -0.000019054178, z: -0.49991658}
-    m_quater_root: {x: 5372.282, y: 51.177998, z: -17344.74}
-    m_quater_tip: {x: 5372.1113, y: 51.177998, z: -17344.441}
+    m_quater_root: {x: 5698.4824, y: 50.458, z: -17151.541}
+    m_quater_tip: {x: 5698.3115, y: 50.458, z: -17151.242}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -17815,15 +18492,15 @@ MonoBehaviour:
     m_forward: {x: -0.8694724, y: 0, z: -0.49398208}
     m_right: {x: -0.49398208, y: 0, z: 0.8694724}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5372.385, y: 51.177998, z: -17344.262}
-    m_tipCenter: {x: 5372.1914, y: 51.177998, z: -17343.977}
-    m_quaterCenter: {x: 5372.026, y: 51.177998, z: -17344.291}
+    m_rootCenter: {x: 5698.585, y: 50.458, z: -17151.062}
+    m_tipCenter: {x: 5698.3916, y: 50.458, z: -17150.777}
+    m_quaterCenter: {x: 5698.226, y: 50.458, z: -17151.092}
     m_leading_tipLocal: {x: 0.3991787, y: -0.000019054178, z: 0.4325542}
     m_leading_rootLocal: {x: 0.19943182, y: -0.000019054178, z: 0.46636412}
     m_trailing_tipLocal: {x: 0.3999433, y: -0.000019054178, z: -0.41773686}
     m_trailing_rootLocal: {x: 0.20036678, y: -0.000019054178, z: -0.45920527}
-    m_quater_root: {x: 5372.1113, y: 51.177998, z: -17344.441}
-    m_quater_tip: {x: 5371.9404, y: 51.177998, z: -17344.14}
+    m_quater_root: {x: 5698.3115, y: 50.458, z: -17151.242}
+    m_quater_tip: {x: 5698.1406, y: 50.458, z: -17150.941}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -17930,15 +18607,15 @@ MonoBehaviour:
     m_forward: {x: -0.8667676, y: 0, z: -0.49871266}
     m_right: {x: -0.49871266, y: 0, z: 0.8667676}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5372.1914, y: 51.177998, z: -17343.977}
-    m_tipCenter: {x: 5371.998, y: 51.177998, z: -17343.691}
-    m_quaterCenter: {x: 5371.8545, y: 51.177998, z: -17343.992}
+    m_rootCenter: {x: 5698.3916, y: 50.458, z: -17150.777}
+    m_tipCenter: {x: 5698.198, y: 50.458, z: -17150.492}
+    m_quaterCenter: {x: 5698.0547, y: 50.458, z: -17150.793}
     m_leading_tipLocal: {x: 0.599081, y: -0.000019054178, z: 0.39903325}
     m_leading_rootLocal: {x: 0.3991787, y: -0.000019054178, z: 0.4325542}
     m_trailing_tipLocal: {x: 0.5993645, y: -0.000019054178, z: -0.37655747}
     m_trailing_rootLocal: {x: 0.3999433, y: -0.000019054178, z: -0.41773686}
-    m_quater_root: {x: 5371.9404, y: 51.177998, z: -17344.14}
-    m_quater_tip: {x: 5371.7686, y: 51.177998, z: -17343.842}
+    m_quater_root: {x: 5698.1406, y: 50.458, z: -17150.941}
+    m_quater_tip: {x: 5697.9688, y: 50.458, z: -17150.643}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -18045,15 +18722,15 @@ MonoBehaviour:
     m_forward: {x: -0.86794144, y: 0, z: -0.4966668}
     m_right: {x: -0.4966668, y: 0, z: 0.86794144}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5371.998, y: 51.177998, z: -17343.691}
-    m_tipCenter: {x: 5371.8047, y: 51.177998, z: -17343.406}
-    m_quaterCenter: {x: 5371.683, y: 51.177998, z: -17343.691}
+    m_rootCenter: {x: 5698.198, y: 50.458, z: -17150.492}
+    m_tipCenter: {x: 5698.005, y: 50.458, z: -17150.207}
+    m_quaterCenter: {x: 5697.8833, y: 50.458, z: -17150.492}
     m_leading_tipLocal: {x: 0.79882807, y: -0.000019054178, z: 0.36522347}
     m_leading_rootLocal: {x: 0.599081, y: -0.000019054178, z: 0.39903325}
     m_trailing_tipLocal: {x: 0.7989411, y: -0.000019054178, z: -0.33508906}
     m_trailing_rootLocal: {x: 0.5993645, y: -0.000019054178, z: -0.37655747}
-    m_quater_root: {x: 5371.7686, y: 51.177998, z: -17343.842}
-    m_quater_tip: {x: 5371.5977, y: 51.177998, z: -17343.543}
+    m_quater_root: {x: 5697.9688, y: 50.458, z: -17150.643}
+    m_quater_tip: {x: 5697.798, y: 50.458, z: -17150.344}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -18160,15 +18837,15 @@ MonoBehaviour:
     m_forward: {x: -0.8694724, y: 0, z: -0.49398208}
     m_right: {x: -0.49398208, y: 0, z: 0.8694724}
     m_up: {x: -0, y: 1, z: 0}
-    m_rootCenter: {x: 5371.8047, y: 51.177998, z: -17343.406}
-    m_tipCenter: {x: 5371.6113, y: 51.177998, z: -17343.121}
-    m_quaterCenter: {x: 5371.512, y: 51.177998, z: -17343.393}
+    m_rootCenter: {x: 5698.005, y: 50.458, z: -17150.207}
+    m_tipCenter: {x: 5697.8115, y: 50.458, z: -17149.922}
+    m_quaterCenter: {x: 5697.7124, y: 50.458, z: -17150.193}
     m_leading_tipLocal: {x: 0.9985751, y: -0.000019054178, z: 0.3314135}
     m_leading_rootLocal: {x: 0.79882807, y: -0.000019054178, z: 0.36522347}
     m_trailing_tipLocal: {x: 0.99851733, y: -0.000019054178, z: -0.29362032}
     m_trailing_rootLocal: {x: 0.7989411, y: -0.000019054178, z: -0.33508906}
-    m_quater_root: {x: 5371.5977, y: 51.177998, z: -17343.543}
-    m_quater_tip: {x: 5371.427, y: 51.177998, z: -17343.242}
+    m_quater_root: {x: 5697.798, y: 50.458, z: -17150.344}
+    m_quater_tip: {x: 5697.627, y: 50.458, z: -17150.043}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26361,7 +27038,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 5368.5547, y: 51.864613, z: -17347.941}
+  leadingRoot: {x: 5694.755, y: 51.144615, z: -17154.742}
   m_axisScale: 0.5
   subdivision: 10
   m_section: -1
@@ -26393,7 +27070,7 @@ MonoBehaviour:
   m_tipSuperfoil: {fileID: 0}
   m_cells:
   - m_reset: 0
-    n_rotation: {x: -0.0011934303, y: 0.8797169, z: 0.043949343, w: -0.473461}
+    n_rotation: {x: -0.0011934176, y: 0.87971705, z: 0.043949343, w: -0.47346073}
     m_eulerAngles: {x: 355.354, y: 359.967, z: 358.21802}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26407,18 +27084,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.675038
     m_tipChord: 1.6683378
-    m_forward: {x: -0.83312815, y: 0.076195866, z: -0.5478064}
-    m_right: {x: -0.5516666, y: -0.04371636, z: 0.83291835}
-    m_up: {x: 0.03951684, y: 0.99613404, z: 0.078456044}
-    m_rootCenter: {x: 5369.255, y: 51.801, z: -17347.486}
-    m_tipCenter: {x: 5369.5303, y: 51.823208, z: -17347.906}
-    m_quaterCenter: {x: 5369.043, y: 51.84385, z: -17347.924}
+    m_forward: {x: -0.83312786, y: 0.076195896, z: -0.5478071}
+    m_right: {x: -0.55166733, y: -0.04371632, z: 0.83291805}
+    m_up: {x: 0.039516836, y: 0.99613404, z: 0.078456044}
+    m_rootCenter: {x: 5695.455, y: 51.081, z: -17154.287}
+    m_tipCenter: {x: 5695.7305, y: 51.10321, z: -17154.707}
+    m_quaterCenter: {x: 5695.243, y: 51.123848, z: -17154.725}
     m_leading_tipLocal: {x: -0.100017376, y: 0.00017446294, z: 0.4978328}
     m_leading_rootLocal: {x: -0.00012826516, y: -0.0005459233, z: 0.5002293}
     m_trailing_tipLocal: {x: -0.09996394, y: -0.00000351653, z: -0.4979369}
     m_trailing_rootLocal: {x: -0.00005842186, y: -0.00044631225, z: -0.49975526}
-    m_quater_root: {x: 5368.905, y: 51.832806, z: -17347.715}
-    m_quater_tip: {x: 5369.1816, y: 51.85489, z: -17348.133}
+    m_quater_root: {x: 5695.105, y: 51.11281, z: -17154.516}
+    m_quater_tip: {x: 5695.382, y: 51.134888, z: -17154.934}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26457,7 +27134,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.9199919
     "\u1D27LE": 0.4570807
     "\u1D27CT": 0.055131685
-    "\u1D27QT": 0.31649444
+    "\u1D27QT": 0.3165274
     m_area: 0.84018826
     m_wettedArea: 1.7152095
     m_foilArea: 0.19111705
@@ -26496,9 +27173,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0001412422
+    "CY\u03B2_CL": 0.00014127298
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.00057937426
+    "Cn\u03B2_CL": 0.00057939556
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -26508,7 +27185,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.0012112475, y: 0.8795248, z: 0.043948855, w: -0.4738176}
+    n_rotation: {x: -0.0012112601, y: 0.8795247, z: 0.04394885, w: -0.47381786}
     m_eulerAngles: {x: 355.68716, y: 359.9566, z: 358.2188}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26522,18 +27199,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6683378
     m_tipChord: 1.6616377
-    m_forward: {x: -0.8335751, y: 0.07616039, z: -0.54713076}
-    m_right: {x: -0.5509908, y: -0.04377813, z: 0.8333622}
+    m_forward: {x: -0.8335755, y: 0.076160364, z: -0.5471303}
+    m_right: {x: -0.55099034, y: -0.043778166, z: 0.8333626}
     m_up: {x: 0.039516836, y: 0.99613404, z: 0.07845604}
-    m_rootCenter: {x: 5369.5303, y: 51.823208, z: -17347.906}
-    m_tipCenter: {x: 5369.8057, y: 51.845417, z: -17348.326}
-    m_quaterCenter: {x: 5369.32, y: 51.86593, z: -17348.342}
+    m_rootCenter: {x: 5695.7305, y: 51.10321, z: -17154.707}
+    m_tipCenter: {x: 5696.006, y: 51.12542, z: -17155.127}
+    m_quaterCenter: {x: 5695.52, y: 51.145927, z: -17155.143}
     m_leading_tipLocal: {x: -0.19985339, y: 0.0007089037, z: 0.49568015}
     m_leading_rootLocal: {x: -0.100017376, y: 0.00017446294, z: 0.4978328}
     m_trailing_tipLocal: {x: -0.19992247, y: 0.00062529644, z: -0.49636233}
     m_trailing_rootLocal: {x: -0.09996394, y: -0.00000351653, z: -0.4979369}
-    m_quater_root: {x: 5369.1816, y: 51.85489, z: -17348.133}
-    m_quater_tip: {x: 5369.458, y: 51.87697, z: -17348.55}
+    m_quater_root: {x: 5695.382, y: 51.134888, z: -17154.934}
+    m_quater_tip: {x: 5695.658, y: 51.15697, z: -17155.352}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26572,7 +27249,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.9199941
     "\u1D27LE": 0.410593
     "\u1D27CT": 0.055131685
-    "\u1D27QT": 0.2700383
+    "\u1D27QT": 0.27000532
     m_area: 0.8368447
     m_wettedArea: 1.7083837
     m_foilArea: 0
@@ -26611,9 +27288,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.000101557336
+    "CY\u03B2_CL": 0.00010153171
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.00055064954
+    "Cn\u03B2_CL": 0.00055063
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -26640,15 +27317,15 @@ MonoBehaviour:
     m_forward: {x: -0.836793, y: 0.075902276, z: -0.5422329}
     m_right: {x: -0.5460916, y: -0.04422414, z: 0.83655745}
     m_up: {x: 0.039516833, y: 0.99613404, z: 0.07845604}
-    m_rootCenter: {x: 5369.8057, y: 51.845417, z: -17348.326}
-    m_tipCenter: {x: 5370.078, y: 51.867893, z: -17348.748}
-    m_quaterCenter: {x: 5369.5957, y: 51.888096, z: -17348.762}
+    m_rootCenter: {x: 5696.006, y: 51.12542, z: -17155.127}
+    m_tipCenter: {x: 5696.2783, y: 51.147896, z: -17155.549}
+    m_quaterCenter: {x: 5695.796, y: 51.1681, z: -17155.562}
     m_leading_tipLocal: {x: -0.299637, y: 0.0018262991, z: 0.49377462}
     m_leading_rootLocal: {x: -0.19985339, y: 0.0007089037, z: 0.49568015}
     m_trailing_tipLocal: {x: -0.29995006, y: 0.0006128809, z: -0.490819}
     m_trailing_rootLocal: {x: -0.19992247, y: 0.00062529644, z: -0.49636233}
-    m_quater_root: {x: 5369.458, y: 51.87697, z: -17348.55}
-    m_quater_tip: {x: 5369.7334, y: 51.899223, z: -17348.973}
+    m_quater_root: {x: 5695.658, y: 51.15697, z: -17155.352}
+    m_quater_tip: {x: 5695.9336, y: 51.179226, z: -17155.773}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26755,15 +27432,15 @@ MonoBehaviour:
     m_forward: {x: -0.8344796, y: 0.076088354, z: -0.5457605}
     m_right: {x: -0.5496202, y: -0.04390324, z: 0.83426034}
     m_up: {x: 0.039516836, y: 0.99613404, z: 0.078456044}
-    m_rootCenter: {x: 5370.078, y: 51.867893, z: -17348.748}
-    m_tipCenter: {x: 5370.352, y: 51.890236, z: -17349.168}
-    m_quaterCenter: {x: 5369.871, y: 51.91033, z: -17349.182}
+    m_rootCenter: {x: 5696.2783, y: 51.147896, z: -17155.549}
+    m_tipCenter: {x: 5696.5522, y: 51.17024, z: -17155.969}
+    m_quaterCenter: {x: 5696.0713, y: 51.190334, z: -17155.982}
     m_leading_tipLocal: {x: -0.3996925, y: 0.0018308203, z: 0.49274904}
     m_leading_rootLocal: {x: -0.299637, y: 0.0018262991, z: 0.49377462}
     m_trailing_tipLocal: {x: -0.39937297, y: 0.0032187013, z: -0.48889694}
     m_trailing_rootLocal: {x: -0.29995006, y: 0.0006128809, z: -0.490819}
-    m_quater_root: {x: 5369.7334, y: 51.899223, z: -17348.973}
-    m_quater_tip: {x: 5370.009, y: 51.92144, z: -17349.39}
+    m_quater_root: {x: 5695.9336, y: 51.179226, z: -17155.773}
+    m_quater_tip: {x: 5696.209, y: 51.201443, z: -17156.191}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26853,7 +27530,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.014832995, y: 0.8818921, z: 0.051318523, w: -0.4684152}
+    n_rotation: {x: -0.014833005, y: 0.8818919, z: 0.051318526, w: -0.46841544}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26867,18 +27544,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6432927
     m_tipChord: 1.5709511
-    m_forward: {x: -0.82770574, y: 0.07661879, z: -0.5559073}
-    m_right: {x: -0.56073445, y: -0.074238956, z: 0.8246609}
-    m_up: {x: 0.021914551, y: 0.9942928, z: 0.1044108}
-    m_rootCenter: {x: 5370.352, y: 51.890236, z: -17349.168}
-    m_tipCenter: {x: 5370.6187, y: 51.897427, z: -17349.596}
-    m_quaterCenter: {x: 5370.1494, y: 51.924347, z: -17349.6}
+    m_forward: {x: -0.827706, y: 0.07661877, z: -0.5559067}
+    m_right: {x: -0.56073385, y: -0.07423899, z: 0.82466114}
+    m_up: {x: 0.021914564, y: 0.9942928, z: 0.104410805}
+    m_rootCenter: {x: 5696.5522, y: 51.17024, z: -17155.969}
+    m_tipCenter: {x: 5696.819, y: 51.17743, z: -17156.396}
+    m_quaterCenter: {x: 5696.3496, y: 51.204353, z: -17156.4}
     m_leading_tipLocal: {x: -0.49949846, y: -0.14957064, z: 0.47649586}
     m_leading_rootLocal: {x: -0.3996925, y: 0.0018308203, z: 0.49274904}
     m_trailing_tipLocal: {x: -0.4997829, y: -0.15092082, z: -0.460742}
     m_trailing_rootLocal: {x: -0.39937297, y: 0.0032187013, z: -0.48889694}
-    m_quater_root: {x: 5370.009, y: 51.92144, z: -17349.39}
-    m_quater_tip: {x: 5370.29, y: 51.927254, z: -17349.809}
+    m_quater_root: {x: 5696.209, y: 51.201443, z: -17156.191}
+    m_quater_tip: {x: 5696.49, y: 51.20726, z: -17156.61}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26917,7 +27594,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.91993815
     "\u1D27LE": 3.0970068
     "\u1D27CT": -1.1348814
-    "\u1D27QT": 0.8755532
+    "\u1D27QT": 0.8755202
     m_area: 0.8100842
     m_wettedArea: 1.6537534
     m_foilArea: 0.17025885
@@ -26956,9 +27633,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0015424466
+    "CY\u03B2_CL": 0.0015422745
     "\u0394CY\u03B2": -0.000073703
-    "Cn\u03B2_CL": 0.0014823928
+    "Cn\u03B2_CL": 0.0014822658
     CL: 0
     CD: 0
     Cm: 0
@@ -26985,15 +27662,15 @@ MonoBehaviour:
     m_forward: {x: -0.8281692, y: 0.07658317, z: -0.5552217}
     m_right: {x: -0.560049, y: -0.07430238, z: 0.8251209}
     m_up: {x: 0.021936094, y: 0.99429077, z: 0.10442526}
-    m_rootCenter: {x: 5370.6187, y: 51.897427, z: -17349.596}
-    m_tipCenter: {x: 5370.8794, y: 51.90515, z: -17350.027}
-    m_quaterCenter: {x: 5370.4307, y: 51.930218, z: -17350.018}
+    m_rootCenter: {x: 5696.819, y: 51.17743, z: -17156.396}
+    m_tipCenter: {x: 5697.0796, y: 51.185154, z: -17156.828}
+    m_quaterCenter: {x: 5696.631, y: 51.210224, z: -17156.818}
     m_leading_tipLocal: {x: -0.5996733, y: -0.30263603, z: 0.45852253}
     m_leading_rootLocal: {x: -0.49949846, y: -0.14957064, z: 0.47649586}
     m_trailing_tipLocal: {x: -0.5998571, y: -0.30351213, z: -0.42243505}
     m_trailing_rootLocal: {x: -0.4997829, y: -0.15092082, z: -0.460742}
-    m_quater_root: {x: 5370.29, y: 51.927254, z: -17349.809}
-    m_quater_tip: {x: 5370.571, y: 51.93318, z: -17350.227}
+    m_quater_root: {x: 5696.49, y: 51.20726, z: -17156.61}
+    m_quater_tip: {x: 5696.771, y: 51.21319, z: -17157.027}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -27083,7 +27760,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.0011677587, y: 0.8799933, z: 0.043950032, w: -0.47294706}
+    n_rotation: {x: -0.001167746, y: 0.87999344, z: 0.043950032, w: -0.47294682}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -27097,18 +27774,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.4762579
     m_tipChord: 1.3920571
-    m_forward: {x: -0.8324832, y: 0.076246895, z: -0.54877925}
-    m_right: {x: -0.5526397, y: -0.043627318, z: 0.8322779}
-    m_up: {x: 0.03951684, y: 0.99613404, z: 0.07845605}
-    m_rootCenter: {x: 5370.8794, y: 51.90515, z: -17350.027}
-    m_tipCenter: {x: 5371.1406, y: 51.928627, z: -17350.457}
-    m_quaterCenter: {x: 5370.71, y: 51.944122, z: -17350.438}
+    m_forward: {x: -0.8324828, y: 0.07624692, z: -0.5487796}
+    m_right: {x: -0.5526401, y: -0.043627273, z: 0.83227754}
+    m_up: {x: 0.03951684, y: 0.99613404, z: 0.078456044}
+    m_rootCenter: {x: 5697.0796, y: 51.185154, z: -17156.828}
+    m_tipCenter: {x: 5697.341, y: 51.20863, z: -17157.258}
+    m_quaterCenter: {x: 5696.91, y: 51.224125, z: -17157.238}
     m_leading_tipLocal: {x: -0.6998895, y: -0.30376342, z: 0.44386423}
     m_leading_rootLocal: {x: -0.5996733, y: -0.30263603, z: 0.45852253}
     m_trailing_tipLocal: {x: -0.6996235, y: -0.3024571, z: -0.38776925}
     m_trailing_rootLocal: {x: -0.5998571, y: -0.30351213, z: -0.42243505}
-    m_quater_root: {x: 5370.571, y: 51.93318, z: -17350.227}
-    m_quater_tip: {x: 5370.8496, y: 51.95506, z: -17350.646}
+    m_quater_root: {x: 5696.771, y: 51.21319, z: -17157.027}
+    m_quater_tip: {x: 5697.05, y: 51.23506, z: -17157.447}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -27147,7 +27824,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.9199881
     "\u1D27LE": 2.7935646
     "\u1D27CT": -1.9073675
-    "\u1D27QT": 0.38342863
+    "\u1D27QT": 0.3834616
     m_area: 0.72205985
     m_wettedArea: 1.4740553
     m_foilArea: 0
@@ -27186,9 +27863,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00021182616
+    "CY\u03B2_CL": 0.00021186507
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.00062574336
+    "Cn\u03B2_CL": 0.0006257679
     CL: 0
     CD: 0
     Cm: 0
@@ -27215,15 +27892,15 @@ MonoBehaviour:
     m_forward: {x: -0.8292353, y: 0.07650086, z: -0.55363965}
     m_right: {x: -0.55750126, y: -0.043180432, z: 0.82905257}
     m_up: {x: 0.03951684, y: 0.99613404, z: 0.078456044}
-    m_rootCenter: {x: 5371.1406, y: 51.928627, z: -17350.457}
-    m_tipCenter: {x: 5371.402, y: 51.952103, z: -17350.887}
-    m_quaterCenter: {x: 5370.9893, y: 51.965958, z: -17350.855}
+    m_rootCenter: {x: 5697.341, y: 51.20863, z: -17157.258}
+    m_tipCenter: {x: 5697.602, y: 51.232105, z: -17157.688}
+    m_quaterCenter: {x: 5697.1895, y: 51.24596, z: -17157.656}
     m_leading_tipLocal: {x: -0.79966784, y: -0.30269688, z: 0.42695746}
     m_leading_rootLocal: {x: -0.6998895, y: -0.30376342, z: 0.44386423}
     m_trailing_tipLocal: {x: -0.7998279, y: -0.3035966, z: -0.3508547}
     m_trailing_rootLocal: {x: -0.6996235, y: -0.3024571, z: -0.38776925}
-    m_quater_root: {x: 5370.8496, y: 51.95506, z: -17350.646}
-    m_quater_tip: {x: 5371.1294, y: 51.976856, z: -17351.062}
+    m_quater_root: {x: 5697.05, y: 51.23506, z: -17157.447}
+    m_quater_tip: {x: 5697.3296, y: 51.25686, z: -17157.863}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -27330,15 +28007,15 @@ MonoBehaviour:
     m_forward: {x: -0.82949656, y: 0.07648061, z: -0.55325085}
     m_right: {x: -0.5571124, y: -0.043216296, z: 0.829312}
     m_up: {x: 0.039516836, y: 0.99613404, z: 0.078456044}
-    m_rootCenter: {x: 5371.402, y: 51.952103, z: -17350.887}
-    m_tipCenter: {x: 5371.663, y: 51.97558, z: -17351.316}
-    m_quaterCenter: {x: 5371.2695, y: 51.9877, z: -17351.271}
+    m_rootCenter: {x: 5697.602, y: 51.232105, z: -17157.688}
+    m_tipCenter: {x: 5697.8633, y: 51.25558, z: -17158.117}
+    m_quaterCenter: {x: 5697.4697, y: 51.2677, z: -17158.072}
     m_leading_tipLocal: {x: -0.89965636, y: -0.3030096, z: 0.40906557}
     m_leading_rootLocal: {x: -0.79966784, y: -0.30269688, z: 0.42695746}
     m_trailing_tipLocal: {x: -0.89982194, y: -0.3033572, z: -0.3129548}
     m_trailing_rootLocal: {x: -0.7998279, y: -0.3035966, z: -0.3508547}
-    m_quater_root: {x: 5371.1294, y: 51.976856, z: -17351.062}
-    m_quater_tip: {x: 5371.41, y: 51.998543, z: -17351.48}
+    m_quater_root: {x: 5697.3296, y: 51.25686, z: -17157.863}
+    m_quater_tip: {x: 5697.6104, y: 51.278545, z: -17158.281}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -27428,7 +28105,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.022455726, y: 0.87680936, z: 0.0365117, w: -0.47892392}
+    n_rotation: {x: -0.02245574, y: 0.87680924, z: 0.036511708, w: -0.47892419}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -27442,18 +28119,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.2094377
     m_tipChord: 1.1288416
-    m_forward: {x: -0.84148973, y: 0.04251843, z: -0.5385978}
-    m_right: {x: -0.54025555, y: -0.07435143, z: 0.83821017}
-    m_up: {x: -0.004406128, y: 0.99632525, z: 0.08553677}
-    m_rootCenter: {x: 5371.663, y: 51.97558, z: -17351.316}
-    m_tipCenter: {x: 5371.918, y: 51.98471, z: -17351.752}
-    m_quaterCenter: {x: 5371.546, y: 51.997673, z: -17351.693}
+    m_forward: {x: -0.8414901, y: 0.042518415, z: -0.53859735}
+    m_right: {x: -0.54025507, y: -0.07435148, z: 0.8382105}
+    m_up: {x: -0.0044061244, y: 0.99632525, z: 0.0855368}
+    m_rootCenter: {x: 5697.8633, y: 51.25558, z: -17158.117}
+    m_tipCenter: {x: 5698.118, y: 51.264713, z: -17158.553}
+    m_quaterCenter: {x: 5697.746, y: 51.27768, z: -17158.494}
     m_leading_tipLocal: {x: -0.9996551, y: -0.627235, z: 0.3989602}
     m_leading_rootLocal: {x: -0.89965636, y: -0.3030096, z: 0.40906557}
     m_trailing_tipLocal: {x: -1.0001205, y: -0.26814026, z: -0.27400485}
     m_trailing_rootLocal: {x: -0.89982194, y: -0.3033572, z: -0.3129548}
-    m_quater_root: {x: 5371.41, y: 51.998543, z: -17351.48}
-    m_quater_tip: {x: 5371.6816, y: 51.996803, z: -17351.906}
+    m_quater_root: {x: 5697.6104, y: 51.278545, z: -17158.281}
+    m_quater_tip: {x: 5697.882, y: 51.27681, z: -17158.707}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -27489,10 +28166,10 @@ MonoBehaviour:
     "\u03BB": 0.67392004
     "\u0413": 0.8370056
     "\u03B8": -2.4559937
-    "m_K\u03B8": 0.919982
+    "m_K\u03B8": 0.91998196
     "\u1D27LE": 1.9266901
     "\u1D27CT": -2.7487051
-    "\u1D27QT": -0.47207546
+    "\u1D27QT": -0.47210845
     m_area: 0.59026915
     m_wettedArea: 1.2050099
     m_foilArea: 0.0866512
@@ -27531,9 +28208,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00033282195
+    "CY\u03B2_CL": 0.00033287346
     "\u0394CY\u03B2": -0.00008370056
-    "Cn\u03B2_CL": 0.00012051378
+    "Cn\u03B2_CL": 0.00012048206
     CL: 0
     CD: 0
     Cm: 0
@@ -29723,12 +30400,19 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7915680615639860717}
+  - {fileID: 8816727310368992555}
+  - {fileID: 1764467109572830294}
+  - {fileID: 3196312678011155224}
+  - {fileID: 9201662979375534753}
+  - {fileID: 6340306316328128782}
+  - {fileID: 3685609525813622925}
+  - {fileID: 6529942602659864310}
   m_Father: {fileID: 420836867423733503}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.24, y: 1.18}
-  m_SizeDelta: {x: 3.5, y: 0.6}
+  m_AnchoredPosition: {x: 0, y: 3.36}
+  m_SizeDelta: {x: 12, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8990287413395540654
 Canvas:
@@ -30305,7 +30989,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 0
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 5367.505, y: 50.665, z: -17347.98}
+  leadingRoot: {x: 5693.705, y: 49.945004, z: -17154.781}
   m_axisScale: 0.25
   subdivision: 3
   m_section: 1
@@ -30352,15 +31036,15 @@ MonoBehaviour:
     m_forward: {x: -0.83638203, y: 0, z: -0.54814756}
     m_right: {x: -0.00000020861626, y: 1.0000002, z: 0}
     m_up: {x: 0.5481473, y: -0.00000020861626, z: -0.83638203}
-    m_rootCenter: {x: 5369, y: 50.665, z: -17347}
-    m_tipCenter: {x: 5369, y: 50.940002, z: -17347}
-    m_quaterCenter: {x: 5368.2524, y: 50.8025, z: -17347.49}
+    m_rootCenter: {x: 5695.2, y: 49.945004, z: -17153.8}
+    m_tipCenter: {x: 5695.2, y: 50.220005, z: -17153.8}
+    m_quaterCenter: {x: 5694.4526, y: 50.082504, z: -17154.291}
     m_leading_tipLocal: {x: 0.33333746, y: 0.0023400874, z: 0.50012046}
     m_leading_rootLocal: {x: 0.0000022397605, y: 0.0023402267, z: 0.50012046}
     m_trailing_tipLocal: {x: 0.33333746, y: -0.0023403654, z: -0.50012046}
     m_trailing_rootLocal: {x: 0.0000022396196, y: -0.0023402267, z: -0.50012046}
-    m_quater_root: {x: 5368.2524, y: 50.665, z: -17347.49}
-    m_quater_tip: {x: 5368.2524, y: 50.940002, z: -17347.49}
+    m_quater_root: {x: 5694.4526, y: 49.945004, z: -17154.291}
+    m_quater_tip: {x: 5694.4526, y: 50.220005, z: -17154.291}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -30467,15 +31151,15 @@ MonoBehaviour:
     m_forward: {x: -0.83638203, y: 0, z: -0.54814756}
     m_right: {x: -0.00000020861626, y: 1.0000002, z: 0}
     m_up: {x: 0.5481473, y: -0.00000020861626, z: -0.83638203}
-    m_rootCenter: {x: 5369, y: 50.940002, z: -17347}
-    m_tipCenter: {x: 5369, y: 51.215004, z: -17347}
-    m_quaterCenter: {x: 5368.2524, y: 51.077503, z: -17347.49}
+    m_rootCenter: {x: 5695.2, y: 50.220005, z: -17153.8}
+    m_tipCenter: {x: 5695.2, y: 50.495007, z: -17153.8}
+    m_quaterCenter: {x: 5694.4526, y: 50.357506, z: -17154.291}
     m_leading_tipLocal: {x: 0.6666727, y: 0.0023399484, z: 0.50012046}
     m_leading_rootLocal: {x: 0.33333746, y: 0.0023400874, z: 0.50012046}
     m_trailing_tipLocal: {x: 0.6666727, y: -0.0023405042, z: -0.50012046}
     m_trailing_rootLocal: {x: 0.33333746, y: -0.0023403654, z: -0.50012046}
-    m_quater_root: {x: 5368.2524, y: 50.940002, z: -17347.49}
-    m_quater_tip: {x: 5368.2524, y: 51.215004, z: -17347.49}
+    m_quater_root: {x: 5694.4526, y: 50.220005, z: -17154.291}
+    m_quater_tip: {x: 5694.4526, y: 50.495007, z: -17154.291}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -30582,15 +31266,15 @@ MonoBehaviour:
     m_forward: {x: -0.83638203, y: 0, z: -0.54814756}
     m_right: {x: -0.00000020861626, y: 1.0000002, z: 0}
     m_up: {x: 0.5481473, y: -0.00000020861626, z: -0.83638203}
-    m_rootCenter: {x: 5369, y: 51.215004, z: -17347}
-    m_tipCenter: {x: 5369, y: 51.490005, z: -17347}
-    m_quaterCenter: {x: 5368.2524, y: 51.352505, z: -17347.49}
+    m_rootCenter: {x: 5695.2, y: 50.495007, z: -17153.8}
+    m_tipCenter: {x: 5695.2, y: 50.770008, z: -17153.8}
+    m_quaterCenter: {x: 5694.4526, y: 50.632507, z: -17154.291}
     m_leading_tipLocal: {x: 1.000008, y: 0.0023396704, z: 0.50012046}
     m_leading_rootLocal: {x: 0.6666727, y: 0.0023399484, z: 0.50012046}
     m_trailing_tipLocal: {x: 1.000008, y: -0.0023407822, z: -0.50012046}
     m_trailing_rootLocal: {x: 0.6666727, y: -0.0023405042, z: -0.50012046}
-    m_quater_root: {x: 5368.2524, y: 51.215004, z: -17347.49}
-    m_quater_tip: {x: 5368.2524, y: 51.490005, z: -17347.49}
+    m_quater_root: {x: 5694.4526, y: 50.495007, z: -17154.291}
+    m_quater_tip: {x: 5694.4526, y: 50.770008, z: -17154.291}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -31004,7 +31688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 23
+    VectorObservationSize: 27
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -31013,7 +31697,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 15bfc425227e41747abb1fe92139aee0, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: AircraftTakeOff
@@ -31037,9 +31721,10 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 25000
-  airportPositionNormalizer: {fileID: 0}
+  manoeuvreSpeed: 2
+  airportNormalizer: {fileID: 0}
   sensors: {fileID: 7459721040457557504}
-  relativePositionDisplayer: {fileID: 3083687968911873992}
+  relativeTransformCanvas: {fileID: 7822012216464831748}
 --- !u!114 &8973755151829639884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31052,7 +31737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 20
+  DecisionPeriod: 10
   TakeActionsBetweenDecisions: 1
 --- !u!114 &9217060184409094024
 MonoBehaviour:
@@ -32396,6 +33081,140 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7081870392582376168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1764467109572830294}
+  - component: {fileID: 1131941319993446518}
+  - component: {fileID: 7053131616934513128}
+  m_Layer: 5
+  m_Name: target_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1764467109572830294
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081870392582376168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797080505257005640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -3.25, y: 0}
+  m_SizeDelta: {x: -6.5, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1131941319993446518
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081870392582376168}
+  m_CullTransparentMesh: 1
+--- !u!114 &7053131616934513128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081870392582376168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Target(0.11, 0.11, 0.11)
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.41
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7082106219423790852
 GameObject:
   m_ObjectHideFlags: 0
@@ -32975,6 +33794,140 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7251685589258423167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9201662979375534753}
+  - component: {fileID: 5879635672323246721}
+  - component: {fileID: 6930066782762504763}
+  m_Layer: 5
+  m_Name: velocity_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9201662979375534753
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251685589258423167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3797080505257005640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -3.25, y: 1}
+  m_SizeDelta: {x: -6.5, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5879635672323246721
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251685589258423167}
+  m_CullTransparentMesh: 1
+--- !u!114 &6930066782762504763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7251685589258423167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Vel(0.11, 0.11, 0.11)
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 0.41
+  m_fontSizeBase: 1
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0.41
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7274266040710033114
 GameObject:
   m_ObjectHideFlags: 0
@@ -40082,7 +41035,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 0
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 5370.723, y: 51.455772, z: -17345.871}
+  leadingRoot: {x: 5696.9233, y: 50.735775, z: -17152.672}
   m_axisScale: 0.25
   subdivision: 15
   m_section: 1
@@ -40130,15 +41083,15 @@ MonoBehaviour:
     m_forward: {x: -0.15987842, y: 0.9815601, z: -0.10478115}
     m_right: {x: 0.8209589, y: 0.19115481, z: 0.5380394}
     m_up: {x: 0.5481473, y: -0.0000001899898, z: -0.83638203}
-    m_rootCenter: {x: 5371.9233, y: 51.355, z: -17345.084}
-    m_tipCenter: {x: 5372.158, y: 51.44015, z: -17344.93}
-    m_quaterCenter: {x: 5371.489, y: 51.443928, z: -17345.367}
+    m_rootCenter: {x: 5698.1235, y: 50.635002, z: -17151.885}
+    m_tipCenter: {x: 5698.3584, y: 50.720154, z: -17151.73}
+    m_quaterCenter: {x: 5697.689, y: 50.723927, z: -17152.168}
     m_leading_tipLocal: {x: 0.066709146, y: -0.006266435, z: 0.32435328}
     m_leading_rootLocal: {x: -0.0000044637004, y: 0.0030539914, z: 0.5000392}
     m_trailing_tipLocal: {x: 0.066688366, y: -0.0011166912, z: -0.5152893}
     m_trailing_rootLocal: {x: 0.0000307378, y: -0.0048457766, z: -0.5002387}
-    m_quater_root: {x: 5371.323, y: 51.405388, z: -17345.477}
-    m_quater_tip: {x: 5371.6543, y: 51.482468, z: -17345.26}
+    m_quater_root: {x: 5697.5234, y: 50.685387, z: -17152.277}
+    m_quater_tip: {x: 5697.8545, y: 50.762466, z: -17152.06}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40228,7 +41181,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.6938192, y: -0.26620188, z: -0.13643667, w: 0.65508515}
+    n_rotation: {x: -0.6938192, y: -0.266202, z: -0.13643657, w: 0.65508515}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40242,18 +41195,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 2.4159868
     m_tipChord: 1.9553205
-    m_forward: {x: -0.15944505, y: 0.9816607, z: -0.104497105}
-    m_right: {x: 0.8210432, y: 0.19063671, z: 0.5380946}
-    m_up: {x: 0.54814726, y: -0.0000001527369, z: -0.8363819}
-    m_rootCenter: {x: 5372.158, y: 51.44015, z: -17344.93}
-    m_tipCenter: {x: 5372.3945, y: 51.525204, z: -17344.775}
-    m_quaterCenter: {x: 5371.8203, y: 51.520958, z: -17345.152}
+    m_forward: {x: -0.15944533, y: 0.9816607, z: -0.10449724}
+    m_right: {x: 0.82104313, y: 0.19063699, z: 0.5380946}
+    m_up: {x: 0.54814726, y: -0.00000009685755, z: -0.8363819}
+    m_rootCenter: {x: 5698.3584, y: 50.720154, z: -17151.73}
+    m_tipCenter: {x: 5698.5947, y: 50.805206, z: -17151.576}
+    m_quaterCenter: {x: 5698.0205, y: 50.80096, z: -17151.953}
     m_leading_tipLocal: {x: 0.13335325, y: 0.0038756053, z: 0.14875305}
     m_leading_rootLocal: {x: 0.066709146, y: -0.006266435, z: 0.32435328}
     m_trailing_tipLocal: {x: 0.13339882, y: -0.0024366945, z: -0.53128004}
     m_trailing_rootLocal: {x: 0.066688366, y: -0.0011166912, z: -0.5152893}
-    m_quater_root: {x: 5371.6543, y: 51.482468, z: -17345.26}
-    m_quater_tip: {x: 5371.9863, y: 51.55945, z: -17345.043}
+    m_quater_root: {x: 5697.8545, y: 50.762466, z: -17152.06}
+    m_quater_tip: {x: 5698.1865, y: 50.839455, z: -17151.844}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40289,10 +41242,10 @@ MonoBehaviour:
     "\u03BB": 0.6796827
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.2589418
+    "m_K\u03B8": 0.25894216
     "\u1D27LE": 78.30169
     "\u1D27CT": 69.21549
-    "\u1D27QT": 74.99272
+    "\u1D27QT": 74.9927
     m_area: 0.46979305
     m_wettedArea: 0.944679
     m_foilArea: 0
@@ -40300,7 +41253,7 @@ MonoBehaviour:
     m_edgeRadius: 0.30377945
     m_liftSlope: 5.9102826
     "m_Mcrit\u1D27": 4.9319754
-    m_e: 0.39819118
+    m_e: 0.39819148
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -40331,9 +41284,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0014420641
+    "CY\u03B2_CL": 0.0014422433
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0017870981
+    "Cn\u03B2_CL": 0.0017871015
     CL: 0
     CD: 0
     Cm: 0
@@ -40343,7 +41296,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.69465095, y: -0.27025425, z: -0.13213667, w: 0.6534238}
+    n_rotation: {x: -0.69465095, y: -0.27025416, z: -0.13213678, w: 0.65342385}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40357,18 +41310,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 1.9553205
     m_tipChord: 1.5119585
-    m_forward: {x: -0.16960339, y: 0.97922385, z: -0.11115463}
-    m_right: {x: 0.8190051, y: 0.20278224, z: 0.53675884}
-    m_up: {x: 0.5481472, y: -0.00000010430813, z: -0.8363819}
-    m_rootCenter: {x: 5372.3945, y: 51.525204, z: -17344.775}
-    m_tipCenter: {x: 5372.618, y: 51.611317, z: -17344.629}
-    m_quaterCenter: {x: 5372.1445, y: 51.598625, z: -17344.94}
+    m_forward: {x: -0.16960315, y: 0.979224, z: -0.11115453}
+    m_right: {x: 0.81900513, y: 0.20278198, z: 0.5367589}
+    m_up: {x: 0.54814726, y: -0.00000016018748, z: -0.836382}
+    m_rootCenter: {x: 5698.5947, y: 50.805206, z: -17151.576}
+    m_tipCenter: {x: 5698.8184, y: 50.89132, z: -17151.43}
+    m_quaterCenter: {x: 5698.3447, y: 50.878628, z: -17151.74}
     m_leading_tipLocal: {x: 0.20004097, y: 0.0058995206, z: -0.018914772}
     m_leading_rootLocal: {x: 0.13335325, y: 0.0038756053, z: 0.14875305}
     m_trailing_tipLocal: {x: 0.20008345, y: -0.0032646598, z: -0.54481804}
     m_trailing_rootLocal: {x: 0.13339882, y: -0.0024366945, z: -0.53128004}
-    m_quater_root: {x: 5371.9863, y: 51.55945, z: -17345.043}
-    m_quater_tip: {x: 5372.3027, y: 51.6378, z: -17344.836}
+    m_quater_root: {x: 5698.1865, y: 50.839455, z: -17151.844}
+    m_quater_tip: {x: 5698.503, y: 50.9178, z: -17151.637}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40404,10 +41357,10 @@ MonoBehaviour:
     "\u03BB": 0.525567
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.27088678
+    "m_K\u03B8": 0.27088654
     "\u1D27LE": 77.76455
     "\u1D27CT": 68.13401
-    "\u1D27QT": 74.28296
+    "\u1D27QT": 74.282974
     m_area: 0.35508633
     m_wettedArea: 0.7144035
     m_foilArea: 0
@@ -40415,7 +41368,7 @@ MonoBehaviour:
     m_edgeRadius: 0.32658324
     m_liftSlope: 5.8906956
     "m_Mcrit\u1D27": 4.718551
-    m_e: 0.40836748
+    m_e: 0.40836728
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -40446,9 +41399,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.027014038
+    "CY\u03B2_CL": 0.027012229
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.00050223863
+    "Cn\u03B2_CL": -0.00050200283
     CL: 0
     CD: 0
     Cm: 0
@@ -40458,7 +41411,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.6967175, y: -0.28089595, z: -0.120767556, w: 0.6489203}
+    n_rotation: {x: -0.6967175, y: -0.2808961, z: -0.12076737, w: 0.6489202}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 41.4
@@ -40472,18 +41425,18 @@ MonoBehaviour:
     m_span: 0.0612956
     m_rootChord: 1.5119585
     m_tipChord: 1.295575
-    m_forward: {x: -0.19627643, y: 0.9720745, z: -0.12863563}
-    m_right: {x: 0.8130253, y: 0.2346732, z: 0.5328399}
-    m_up: {x: 0.54814726, y: -0.00000016577542, z: -0.83638203}
-    m_rootCenter: {x: 5372.618, y: 51.611317, z: -17344.629}
-    m_tipCenter: {x: 5372.737, y: 51.662773, z: -17344.55}
-    m_quaterCenter: {x: 5372.385, y: 51.66163, z: -17344.781}
+    m_forward: {x: -0.1962768, y: 0.9720743, z: -0.1286358}
+    m_right: {x: 0.81302524, y: 0.23467368, z: 0.5328398}
+    m_up: {x: 0.5481472, y: -0.000000074505806, z: -0.8363819}
+    m_rootCenter: {x: 5698.8184, y: 50.89132, z: -17151.43}
+    m_tipCenter: {x: 5698.937, y: 50.942776, z: -17151.352}
+    m_quaterCenter: {x: 5698.585, y: 50.941635, z: -17151.582}
     m_leading_tipLocal: {x: 0.23913574, y: -0.0069211056, z: -0.104813024}
     m_leading_rootLocal: {x: 0.20004097, y: 0.0058995206, z: -0.018914772}
     m_trailing_tipLocal: {x: 0.23910558, y: 0.0041098744, z: -0.5549348}
     m_trailing_rootLocal: {x: 0.20008345, y: -0.0032646598, z: -0.54481804}
-    m_quater_root: {x: 5372.3027, y: 51.6378, z: -17344.836}
-    m_quater_tip: {x: 5372.467, y: 51.685463, z: -17344.727}
+    m_quater_root: {x: 5698.503, y: 50.9178, z: -17151.637}
+    m_quater_tip: {x: 5698.667, y: 50.96547, z: -17151.527}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40519,10 +41472,10 @@ MonoBehaviour:
     "\u03BB": 0.45035064
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.30219856
+    "m_K\u03B8": 0.302199
     "\u1D27LE": 76.069145
     "\u1D27CT": 66.06732
-    "\u1D27QT": 72.4103
+    "\u1D27QT": 72.41027
     m_area: 0.16636954
     m_wettedArea: 0.3349001
     m_foilArea: 0
@@ -40530,7 +41483,7 @@ MonoBehaviour:
     m_edgeRadius: 0.349387
     m_liftSlope: 5.871109
     "m_Mcrit\u1D27": 4.153672
-    m_e: 0.43265668
+    m_e: 0.432657
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -40561,9 +41514,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0002964692
+    "CY\u03B2_CL": 0.0002963492
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0011702878
+    "Cn\u03B2_CL": 0.0011703799
     CL: 0
     CD: 0
     Cm: 0
@@ -40590,15 +41543,15 @@ MonoBehaviour:
     m_forward: {x: -0.42458734, y: 0.8615649, z: -0.2782658}
     m_right: {x: 0.72059715, y: 0.5076477, z: 0.47226432}
     m_up: {x: 0.54814726, y: -0.00000014778925, z: -0.83638203}
-    m_rootCenter: {x: 5372.737, y: 51.662773, z: -17344.55}
-    m_tipCenter: {x: 5372.84, y: 51.759007, z: -17344.484}
-    m_quaterCenter: {x: 5372.5337, y: 51.732285, z: -17344.684}
+    m_rootCenter: {x: 5698.937, y: 50.942776, z: -17151.352}
+    m_tipCenter: {x: 5699.04, y: 51.03901, z: -17151.285}
+    m_quaterCenter: {x: 5698.734, y: 51.01229, z: -17151.484}
     m_leading_tipLocal: {x: 0.30575234, y: 0.0109036835, z: -0.17036483}
     m_leading_rootLocal: {x: 0.23913574, y: -0.0069211056, z: -0.104813024}
     m_trailing_tipLocal: {x: 0.3058019, y: 0.0030380124, z: -0.5696991}
     m_trailing_rootLocal: {x: 0.23910558, y: 0.0041098744, z: -0.5549348}
-    m_quater_root: {x: 5372.467, y: 51.685463, z: -17344.727}
-    m_quater_tip: {x: 5372.6006, y: 51.779106, z: -17344.64}
+    m_quater_root: {x: 5698.667, y: 50.96547, z: -17151.527}
+    m_quater_tip: {x: 5698.801, y: 51.059113, z: -17151.441}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40688,7 +41641,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.7042401, y: -0.4392278, z: 0.06360801, w: 0.55414706}
+    n_rotation: {x: -0.7042401, y: -0.43922743, z: 0.06360754, w: 0.55414736}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40702,18 +41655,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 1.1477097
     m_tipChord: 1.0777005
-    m_forward: {x: -0.5763842, y: 0.7246283, z: -0.3777503}
-    m_right: {x: 0.6060659, y: 0.68914, z: 0.39720297}
-    m_up: {x: 0.54814726, y: -0.00000015087426, z: -0.8363819}
-    m_rootCenter: {x: 5372.84, y: 51.759007, z: -17344.484}
-    m_tipCenter: {x: 5372.912, y: 51.857807, z: -17344.438}
-    m_quaterCenter: {x: 5372.644, y: 51.827896, z: -17344.613}
+    m_forward: {x: -0.5763834, y: 0.7246292, z: -0.37774968}
+    m_right: {x: 0.60606664, y: 0.689139, z: 0.3972035}
+    m_up: {x: 0.5481472, y: -0.000000031664968, z: -0.836382}
+    m_rootCenter: {x: 5699.04, y: 51.03901, z: -17151.285}
+    m_tipCenter: {x: 5699.1123, y: 51.13781, z: -17151.238}
+    m_quaterCenter: {x: 5698.844, y: 51.1079, z: -17151.414}
     m_leading_tipLocal: {x: 0.3724269, y: 0.01207182, z: -0.21009536}
     m_leading_rootLocal: {x: 0.30575234, y: 0.0109036835, z: -0.17036483}
     m_trailing_tipLocal: {x: 0.3724511, y: 0.009167523, z: -0.58489245}
     m_trailing_rootLocal: {x: 0.3058019, y: 0.0030380124, z: -0.5696991}
-    m_quater_root: {x: 5372.6006, y: 51.779106, z: -17344.64}
-    m_quater_tip: {x: 5372.6875, y: 51.876682, z: -17344.586}
+    m_quater_root: {x: 5698.801, y: 51.059113, z: -17151.441}
+    m_quater_tip: {x: 5698.8877, y: 51.156685, z: -17151.387}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40749,10 +41702,10 @@ MonoBehaviour:
     "\u03BB": 0.374616
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.73821294
+    "m_K\u03B8": 0.7382121
     "\u1D27LE": 47.53659
     "\u1D27CT": 37.063133
-    "\u1D27QT": 42.42059
+    "\u1D27QT": 42.420666
     m_area: 0.14408186
     m_wettedArea: 0.29034483
     m_foilArea: 0
@@ -40760,7 +41713,7 @@ MonoBehaviour:
     m_edgeRadius: 0.39499456
     m_liftSlope: 5.831936
     "m_Mcrit\u1D27": 1.4812199
-    m_e: 0.57907933
+    m_e: 0.5790792
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -40791,9 +41744,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 4.729968
+    "CY\u03B2_CL": 4.6889954
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -8.589433
+    "Cn\u03B2_CL": -8.448396
     CL: 0
     CD: 0
     Cm: 0
@@ -40803,7 +41756,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.701036, y: -0.46160161, z: 0.09245861, w: 0.5356529}
+    n_rotation: {x: -0.7010359, y: -0.46160203, z: 0.09245916, w: 0.5356525}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40817,18 +41770,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 1.0777005
     m_tipChord: 1.027526
-    m_forward: {x: -0.6241501, y: 0.6656658, z: -0.409055}
-    m_right: {x: 0.5567507, y: 0.74625015, z: 0.36488283}
-    m_up: {x: 0.5481472, y: -0.000000074505806, z: -0.836382}
-    m_rootCenter: {x: 5372.912, y: 51.857807, z: -17344.438}
-    m_tipCenter: {x: 5372.975, y: 51.95741, z: -17344.396}
-    m_quaterCenter: {x: 5372.724, y: 51.92604, z: -17344.562}
+    m_forward: {x: -0.624151, y: 0.6656646, z: -0.4090556}
+    m_right: {x: 0.5567497, y: 0.74625117, z: 0.3648822}
+    m_up: {x: 0.54814726, y: -0.00000009685755, z: -0.836382}
+    m_rootCenter: {x: 5699.1123, y: 51.13781, z: -17151.238}
+    m_tipCenter: {x: 5699.1753, y: 51.23741, z: -17151.197}
+    m_quaterCenter: {x: 5698.9243, y: 51.206047, z: -17151.363}
     m_leading_tipLocal: {x: 0.43910885, y: 0.014729011, z: -0.24246408}
     m_leading_rootLocal: {x: 0.3724269, y: 0.01207182, z: -0.21009536}
     m_trailing_tipLocal: {x: 0.43913174, y: 0.010496119, z: -0.59979975}
     m_trailing_rootLocal: {x: 0.3724511, y: 0.009167523, z: -0.58489245}
-    m_quater_root: {x: 5372.6875, y: 51.876682, z: -17344.586}
-    m_quater_tip: {x: 5372.7607, y: 51.975403, z: -17344.537}
+    m_quater_root: {x: 5698.8877, y: 51.156685, z: -17151.387}
+    m_quater_tip: {x: 5698.961, y: 51.25541, z: -17151.338}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40864,10 +41817,10 @@ MonoBehaviour:
     "\u03BB": 0.357175
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.79105186
+    "m_K\u03B8": 0.7910529
     "\u1D27LE": 41.676674
     "\u1D27CT": 33.028584
-    "\u1D27QT": 37.71608
+    "\u1D27QT": 37.71599
     m_area: 0.13062602
     m_wettedArea: 0.2633698
     m_foilArea: 0
@@ -40875,7 +41828,7 @@ MonoBehaviour:
     m_edgeRadius: 0.41779834
     m_liftSlope: 5.8123493
     "m_Mcrit\u1D27": 1.3388512
-    m_e: 0.58558494
+    m_e: 0.585585
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -40906,9 +41859,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0000022884822
+    "CY\u03B2_CL": 0.0000022638487
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.00159938
+    "Cn\u03B2_CL": 0.0015994387
     CL: 0
     CD: 0
     Cm: 0
@@ -40918,7 +41871,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.6996673, y: -0.46908447, z: 0.10230234, w: 0.5291123}
+    n_rotation: {x: -0.6996674, y: -0.46908402, z: 0.10230176, w: 0.5291127}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40932,18 +41885,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 1.027526
     m_tipChord: 0.98594165
-    m_forward: {x: -0.63955194, y: 0.6444282, z: -0.41914907}
-    m_right: {x: 0.538988, y: 0.76466495, z: 0.3532415}
-    m_up: {x: 0.54814726, y: -0.000000115484, z: -0.836382}
-    m_rootCenter: {x: 5372.975, y: 51.95741, z: -17344.396}
-    m_tipCenter: {x: 5373.0366, y: 52.057137, z: -17344.357}
-    m_quaterCenter: {x: 5372.796, y: 52.024902, z: -17344.516}
+    m_forward: {x: -0.63955104, y: 0.64442956, z: -0.41914856}
+    m_right: {x: 0.53898907, y: 0.7646639, z: 0.35324222}
+    m_up: {x: 0.54814726, y: -0.00000023655593, z: -0.83638203}
+    m_rootCenter: {x: 5699.1753, y: 51.23741, z: -17151.197}
+    m_tipCenter: {x: 5699.237, y: 51.33714, z: -17151.158}
+    m_quaterCenter: {x: 5698.996, y: 51.30491, z: -17151.316}
     m_leading_tipLocal: {x: 0.5057869, y: 0.022686679, z: -0.27266386}
     m_leading_rootLocal: {x: 0.43910885, y: 0.014729011, z: -0.24246408}
     m_trailing_tipLocal: {x: 0.5057713, y: 0.021435102, z: -0.61527795}
     m_trailing_rootLocal: {x: 0.43913174, y: 0.010496119, z: -0.59979975}
-    m_quater_root: {x: 5372.7607, y: 51.975403, z: -17344.537}
-    m_quater_tip: {x: 5372.831, y: 52.074406, z: -17344.492}
+    m_quater_root: {x: 5698.961, y: 51.25541, z: -17151.338}
+    m_quater_tip: {x: 5699.0312, y: 51.35441, z: -17151.293}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40979,10 +41932,10 @@ MonoBehaviour:
     "\u03BB": 0.34272
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.8079336
+    "m_K\u03B8": 0.8079326
     "\u1D27LE": 39.712402
     "\u1D27CT": 32.134518
-    "\u1D27QT": 36.105473
+    "\u1D27QT": 36.105568
     m_area: 0.12384207
     m_wettedArea: 0.24982494
     m_foilArea: 0
@@ -40990,7 +41943,7 @@ MonoBehaviour:
     m_edgeRadius: 0.44060212
     m_liftSlope: 5.7927628
     "m_Mcrit\u1D27": 1.2999485
-    m_e: 0.5874454
+    m_e: 0.5874453
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -41021,9 +41974,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": -2.1928163
+    "CY\u03B2_CL": -2.200929
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -1.2317058
+    "Cn\u03B2_CL": -1.2425623
     CL: 0
     CD: 0
     Cm: 0
@@ -41050,15 +42003,15 @@ MonoBehaviour:
     m_forward: {x: -0.63954383, y: 0.64443964, z: -0.41914383}
     m_right: {x: 0.5389976, y: 0.7646553, z: 0.35324782}
     m_up: {x: 0.54814726, y: -0.00000017508864, z: -0.836382}
-    m_rootCenter: {x: 5373.0366, y: 52.057137, z: -17344.357}
-    m_tipCenter: {x: 5373.0977, y: 52.156902, z: -17344.318}
-    m_quaterCenter: {x: 5372.866, y: 52.12389, z: -17344.469}
+    m_rootCenter: {x: 5699.237, y: 51.33714, z: -17151.158}
+    m_tipCenter: {x: 5699.298, y: 51.436905, z: -17151.12}
+    m_quaterCenter: {x: 5699.0664, y: 51.403893, z: -17151.27}
     m_leading_tipLocal: {x: 0.572436, y: 0.03544419, z: -0.30314925}
     m_leading_rootLocal: {x: 0.5057869, y: 0.022686679, z: -0.27266386}
     m_trailing_tipLocal: {x: 0.5724519, y: 0.022763697, z: -0.63018525}
     m_trailing_rootLocal: {x: 0.5057713, y: 0.021435102, z: -0.61527795}
-    m_quater_root: {x: 5372.831, y: 52.074406, z: -17344.492}
-    m_quater_tip: {x: 5372.9014, y: 52.173374, z: -17344.447}
+    m_quater_root: {x: 5699.0312, y: 51.35441, z: -17151.293}
+    m_quater_tip: {x: 5699.1016, y: 51.453377, z: -17151.248}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41148,7 +42101,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.6994022, y: -0.47044197, z: 0.10409913, w: 0.5279057}
+    n_rotation: {x: -0.6994021, y: -0.47044244, z: 0.10409975, w: 0.5279052}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -41162,18 +42115,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.9404161
     m_tipChord: 0.90658
-    m_forward: {x: -0.6423123, y: 0.6404916, z: -0.4209582}
-    m_right: {x: 0.5356955, y: 0.7679654, z: 0.35108367}
-    m_up: {x: 0.54814726, y: -0.00000017508864, z: -0.83638203}
-    m_rootCenter: {x: 5373.0977, y: 52.156902, z: -17344.318}
-    m_tipCenter: {x: 5373.1597, y: 52.256577, z: -17344.277}
-    m_quaterCenter: {x: 5372.936, y: 52.222916, z: -17344.426}
+    m_forward: {x: -0.64231324, y: 0.6404902, z: -0.42095876}
+    m_right: {x: 0.5356943, y: 0.76796645, z: 0.3510829}
+    m_up: {x: 0.54814726, y: -0.000000074505806, z: -0.8363819}
+    m_rootCenter: {x: 5699.298, y: 51.436905, z: -17151.12}
+    m_tipCenter: {x: 5699.36, y: 51.53658, z: -17151.078}
+    m_quaterCenter: {x: 5699.136, y: 51.50292, z: -17151.227}
     m_leading_tipLocal: {x: 0.6391222, y: 0.026591165, z: -0.33235243}
     m_leading_rootLocal: {x: 0.572436, y: 0.03544419, z: -0.30314925}
     m_trailing_tipLocal: {x: 0.6391475, y: 0.02599854, z: -0.64768827}
     m_trailing_rootLocal: {x: 0.5724519, y: 0.022763697, z: -0.63018525}
-    m_quater_root: {x: 5372.9014, y: 52.173374, z: -17344.447}
-    m_quater_tip: {x: 5372.9707, y: 52.272453, z: -17344.402}
+    m_quater_root: {x: 5699.1016, y: 51.453377, z: -17151.248}
+    m_quater_tip: {x: 5699.171, y: 51.55246, z: -17151.203}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41209,10 +42162,10 @@ MonoBehaviour:
     "\u03BB": 0.31513333
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.8109501
+    "m_K\u03B8": 0.8109511
     "\u1D27LE": 38.770584
     "\u1D27CT": 32.711784
-    "\u1D27QT": 35.81114
+    "\u1D27QT": 35.81104
     m_area: 0.11459052
     m_wettedArea: 0.23140813
     m_foilArea: 0
@@ -41220,7 +42173,7 @@ MonoBehaviour:
     m_edgeRadius: 0.48620966
     m_liftSlope: 5.753589
     "m_Mcrit\u1D27": 1.2826111
-    m_e: 0.5877677
+    m_e: 0.58776784
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -41251,9 +42204,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.2904999
+    "CY\u03B2_CL": 0.2901092
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.032853834
+    "Cn\u03B2_CL": -0.032817606
     CL: 0
     CD: 0
     Cm: 0
@@ -41280,15 +42233,15 @@ MonoBehaviour:
     m_forward: {x: -0.64146775, y: 0.6417003, z: -0.42040476}
     m_right: {x: 0.5367064, y: 0.7669556, z: 0.3517462}
     m_up: {x: 0.5481473, y: -0.00000018812716, z: -0.836382}
-    m_rootCenter: {x: 5373.1597, y: 52.256577, z: -17344.277}
-    m_tipCenter: {x: 5373.2188, y: 52.3565, z: -17344.238}
-    m_quaterCenter: {x: 5373.005, y: 52.32201, z: -17344.379}
+    m_rootCenter: {x: 5699.36, y: 51.53658, z: -17151.078}
+    m_tipCenter: {x: 5699.419, y: 51.6365, z: -17151.04}
+    m_quaterCenter: {x: 5699.205, y: 51.602016, z: -17151.18}
     m_leading_tipLocal: {x: 0.7058492, y: 0.017487826, z: -0.362781}
     m_leading_rootLocal: {x: 0.6391222, y: 0.026591165, z: -0.33235243}
     m_trailing_tipLocal: {x: 0.70580316, y: 0.029975768, z: -0.66151184}
     m_trailing_rootLocal: {x: 0.6391475, y: 0.02599854, z: -0.64768827}
-    m_quater_root: {x: 5372.9707, y: 52.272453, z: -17344.402}
-    m_quater_tip: {x: 5373.039, y: 52.371567, z: -17344.355}
+    m_quater_root: {x: 5699.171, y: 51.55246, z: -17151.203}
+    m_quater_tip: {x: 5699.2393, y: 51.651573, z: -17151.156}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41378,7 +42331,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.70000243, y: -0.46732858, z: 0.099983305, w: 0.5306638}
+    n_rotation: {x: -0.70000255, y: -0.46732816, z: 0.09998274, w: 0.53066415}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -41392,18 +42345,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.8604483
     m_tipChord: 0.8205018
-    m_forward: {x: -0.6359658, y: 0.6494818, z: -0.4167988}
-    m_right: {x: 0.5432147, y: 0.76037735, z: 0.35601157}
-    m_up: {x: 0.54814726, y: -0.0000001359731, z: -0.83638203}
-    m_rootCenter: {x: 5373.2188, y: 52.3565, z: -17344.238}
-    m_tipCenter: {x: 5373.2803, y: 52.45621, z: -17344.197}
-    m_quaterCenter: {x: 5373.074, y: 52.421074, z: -17344.332}
+    m_forward: {x: -0.63596493, y: 0.649483, z: -0.41679838}
+    m_right: {x: 0.5432157, y: 0.76037633, z: 0.35601228}
+    m_up: {x: 0.5481473, y: -0.0000002682209, z: -0.836382}
+    m_rootCenter: {x: 5699.419, y: 51.6365, z: -17151.04}
+    m_tipCenter: {x: 5699.4805, y: 51.736214, z: -17150.998}
+    m_quaterCenter: {x: 5699.2744, y: 51.70108, z: -17151.133}
     m_leading_tipLocal: {x: 0.77251506, y: 0.020645646, z: -0.39269647}
     m_leading_rootLocal: {x: 0.7058492, y: 0.017487826, z: -0.362781}
     m_trailing_tipLocal: {x: 0.77253115, y: 0.016396709, z: -0.6780175}
     m_trailing_rootLocal: {x: 0.70580316, y: 0.029975768, z: -0.66151184}
-    m_quater_root: {x: 5373.039, y: 52.371567, z: -17344.355}
-    m_quater_tip: {x: 5373.1094, y: 52.47058, z: -17344.309}
+    m_quater_root: {x: 5699.2393, y: 51.651573, z: -17151.156}
+    m_quater_tip: {x: 5699.3096, y: 51.750584, z: -17151.11}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41439,10 +42392,10 @@ MonoBehaviour:
     "\u03BB": 0.28521198
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.80401057
+    "m_K\u03B8": 0.8040096
     "\u1D27LE": 39.44641
     "\u1D27CT": 32.552486
-    "\u1D27QT": 36.485195
+    "\u1D27QT": 36.485287
     m_area: 0.10392772
     m_wettedArea: 0.2100986
     m_foilArea: 0
@@ -41450,7 +42403,7 @@ MonoBehaviour:
     m_edgeRadius: 0.5318172
     m_liftSlope: 5.714416
     "m_Mcrit\u1D27": 1.2949691
-    m_e: 0.58702165
+    m_e: 0.5870216
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -41481,9 +42434,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.042973023
+    "CY\u03B2_CL": 0.042953018
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.0027943351
+    "Cn\u03B2_CL": -0.0027912208
     CL: 0
     CD: 0
     Cm: 0
@@ -41493,7 +42446,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.6987681, y: -0.47358614, z: 0.108273976, w: 0.5250868}
+    n_rotation: {x: -0.698768, y: -0.4735866, z: 0.10827456, w: 0.52508646}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -41507,18 +42460,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.8205018
     m_tipChord: 0.77617973
-    m_forward: {x: -0.6486645, y: 0.63127375, z: -0.42512134}
-    m_right: {x: 0.5279858, y: 0.7755602, z: 0.3460309}
-    m_up: {x: 0.54814726, y: -0.00000018626451, z: -0.8363819}
-    m_rootCenter: {x: 5373.2803, y: 52.45621, z: -17344.197}
-    m_tipCenter: {x: 5373.34, y: 52.55608, z: -17344.158}
-    m_quaterCenter: {x: 5373.1436, y: 52.520126, z: -17344.287}
+    m_forward: {x: -0.6486654, y: 0.6312725, z: -0.42512202}
+    m_right: {x: 0.52798474, y: 0.77556133, z: 0.3460302}
+    m_up: {x: 0.5481473, y: -0.00000025890768, z: -0.836382}
+    m_rootCenter: {x: 5699.4805, y: 51.736214, z: -17150.998}
+    m_tipCenter: {x: 5699.54, y: 51.836082, z: -17150.959}
+    m_quaterCenter: {x: 5699.3438, y: 51.800133, z: -17151.088}
     m_leading_tipLocal: {x: 0.83918333, y: 0.02379705, z: -0.42261186}
     m_leading_rootLocal: {x: 0.77251506, y: 0.020645646, z: -0.39269647}
     m_trailing_tipLocal: {x: 0.839214, y: 0.012924389, z: -0.69264007}
     m_trailing_rootLocal: {x: 0.77253115, y: 0.016396709, z: -0.6780175}
-    m_quater_root: {x: 5373.1094, y: 52.47058, z: -17344.309}
-    m_quater_tip: {x: 5373.1777, y: 52.56967, z: -17344.266}
+    m_quater_root: {x: 5699.3096, y: 51.750584, z: -17151.11}
+    m_quater_tip: {x: 5699.378, y: 51.849678, z: -17151.066}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41554,10 +42507,10 @@ MonoBehaviour:
     "\u03BB": 0.26980534
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.8178805
+    "m_K\u03B8": 0.81788146
     "\u1D27LE": 39.446323
     "\u1D27CT": 31.486021
-    "\u1D27QT": 35.126816
+    "\u1D27QT": 35.12672
     m_area: 0.097562894
     m_wettedArea: 0.19733638
     m_foilArea: 0
@@ -41565,7 +42518,7 @@ MonoBehaviour:
     m_edgeRadius: 0.554621
     m_liftSlope: 5.694829
     "m_Mcrit\u1D27": 1.2949675
-    m_e: 0.58849716
+    m_e: 0.5884973
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -41596,9 +42549,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0053183837
+    "CY\u03B2_CL": 0.005316038
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.0005183076
+    "Cn\u03B2_CL": -0.0005177494
     CL: 0
     CD: 0
     Cm: 0
@@ -41608,7 +42561,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.7005229, y: -0.4645076, z: 0.09626938, w: 0.5331348}
+    n_rotation: {x: -0.700523, y: -0.46450672, z: 0.09626823, w: 0.5331356}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0.1
@@ -41622,18 +42575,18 @@ MonoBehaviour:
     m_span: 0.1044954
     m_rootChord: 0.77617973
     m_tipChord: 0.73252505
-    m_forward: {x: -0.6301682, y: 0.6575106, z: -0.41299933}
-    m_right: {x: 0.54992974, y: 0.7534455, z: 0.36041257}
-    m_up: {x: 0.5481473, y: -0.00000027008355, z: -0.836382}
-    m_rootCenter: {x: 5373.34, y: 52.55608, z: -17344.158}
-    m_tipCenter: {x: 5373.403, y: 52.65555, z: -17344.117}
-    m_quaterCenter: {x: 5373.214, y: 52.619026, z: -17344.242}
+    m_forward: {x: -0.63016635, y: 0.657513, z: -0.41299796}
+    m_right: {x: 0.5499319, y: 0.7534433, z: 0.3604139}
+    m_up: {x: 0.54814726, y: -0.00000012665987, z: -0.83638203}
+    m_rootCenter: {x: 5699.54, y: 51.836082, z: -17150.959}
+    m_tipCenter: {x: 5699.603, y: 51.93555, z: -17150.918}
+    m_quaterCenter: {x: 5699.414, y: 51.89903, z: -17151.043}
     m_leading_tipLocal: {x: 0.90577114, y: 0.026702417, z: -0.45375723}
     m_leading_rootLocal: {x: 0.83918333, y: 0.02379705, z: -0.42261186}
     m_trailing_tipLocal: {x: 0.90581906, y: 0.01400267, z: -0.7087772}
     m_trailing_rootLocal: {x: 0.839214, y: 0.012924389, z: -0.69264007}
-    m_quater_root: {x: 5373.1777, y: 52.56967, z: -17344.266}
-    m_quater_tip: {x: 5373.25, y: 52.66838, z: -17344.219}
+    m_quater_root: {x: 5699.378, y: 51.849678, z: -17151.066}
+    m_quater_tip: {x: 5699.45, y: 51.94838, z: -17151.02}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41669,10 +42622,10 @@ MonoBehaviour:
     "\u03BB": 0.25463068
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.7976582
+    "m_K\u03B8": 0.79765624
     "\u1D27LE": 40.611446
     "\u1D27CT": 33.058384
-    "\u1D27QT": 37.092945
+    "\u1D27QT": 37.093132
     m_area: 0.09373589
     m_wettedArea: 0.18969636
     m_foilArea: 0
@@ -41680,7 +42633,7 @@ MonoBehaviour:
     m_edgeRadius: 0.57742476
     m_liftSlope: 5.6752424
     "m_Mcrit\u1D27": 1.3172778
-    m_e: 0.5863246
+    m_e: 0.58632433
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -41711,9 +42664,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0036777845
+    "CY\u03B2_CL": 0.0036749481
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.001759412
+    "Cn\u03B2_CL": 0.0017595076
     CL: 0
     CD: 0
     Cm: 0
@@ -41723,7 +42676,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.7008065, y: -0.4629175, z: 0.09418235, w: 0.53451604}
+    n_rotation: {x: -0.70080644, y: -0.46291792, z: 0.09418289, w: 0.5345157}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -41737,18 +42690,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.73252505
     m_tipChord: 0.6705853
-    m_forward: {x: -0.6268809, y: 0.6619873, z: -0.41084474}
-    m_right: {x: 0.55367416, y: 0.7495151, z: 0.36286646}
-    m_up: {x: 0.54814726, y: -0.00000014156103, z: -0.8363819}
-    m_rootCenter: {x: 5373.403, y: 52.65555, z: -17344.117}
-    m_tipCenter: {x: 5373.4624, y: 52.755417, z: -17344.078}
-    m_quaterCenter: {x: 5373.286, y: 52.717773, z: -17344.195}
+    m_forward: {x: -0.6268817, y: 0.6619862, z: -0.41084534}
+    m_right: {x: 0.55367315, y: 0.7495162, z: 0.3628658}
+    m_up: {x: 0.54814726, y: -0.00000016763806, z: -0.836382}
+    m_rootCenter: {x: 5699.603, y: 51.93555, z: -17150.918}
+    m_tipCenter: {x: 5699.6626, y: 52.03542, z: -17150.879}
+    m_quaterCenter: {x: 5699.4863, y: 51.997772, z: -17150.996}
     m_leading_tipLocal: {x: 0.9724634, y: 0.02190578, z: -0.48692542}
     m_leading_rootLocal: {x: 0.90577114, y: 0.026702417, z: -0.45375723}
     m_trailing_tipLocal: {x: 0.972478, y: 0.01847839, z: -0.7201469}
     m_trailing_rootLocal: {x: 0.90581906, y: 0.01400267, z: -0.7087772}
-    m_quater_root: {x: 5373.25, y: 52.66838, z: -17344.219}
-    m_quater_tip: {x: 5373.3223, y: 52.767162, z: -17344.17}
+    m_quater_root: {x: 5699.45, y: 51.94838, z: -17151.02}
+    m_quater_tip: {x: 5699.5225, y: 52.047165, z: -17150.97}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41784,10 +42737,10 @@ MonoBehaviour:
     "\u03BB": 0.23309998
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.79405123
+    "m_K\u03B8": 0.7940522
     "\u1D27LE": 42.37197
     "\u1D27CT": 31.486021
-    "\u1D27QT": 37.43427
+    "\u1D27QT": 37.434177
     m_area: 0.08539205
     m_wettedArea: 0.1729024
     m_foilArea: 0.022956923
@@ -41795,7 +42748,7 @@ MonoBehaviour:
     m_edgeRadius: 0.60022855
     m_liftSlope: 5.655656
     "m_Mcrit\u1D27": 1.3535736
-    m_e: 0.5859226
+    m_e: 0.5859227
     m_ARf: 0.20247312
     m_u: 0
     m_v: 0
@@ -41826,9 +42779,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00058085856
+    "CY\u03B2_CL": 0.00058127707
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0017484105
+    "Cn\u03B2_CL": 0.0017484458
     CL: 0
     CD: 0
     Cm: 0
@@ -44427,7 +45380,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 5367.9595, y: 51.864613, z: -17347.033}
+  leadingRoot: {x: 5694.1597, y: 51.144615, z: -17153.834}
   m_axisScale: 0.5
   subdivision: 10
   m_section: 1
@@ -44459,7 +45412,7 @@ MonoBehaviour:
   m_tipSuperfoil: {fileID: 0}
   m_cells:
   - m_reset: 0
-    n_rotation: {x: -0.03745343, y: -0.87904865, z: -0.023026358, w: 0.4747006}
+    n_rotation: {x: -0.037453424, y: -0.8790485, z: -0.02302637, w: 0.47470084}
     m_eulerAngles: {x: 355.35376, y: 359.96738, z: 1.7823566}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44473,18 +45426,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.675038
     m_tipChord: 1.6683378
-    m_forward: {x: -0.832845, y: 0.07604091, z: -0.5482586}
-    m_right: {x: -0.5465135, y: 0.043985527, z: 0.83629465}
-    m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924245}
-    m_rootCenter: {x: 5368.6562, y: 51.801, z: -17346.572}
-    m_tipCenter: {x: 5368.3804, y: 51.823208, z: -17346.152}
-    m_quaterCenter: {x: 5368.1704, y: 51.84385, z: -17346.594}
+    m_forward: {x: -0.83284533, y: 0.07604094, z: -0.5482581}
+    m_right: {x: -0.546513, y: 0.043985482, z: 0.836295}
+    m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924249}
+    m_rootCenter: {x: 5694.8564, y: 51.081, z: -17153.373}
+    m_tipCenter: {x: 5694.5806, y: 51.10321, z: -17152.953}
+    m_quaterCenter: {x: 5694.3706, y: 51.123848, z: -17153.395}
     m_leading_tipLocal: {x: 0.099945225, y: -0.00019283502, z: 0.49825734}
     m_leading_rootLocal: {x: -0.000008071474, y: -0.00025362076, z: 0.50022966}
     m_trailing_tipLocal: {x: 0.10002551, y: -0.00013886705, z: -0.49793434}
     m_trailing_rootLocal: {x: 0.000077743425, y: 0.000031218173, z: -0.50017715}
-    m_quater_root: {x: 5368.3076, y: 51.832806, z: -17346.803}
-    m_quater_tip: {x: 5368.033, y: 51.85489, z: -17346.383}
+    m_quater_root: {x: 5694.508, y: 51.11281, z: -17153.604}
+    m_quater_tip: {x: 5694.2334, y: 51.134888, z: -17153.184}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44523,7 +45476,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.91999894
     "\u1D27LE": 0.37617755
     "\u1D27CT": -0.025801042
-    "\u1D27QT": 0.11402343
+    "\u1D27QT": 0.11405642
     m_area: 0.84099114
     m_wettedArea: 1.7168485
     m_foilArea: 0.19127849
@@ -44562,9 +45515,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.000017607215
+    "CY\u03B2_CL": 0.000017617464
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.00046729637
+    "Cn\u03B2_CL": 0.0004673125
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -44574,7 +45527,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.037428826, y: -0.87854135, z: -0.023066329, w: 0.47563875}
+    n_rotation: {x: -0.037428834, y: -0.87854147, z: -0.023066318, w: 0.4756385}
     m_eulerAngles: {x: 355.68692, y: 359.97778, z: 1.7815444}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44588,18 +45541,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6683378
     m_tipChord: 1.6616377
-    m_forward: {x: -0.83400995, y: 0.07613465, z: -0.54647166}
-    m_right: {x: -0.54473394, y: 0.043823063, z: 0.8374633}
-    m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924249}
-    m_rootCenter: {x: 5368.3804, y: 51.823208, z: -17346.152}
-    m_tipCenter: {x: 5368.1045, y: 51.845417, z: -17345.732}
-    m_quaterCenter: {x: 5367.896, y: 51.86593, z: -17346.172}
+    m_forward: {x: -0.83400965, y: 0.07613462, z: -0.546472}
+    m_right: {x: -0.5447343, y: 0.043823108, z: 0.837463}
+    m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924245}
+    m_rootCenter: {x: 5694.5806, y: 51.10321, z: -17152.953}
+    m_tipCenter: {x: 5694.3047, y: 51.12542, z: -17152.533}
+    m_quaterCenter: {x: 5694.096, y: 51.145927, z: -17152.973}
     m_leading_tipLocal: {x: 0.19989857, y: -0.00013240812, z: 0.4962851}
     m_leading_rootLocal: {x: 0.099945225, y: -0.00019283502, z: 0.49825734}
     m_trailing_tipLocal: {x: 0.19997324, y: -0.00030916758, z: -0.4956914}
     m_trailing_rootLocal: {x: 0.10002551, y: -0.00013886705, z: -0.49793434}
-    m_quater_root: {x: 5368.033, y: 51.85489, z: -17346.383}
-    m_quater_tip: {x: 5367.759, y: 51.87697, z: -17345.96}
+    m_quater_root: {x: 5694.2334, y: 51.134888, z: -17153.184}
+    m_quater_tip: {x: 5693.959, y: 51.15697, z: -17152.762}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44638,7 +45591,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.9199955
     "\u1D27LE": 0.37617755
     "\u1D27CT": -0.025801042
-    "\u1D27QT": 0.23635699
+    "\u1D27QT": 0.23632398
     m_area: 0.8374402
     m_wettedArea: 1.7095995
     m_foilArea: 0
@@ -44677,9 +45630,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00007711015
+    "CY\u03B2_CL": 0.00007708807
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.0005309358
+    "Cn\u03B2_CL": 0.0005309173
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -44706,15 +45659,15 @@ MonoBehaviour:
     m_forward: {x: -0.838688, y: 0.07651065, z: -0.5392114}
     m_right: {x: -0.5375036, y: 0.043163244, z: 0.8421563}
     m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924245}
-    m_rootCenter: {x: 5368.1045, y: 51.845417, z: -17345.732}
-    m_tipCenter: {x: 5367.8315, y: 51.86736, z: -17345.31}
-    m_quaterCenter: {x: 5367.6235, y: 51.88783, z: -17345.75}
+    m_rootCenter: {x: 5694.3047, y: 51.12542, z: -17152.533}
+    m_tipCenter: {x: 5694.0317, y: 51.14736, z: -17152.111}
+    m_quaterCenter: {x: 5693.8237, y: 51.16783, z: -17152.55}
     m_leading_tipLocal: {x: 0.29996434, y: -0.00011690668, z: 0.49058512}
     m_leading_rootLocal: {x: 0.19989857, y: -0.00013240812, z: 0.4962851}
     m_trailing_tipLocal: {x: 0.29981393, y: -0.000422773, z: -0.49393725}
     m_trailing_rootLocal: {x: 0.19997324, y: -0.00030916758, z: -0.4956914}
-    m_quater_root: {x: 5367.759, y: 51.87697, z: -17345.96}
-    m_quater_tip: {x: 5367.4883, y: 51.89869, z: -17345.537}
+    m_quater_root: {x: 5693.959, y: 51.15697, z: -17152.762}
+    m_quater_tip: {x: 5693.6885, y: 51.17869, z: -17152.338}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44821,15 +45774,15 @@ MonoBehaviour:
     m_forward: {x: -0.8341768, y: 0.07614808, z: -0.54621494}
     m_right: {x: -0.5444783, y: 0.043799736, z: 0.83763075}
     m_up: {x: 0.08770803, y: 0.99613404, z: 0.004924245}
-    m_rootCenter: {x: 5367.8315, y: 51.86736, z: -17345.31}
-    m_tipCenter: {x: 5367.557, y: 51.889435, z: -17344.89}
-    m_quaterCenter: {x: 5367.3516, y: 51.909664, z: -17345.328}
+    m_rootCenter: {x: 5694.0317, y: 51.14736, z: -17152.111}
+    m_tipCenter: {x: 5693.7573, y: 51.169437, z: -17151.691}
+    m_quaterCenter: {x: 5693.552, y: 51.189667, z: -17152.129}
     m_leading_tipLocal: {x: 0.39981017, y: -0.00047580805, z: 0.48812196}
     m_leading_rootLocal: {x: 0.29996434, y: -0.00011690668, z: 0.49058512}
     m_trailing_tipLocal: {x: 0.39954767, y: -0.00026079736, z: -0.49267027}
     m_trailing_rootLocal: {x: 0.29981393, y: -0.000422773, z: -0.49393725}
-    m_quater_root: {x: 5367.4883, y: 51.89869, z: -17345.537}
-    m_quater_tip: {x: 5367.2153, y: 51.92064, z: -17345.117}
+    m_quater_root: {x: 5693.6885, y: 51.17869, z: -17152.338}
+    m_quater_tip: {x: 5693.4155, y: 51.20064, z: -17151.918}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44919,7 +45872,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.023515062, y: -0.87567097, z: -0.030891966, w: 0.48134515}
+    n_rotation: {x: -0.023515066, y: -0.8756711, z: -0.030891951, w: 0.4813449}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44933,18 +45886,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6432927
     m_tipChord: 1.5709511
-    m_forward: {x: -0.8415471, y: 0.076740116, z: -0.53470516}
-    m_right: {x: -0.53550786, y: 0.01144352, z: 0.8444528}
-    m_up: {x: 0.070922315, y: 0.99698544, z: 0.031464674}
-    m_rootCenter: {x: 5367.557, y: 51.889435, z: -17344.89}
-    m_tipCenter: {x: 5367.272, y: 51.896626, z: -17344.477}
-    m_quaterCenter: {x: 5367.08, y: 51.923546, z: -17344.904}
+    m_forward: {x: -0.8415468, y: 0.07674009, z: -0.53470564}
+    m_right: {x: -0.53550833, y: 0.011443561, z: 0.8444525}
+    m_up: {x: 0.07092229, y: 0.99698544, z: 0.03146466}
+    m_rootCenter: {x: 5693.7573, y: 51.169437, z: -17151.691}
+    m_tipCenter: {x: 5693.472, y: 51.17663, z: -17151.277}
+    m_quaterCenter: {x: 5693.2803, y: 51.203552, z: -17151.705}
     m_leading_tipLocal: {x: 0.49958682, y: -0.15263678, z: 0.47253728}
     m_leading_rootLocal: {x: 0.39981017, y: -0.00047580805, z: 0.48812196}
     m_trailing_tipLocal: {x: 0.49948484, y: -0.15264568, z: -0.46511626}
     m_trailing_rootLocal: {x: 0.39954767, y: -0.00026079736, z: -0.49267027}
-    m_quater_root: {x: 5367.2153, y: 51.92064, z: -17345.117}
-    m_quater_tip: {x: 5366.9453, y: 51.926453, z: -17344.691}
+    m_quater_root: {x: 5693.4155, y: 51.20064, z: -17151.918}
+    m_quater_tip: {x: 5693.1455, y: 51.20646, z: -17151.492}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44983,7 +45936,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.91991305
     "\u1D27LE": 2.9698727
     "\u1D27CT": -1.1413267
-    "\u1D27QT": 1.0377337
+    "\u1D27QT": 1.0377008
     m_area: 0.8078735
     m_wettedArea: 1.6492403
     m_foilArea: 0
@@ -44991,7 +45944,7 @@ MonoBehaviour:
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0013449
-    m_e: 0.7842028
+    m_e: 0.7842029
     m_ARf: 0.55044127
     m_u: 0
     m_v: 0
@@ -45022,9 +45975,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0026822407
+    "CY\u03B2_CL": 0.0026819308
     "\u0394CY\u03B2": -0.000073700496
-    "Cn\u03B2_CL": 0.0024372344
+    "Cn\u03B2_CL": 0.0024369452
     CL: 0
     CD: 0
     Cm: 0
@@ -45051,15 +46004,15 @@ MonoBehaviour:
     m_forward: {x: -0.83795357, y: 0.076451674, z: -0.54036003}
     m_right: {x: -0.5411367, y: 0.011956941, z: 0.84084964}
     m_up: {x: 0.07074541, y: 0.9970016, z: 0.031351443}
-    m_rootCenter: {x: 5367.272, y: 51.896626, z: -17344.477}
-    m_tipCenter: {x: 5366.981, y: 51.90435, z: -17344.066}
-    m_quaterCenter: {x: 5366.8096, y: 51.929417, z: -17344.48}
+    m_rootCenter: {x: 5693.472, y: 51.17663, z: -17151.277}
+    m_tipCenter: {x: 5693.181, y: 51.184353, z: -17150.867}
+    m_quaterCenter: {x: 5693.01, y: 51.209423, z: -17151.281}
     m_leading_tipLocal: {x: 0.5993126, y: -0.304782, z: 0.4546}
     m_leading_rootLocal: {x: 0.49958682, y: -0.15263678, z: 0.47253728}
     m_trailing_tipLocal: {x: 0.59946215, y: -0.30506814, z: -0.42677742}
     m_trailing_rootLocal: {x: 0.49948484, y: -0.15264568, z: -0.46511626}
-    m_quater_root: {x: 5366.9453, y: 51.926453, z: -17344.691}
-    m_quater_tip: {x: 5366.674, y: 51.93238, z: -17344.27}
+    m_quater_root: {x: 5693.1455, y: 51.20646, z: -17151.492}
+    m_quater_tip: {x: 5692.874, y: 51.212387, z: -17151.07}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -45149,7 +46102,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.037381854, y: -0.87757254, z: -0.023142375, w: 0.47742385}
+    n_rotation: {x: -0.037381846, y: -0.8775724, z: -0.023142384, w: 0.47742411}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -45163,18 +46116,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.4762579
     m_tipChord: 1.3920571
-    m_forward: {x: -0.8362179, y: 0.0763122, z: -0.5430619}
-    m_right: {x: -0.54133826, y: 0.043513134, z: 0.8396783}
+    m_forward: {x: -0.83621824, y: 0.07631223, z: -0.54306155}
+    m_right: {x: -0.5413379, y: 0.043513093, z: 0.83967865}
     m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924249}
-    m_rootCenter: {x: 5366.981, y: 51.90435, z: -17344.066}
-    m_tipCenter: {x: 5366.6914, y: 51.927826, z: -17343.656}
-    m_quaterCenter: {x: 5366.538, y: 51.94332, z: -17344.059}
+    m_rootCenter: {x: 5693.181, y: 51.184353, z: -17150.867}
+    m_tipCenter: {x: 5692.8916, y: 51.20783, z: -17150.457}
+    m_quaterCenter: {x: 5692.7383, y: 51.223324, z: -17150.86}
     m_leading_tipLocal: {x: 0.6992281, y: -0.30500737, z: 0.43973315}
     m_leading_rootLocal: {x: 0.5993126, y: -0.304782, z: 0.4546}
     m_trailing_tipLocal: {x: 0.6992069, y: -0.3046757, z: -0.39153513}
     m_trailing_rootLocal: {x: 0.59946215, y: -0.30506814, z: -0.42677742}
-    m_quater_root: {x: 5366.674, y: 51.93238, z: -17344.27}
-    m_quater_tip: {x: 5366.402, y: 51.954258, z: -17343.848}
+    m_quater_root: {x: 5692.874, y: 51.212387, z: -17151.07}
+    m_quater_tip: {x: 5692.602, y: 51.23426, z: -17150.648}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -45213,7 +46166,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.91998225
     "\u1D27LE": 2.8332741
     "\u1D27CT": -1.942387
-    "\u1D27QT": 0.4693229
+    "\u1D27QT": 0.46935588
     m_area: 0.72093195
     m_wettedArea: 1.4717526
     m_foilArea: 0
@@ -45252,9 +46205,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00032811804
+    "CY\u03B2_CL": 0.0003281691
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.00069663615
+    "Cn\u03B2_CL": 0.00069666654
     CL: 0
     CD: 0
     Cm: 0
@@ -45281,15 +46234,15 @@ MonoBehaviour:
     m_forward: {x: -0.83709717, y: 0.07638287, z: -0.54169583}
     m_right: {x: -0.5399778, y: 0.043388978, z: 0.84056044}
     m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924245}
-    m_rootCenter: {x: 5366.6914, y: 51.927826, z: -17343.656}
-    m_tipCenter: {x: 5366.402, y: 51.9513, z: -17343.246}
-    m_quaterCenter: {x: 5366.2666, y: 51.965157, z: -17343.637}
+    m_rootCenter: {x: 5692.8916, y: 51.20783, z: -17150.457}
+    m_tipCenter: {x: 5692.602, y: 51.231304, z: -17150.047}
+    m_quaterCenter: {x: 5692.467, y: 51.24516, z: -17150.438}
     m_leading_tipLocal: {x: 0.79887635, y: -0.3046713, z: 0.42364717}
     m_leading_rootLocal: {x: 0.6992281, y: -0.30500737, z: 0.43973315}
     m_trailing_tipLocal: {x: 0.7992189, y: -0.30484477, z: -0.35507378}
     m_trailing_rootLocal: {x: 0.6992069, y: -0.3046757, z: -0.39153513}
-    m_quater_root: {x: 5366.402, y: 51.954258, z: -17343.848}
-    m_quater_tip: {x: 5366.131, y: 51.976055, z: -17343.426}
+    m_quater_root: {x: 5692.602, y: 51.23426, z: -17150.648}
+    m_quater_tip: {x: 5692.331, y: 51.256058, z: -17150.227}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -45396,15 +46349,15 @@ MonoBehaviour:
     m_forward: {x: -0.8391242, y: 0.076545686, z: -0.53852713}
     m_right: {x: -0.53682214, y: 0.043101087, z: 0.8425939}
     m_up: {x: 0.087708026, y: 0.99613404, z: 0.004924249}
-    m_rootCenter: {x: 5366.402, y: 51.9513, z: -17343.246}
-    m_tipCenter: {x: 5366.1123, y: 51.974777, z: -17342.836}
-    m_quaterCenter: {x: 5365.996, y: 51.9869, z: -17343.215}
+    m_rootCenter: {x: 5692.602, y: 51.231304, z: -17150.047}
+    m_tipCenter: {x: 5692.3125, y: 51.25478, z: -17149.637}
+    m_quaterCenter: {x: 5692.1963, y: 51.2669, z: -17150.016}
     m_leading_tipLocal: {x: 0.8989582, y: -0.30462205, z: 0.4052984}
     m_leading_rootLocal: {x: 0.79887635, y: -0.3046713, z: 0.42364717}
     m_trailing_tipLocal: {x: 0.89879733, y: -0.3047266, z: -0.3163499}
     m_trailing_rootLocal: {x: 0.7992189, y: -0.30484477, z: -0.35507378}
-    m_quater_root: {x: 5366.131, y: 51.976055, z: -17343.426}
-    m_quater_tip: {x: 5365.861, y: 51.99774, z: -17343.002}
+    m_quater_root: {x: 5692.331, y: 51.256058, z: -17150.227}
+    m_quater_tip: {x: 5692.061, y: 51.277744, z: -17149.803}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -45494,7 +46447,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.016700571, y: -0.882287, z: -0.015172086, w: 0.47017083}
+    n_rotation: {x: -0.01670058, y: -0.88228714, z: -0.015172067, w: 0.4701706}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -45508,18 +46461,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.2094377
     m_tipChord: 1.1288416
-    m_forward: {x: -0.8291445, y: 0.042476512, z: -0.55741864}
-    m_right: {x: -0.5573212, y: 0.015202451, z: 0.830158}
-    m_up: {x: 0.04373634, y: 0.9989818, z: 0.011068026}
-    m_rootCenter: {x: 5366.1123, y: 51.974777, z: -17342.836}
-    m_tipCenter: {x: 5365.8154, y: 51.98391, z: -17342.43}
-    m_quaterCenter: {x: 5365.7207, y: 51.996872, z: -17342.793}
+    m_forward: {x: -0.8291442, y: 0.042476483, z: -0.557419}
+    m_right: {x: -0.55732155, y: 0.015202496, z: 0.8301577}
+    m_up: {x: 0.043736335, y: 0.9989818, z: 0.011067996}
+    m_rootCenter: {x: 5692.3125, y: 51.25478, z: -17149.637}
+    m_tipCenter: {x: 5692.0156, y: 51.263912, z: -17149.23}
+    m_quaterCenter: {x: 5691.921, y: 51.27688, z: -17149.594}
     m_leading_tipLocal: {x: 0.9986768, y: -0.6288861, z: 0.39571363}
     m_leading_rootLocal: {x: 0.8989582, y: -0.30462205, z: 0.4052984}
     m_trailing_tipLocal: {x: 0.9987866, y: -0.26828974, z: -0.27785143}
     m_trailing_rootLocal: {x: 0.89879733, y: -0.3047266, z: -0.3163499}
-    m_quater_root: {x: 5365.861, y: 51.99774, z: -17343.002}
-    m_quater_tip: {x: 5365.58, y: 51.996002, z: -17342.586}
+    m_quater_root: {x: 5692.061, y: 51.277744, z: -17149.803}
+    m_quater_tip: {x: 5691.7803, y: 51.27601, z: -17149.387}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -45558,7 +46511,7 @@ MonoBehaviour:
     "m_K\u03B8": 0.91997766
     "\u1D27LE": 1.8275454
     "\u1D27CT": -2.7552388
-    "\u1D27QT": -0.5257192
+    "\u1D27QT": -0.52575225
     m_area: 0.5886396
     m_wettedArea: 1.2016834
     m_foilArea: 0.08680609
@@ -45597,9 +46550,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00042309548
+    "CY\u03B2_CL": 0.00042315593
     "\u0394CY\u03B2": -0.000083700485
-    "Cn\u03B2_CL": 0.00006442948
+    "Cn\u03B2_CL": 0.000064392574
     CL: 0
     CD: 0
     Cm: 0
