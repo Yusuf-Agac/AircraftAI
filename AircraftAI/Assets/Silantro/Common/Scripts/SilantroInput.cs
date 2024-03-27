@@ -68,6 +68,11 @@ namespace Oyedoyin.Common
         public float _yawTrimInput;
         public Vector2 _hatViewInput;
 
+        private float _manoeuvreSpeed = 5;
+        private float _targetPitchInput;
+        private float _targetRollInput;
+        private float _targetYawInput;
+
 
         /// <summary>
         /// 
@@ -232,6 +237,10 @@ namespace Oyedoyin.Common
                 if (m_joystickLever != null) { _rawPitchInput = m_joystickLever.pitchOutput; }
                 if (m_joystickLever != null) { _rawRollInput = m_joystickLever.rollOutput; }
             }
+            
+            _rawPitchInput = Mathf.Lerp(_pitchInput, _targetPitchInput, Time.deltaTime * _manoeuvreSpeed);
+            _rawRollInput = Mathf.Lerp(_rollInput, _targetRollInput, Time.deltaTime * _manoeuvreSpeed);
+            _rawYawInput = Mathf.Lerp(_yawInput, _targetYawInput, Time.deltaTime * _manoeuvreSpeed);
         }
 
         /// <summary>
@@ -290,12 +299,14 @@ namespace Oyedoyin.Common
         /// <summary>
         /// 
         /// </summary>
-        public void SetAgentInputs(ActionBuffers actionBuffer)
+        public void SetAgentInputs(ActionBuffers actionBuffer, float speed)
         {
             _throttleInput = 1;//(actionBuffer.ContinuousActions[0] + 1) / 2f;
-            _rawPitchInput = actionBuffer.ContinuousActions[0];//1];
-            _rawRollInput = actionBuffer.ContinuousActions[1];//2];
-            _rawYawInput = actionBuffer.ContinuousActions[2];//3];
+            _targetPitchInput = actionBuffer.ContinuousActions[0];
+            _targetRollInput = actionBuffer.ContinuousActions[1];
+            _targetYawInput = actionBuffer.ContinuousActions[2];
+            
+            _manoeuvreSpeed = speed;
         }
         
         #region Call Functions
