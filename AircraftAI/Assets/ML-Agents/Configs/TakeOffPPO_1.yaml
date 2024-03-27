@@ -21,9 +21,9 @@ behaviors:
         gamma: 0.99
         strength: 1.0
     keep_checkpoints: 5
-    max_steps: 1500000
+    max_steps: 4000000
     time_horizon: 64
-    summary_freq: 20000
+    summary_freq: 10000
 environment_parameters:
   airport_difficulty:
     curriculum:
@@ -32,8 +32,8 @@ environment_parameters:
           measure: reward
           behavior: AircraftTakeOff
           signal_smoothing: true
-          min_lesson_length: 100
-          threshold: 1
+          min_lesson_length: 200
+          threshold: 1.2
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -44,8 +44,8 @@ environment_parameters:
           measure: reward
           behavior: AircraftTakeOff
           signal_smoothing: true
-          min_lesson_length: 100
-          threshold: 1
+          min_lesson_length: 200
+          threshold: 1.2
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -56,8 +56,8 @@ environment_parameters:
           measure: reward
           behavior: AircraftTakeOff
           signal_smoothing: true
-          min_lesson_length: 100
-          threshold: 1
+          min_lesson_length: 200
+          threshold: 1.2
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -68,8 +68,8 @@ environment_parameters:
           measure: reward
           behavior: AircraftTakeOff
           signal_smoothing: true
-          min_lesson_length: 100
-          threshold: 1
+          min_lesson_length: 200
+          threshold: 1.2
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -80,8 +80,8 @@ environment_parameters:
           measure: reward
           behavior: AircraftTakeOff
           signal_smoothing: true
-          min_lesson_length: 100
-          threshold: 1
+          min_lesson_length: 200
+          threshold: 1.2
         value:
           sampler_type: uniform
           sampler_parameters:
