@@ -1,24 +1,31 @@
 using System;
 using System.Linq;
+using DefaultNamespace;
 using Oyedoyin.FixedWing;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AircraftTakeOffAgent : Agent
 {
-    public AirportPositionNormalizer airportPositionNormalizer;
+    [Range(1f, 25f)] public float manoeuvreSpeed = 10f;
+    public AirportNormalizer airportNormalizer;
     public AircraftCollisionSensors sensors;
-    public AircraftRelativePositionDisplayer relativePositionDisplayer;
+    public AircraftRelativeTransformCanvas relativeTransformCanvas;
 
     private FixedController _aircraftController;
     private float _sparseRewards;
     private float _denseRewards;
     
     private Vector3 NormalizedAircraftPos => _aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded) ? 
-        airportPositionNormalizer.GetNormalizedPosition(transform.position, true) : 
-        airportPositionNormalizer.GetNormalizedPosition(transform.position);
+        airportNormalizer.GetNormalizedPosition(transform.position, true) : 
+        airportNormalizer.GetNormalizedPosition(transform.position);
+    private Vector3 NormalizedAircraftRot => airportNormalizer.GetNormalizedRotation(transform.rotation.eulerAngles);
+    private Vector3 NormalizedExitDirection => airportNormalizer.GetNormalizedExitDirection(transform.position);
+    
+    private Vector3 DirectionToNormalizedRotation(Vector3 direction) => airportNormalizer.GetNormalizedRotation(NormalizerUtility.DirectionToRotation(direction));
 
     private void Start () 
     {
@@ -27,43 +34,59 @@ public class AircraftTakeOffAgent : Agent
     
     public override void OnEpisodeBegin()
     {
-        airportPositionNormalizer.AirportCurriculum();
+        airportNormalizer.AirportCurriculum();
         _aircraftController.RestoreAircraft();
-        airportPositionNormalizer.RandomResetAircraftPosition(transform);
+        if(airportNormalizer.trainingMode) airportNormalizer.RandomResetAircraftPosition(transform);
+        else airportNormalizer.ResetAircraftPosition(transform);
     }
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        relativePositionDisplayer.DisplayRelativePosition(NormalizedAircraftPos);
+        relativeTransformCanvas.DisplayRelativeTransform(
+            NormalizedAircraftPos, 
+            NormalizedAircraftRot, 
+            DirectionToNormalizedRotation(airportNormalizer.NormalizedClosestOptimumPointDirection(transform, 50f)), 
+            airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position), 
+            DirectionToNormalizedRotation(_aircraftController.m_rigidbody.velocity.normalized), 
+            AircraftNormalizer.NormalizedSpeed(_aircraftController),
+            DirectionToNormalizedRotation(NormalizedExitDirection),
+            airportNormalizer.GetNormalizedExitDistance(transform.position)
+            );
         
+        // AIRCRAFT RELATIVE TRANSFORM
         sensor.AddObservation(NormalizedAircraftPos);
-        sensor.AddObservation(airportPositionNormalizer.GetNormalizedExitDirection(_aircraftController.transform.position));
+        sensor.AddObservation(NormalizedAircraftRot);
         
-        var u = _aircraftController.m_core.u;
-        var v = _aircraftController.m_core.v;
-        var speed = (float)Math.Sqrt((u * u) + (v * v)) * 1.944f;
-        sensor.AddObservation(Mathf.Clamp01(speed / 110f));
-        sensor.AddObservation(transform.forward);
-        sensor.AddObservation(_aircraftController.m_rigidbody.velocity.normalized);
+        // EXIT POINT
+        sensor.AddObservation(DirectionToNormalizedRotation(NormalizedExitDirection));
+        sensor.AddObservation(airportNormalizer.GetNormalizedExitDistance(transform.position));
         
+        // AIRCRAFT VELOCITY
+        sensor.AddObservation(AircraftNormalizer.NormalizedSpeed(_aircraftController));
+        sensor.AddObservation(DirectionToNormalizedRotation(_aircraftController.m_rigidbody.velocity.normalized));
+        
+        // COLLISION SENSORS
         sensor.AddObservation(sensors.CollisionSensorsNormalizedLevels());
         
+        // AIRCRAFT GLOBAL ROTATION
+        sensor.AddObservation(transform.forward);
         sensor.AddObservation(Vector3.Dot(transform.forward, Vector3.up));
         sensor.AddObservation(Vector3.Dot(transform.up, Vector3.down));
         
-        sensor.AddObservation(airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform));
-        sensor.AddObservation(airportPositionNormalizer.NormalizedClosestOptimumPointDirection(transform));
+        // OPTIMUM POINT
+        sensor.AddObservation(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position));
+        sensor.AddObservation(DirectionToNormalizedRotation(airportNormalizer.NormalizedClosestOptimumPointDirection(transform, 50f)));
     }
     
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        _aircraftController.m_input.SetAgentInputs(actionBuffers);
+        _aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
         if (_aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded)) _aircraftController.TurnOnEngines();
         
         var outBoundsOfAirport = NormalizedAircraftPos.x == 0.0f || NormalizedAircraftPos.x == 1.0f || NormalizedAircraftPos.y == 1 || NormalizedAircraftPos.z == 0 || NormalizedAircraftPos.z == 1;
-        var illegalAircraftRotation = Vector3.Dot(transform.forward, Vector3.up) > 0.6f || Vector3.Dot(transform.forward, Vector3.up) < -0.6f || Vector3.Dot(transform.up, Vector3.down) > 0;
+        var illegalAircraftRotation = Vector3.Dot(transform.forward, Vector3.up) > 0.4f || Vector3.Dot(transform.forward, Vector3.up) < -0.4f || Vector3.Dot(transform.up, Vector3.down) > 0;
         
-        if (airportPositionNormalizer.GetNormalizedExitDistance(transform.position) < 0.2f)
+        if (airportNormalizer.GetNormalizedExitDistance(transform.position) < 0.02f)
         {
             Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             SetReward(1);
@@ -79,10 +102,10 @@ public class AircraftTakeOffAgent : Agent
         }
         else
         {
-            AddReward(Mathf.Clamp01(1 - (airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform) * 3)) * 0.0007f);
-            _denseRewards += Mathf.Clamp01(1 - (airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform) * 3)) * 0.0007f;
-            AddReward(-Mathf.Clamp01(airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform)) * 0.0007f);
-            _denseRewards -= Mathf.Clamp01(airportPositionNormalizer.NormalizedClosestOptimumPointDistance(transform)) * 0.0007f;
+            AddReward(Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0014f);
+            _denseRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0014f;
+            AddReward(-Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.0007f);
+            _denseRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.0007f;
         }
     }
 }
