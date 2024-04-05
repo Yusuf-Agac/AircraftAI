@@ -10,16 +10,18 @@ using UnityEngine.Serialization;
 
 public class AircraftTakeOffAgent : Agent
 {
-    [Range(1f, 25f)] public float manoeuvreSpeed = 10f;
+    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
+    public int numOfOptimumDirections = 5;
+    public float gapBetweenOptimumDirections = 15f;
     public AirportNormalizer airportNormalizer;
     public AircraftCollisionSensors sensors;
     public AircraftRelativeTransformCanvas relativeTransformCanvas;
-
-    private FixedController _aircraftController;
+    public FixedController aircraftController;
+    
     private float _sparseRewards;
     private float _denseRewards;
     
-    private Vector3 NormalizedAircraftPos => _aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded) ? 
+    private Vector3 NormalizedAircraftPos => aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded) ? 
         airportNormalizer.GetNormalizedPosition(transform.position, true) : 
         airportNormalizer.GetNormalizedPosition(transform.position);
     private Vector3 NormalizedAircraftRot => airportNormalizer.GetNormalizedRotation(transform.rotation.eulerAngles);
@@ -29,13 +31,13 @@ public class AircraftTakeOffAgent : Agent
 
     private void Start () 
     {
-        _aircraftController = GetComponent<FixedController>();
+        aircraftController = GetComponent<FixedController>();
     }
     
     public override void OnEpisodeBegin()
     {
         airportNormalizer.AirportCurriculum();
-        _aircraftController.RestoreAircraft();
+        aircraftController.RestoreAircraft();
         if(airportNormalizer.trainingMode) airportNormalizer.RandomResetAircraftPosition(transform);
         else airportNormalizer.ResetAircraftPosition(transform);
     }
@@ -45,10 +47,10 @@ public class AircraftTakeOffAgent : Agent
         relativeTransformCanvas.DisplayRelativeTransform(
             NormalizedAircraftPos, 
             NormalizedAircraftRot, 
-            DirectionToNormalizedRotation(airportNormalizer.NormalizedClosestOptimumPointDirection(transform, 50f)), 
+            //DirectionToNormalizedRotation(airportNormalizer.NormalizedClosestOptimumPointDirections(transform, 50f)), 
             airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position), 
-            DirectionToNormalizedRotation(_aircraftController.m_rigidbody.velocity.normalized), 
-            AircraftNormalizer.NormalizedSpeed(_aircraftController),
+            DirectionToNormalizedRotation(aircraftController.m_rigidbody.velocity.normalized), 
+            AircraftNormalizer.NormalizedSpeed(aircraftController),
             DirectionToNormalizedRotation(NormalizedExitDirection),
             airportNormalizer.GetNormalizedExitDistance(transform.position)
             );
@@ -62,8 +64,8 @@ public class AircraftTakeOffAgent : Agent
         sensor.AddObservation(airportNormalizer.GetNormalizedExitDistance(transform.position));
         
         // AIRCRAFT VELOCITY
-        sensor.AddObservation(AircraftNormalizer.NormalizedSpeed(_aircraftController));
-        sensor.AddObservation(DirectionToNormalizedRotation(_aircraftController.m_rigidbody.velocity.normalized));
+        sensor.AddObservation(AircraftNormalizer.NormalizedSpeed(aircraftController));
+        sensor.AddObservation(DirectionToNormalizedRotation(aircraftController.m_rigidbody.velocity.normalized));
         
         // COLLISION SENSORS
         sensor.AddObservation(sensors.CollisionSensorsNormalizedLevels());
@@ -75,13 +77,17 @@ public class AircraftTakeOffAgent : Agent
         
         // OPTIMUM POINT
         sensor.AddObservation(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position));
-        sensor.AddObservation(DirectionToNormalizedRotation(airportNormalizer.NormalizedClosestOptimumPointDirection(transform, 50f)));
+        var optimumDirections = airportNormalizer.NormalizedClosestOptimumPointDirections(transform, numOfOptimumDirections, gapBetweenOptimumDirections);
+        foreach (var optimumDirection in optimumDirections)
+        {
+            sensor.AddObservation(DirectionToNormalizedRotation(optimumDirection));
+        }
     }
     
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        _aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
-        if (_aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded)) _aircraftController.TurnOnEngines();
+        aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
+        if (aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded)) aircraftController.TurnOnEngines();
         
         var outBoundsOfAirport = NormalizedAircraftPos.x == 0.0f || NormalizedAircraftPos.x == 1.0f || NormalizedAircraftPos.y == 1 || NormalizedAircraftPos.z == 0 || NormalizedAircraftPos.z == 1;
         var illegalAircraftRotation = Vector3.Dot(transform.forward, Vector3.up) > 0.4f || Vector3.Dot(transform.forward, Vector3.up) < -0.4f || Vector3.Dot(transform.up, Vector3.down) > 0;

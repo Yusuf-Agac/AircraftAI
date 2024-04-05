@@ -33,7 +33,7 @@ environment_parameters:
           behavior: AircraftTakeOff
           signal_smoothing: true
           min_lesson_length: 200
-          threshold: 1.2
+          threshold: 1.6
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -45,7 +45,7 @@ environment_parameters:
           behavior: AircraftTakeOff
           signal_smoothing: true
           min_lesson_length: 200
-          threshold: 1.2
+          threshold: 1.6
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -57,7 +57,7 @@ environment_parameters:
           behavior: AircraftTakeOff
           signal_smoothing: true
           min_lesson_length: 200
-          threshold: 1.2
+          threshold: 1.6
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -69,7 +69,7 @@ environment_parameters:
           behavior: AircraftTakeOff
           signal_smoothing: true
           min_lesson_length: 200
-          threshold: 1.2
+          threshold: 1.6
         value:
           sampler_type: uniform
           sampler_parameters:
@@ -81,11 +81,15 @@ environment_parameters:
           behavior: AircraftTakeOff
           signal_smoothing: true
           min_lesson_length: 200
-          threshold: 1.2
+          threshold: 1.6
         value:
           sampler_type: uniform
           sampler_parameters:
             min_value: 0.8
             max_value: 1.0
       - name: level6
-        value: 1
+        value:
+          sampler_type: uniform
+          sampler_parameters:
+            min_value: 0
+            max_value: 1.0

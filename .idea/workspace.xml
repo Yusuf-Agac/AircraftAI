@@ -5,26 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftNormalizer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftNormalizer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftRelativeTransformCanvas.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/NormalizerUtility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/NormalizerUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/TakeOffPPO_Resume.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/BezierCurveUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/BezierCurveUtility.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/TakeOffPPO_1.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/TakeOffPPO_1.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/TakeOffTraining_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/TakeOffTraining_timers.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/TakeOffTraining.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/TakeOffTraining.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftRelativePositionDisplayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftRelativePositionDisplayer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftRelativeTransformCanvas.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/TakeOffTraining.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/TakeOffTraining.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftRelativeTransformCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftRelativeTransformCanvas.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportPositionNormalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportNormalizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportPositionNormalizer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportNormalizer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportNormalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportNormalizer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +54,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2cDh9PP7K7x4aBvBcBPQ0nh4ZU6" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -71,27 +69,36 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI/Assets/Models/Take-Off&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI/Assets/ML-Agents/Configs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Yusuf\Documents\GitHub\AircraftAI\AircraftAI\Assets\Models\Take-Off" />
       <recent name="C:\Users\Yusuf\Documents\GitHub\AircraftAI\AircraftAI\Assets\ML-Agents\Configs" />
+      <recent name="C:\Users\Yusuf\Documents\GitHub\AircraftAI\AircraftAI\Assets\Models\Take-Off" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Yusuf\Documents\GitHub\AircraftAI\AircraftAI\Assets" />
       <recent name="C:\Users\Yusuf\Documents\GitHub\AircraftAI\AircraftAI" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -133,6 +140,9 @@
       <workItem from="1711381942741" duration="1246000" />
       <workItem from="1711460307038" duration="4120000" />
       <workItem from="1711529642096" duration="2356000" />
+      <workItem from="1712007041089" duration="1476000" />
+      <workItem from="1712055523541" duration="590000" />
+      <workItem from="1712237701709" duration="11793000" />
     </task>
     <servers />
   </component>

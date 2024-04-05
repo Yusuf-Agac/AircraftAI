@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &18515004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,22 +156,30 @@ MonoBehaviour:
   airportStartRight: {fileID: 559262909}
   airportEndLeft: {fileID: 703874155}
   airportEndRight: {fileID: 962001493}
-  aircraftControllers:
-  - {fileID: 2209146688823179861}
+  numberOfPoints: 1000
+  showBezierGizmos: 1
+  showTrainingGizmos: 1
+  showObservationsGizmos: 1
+  showZonesGizmos: 1
+  aircraftAgents:
+  - {fileID: 4608920154714674734}
   trainingMode: 0
-  lerpAirportArea: 0.5
-  resetOffset: 43
-  exitOffset: 100
-  exitHeight: 200
-  extraExitHeight: 50
+  airportLevel: 0.5
+  bezierPoint1: 0.35
+  bezierPoint2: 0.37
+  bezierPoint3: 0.867
+  exitOffsets: 20
+  height: 20
+  extraRandomHeight: 0
+  zResetOffset: 45
   xRandomResetArea: 17
   zRandomResetArea: 25
   xTrainPosition: 100
   zTrainPosition: 100
-  exitTrainHeight: 100
-  aircraftWidth: 10
-  aircraftLength: 10
-  aircraftHeight: 2
+  yTrainPosition: 100
+  safeZoneWidth: 1
+  safeZoneLength: 10
+  safeZoneHeight: 1
 --- !u!4 &18515005
 Transform:
   m_ObjectHideFlags: 0
@@ -400,7 +408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &606254925
 Transform:
   m_ObjectHideFlags: 0
@@ -436,22 +444,30 @@ MonoBehaviour:
   airportStartRight: {fileID: 1369214079}
   airportEndLeft: {fileID: 1230260408}
   airportEndRight: {fileID: 1316546270}
-  aircraftControllers:
-  - {fileID: 2209146688823179861}
+  numberOfPoints: 1000
+  showBezierGizmos: 1
+  showTrainingGizmos: 1
+  showObservationsGizmos: 1
+  showZonesGizmos: 1
+  aircraftAgents:
+  - {fileID: 4608920154714674734}
   trainingMode: 0
-  lerpAirportArea: 0.5
-  resetOffset: 43
-  exitOffset: 100
-  exitHeight: 200
-  extraExitHeight: 50
-  xRandomResetArea: 20
+  airportLevel: 1
+  bezierPoint1: 0.283
+  bezierPoint2: 0.283
+  bezierPoint3: 0.723
+  exitOffsets: 20
+  height: 20
+  extraRandomHeight: 0
+  zResetOffset: 45
+  xRandomResetArea: 15
   zRandomResetArea: 25
-  xTrainPosition: 100
-  zTrainPosition: 100
-  exitTrainHeight: 100
-  aircraftWidth: 5
-  aircraftLength: 10
-  aircraftHeight: 1
+  xTrainPosition: 50
+  zTrainPosition: 0
+  yTrainPosition: 100
+  safeZoneWidth: 1
+  safeZoneLength: 10
+  safeZoneHeight: 1
 --- !u!1 &703874154
 GameObject:
   m_ObjectHideFlags: 0
@@ -6212,9 +6228,14 @@ PrefabInstance:
       objectReference: {fileID: 6626510520726597900}
     - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
+      propertyPath: manoeuvreSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
       propertyPath: airportNormalizer
       value: 
-      objectReference: {fileID: 606254926}
+      objectReference: {fileID: 18515004}
     - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: airportPositionNormalizer
@@ -6250,6 +6271,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
+--- !u!114 &4608920154714674734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4608920154714674733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278f21c3dfc59c54187e21238077da5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &4616045151257248111
 CanvasRenderer:
   m_ObjectHideFlags: 0

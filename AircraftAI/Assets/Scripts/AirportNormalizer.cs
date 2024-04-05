@@ -5,6 +5,7 @@ using DefaultNamespace;
 using Oyedoyin.FixedWing;
 using Unity.MLAgents;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class AirportNormalizer : MonoBehaviour
@@ -12,99 +13,134 @@ public class AirportNormalizer : MonoBehaviour
     [Header("Airport Positions")]
     public Transform airportStartLeft;
     private Vector3 AirportStartLeftDownPosition => airportStartLeft.position;
-    private Vector3 AirportStartLeftUpPosition => AirportStartLeftDownPosition + Vector3.up * (exitHeight + extraExitHeight);
-    private Vector3 AirportStartLeftDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportStartLeftDownTrainPosition, airportStartLeft.position, lerpAirportArea) : airportStartLeft.position;
-    private Vector3 AirportStartLeftUpCurrentPosition => AirportStartLeftDownCurrentPosition + Vector3.up * (exitHeight + extraExitHeight + (trainingMode ? exitTrainHeight * (1 - lerpAirportArea) : 1));
+    private Vector3 AirportStartLeftUpPosition => AirportStartLeftDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
+    private Vector3 AirportStartLeftDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportStartLeftDownTrainPosition, airportStartLeft.position, airportLevel) : airportStartLeft.position;
+    private Vector3 AirportStartLeftUpCurrentPosition => AirportStartLeftDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
     private Vector3 AirportStartLeftDownTrainPosition => airportStartLeft.position - airportStartLeft.right * xTrainPosition -
                                                     airportStartLeft.forward * zTrainPosition;
-    private Vector3 AirportStartLeftUpTrainPosition => AirportStartLeftDownTrainPosition + Vector3.up * (exitHeight + extraExitHeight + exitTrainHeight);
+    private Vector3 AirportStartLeftUpTrainPosition => AirportStartLeftDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
     private Vector3 AirportRandomStartLeft => AirportResetPosition - airportEndRight.right * xRandomResetArea -
                                               airportEndRight.forward * zRandomResetArea;
-    private Vector3 AirportStartLeftSafe => AirportStartLeftDownCurrentPosition + airportStartLeft.right * aircraftWidth +
-                                            airportStartLeft.forward * aircraftLength;
+    private Vector3 AirportStartLeftSafe => AirportStartLeftDownCurrentPosition + airportStartLeft.right * safeZoneWidth +
+                                            airportStartLeft.forward * safeZoneLength;
     
     
     public Transform airportStartRight;
     private Vector3 AirportStartRightDownPosition => airportStartRight.position;
-    private Vector3 AirportStartRightUpPosition => AirportStartRightDownPosition + Vector3.up * (exitHeight + extraExitHeight);
-    private Vector3 AirportStartRightDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportStartRightDownTrainPosition, airportStartRight.position, lerpAirportArea) : airportStartRight.position;
-    private Vector3 AirportStartRightUpCurrentPosition => AirportStartRightDownCurrentPosition + Vector3.up * (exitHeight + extraExitHeight + (trainingMode ? exitTrainHeight * (1 - lerpAirportArea) : 1));
+    private Vector3 AirportStartRightUpPosition => AirportStartRightDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
+    private Vector3 AirportStartRightDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportStartRightDownTrainPosition, airportStartRight.position, airportLevel) : airportStartRight.position;
+    private Vector3 AirportStartRightUpCurrentPosition => AirportStartRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
     private Vector3 AirportStartRightDownTrainPosition => airportStartRight.position + airportStartRight.right * xTrainPosition -
                                                      airportStartRight.forward * zTrainPosition;
-    private Vector3 AirportStartRightUpTrainPosition => AirportStartRightDownTrainPosition + Vector3.up * (exitHeight + extraExitHeight + exitTrainHeight);
+    private Vector3 AirportStartRightUpTrainPosition => AirportStartRightDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
     private Vector3 AirportRandomStartRight => AirportResetPosition + airportEndLeft.right * xRandomResetArea -
                                                airportEndLeft.forward * zRandomResetArea;
-    private Vector3 AirportStartRightSafe => AirportStartRightDownCurrentPosition - airportStartRight.right * aircraftWidth +
-                                             airportStartRight.forward * aircraftLength;
+    private Vector3 AirportStartRightSafe => AirportStartRightDownCurrentPosition - airportStartRight.right * safeZoneWidth +
+                                             airportStartRight.forward * safeZoneLength;
     
 
     public Transform airportEndLeft;
     private Vector3 AirportEndLeftDownPosition => airportEndLeft.position;
-    private Vector3 AirportEndLeftUpPosition => AirportEndLeftDownPosition + Vector3.up * (exitHeight + extraExitHeight);
-    private Vector3 AirportEndLeftDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportEndLeftDownTrainPosition, airportEndLeft.position, lerpAirportArea) : airportEndLeft.position;
-    private Vector3 AirportEndLeftUpCurrentPosition => AirportEndLeftDownCurrentPosition + Vector3.up * (exitHeight + extraExitHeight + (trainingMode ? exitTrainHeight * (1 - lerpAirportArea) : 1));
+    private Vector3 AirportEndLeftUpPosition => AirportEndLeftDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
+    private Vector3 AirportEndLeftDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportEndLeftDownTrainPosition, airportEndLeft.position, airportLevel) : airportEndLeft.position;
+    private Vector3 AirportEndLeftUpCurrentPosition => AirportEndLeftDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
     private Vector3 AirportEndLeftDownTrainPosition => airportEndLeft.position - airportEndLeft.right * xTrainPosition +
                                                   airportEndLeft.forward * zTrainPosition;
-    private Vector3 AirportEndLeftUpTrainPosition => AirportEndLeftDownTrainPosition + Vector3.up * (exitHeight + extraExitHeight + exitTrainHeight);
+    private Vector3 AirportEndLeftUpTrainPosition => AirportEndLeftDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
     private Vector3 AirportRandomEndLeft => AirportResetPosition - airportStartRight.right * xRandomResetArea +
                                             airportStartRight.forward * zRandomResetArea;
-    private Vector3 AirportEndLeftSafe => AirportEndLeftDownCurrentPosition + airportEndLeft.right * aircraftWidth -
-                                          airportEndLeft.forward * aircraftLength;
+    private Vector3 AirportEndLeftSafe => AirportEndLeftDownCurrentPosition + airportEndLeft.right * safeZoneWidth -
+                                          airportEndLeft.forward * safeZoneLength;
     
 
     public Transform airportEndRight;
     private Vector3 AirportEndRightDownPosition => airportEndRight.position;
-    private Vector3 AirportEndRightUpPosition => AirportEndRightDownPosition + Vector3.up * (exitHeight + extraExitHeight);
-    private Vector3 AirportEndRightDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportEndRightDownTrainPosition, airportEndRight.position, lerpAirportArea) : airportEndRight.position;
-    private Vector3 AirportEndRightUpCurrentPosition => AirportEndRightDownCurrentPosition + Vector3.up * (exitHeight + extraExitHeight + (trainingMode ? exitTrainHeight * (1 - lerpAirportArea) : 1));
+    private Vector3 AirportEndRightUpPosition => AirportEndRightDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
+    private Vector3 AirportEndRightDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportEndRightDownTrainPosition, airportEndRight.position, airportLevel) : airportEndRight.position;
+    private Vector3 AirportEndRightUpCurrentPosition => AirportEndRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
     private Vector3 AirportEndRightDownTrainPosition => airportEndRight.position + airportEndRight.right * xTrainPosition +
                                                    airportEndRight.forward * zTrainPosition;
-    private Vector3 AirportEndRightUpTrainPosition => AirportEndRightDownTrainPosition + Vector3.up * (exitHeight + extraExitHeight + exitTrainHeight);
+    private Vector3 AirportEndRightUpTrainPosition => AirportEndRightDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
     private Vector3 AirportRandomEndRight => AirportResetPosition + airportStartLeft.right * xRandomResetArea +
                                              airportStartLeft.forward * zRandomResetArea;
-    private Vector3 AirportEndRightSafe => AirportEndRightDownCurrentPosition - airportEndRight.right * aircraftWidth -
-                                           airportEndRight.forward * aircraftLength;
+    private Vector3 AirportEndRightSafe => AirportEndRightDownCurrentPosition - airportEndRight.right * safeZoneWidth -
+                                           airportEndRight.forward * safeZoneLength;
     
     
-    private Vector3 AirportStartPosition => (AirportStartLeftDownCurrentPosition + AirportStartRightDownCurrentPosition) / 2;
-    private Vector3 AirportEndPosition => (AirportEndLeftDownCurrentPosition + AirportEndRightDownCurrentPosition) / 2;
+    private Vector3 AirportDownStartPosition => (AirportStartLeftDownCurrentPosition + AirportStartRightDownCurrentPosition) / 2;
+    private Vector3 AirportDownEndPosition => (AirportEndLeftDownCurrentPosition + AirportEndRightDownCurrentPosition) / 2;
+    private Vector3 AirportUpStartPosition => (AirportStartLeftUpCurrentPosition + AirportStartRightUpCurrentPosition) / 2;
+    private Vector3 AirportUpEndPosition => (AirportEndLeftUpCurrentPosition + AirportEndRightUpCurrentPosition) / 2;
     private Vector3 AirportResetPosition =>
-        AirportStartPosition + AirportDirection * resetOffset + Vector3.up * aircraftHeight;
-    private Vector3 AirportExitPosition => AirportEndPosition - (AirportDirection * exitOffset) + Vector3.up * (exitHeight + (trainingMode ? exitTrainHeight * (1 - lerpAirportArea) : 1));
-    private Vector3 AirportDirection => (AirportEndPosition - AirportStartPosition).normalized;
-    private float AirportMaxDistance => Vector3.Distance(AirportStartLeftDownCurrentPosition, AirportEndRightDownCurrentPosition + Vector3.up * (exitHeight + extraExitHeight + exitTrainHeight * (1 - lerpAirportArea)));
+        AirportDownStartPosition + AirportDirection * zResetOffset + Vector3.up * safeZoneHeight;
+    private Vector3 AirportExitPosition => AirportDownEndPosition - (AirportDirection * exitOffset) + Vector3.up * (ExitHeight + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
+    private Vector3 BezierControlPoint1 => Vector3.Lerp(AirportDownStartPosition, AirportDownEndPosition, bezierPoint1);
+    private Vector3 BezierControlPoint2 => Vector3.Lerp(AirportDownStartPosition, AirportDownEndPosition, bezierPoint2);
+    private Vector3 BezierControlPoint3 => Vector3.Lerp(AirportUpStartPosition - Vector3.up * (HeightOffset), AirportUpEndPosition - Vector3.up * (HeightOffset), bezierPoint3);
+    private Vector3 AirportDirection => (AirportDownEndPosition - AirportDownStartPosition).normalized;
+    private float AirportMaxDistance => Vector3.Distance(AirportStartLeftDownCurrentPosition, AirportEndRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition * (1 - airportLevel)));
     
-
+    public int numberOfPoints = 1000;
+    private Vector3[] BezierPoints => new[] {AirportResetPosition, BezierControlPoint1, BezierControlPoint2, BezierControlPoint3, AirportExitPosition};
     [Space(10)] 
-    public List<FixedController> aircraftControllers;
+    [SerializeField] private bool showBezierGizmos;
+    [SerializeField] private bool showTrainingGizmos;
+    [SerializeField] private bool showObservationsGizmos;
+    [SerializeField] private bool showZonesGizmos;
+    
+    
+    [Space(10)] 
+    public List<AircraftTakeOffAgent> aircraftAgents;
 
     [Header("Configurations")] 
     public bool trainingMode;
-    [Range(0f, 1f), SerializeField] private float lerpAirportArea = 0.5f;
+    [Range(0f, 1f), SerializeField] private float airportLevel = 0.5f;
+    [Range(0f, 1f), SerializeField] private float bezierPoint1 = 0.35f;
+    [Range(0f, 1f), SerializeField] private float bezierPoint2 = 0.37f;
+    [Range(0f, 1f), SerializeField] private float bezierPoint3 = 0.7f;
     [Space(10)]
-    public float resetOffset = 10f;
-    public float exitOffset = 100f;
-    public float exitHeight = 100f;
-    public float extraExitHeight = 20f;
+    
     [Space(10)]
+    [Range(0, 100f)]public float exitOffsets = 20f;
+    private float exitOffset
+    {
+        get => exitOffsets * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.001f;
+        set => exitOffsets = value;
+    }
+    [Range(0, 100f)] public float height = 20f;
+    private float HeightOffset
+    {
+        get => height * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.001f;
+        set => height = value;
+    }
+    [Range(0, 100f)] public float extraRandomHeight;
+    private float RandomHeightOffset
+    {
+        get => extraRandomHeight * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.00025f;
+        set => extraRandomHeight = value;
+    }
+    private float ExitHeight => Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) / 25f;
+    [Space(10)]
+    public float zResetOffset = 45f;
     public float xRandomResetArea = 30f;
     public float zRandomResetArea = 30f;
-    [Space(5)]
+    [Space(10)]
     public float xTrainPosition = 100f;
     public float zTrainPosition = 100f;
-    public float exitTrainHeight = 100f;
+    public float yTrainPosition = 100f;
     [Space(10)]
-    public float aircraftWidth = 1f;
-    public float aircraftLength = 10f;
-    public float aircraftHeight = 1f;
+    public float safeZoneWidth = 1f;
+    public float safeZoneLength = 10f;
+    public float safeZoneHeight = 1f;
 
     public void AirportCurriculum()
     {
         if(!trainingMode) return;
         
-        lerpAirportArea = Mathf.Clamp01(Academy.Instance.EnvironmentParameters.GetWithDefault("airport_difficulty", 1));
+        airportLevel = Mathf.Clamp01(Academy.Instance.EnvironmentParameters.GetWithDefault("airport_difficulty", 1));
         transform.rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
-        Debug.Log($"Airport Difficulty: {lerpAirportArea}" + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
+        RandomHeightOffset = Random.Range(0f, 100f);
+        Debug.Log($"Airport Difficulty: {airportLevel}" + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
     }
 
     public void ResetAircraftPosition(Transform aircraft)
@@ -135,7 +171,7 @@ public class AirportNormalizer : MonoBehaviour
         var xLine = (isSafePosition ? AirportStartRightSafe : AirportStartRightDownCurrentPosition) - pivot;
         var x = Vector3.Dot(position - pivot, xLine) / Vector3.Dot(xLine, xLine);
         
-        var y = (position.y - pivot.y + aircraftHeight) / (exitHeight + extraExitHeight + (trainingMode ? exitTrainHeight * (1 - lerpAirportArea) : 1));
+        var y = (position.y - pivot.y + safeZoneHeight) / (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
         
         return new Vector3(Mathf.Clamp01(x), Mathf.Clamp01(y), Mathf.Clamp01(z));
     }
@@ -156,23 +192,28 @@ public class AirportNormalizer : MonoBehaviour
     
     public float NormalizedClosestOptimumPointDistance(Vector3 aircraftPos)
     {
-        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, aircraftPos);
-        return Vector3.Distance(closestPoint, aircraftPos) / ((AirportExitPosition - AirportResetPosition).y + extraExitHeight);
+        var closestPoint = BezierCurveUtility.FindClosestPoint(aircraftPos, BezierPoints, numberOfPoints);
+        return Vector3.Distance(closestPoint, aircraftPos) / ((AirportExitPosition - AirportResetPosition).y + HeightOffset + RandomHeightOffset);
     }
     
-    public Vector3 NormalizedClosestOptimumPointDirection(Transform aircraftTransform, float extraDistance = 0f)
+    public Vector3[] NormalizedClosestOptimumPointDirections(Transform aircraftTransform, int numOfOptimumDirections, float gapBetweenOptimumDirections)
     {
-        var closestPoint = ClosestPointOnLine(AirportResetPosition, AirportExitPosition, aircraftTransform.position + aircraftTransform.forward * extraDistance);
-        return (closestPoint - aircraftTransform.position).normalized;
+        var directions = new Vector3[numOfOptimumDirections];
+        for (int i = 0; i < numOfOptimumDirections; i++)
+        {
+            var closestPoint = BezierCurveUtility.FindClosestPoint(aircraftTransform.position + aircraftTransform.forward * ((i * gapBetweenOptimumDirections) + 30f), BezierPoints, numberOfPoints);
+            directions[i] = (closestPoint - aircraftTransform.position).normalized;
+        }
+        return directions;
     }
     
-    private Vector3 ClosestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
+    /*private Vector3 ClosestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
     {
         var lineDirection = (lineEnd - lineStart).normalized;
         var pointDirection = (point - lineStart);
         var distance = Vector3.Dot(pointDirection, lineDirection);
         return lineStart + lineDirection * Mathf.Clamp(distance, 0, Vector3.Distance(lineStart, lineEnd));
-    }
+    }*/
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
@@ -180,59 +221,64 @@ public class AirportNormalizer : MonoBehaviour
         if (airportStartLeft == null || airportStartRight == null || airportEndLeft == null || airportEndRight == null) return;
 
         Gizmos.color = trainingMode ? new Color(1, 0, 0, 0.2f) : Color.red;
-        Gizmos.DrawLine(AirportStartLeftDownPosition, AirportStartRightDownPosition);
-        Gizmos.DrawLine(AirportEndLeftDownPosition, AirportEndRightDownPosition);
-        Gizmos.DrawLine(AirportStartLeftDownPosition, AirportEndLeftDownPosition);
-        Gizmos.DrawLine(AirportStartRightDownPosition, AirportEndRightDownPosition);
+        if (!trainingMode || showTrainingGizmos)
+        {
+            Gizmos.DrawLine(AirportStartLeftDownPosition, AirportStartRightDownPosition);
+            Gizmos.DrawLine(AirportEndLeftDownPosition, AirportEndRightDownPosition);
+            Gizmos.DrawLine(AirportStartLeftDownPosition, AirportEndLeftDownPosition);
+            Gizmos.DrawLine(AirportStartRightDownPosition, AirportEndRightDownPosition);
         
-        Gizmos.DrawSphere(AirportStartLeftDownPosition, 2);
-        Gizmos.DrawSphere(AirportStartRightDownPosition, 2);
-        Gizmos.DrawSphere(AirportEndLeftDownPosition, 2);
-        Gizmos.DrawSphere(AirportEndRightDownPosition, 2);
+            Gizmos.DrawSphere(AirportStartLeftDownPosition, 2);
+            Gizmos.DrawSphere(AirportStartRightDownPosition, 2);
+            Gizmos.DrawSphere(AirportEndLeftDownPosition, 2);
+            Gizmos.DrawSphere(AirportEndRightDownPosition, 2);
         
-        Gizmos.DrawLine(AirportStartLeftUpPosition, AirportStartRightUpPosition);
-        Gizmos.DrawLine(AirportEndLeftUpPosition, AirportEndRightUpPosition);
-        Gizmos.DrawLine(AirportStartLeftUpPosition, AirportEndLeftUpPosition);
-        Gizmos.DrawLine(AirportStartRightUpPosition, AirportEndRightUpPosition);
+            Gizmos.DrawLine(AirportStartLeftUpPosition, AirportStartRightUpPosition);
+            Gizmos.DrawLine(AirportEndLeftUpPosition, AirportEndRightUpPosition);
+            Gizmos.DrawLine(AirportStartLeftUpPosition, AirportEndLeftUpPosition);
+            Gizmos.DrawLine(AirportStartRightUpPosition, AirportEndRightUpPosition);
         
-        Gizmos.DrawSphere(AirportStartLeftUpPosition, 2);
-        Gizmos.DrawSphere(AirportStartRightUpPosition, 2);
-        Gizmos.DrawSphere(AirportEndLeftUpPosition, 2);
-        Gizmos.DrawSphere(AirportEndRightUpPosition, 2);
+            Gizmos.DrawSphere(AirportStartLeftUpPosition, 2);
+            Gizmos.DrawSphere(AirportStartRightUpPosition, 2);
+            Gizmos.DrawSphere(AirportEndLeftUpPosition, 2);
+            Gizmos.DrawSphere(AirportEndRightUpPosition, 2);
         
-        Gizmos.DrawLine(AirportStartLeftDownPosition, AirportStartLeftUpPosition);
-        Gizmos.DrawLine(AirportStartRightDownPosition, AirportStartRightUpPosition);
-        Gizmos.DrawLine(AirportEndLeftDownPosition, AirportEndLeftUpPosition);
-        Gizmos.DrawLine(AirportEndRightDownPosition, AirportEndRightUpPosition);
-
+            Gizmos.DrawLine(AirportStartLeftDownPosition, AirportStartLeftUpPosition);
+            Gizmos.DrawLine(AirportStartRightDownPosition, AirportStartRightUpPosition);
+            Gizmos.DrawLine(AirportEndLeftDownPosition, AirportEndLeftUpPosition);
+            Gizmos.DrawLine(AirportEndRightDownPosition, AirportEndRightUpPosition);
+        }
+        
         if (trainingMode)
         {
-            Gizmos.color = new Color(1, 1, 0, 0.2f);
-            Gizmos.DrawLine(AirportStartLeftDownTrainPosition, AirportStartRightDownTrainPosition);
-            Gizmos.DrawLine(AirportEndLeftDownTrainPosition, AirportEndRightDownTrainPosition);
-            Gizmos.DrawLine(AirportStartLeftDownTrainPosition, AirportEndLeftDownTrainPosition);
-            Gizmos.DrawLine(AirportStartRightDownTrainPosition, AirportEndRightDownTrainPosition);
+            if (showTrainingGizmos)
+            {
+                Gizmos.color = new Color(1, 1, 0, 0.2f);
+                Gizmos.DrawLine(AirportStartLeftDownTrainPosition, AirportStartRightDownTrainPosition);
+                Gizmos.DrawLine(AirportEndLeftDownTrainPosition, AirportEndRightDownTrainPosition);
+                Gizmos.DrawLine(AirportStartLeftDownTrainPosition, AirportEndLeftDownTrainPosition);
+                Gizmos.DrawLine(AirportStartRightDownTrainPosition, AirportEndRightDownTrainPosition);
         
-            Gizmos.DrawSphere(AirportStartLeftDownTrainPosition, 2);
-            Gizmos.DrawSphere(AirportStartRightDownTrainPosition, 2);
-            Gizmos.DrawSphere(AirportEndLeftDownTrainPosition, 2);
-            Gizmos.DrawSphere(AirportEndRightDownTrainPosition, 2);
+                Gizmos.DrawSphere(AirportStartLeftDownTrainPosition, 2);
+                Gizmos.DrawSphere(AirportStartRightDownTrainPosition, 2);
+                Gizmos.DrawSphere(AirportEndLeftDownTrainPosition, 2);
+                Gizmos.DrawSphere(AirportEndRightDownTrainPosition, 2);
             
-            Gizmos.DrawLine(AirportStartLeftUpTrainPosition, AirportStartRightUpTrainPosition);
-            Gizmos.DrawLine(AirportEndLeftUpTrainPosition, AirportEndRightUpTrainPosition);
-            Gizmos.DrawLine(AirportStartLeftUpTrainPosition, AirportEndLeftUpTrainPosition);
-            Gizmos.DrawLine(AirportStartRightUpTrainPosition, AirportEndRightUpTrainPosition);
+                Gizmos.DrawLine(AirportStartLeftUpTrainPosition, AirportStartRightUpTrainPosition);
+                Gizmos.DrawLine(AirportEndLeftUpTrainPosition, AirportEndRightUpTrainPosition);
+                Gizmos.DrawLine(AirportStartLeftUpTrainPosition, AirportEndLeftUpTrainPosition);
+                Gizmos.DrawLine(AirportStartRightUpTrainPosition, AirportEndRightUpTrainPosition);
             
-            Gizmos.DrawSphere(AirportStartLeftUpTrainPosition, 2);
-            Gizmos.DrawSphere(AirportStartRightUpTrainPosition, 2);
-            Gizmos.DrawSphere(AirportEndLeftUpTrainPosition, 2);
-            Gizmos.DrawSphere(AirportEndRightUpTrainPosition, 2);
+                Gizmos.DrawSphere(AirportStartLeftUpTrainPosition, 2);
+                Gizmos.DrawSphere(AirportStartRightUpTrainPosition, 2);
+                Gizmos.DrawSphere(AirportEndLeftUpTrainPosition, 2);
+                Gizmos.DrawSphere(AirportEndRightUpTrainPosition, 2);
 
-            Gizmos.DrawLine(AirportStartLeftUpTrainPosition, AirportStartLeftDownTrainPosition);
-            Gizmos.DrawLine(AirportStartRightUpTrainPosition, AirportStartRightDownTrainPosition);
-            Gizmos.DrawLine(AirportEndLeftUpTrainPosition, AirportEndLeftDownTrainPosition);
-            Gizmos.DrawLine(AirportEndRightUpTrainPosition, AirportEndRightDownTrainPosition);
-            
+                Gizmos.DrawLine(AirportStartLeftUpTrainPosition, AirportStartLeftDownTrainPosition);
+                Gizmos.DrawLine(AirportStartRightUpTrainPosition, AirportStartRightDownTrainPosition);
+                Gizmos.DrawLine(AirportEndLeftUpTrainPosition, AirportEndLeftDownTrainPosition);
+                Gizmos.DrawLine(AirportEndRightUpTrainPosition, AirportEndRightDownTrainPosition);
+            }
             Gizmos.color = Color.red;
             Gizmos.DrawLine(AirportStartLeftDownCurrentPosition, AirportStartRightDownCurrentPosition);
             Gizmos.DrawLine(AirportEndLeftDownCurrentPosition, AirportEndRightDownCurrentPosition);
@@ -259,50 +305,81 @@ public class AirportNormalizer : MonoBehaviour
             Gizmos.DrawLine(AirportEndLeftUpCurrentPosition, AirportEndLeftDownCurrentPosition);
             Gizmos.DrawLine(AirportEndRightUpCurrentPosition, AirportEndRightDownCurrentPosition);
         }
+
+        if (showZonesGizmos)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(AirportStartLeftSafe, AirportStartRightSafe);
+            Gizmos.DrawLine(AirportEndLeftSafe, AirportEndRightSafe);
+            Gizmos.DrawLine(AirportStartLeftSafe, AirportEndLeftSafe);
+            Gizmos.DrawLine(AirportStartRightSafe, AirportEndRightSafe);
+            
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(AirportRandomStartLeft, AirportRandomStartRight);
+            Gizmos.DrawLine(AirportRandomEndLeft, AirportRandomEndRight);
+            Gizmos.DrawLine(AirportRandomStartLeft, AirportRandomEndLeft);
+            Gizmos.DrawLine(AirportRandomStartRight, AirportRandomEndRight);
+        }
         
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(AirportStartLeftSafe, AirportStartRightSafe);
-        Gizmos.DrawLine(AirportEndLeftSafe, AirportEndRightSafe);
-        Gizmos.DrawLine(AirportStartLeftSafe, AirportEndLeftSafe);
-        Gizmos.DrawLine(AirportStartRightSafe, AirportEndRightSafe);
 
         Gizmos.color = new Color(0, 1, 0, 0.4f);
         Gizmos.DrawSphere(AirportResetPosition, 2f);
         Gizmos.DrawSphere(AirportExitPosition, 0.02f * AirportMaxDistance);
         
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(AirportRandomStartLeft, AirportRandomStartRight);
-        Gizmos.DrawLine(AirportRandomEndLeft, AirportRandomEndRight);
-        Gizmos.DrawLine(AirportRandomStartLeft, AirportRandomEndLeft);
-        Gizmos.DrawLine(AirportRandomStartRight, AirportRandomEndRight);
-        
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(AirportResetPosition, AirportExitPosition);
-        
-        foreach (var controller in aircraftControllers)
+        if (showBezierGizmos)
         {
-            // VELOCITY
-            if (controller.m_core && controller.m_rigidbody)
+            Gizmos.color = Color.blue;
+        
+            Gizmos.DrawSphere(BezierControlPoint1, 10);
+            Gizmos.DrawSphere(BezierControlPoint2, 10);
+            Gizmos.DrawSphere(BezierControlPoint3, 10);
+        
+            for (int i = 0; i <= numberOfPoints; i++)
             {
-                var u = controller.m_core.u;
-                var v = controller.m_core.v;
-                var speed = Mathf.Clamp01(((float)Math.Sqrt((u * u) + (v * v)) * 1.944f) / 110f);
-                Gizmos.color = new Color(1 - speed, speed, 0, 1);
-                Gizmos.DrawRay(controller.transform.position, controller.m_rigidbody.velocity * 0.7f);
+                float t = i / (float)numberOfPoints;
+                Vector3 point = BezierCurveUtility.CalculateBezierPoint(t, BezierPoints);
+
+                if (i > 0)
+                {
+                    Vector3 previousPoint = BezierCurveUtility.CalculateBezierPoint((i - 1) / (float)numberOfPoints, BezierPoints);
+                    Gizmos.DrawLine(previousPoint, point);
+                }
             }
+        }
+
+        if (showObservationsGizmos)
+        {
+            foreach (var agent in aircraftAgents)
+            {
+                var controller = agent.aircraftController;
+                // VELOCITY
+                if (controller.m_core && controller.m_rigidbody)
+                {
+                    var u = controller.m_core.u;
+                    var v = controller.m_core.v;
+                    var speed = Mathf.Clamp01(((float)Math.Sqrt((u * u) + (v * v)) * 1.944f) / 110f);
+                    Gizmos.color = new Color(1 - speed, speed, 0, 1);
+                    Gizmos.DrawRay(controller.transform.position, controller.m_rigidbody.velocity * 0.7f);
+                }
             
-            // OBSERVATION
-            Gizmos.color = Color.white;
-            var aircraftPos = controller.transform.position + controller.transform.forward * 50f;
-            Gizmos.DrawSphere(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, aircraftPos), 0.3f);
-            Gizmos.DrawLine(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, aircraftPos), controller.transform.position);
-            Gizmos.DrawLine(AirportExitPosition, controller.transform.position);
+                // OBSERVATION
+                Gizmos.color = Color.white;
+                for (int i = 0; i < agent.numOfOptimumDirections; i++)
+                {
+                    var aircraftPos = controller.transform.position + controller.transform.forward * ((i * agent.gapBetweenOptimumDirections) + 30f);
+                    var closestPoint = BezierCurveUtility.FindClosestPoint(aircraftPos, BezierPoints, numberOfPoints);
+                    Gizmos.DrawSphere(closestPoint, 0.3f);
+                    Gizmos.DrawLine(closestPoint, controller.transform.position);
+                    Gizmos.DrawLine(AirportExitPosition, controller.transform.position);
+                }
             
-            // REWARD
-            var reward = Mathf.Clamp01(1 - (NormalizedClosestOptimumPointDistance(controller.transform.position) * 3)) - Mathf.Clamp01(NormalizedClosestOptimumPointDistance(controller.transform.position));
-            Gizmos.color = new Color(1 - reward, reward, 0, 1);
-            Gizmos.DrawSphere(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, controller.transform.position), 0.3f);
-            Gizmos.DrawLine(ClosestPointOnLine(AirportResetPosition, AirportExitPosition, controller.transform.position), controller.transform.position);
+                // REWARD
+                var reward = Mathf.Clamp01(1 - (NormalizedClosestOptimumPointDistance(controller.transform.position) * 3)) - Mathf.Clamp01(NormalizedClosestOptimumPointDistance(controller.transform.position));
+                Gizmos.color = new Color(1 - reward, reward, 0, 1);
+                var closestPointReward = BezierCurveUtility.FindClosestPoint(controller.transform.position, BezierPoints, numberOfPoints);
+                Gizmos.DrawSphere(closestPointReward, 0.3f);
+                Gizmos.DrawLine(closestPointReward, controller.transform.position);
+            }
         }
     }
 #endif

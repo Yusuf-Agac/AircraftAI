@@ -13,11 +13,10 @@ public class AircraftRelativeTransformCanvas : MonoBehaviour
     [SerializeField] private TMP_Text exitDirectionText;
     [SerializeField] private TMP_Text exitDistanceText;
     
-    public void DisplayRelativeTransform(Vector3 relativePosition, Vector3 relativeRotation, Vector3 targetPointLookRot, float idealPointDistance, Vector3 velocityDir, float speed, Vector3 exitDirection, float exitDistance)
+    public void DisplayRelativeTransform(Vector3 relativePosition, Vector3 relativeRotation, float idealPointDistance, Vector3 velocityDir, float speed, Vector3 exitDirection, float exitDistance)
     {
         DisplayRelativePosition(relativePosition);
         DisplayRelativeRotation(relativeRotation);
-        DisplayTargetPointLookRot(targetPointLookRot);
         DisplayIdealPointDistance(idealPointDistance);
         DisplayVelocityDir(velocityDir);
         DisplaySpeed(speed);
