@@ -18,6 +18,7 @@ public class AircraftTakeOffAgent : Agent
     public AircraftRelativeTransformCanvas relativeTransformCanvas;
     public FixedController aircraftController;
     
+    private float[] _previousActions = new float[3] {0, 0, 0};
     private float _sparseRewards;
     private float _denseRewards;
     
@@ -82,6 +83,9 @@ public class AircraftTakeOffAgent : Agent
         {
             sensor.AddObservation(DirectionToNormalizedRotation(optimumDirection));
         }
+        
+        // AIRCRAFT INPUTS
+        sensor.AddObservation(_previousActions);
     }
     
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -108,10 +112,18 @@ public class AircraftTakeOffAgent : Agent
         }
         else
         {
-            AddReward(Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0014f);
-            _denseRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0014f;
-            AddReward(-Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.0007f);
-            _denseRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.0007f;
+            AddReward(Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0001f);
+            _denseRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0001f;
+            AddReward(-Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00005f);
+            _denseRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00005f;
+
+            for (int i = 0; i < _previousActions.Length; i++)
+            {
+                var actionDifference = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
+                AddReward(-0.0001f * actionDifference);
+                _denseRewards -= 0.0001f * actionDifference;
+            }
         }
+        _previousActions = actionBuffers.ContinuousActions.ToArray();
     }
 }
