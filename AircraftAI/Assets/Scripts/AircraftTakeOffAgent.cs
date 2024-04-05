@@ -11,8 +11,11 @@ using UnityEngine.Serialization;
 public class AircraftTakeOffAgent : Agent
 {
     [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
+    public float maxWindSpeed = 10f;
+    public float maxTurbulence = 10f;
     public int numOfOptimumDirections = 5;
     public float gapBetweenOptimumDirections = 15f;
+    [Space(10)]
     public AirportNormalizer airportNormalizer;
     public AircraftCollisionSensors sensors;
     public AircraftRelativeTransformCanvas relativeTransformCanvas;
@@ -45,15 +48,20 @@ public class AircraftTakeOffAgent : Agent
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        relativeTransformCanvas.DisplayRelativeTransform(
+        AtmosphereController.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence);
+        var windData = AircraftNormalizer.NormalizedWind(aircraftController, maxWindSpeed, maxTurbulence);
+        
+        relativeTransformCanvas.DisplaySimData(
             NormalizedAircraftPos, 
-            NormalizedAircraftRot, 
-            //DirectionToNormalizedRotation(airportNormalizer.NormalizedClosestOptimumPointDirections(transform, 50f)), 
+            NormalizedAircraftRot,
             airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position), 
             DirectionToNormalizedRotation(aircraftController.m_rigidbody.velocity.normalized), 
             AircraftNormalizer.NormalizedSpeed(aircraftController),
             DirectionToNormalizedRotation(NormalizedExitDirection),
-            airportNormalizer.GetNormalizedExitDistance(transform.position)
+            airportNormalizer.GetNormalizedExitDistance(transform.position),
+            windData[0] * 360,
+            windData[1] * maxWindSpeed,
+            windData[2] * maxTurbulence
             );
         
         // AIRCRAFT RELATIVE TRANSFORM
@@ -86,6 +94,9 @@ public class AircraftTakeOffAgent : Agent
         
         // AIRCRAFT INPUTS
         sensor.AddObservation(_previousActions);
+        
+        // ATMOSPHERE
+        sensor.AddObservation(windData);
     }
     
     public override void OnActionReceived(ActionBuffers actionBuffers)
