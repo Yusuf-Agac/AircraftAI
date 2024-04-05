@@ -14,11 +14,11 @@ public class AirportNormalizer : MonoBehaviour
     public Transform airportStartLeft;
     private Vector3 AirportStartLeftDownPosition => airportStartLeft.position;
     private Vector3 AirportStartLeftUpPosition => AirportStartLeftDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
-    private Vector3 AirportStartLeftDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportStartLeftDownTrainPosition, airportStartLeft.position, airportLevel) : airportStartLeft.position;
-    private Vector3 AirportStartLeftUpCurrentPosition => AirportStartLeftDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
-    private Vector3 AirportStartLeftDownTrainPosition => airportStartLeft.position - airportStartLeft.right * xTrainPosition -
-                                                    airportStartLeft.forward * zTrainPosition;
-    private Vector3 AirportStartLeftUpTrainPosition => AirportStartLeftDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
+    private Vector3 AirportStartLeftDownCurrentPosition => trainingMode ? airportStartLeft.position + airportStartLeft.right * -extraRandomWidth * trainWidthBounds + airportStartLeft.forward * -extraRandomLength * trainLengthBounds : airportStartLeft.position;
+    private Vector3 AirportStartLeftUpCurrentPosition => AirportStartLeftDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
+    private Vector3 AirportStartLeftDownTrainPosition => airportStartLeft.position - airportStartLeft.right * trainWidthBounds -
+                                                    airportStartLeft.forward * trainLengthBounds;
+    private Vector3 AirportStartLeftUpTrainPosition => AirportStartLeftDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + extraRandomHeight);
     private Vector3 AirportRandomStartLeft => AirportResetPosition - airportEndRight.right * xRandomResetArea -
                                               airportEndRight.forward * zRandomResetArea;
     private Vector3 AirportStartLeftSafe => AirportStartLeftDownCurrentPosition + airportStartLeft.right * safeZoneWidth +
@@ -28,11 +28,11 @@ public class AirportNormalizer : MonoBehaviour
     public Transform airportStartRight;
     private Vector3 AirportStartRightDownPosition => airportStartRight.position;
     private Vector3 AirportStartRightUpPosition => AirportStartRightDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
-    private Vector3 AirportStartRightDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportStartRightDownTrainPosition, airportStartRight.position, airportLevel) : airportStartRight.position;
-    private Vector3 AirportStartRightUpCurrentPosition => AirportStartRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
-    private Vector3 AirportStartRightDownTrainPosition => airportStartRight.position + airportStartRight.right * xTrainPosition -
-                                                     airportStartRight.forward * zTrainPosition;
-    private Vector3 AirportStartRightUpTrainPosition => AirportStartRightDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
+    private Vector3 AirportStartRightDownCurrentPosition => trainingMode ? airportStartRight.position + airportStartLeft.right * +extraRandomWidth *trainWidthBounds + airportStartLeft.forward * -extraRandomLength * trainLengthBounds : airportStartRight.position;
+    private Vector3 AirportStartRightUpCurrentPosition => AirportStartRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
+    private Vector3 AirportStartRightDownTrainPosition => airportStartRight.position + airportStartRight.right * trainWidthBounds -
+                                                     airportStartRight.forward * trainLengthBounds;
+    private Vector3 AirportStartRightUpTrainPosition => AirportStartRightDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + extraRandomHeight);
     private Vector3 AirportRandomStartRight => AirportResetPosition + airportEndLeft.right * xRandomResetArea -
                                                airportEndLeft.forward * zRandomResetArea;
     private Vector3 AirportStartRightSafe => AirportStartRightDownCurrentPosition - airportStartRight.right * safeZoneWidth +
@@ -42,11 +42,11 @@ public class AirportNormalizer : MonoBehaviour
     public Transform airportEndLeft;
     private Vector3 AirportEndLeftDownPosition => airportEndLeft.position;
     private Vector3 AirportEndLeftUpPosition => AirportEndLeftDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
-    private Vector3 AirportEndLeftDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportEndLeftDownTrainPosition, airportEndLeft.position, airportLevel) : airportEndLeft.position;
-    private Vector3 AirportEndLeftUpCurrentPosition => AirportEndLeftDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
-    private Vector3 AirportEndLeftDownTrainPosition => airportEndLeft.position - airportEndLeft.right * xTrainPosition +
-                                                  airportEndLeft.forward * zTrainPosition;
-    private Vector3 AirportEndLeftUpTrainPosition => AirportEndLeftDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
+    private Vector3 AirportEndLeftDownCurrentPosition => trainingMode ? airportEndLeft.position + airportStartLeft.right * -extraRandomWidth * trainWidthBounds + airportStartLeft.forward * +extraRandomLength * trainLengthBounds : airportEndLeft.position;
+    private Vector3 AirportEndLeftUpCurrentPosition => AirportEndLeftDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
+    private Vector3 AirportEndLeftDownTrainPosition => airportEndLeft.position - airportEndLeft.right * trainWidthBounds +
+                                                  airportEndLeft.forward * trainLengthBounds;
+    private Vector3 AirportEndLeftUpTrainPosition => AirportEndLeftDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + extraRandomHeight);
     private Vector3 AirportRandomEndLeft => AirportResetPosition - airportStartRight.right * xRandomResetArea +
                                             airportStartRight.forward * zRandomResetArea;
     private Vector3 AirportEndLeftSafe => AirportEndLeftDownCurrentPosition + airportEndLeft.right * safeZoneWidth -
@@ -56,11 +56,11 @@ public class AirportNormalizer : MonoBehaviour
     public Transform airportEndRight;
     private Vector3 AirportEndRightDownPosition => airportEndRight.position;
     private Vector3 AirportEndRightUpPosition => AirportEndRightDownPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset);
-    private Vector3 AirportEndRightDownCurrentPosition => trainingMode ? Vector3.Lerp(AirportEndRightDownTrainPosition, airportEndRight.position, airportLevel) : airportEndRight.position;
-    private Vector3 AirportEndRightUpCurrentPosition => AirportEndRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
-    private Vector3 AirportEndRightDownTrainPosition => airportEndRight.position + airportEndRight.right * xTrainPosition +
-                                                   airportEndRight.forward * zTrainPosition;
-    private Vector3 AirportEndRightUpTrainPosition => AirportEndRightDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition);
+    private Vector3 AirportEndRightDownCurrentPosition => trainingMode ? airportEndRight.position + airportStartLeft.right * +extraRandomWidth * trainWidthBounds + airportStartLeft.forward * +extraRandomLength * trainLengthBounds : airportEndRight.position;
+    private Vector3 AirportEndRightUpCurrentPosition => AirportEndRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
+    private Vector3 AirportEndRightDownTrainPosition => airportEndRight.position + airportEndRight.right * trainWidthBounds +
+                                                   airportEndRight.forward * trainLengthBounds;
+    private Vector3 AirportEndRightUpTrainPosition => AirportEndRightDownTrainPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + extraRandomHeight);
     private Vector3 AirportRandomEndRight => AirportResetPosition + airportStartLeft.right * xRandomResetArea +
                                              airportStartLeft.forward * zRandomResetArea;
     private Vector3 AirportEndRightSafe => AirportEndRightDownCurrentPosition - airportEndRight.right * safeZoneWidth -
@@ -73,12 +73,12 @@ public class AirportNormalizer : MonoBehaviour
     private Vector3 AirportUpEndPosition => (AirportEndLeftUpCurrentPosition + AirportEndRightUpCurrentPosition) / 2;
     private Vector3 AirportResetPosition =>
         AirportDownStartPosition + AirportDirection * zResetOffset + Vector3.up * safeZoneHeight;
-    private Vector3 AirportExitPosition => AirportDownEndPosition - (AirportDirection * exitOffset) + Vector3.up * (ExitHeight + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
+    private Vector3 AirportExitPosition => AirportDownEndPosition - (AirportDirection * exitOffset) + Vector3.up * (ExitHeight + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
     private Vector3 BezierControlPoint1 => Vector3.Lerp(AirportDownStartPosition, AirportDownEndPosition, bezierPoint1);
     private Vector3 BezierControlPoint2 => Vector3.Lerp(AirportDownStartPosition, AirportDownEndPosition, bezierPoint2);
     private Vector3 BezierControlPoint3 => Vector3.Lerp(AirportUpStartPosition - Vector3.up * (HeightOffset), AirportUpEndPosition - Vector3.up * (HeightOffset), bezierPoint3);
     private Vector3 AirportDirection => (AirportDownEndPosition - AirportDownStartPosition).normalized;
-    private float AirportMaxDistance => Vector3.Distance(AirportStartLeftDownCurrentPosition, AirportEndRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + yTrainPosition * (1 - airportLevel)));
+    private float AirportMaxDistance => Vector3.Distance(AirportStartLeftDownCurrentPosition, AirportEndRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + extraRandomHeight));
     
     public int numberOfPoints = 1000;
     private Vector3[] BezierPoints => new[] {AirportResetPosition, BezierControlPoint1, BezierControlPoint2, BezierControlPoint3, AirportExitPosition};
@@ -94,11 +94,9 @@ public class AirportNormalizer : MonoBehaviour
 
     [Header("Configurations")] 
     public bool trainingMode;
-    [Range(0f, 1f), SerializeField] private float airportLevel = 0.5f;
     [Range(0f, 1f), SerializeField] private float bezierPoint1 = 0.35f;
     [Range(0f, 1f), SerializeField] private float bezierPoint2 = 0.37f;
     [Range(0f, 1f), SerializeField] private float bezierPoint3 = 0.7f;
-    [Space(10)]
     
     [Space(10)]
     [Range(0, 100f)]public float exitOffsets = 20f;
@@ -113,21 +111,27 @@ public class AirportNormalizer : MonoBehaviour
         get => height * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.001f;
         set => height = value;
     }
-    [Range(0, 100f)] public float extraRandomHeight;
+    
+    [Space(10)]
+    [Range(0f, 1f)] public float extraRandomLength;
+    [Range(0f, 1f)] public float extraRandomWidth;
+    [Range(0f, 1f)] public float extraRandomHeight;
     private float RandomHeightOffset
     {
-        get => extraRandomHeight * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.00025f;
+        get => extraRandomHeight * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.025f;
         set => extraRandomHeight = value;
     }
     private float ExitHeight => Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) / 25f;
+    
+    [Space(10)]
+    public float trainLengthBounds;
+    public float trainWidthBounds;
+    
     [Space(10)]
     public float zResetOffset = 45f;
     public float xRandomResetArea = 30f;
     public float zRandomResetArea = 30f;
-    [Space(10)]
-    public float xTrainPosition = 100f;
-    public float zTrainPosition = 100f;
-    public float yTrainPosition = 100f;
+    
     [Space(10)]
     public float safeZoneWidth = 1f;
     public float safeZoneLength = 10f;
@@ -137,10 +141,12 @@ public class AirportNormalizer : MonoBehaviour
     {
         if(!trainingMode) return;
         
-        airportLevel = Mathf.Clamp01(Academy.Instance.EnvironmentParameters.GetWithDefault("airport_difficulty", 1));
+        /*var airportLevel = Mathf.Clamp01(Academy.Instance.EnvironmentParameters.GetWithDefault("airport_difficulty", 1));
+        Debug.Log($"Airport Difficulty: {airportLevel}" + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));*/
         transform.rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
-        RandomHeightOffset = Random.Range(0f, 100f);
-        Debug.Log($"Airport Difficulty: {airportLevel}" + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
+        extraRandomWidth = Random.Range(0f, 1f);
+        extraRandomLength = Random.Range(0f, 1f);
+        extraRandomHeight = Random.Range(0f, 1f);
     }
 
     public void ResetAircraftPosition(Transform aircraft)
@@ -171,7 +177,7 @@ public class AirportNormalizer : MonoBehaviour
         var xLine = (isSafePosition ? AirportStartRightSafe : AirportStartRightDownCurrentPosition) - pivot;
         var x = Vector3.Dot(position - pivot, xLine) / Vector3.Dot(xLine, xLine);
         
-        var y = (position.y - pivot.y + safeZoneHeight) / (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? yTrainPosition * (1 - airportLevel) : 1));
+        var y = (position.y - pivot.y + safeZoneHeight) / (ExitHeight + HeightOffset + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
         
         return new Vector3(Mathf.Clamp01(x), Mathf.Clamp01(y), Mathf.Clamp01(z));
     }

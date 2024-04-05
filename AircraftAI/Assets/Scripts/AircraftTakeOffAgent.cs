@@ -24,6 +24,8 @@ public class AircraftTakeOffAgent : Agent
     private float[] _previousActions = new float[3] {0, 0, 0};
     private float _sparseRewards;
     private float _denseRewards;
+    private float _optimalRewards;
+    private float _actionPenalty;
     
     private Vector3 NormalizedAircraftPos => aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded) ? 
         airportNormalizer.GetNormalizedPosition(transform.position, true) : 
@@ -117,22 +119,26 @@ public class AircraftTakeOffAgent : Agent
         else if (outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel)
         {
             Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             SetReward(-1);
             _sparseRewards--;
             EndEpisode();
         }
         else
         {
-            AddReward(Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0001f);
-            _denseRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0001f;
-            AddReward(-Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00005f);
-            _denseRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00005f;
+            AddReward(Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0003f);
+            _denseRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0003f;
+            _optimalRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0003f;
+            AddReward(-Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00015f);
+            _denseRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00015f;
+            _optimalRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00015f;
 
             for (int i = 0; i < _previousActions.Length; i++)
             {
                 var actionDifference = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
-                AddReward(-0.0001f * actionDifference);
-                _denseRewards -= 0.0001f * actionDifference;
+                AddReward(-0.002f * actionDifference);
+                _denseRewards -= 0.002f * actionDifference;
+                _actionPenalty -= 0.002f * actionDifference;
             }
         }
         _previousActions = actionBuffers.ContinuousActions.ToArray();
