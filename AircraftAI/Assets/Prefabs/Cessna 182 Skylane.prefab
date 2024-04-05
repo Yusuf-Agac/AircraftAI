@@ -6343,7 +6343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f172f2cd1f59a154bbaa6f0fca200a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_mode: 1
+  m_mode: 0
   m_refuel: 1
   m_flapState: 0
   m_gainState: 0
@@ -30779,7 +30779,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 25000
-  manoeuvreSpeed: 1
+  manoeuvreSpeed: 25
   maxWindSpeed: 5
   maxTurbulence: 5
   numOfOptimumDirections: 3
@@ -30788,6 +30788,9 @@ MonoBehaviour:
   sensors: {fileID: 7459721040457557504}
   relativeTransformCanvas: {fileID: 7822012216464831748}
   aircraftController: {fileID: 9217060184409094024}
+  PitchSlider: {fileID: 0}
+  RollSlider: {fileID: 0}
+  ThrottleSlider: {fileID: 0}
 --- !u!114 &8678492145494361013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31458,7 +31461,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _pitchScale: 2.5
+    _pitchScale: 1
     _rollScale: 2.5
     _yawScale: 1
     showCurves: 0

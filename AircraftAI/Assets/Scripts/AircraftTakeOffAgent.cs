@@ -7,6 +7,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class AircraftTakeOffAgent : Agent
 {
@@ -20,6 +21,10 @@ public class AircraftTakeOffAgent : Agent
     public AircraftCollisionSensors sensors;
     public AircraftRelativeTransformCanvas relativeTransformCanvas;
     public FixedController aircraftController;
+    [Space(10)]
+    public Slider PitchSlider;
+    public Slider RollSlider;
+    public Slider ThrottleSlider;
     
     private float[] _previousActions = new float[3] {0, 0, 0};
     private float _sparseRewards;
@@ -126,21 +131,30 @@ public class AircraftTakeOffAgent : Agent
         }
         else
         {
-            AddReward(Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0003f);
-            _denseRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0003f;
-            _optimalRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0003f;
-            AddReward(-Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00015f);
-            _denseRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00015f;
-            _optimalRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.00015f;
+            AddReward(Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0006f);
+            _denseRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0006f;
+            _optimalRewards += Mathf.Clamp01(1 - (airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position) * 3)) * 0.0006f;
+            AddReward(-Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.0003f);
+            _denseRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.0003f;
+            _optimalRewards -= Mathf.Clamp01(airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position)) * 0.0003f;
 
             for (int i = 0; i < _previousActions.Length; i++)
             {
                 var actionDifference = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
-                AddReward(-0.002f * actionDifference);
-                _denseRewards -= 0.002f * actionDifference;
-                _actionPenalty -= 0.002f * actionDifference;
+                AddReward(-0.004f * actionDifference);
+                _denseRewards -= 0.004f * actionDifference;
+                _actionPenalty -= 0.004f * actionDifference;
             }
         }
         _previousActions = actionBuffers.ContinuousActions.ToArray();
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        var continuousActionsOut = actionsOut.ContinuousActions;
+        continuousActionsOut[0] = PitchSlider.value;
+        continuousActionsOut[1] = RollSlider.value;
+        continuousActionsOut[2] = ThrottleSlider.value;
+        aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
 }
