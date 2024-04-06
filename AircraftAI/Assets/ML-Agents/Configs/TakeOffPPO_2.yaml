@@ -20,12 +20,7 @@ behaviors:
       extrinsic:
         gamma: 0.99
         strength: 1.0
-    keep_checkpoints: 5
-    max_steps: 4000000
+    keep_checkpoints: 3
+    max_steps: 3500000
     time_horizon: 64
     summary_freq: 10000
-environment_parameters:
-  airport_difficulty:
-    curriculum:
-      - name: level1
-        value: 1
