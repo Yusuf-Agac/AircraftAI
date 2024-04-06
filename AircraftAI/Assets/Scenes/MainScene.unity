@@ -3119,7 +3119,7 @@ MonoBehaviour:
   height: 20
   extraRandomLength: 0
   extraRandomWidth: 0
-  extraRandomHeight: 0
+  extraRandomHeight: 1
   trainLengthBounds: 0
   trainWidthBounds: 0
   zResetOffset: 45
@@ -4032,7 +4032,7 @@ MonoBehaviour:
     weightUnit: 4
     forceUnit: 0
     torqueUnit: 0
-    m_vehicle: {fileID: 0}
+    m_vehicle: {fileID: 4608920154714674735}
     speed: {fileID: 1864231591}
     altitude: {fileID: 1616586728}
     fuel: {fileID: 1320887110}
@@ -11954,8 +11954,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 4608920154714674735}
+        m_TargetAssemblyTypeName: Oyedoyin.Common.Controller, Assembly-CSharp
         m_MethodName: ToggleCameraState
         m_Mode: 1
         m_Arguments:
@@ -13114,6 +13114,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 278f21c3dfc59c54187e21238077da5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4608920154714674735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4608920154714674733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

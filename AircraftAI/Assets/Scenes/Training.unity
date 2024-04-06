@@ -257,6 +257,113 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10798451}
   m_CullTransparentMesh: 1
+--- !u!1 &136513282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136513284}
+  - component: {fileID: 136513283}
+  m_Layer: 0
+  m_Name: TargetAirport
+  m_TagString: Aircraft
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &136513283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136513282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  airportStartLeft: {fileID: 146297847}
+  airportStartRight: {fileID: 1030937725}
+  airportEndLeft: {fileID: 1788204146}
+  airportEndRight: {fileID: 1898849966}
+  numberOfPoints: 1000
+  showBezierGizmos: 0
+  showTrainingGizmos: 0
+  showObservationsGizmos: 0
+  showZonesGizmos: 1
+  aircraftAgents:
+  - {fileID: 4608920154714674734}
+  trainingMode: 1
+  bezierPoint1: 0.283
+  bezierPoint2: 0.283
+  bezierPoint3: 0.723
+  exitOffsets: 20
+  height: 20
+  extraRandomLength: 0
+  extraRandomWidth: 0
+  extraRandomHeight: 1
+  trainLengthBounds: 702.2
+  trainWidthBounds: 25
+  zResetOffset: 36.6
+  xRandomResetArea: 12.09
+  zRandomResetArea: 25
+  safeZoneWidth: 7
+  safeZoneLength: 7
+  safeZoneHeight: 1
+--- !u!4 &136513284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136513282}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9998724, z: -0, w: 0.015980829}
+  m_LocalPosition: {x: -1544, y: 51.04419, z: -12713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 146297847}
+  - {fileID: 1030937725}
+  - {fileID: 1788204146}
+  - {fileID: 1898849966}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -178.169, z: 0}
+--- !u!1 &146297846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 146297847}
+  m_Layer: 0
+  m_Name: StartLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &146297847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146297846}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: 46, y: -0.7400017, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 136513284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &175980023
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +439,128 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175980023}
   m_CullTransparentMesh: 1
+--- !u!1001 &246778818
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4723.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17699.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.47531718
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.87981457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -123.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: RollSlider
+      value: 
+      objectReference: {fileID: 512696536}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: PitchSlider
+      value: 
+      objectReference: {fileID: 1411917139}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: ThrottleSlider
+      value: 
+      objectReference: {fileID: 1396922998}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: aircraftController
+      value: 
+      objectReference: {fileID: 246778819}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: flightPathNormalizer
+      value: 
+      objectReference: {fileID: 542193892}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: numOfOptimumDirections
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: gapBetweenOptimumDirections
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895609739598734724, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: m_Name
+      value: Cessna 182 Skylane_Flight
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: m_name
+      value: Cessna 182 Skylane_Flight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+--- !u!114 &246778819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+    type: 3}
+  m_PrefabInstance: {fileID: 246778818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &246778820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+    type: 3}
+  m_PrefabInstance: {fileID: 246778818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a684105c8bd7782419fba7a59276bfd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &292847059
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,8 +941,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 542193891}
+  - component: {fileID: 542193892}
   m_Layer: 0
-  m_Name: PathFinder
+  m_Name: FlightPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,6 +964,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542193892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542193890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37bc0e1c7f8b9449b7a6309ce45059b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _departureAirport: {fileID: 606254926}
+  _arrivalAirport: {fileID: 136513283}
+  _aircraftAgents:
+  - {fileID: 246778820}
+  _penaltyRadius: 70.8
+  _numberOfPoints: 120
+  _curvePower: 2628
+  offset: {x: 0, y: 90, z: 0}
 --- !u!1 &552825617
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +1210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606254924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.020014727, z: -0, w: 0.99979967}
   m_LocalPosition: {x: 5680.1855, y: 51.04419, z: -17158.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -970,7 +1220,7 @@ Transform:
   - {fileID: 1230260408}
   - {fileID: 1316546270}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 2.294, z: 0}
 --- !u!114 &606254926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,8 +1239,8 @@ MonoBehaviour:
   airportEndRight: {fileID: 1316546270}
   numberOfPoints: 1000
   showBezierGizmos: 0
-  showTrainingGizmos: 1
-  showObservationsGizmos: 1
+  showTrainingGizmos: 0
+  showObservationsGizmos: 0
   showZonesGizmos: 1
   aircraftAgents:
   - {fileID: 4608920154714674734}
@@ -1673,12 +1923,43 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925736155}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5029, y: 49, z: -17547}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1768.6738, y: -23.872513, z: 145.07422}
   m_LocalScale: {x: 5724.9443, y: 5724.9443, z: 5724.9443}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7448400364061469211}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1030937724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030937725}
+  m_Layer: 0
+  m_Name: StartRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030937725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030937724}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: 21.662598, y: -0.7400017, z: 48.00586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 136513284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1120466151
 GameObject:
@@ -3081,6 +3362,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623689531}
   m_CullTransparentMesh: 1
+--- !u!1 &1788204145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788204146}
+  m_Layer: 0
+  m_Name: EndLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1788204146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788204145}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: -899.66235, y: -0.7400017, z: -571.00586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 136513284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884672884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3468,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884672884}
   m_CullTransparentMesh: 1
+--- !u!1 &1898849965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1898849966}
+  m_Layer: 0
+  m_Name: EndRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1898849966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898849965}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: -924, y: -0.7400017, z: -532}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 136513284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1908083817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7752,7 +8095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 55.6
+      value: 51.5
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7824,7 +8167,7 @@ PrefabInstance:
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_Name
-      value: Cessna 182 Skylane
+      value: Cessna 182 Skylane_TakeOff
       objectReference: {fileID: 0}
     - target: {fileID: 7822012216464831748, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
@@ -11231,6 +11574,7 @@ Transform:
   - {fileID: 6018984604103214629}
   - {fileID: 832575519}
   - {fileID: 2277818821499501049}
+  - {fileID: 925736159}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &7453767397655252202
@@ -12830,8 +13174,9 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 925736159}
-  - {fileID: 4608920154714674733}
   - {fileID: 7448400364061469211}
   - {fileID: 606254925}
+  - {fileID: 4608920154714674733}
   - {fileID: 542193891}
+  - {fileID: 246778818}
+  - {fileID: 136513284}

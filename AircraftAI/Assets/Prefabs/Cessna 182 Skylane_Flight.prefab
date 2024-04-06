@@ -30679,12 +30679,12 @@ GameObject:
   - component: {fileID: 7509382747687662}
   - component: {fileID: 2688685388779625910}
   - component: {fileID: 8312558089375885557}
-  - component: {fileID: 4388675968447146467}
+  - component: {fileID: 76747583557686644}
   - component: {fileID: 8678492145494361013}
   - component: {fileID: 8973755151829639884}
   - component: {fileID: 9217060184409094024}
   m_Layer: 7
-  m_Name: Cessna 182 Skylane
+  m_Name: Cessna 182 Skylane_Flight
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30763,7 +30763,7 @@ CapsuleCollider:
   m_Height: 6.9
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -0.79}
---- !u!114 &4388675968447146467
+--- !u!114 &76747583557686644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30772,22 +30772,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6895609739598734724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278f21c3dfc59c54187e21238077da5f, type: 3}
+  m_Script: {fileID: 11500000, guid: a684105c8bd7782419fba7a59276bfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 25000
+  MaxStep: 200000
   manoeuvreSpeed: 25
   maxWindSpeed: 5
   maxTurbulence: 5
-  numOfOptimumDirections: 3
-  gapBetweenOptimumDirections: 25
-  airportNormalizer: {fileID: 0}
-  sensors: {fileID: 7459721040457557504}
-  relativeTransformCanvas: {fileID: 7822012216464831748}
-  aircraftController: {fileID: 9217060184409094024}
+  numOfOptimumDirections: 2
+  gapBetweenOptimumDirections: 15
+  flightPathNormalizer: {fileID: 0}
+  aircraftController: {fileID: 0}
   PitchSlider: {fileID: 0}
   RollSlider: {fileID: 0}
   ThrottleSlider: {fileID: 0}

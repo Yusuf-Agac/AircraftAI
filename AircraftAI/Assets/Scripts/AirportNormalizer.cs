@@ -71,9 +71,9 @@ public class AirportNormalizer : MonoBehaviour
     private Vector3 AirportDownEndPosition => (AirportEndLeftDownCurrentPosition + AirportEndRightDownCurrentPosition) / 2;
     private Vector3 AirportUpStartPosition => (AirportStartLeftUpCurrentPosition + AirportStartRightUpCurrentPosition) / 2;
     private Vector3 AirportUpEndPosition => (AirportEndLeftUpCurrentPosition + AirportEndRightUpCurrentPosition) / 2;
-    private Vector3 AirportResetPosition =>
+    public Vector3 AirportResetPosition =>
         AirportDownStartPosition + AirportDirection * zResetOffset + Vector3.up * safeZoneHeight;
-    private Vector3 AirportExitPosition => AirportDownEndPosition - (AirportDirection * exitOffset) + Vector3.up * (ExitHeight + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
+    public Vector3 AirportExitPosition => AirportDownEndPosition - (AirportDirection * exitOffset) + Vector3.up * (ExitHeight + RandomHeightOffset + (trainingMode ? extraRandomHeight : 1));
     private Vector3 BezierControlPoint1 => Vector3.Lerp(AirportDownStartPosition, AirportDownEndPosition, bezierPoint1);
     private Vector3 BezierControlPoint2 => Vector3.Lerp(AirportDownStartPosition, AirportDownEndPosition, bezierPoint2);
     private Vector3 BezierControlPoint3 => Vector3.Lerp(AirportUpStartPosition - Vector3.up * (HeightOffset), AirportUpEndPosition - Vector3.up * (HeightOffset), bezierPoint3);
@@ -212,14 +212,6 @@ public class AirportNormalizer : MonoBehaviour
         }
         return directions;
     }
-    
-    /*private Vector3 ClosestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
-    {
-        var lineDirection = (lineEnd - lineStart).normalized;
-        var pointDirection = (point - lineStart);
-        var distance = Vector3.Dot(pointDirection, lineDirection);
-        return lineStart + lineDirection * Mathf.Clamp(distance, 0, Vector3.Distance(lineStart, lineEnd));
-    }*/
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
