@@ -11,7 +11,7 @@ public class FlightPathNormalizer : MonoBehaviour
     [SerializeField] private AirportNormalizer _arrivalAirport;
     [SerializeField] private List<AircraftFlightAgent> _aircraftAgents;
     [Space(10)]
-    [SerializeField] private float _penaltyRadius = 10;
+    public float penaltyRadius = 10;
     [SerializeField] private int _numberOfPoints = 100;
     [SerializeField] private float _curvePower = 1000;
 
@@ -31,14 +31,30 @@ public class FlightPathNormalizer : MonoBehaviour
         }
     }
     
-    private float NormalizedClosestOptimumPointDistance(Vector3 aircraftPos)
+    public void ResetAircraftPosition(Transform aircraft)
     {
-        var closestPoint = BezierCurveUtility.FindClosestPoint(aircraftPos, BezierPoints, _numberOfPoints);
-        return Vector3.Distance(closestPoint, aircraftPos) / _penaltyRadius;
+        aircraft.position = _departureAirport.AirportExitPosition;
+        aircraft.rotation = Quaternion.LookRotation((_departureAirport.AirportExitPosition - _departureAirport.AirportResetPosition).normalized);
     }
     
+    public float NormalizedClosestOptimumPositionDistance(Vector3 aircraftPos)
+    {
+        var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, _numberOfPoints);
+        return Vector3.Distance(closestPoint, aircraftPos) / penaltyRadius;
+    }
     
+    public Vector3[] NormalizedClosestOptimumPointDirections(Transform aircraftTransform, int numOfOptimumDirections, float gapBetweenOptimumDirections)
+    {
+        var directions = new Vector3[numOfOptimumDirections];
+        for (int i = 0; i < numOfOptimumDirections; i++)
+        {
+            var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftTransform.position + aircraftTransform.forward * ((i * gapBetweenOptimumDirections) + 30f), BezierPoints, _numberOfPoints);
+            directions[i] = (closestPoint - aircraftTransform.position).normalized;
+        }
+        return directions;
+    }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if(!_departureAirport || !_arrivalAirport) return;
@@ -50,7 +66,7 @@ public class FlightPathNormalizer : MonoBehaviour
             var point = BezierCurveUtility.CalculateBezierPoint(i / (float)_numberOfPoints, BezierPoints);
             Gizmos.DrawLine(previousPoint, point);
             Gizmos.color = Color.red;
-            if(i != _numberOfPoints) DrawCircle(point, (point - previousPoint).normalized, _penaltyRadius);
+            if(i != _numberOfPoints) DrawCircle(point, (point - previousPoint).normalized, penaltyRadius);
             previousPoint = point;
         }
 
@@ -84,7 +100,7 @@ public class FlightPathNormalizer : MonoBehaviour
             }
             
             // REWARD
-            var reward = Mathf.Clamp01(1 - (NormalizedClosestOptimumPointDistance(controller.transform.position) * 3)) - Mathf.Clamp01(NormalizedClosestOptimumPointDistance(controller.transform.position));
+            var reward = Mathf.Clamp01(1 - NormalizedClosestOptimumPositionDistance(controller.transform.position)) - Mathf.Clamp01(NormalizedClosestOptimumPositionDistance(controller.transform.position));
             Gizmos.color = new Color(1 - reward, reward, 0, 1);
             var closestPointReward = BezierCurveUtility.FindClosestPosition(controller.transform.position, BezierPoints, _numberOfPoints);
             Gizmos.DrawSphere(closestPointReward, 0.3f);
@@ -104,4 +120,5 @@ public class FlightPathNormalizer : MonoBehaviour
             previousPoint = point;
         }
     }
+#endif
 }

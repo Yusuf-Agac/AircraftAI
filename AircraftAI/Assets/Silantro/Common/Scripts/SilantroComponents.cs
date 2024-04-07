@@ -956,8 +956,8 @@ namespace Oyedoyin.Common.Components
             {
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
-                Vector3 initialPosition = rigidbody.transform.position;
-                rigidbody.transform.position = new Vector3(initialPosition.x, controller.m_startAltitude, initialPosition.z);
+                //Vector3 initialPosition = rigidbody.transform.position;
+                //rigidbody.transform.position = new Vector3(initialPosition.x, controller.m_startAltitude, initialPosition.z);
                 rigidbody.velocity = rigidbody.transform.forward * controller.m_startSpeed;
             }
         }

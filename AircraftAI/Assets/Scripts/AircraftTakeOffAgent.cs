@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using DefaultNamespace;
 using Oyedoyin.FixedWing;
@@ -51,6 +52,7 @@ public class AircraftTakeOffAgent : Agent
         aircraftController.RestoreAircraft();
         if(airportNormalizer.trainingMode) airportNormalizer.RandomResetAircraftPosition(transform);
         else airportNormalizer.ResetAircraftPosition(transform);
+        StartCoroutine(AfterBegin());
     }
     
     public override void CollectObservations(VectorSensor sensor)
@@ -109,24 +111,23 @@ public class AircraftTakeOffAgent : Agent
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
-        if (aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded)) aircraftController.TurnOnEngines();
         
         var outBoundsOfAirport = NormalizedAircraftPos.x == 0.0f || NormalizedAircraftPos.x == 1.0f || NormalizedAircraftPos.y == 1 || NormalizedAircraftPos.z == 0 || NormalizedAircraftPos.z == 1;
         var illegalAircraftRotation = Vector3.Dot(transform.forward, Vector3.up) > 0.4f || Vector3.Dot(transform.forward, Vector3.up) < -0.4f || Vector3.Dot(transform.up, Vector3.down) > 0;
         
         if (airportNormalizer.GetNormalizedExitDistance(transform.position) < 0.02f)
         {
-            Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             SetReward(1);
             _sparseRewards++;
+            Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             EndEpisode();
         }
         else if (outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel)
         {
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             SetReward(-1);
             _sparseRewards--;
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             EndEpisode();
         }
         else
@@ -156,5 +157,11 @@ public class AircraftTakeOffAgent : Agent
         continuousActionsOut[1] = RollSlider.value;
         continuousActionsOut[2] = ThrottleSlider.value;
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
+    }
+    
+    IEnumerator AfterBegin()
+    {
+        yield return null;
+        aircraftController.TurnOnEngines();
     }
 }

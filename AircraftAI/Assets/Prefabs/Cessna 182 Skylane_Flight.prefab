@@ -30802,7 +30802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 39
+    VectorObservationSize: 25
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -30811,10 +30811,10 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 21b25c795c2a5df43ab11a0553c39903, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: AircraftTakeOff
+  m_BehaviorName: AircraftFlight
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -30847,7 +30847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_type: 0
   m_controlType: 0
-  m_inputType: 2
+  m_inputType: 3
   m_inputLogic: 0
   m_startMode: 0
   m_cameraState: 1
