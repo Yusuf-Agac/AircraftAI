@@ -30782,8 +30782,8 @@ MonoBehaviour:
   manoeuvreSpeed: 25
   maxWindSpeed: 5
   maxTurbulence: 5
-  numOfOptimumDirections: 2
-  gapBetweenOptimumDirections: 15
+  numOfOptimumDirections: 3
+  gapBetweenOptimumDirections: 50
   flightPathNormalizer: {fileID: 0}
   aircraftController: {fileID: 0}
   PitchSlider: {fileID: 0}
@@ -30811,7 +30811,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: e9f9769c88e53934b9c2371da1331983, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: AircraftFlight
@@ -31484,7 +31484,7 @@ MonoBehaviour:
     m_particleCollection: 1
     m_trailRendererCollection: 1
     m_lineRendererCollection: 1
-    m_state: 0
+    m_state: 1
     m_particleShift: 0
     m_trailRendererShift: 0
     m_lineRendererShift: 0

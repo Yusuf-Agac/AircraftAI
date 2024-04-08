@@ -7,9 +7,21 @@ using UnityEngine.Serialization;
 
 public class FlightPathNormalizer : MonoBehaviour
 {
+    [Space(10)]
     [SerializeField] private AirportNormalizer _departureAirport;
+    [SerializeField] private Vector2 _departureRandomRotationRange;
+    [SerializeField] private Transform _departureLerpFrom;
+    [SerializeField] private Transform _departureLerpTo;
+    [Space(10)]
     [SerializeField] private AirportNormalizer _arrivalAirport;
+    [SerializeField] private Vector2 _arrivalRandomRotationRange;
+    [SerializeField] private Transform _arrivalLerpFrom;
+    [SerializeField] private Transform _arrivalLerpTo;
+    [Space(10)]
     [SerializeField] private List<AircraftFlightAgent> _aircraftAgents;
+    
+    [Space(10)]
+    [SerializeField] private bool trainingMode = true;
     [Space(10)]
     public float penaltyRadius = 10;
     [SerializeField] private int _numberOfPoints = 100;
@@ -22,10 +34,11 @@ public class FlightPathNormalizer : MonoBehaviour
         get
         {
             var points = new Vector3[5];
+            var dynamicCurvePower = Vector3.Distance(_departureAirport.AirportExitPosition, _arrivalAirport.AirportExitPosition) / 4f;
             points[0] = _departureAirport.AirportExitPosition;
-            points[1] = _departureAirport.AirportExitPosition + (_departureAirport.AirportExitPosition - _departureAirport.AirportResetPosition).normalized * _curvePower;
-            points[2] = ((_departureAirport.AirportExitPosition + (_departureAirport.AirportExitPosition - _departureAirport.AirportResetPosition).normalized * _curvePower) + (_arrivalAirport.AirportExitPosition + (_arrivalAirport.AirportExitPosition - _arrivalAirport.AirportResetPosition).normalized * _curvePower)) / 2;
-            points[3] = _arrivalAirport.AirportExitPosition + (_arrivalAirport.AirportExitPosition - _arrivalAirport.AirportResetPosition).normalized * _curvePower;
+            points[1] = _departureAirport.AirportExitPosition + (_departureAirport.AirportExitPosition - _departureAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : _curvePower);
+            points[2] = ((_departureAirport.AirportExitPosition + (_departureAirport.AirportExitPosition - _departureAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : _curvePower)) + (_arrivalAirport.AirportExitPosition + (_arrivalAirport.AirportExitPosition - _arrivalAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : _curvePower))) / 2;
+            points[3] = _arrivalAirport.AirportExitPosition + (_arrivalAirport.AirportExitPosition - _arrivalAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : _curvePower);
             points[4] = _arrivalAirport.AirportExitPosition;
             return points;
         }
@@ -33,14 +46,30 @@ public class FlightPathNormalizer : MonoBehaviour
     
     public void ResetAircraftPosition(Transform aircraft)
     {
+        _departureAirport.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(_departureRandomRotationRange.x, _departureRandomRotationRange.y), 0);
+        _arrivalAirport.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(_arrivalRandomRotationRange.x, _arrivalRandomRotationRange.y), 0);
+        
+        _departureAirport.transform.position = Vector3.Lerp(_departureLerpFrom.position, _departureLerpTo.position, UnityEngine.Random.value);
+        _arrivalAirport.transform.position = Vector3.Lerp(_arrivalLerpFrom.position, _arrivalLerpTo.position, UnityEngine.Random.value);
+        
         aircraft.position = _departureAirport.AirportExitPosition;
         aircraft.rotation = Quaternion.LookRotation((_departureAirport.AirportExitPosition - _departureAirport.AirportResetPosition).normalized);
     }
     
-    public float NormalizedClosestOptimumPositionDistance(Vector3 aircraftPos)
+    public float TargetDistance(Vector3 aircraftPos)
+    {
+        return Vector3.Distance(_arrivalAirport.AirportExitPosition, aircraftPos);
+    }
+    
+    public float ClosestOptimumPositionDistance(Vector3 aircraftPos)
     {
         var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, _numberOfPoints);
-        return Vector3.Distance(closestPoint, aircraftPos) / penaltyRadius;
+        return Vector3.Distance(closestPoint, aircraftPos);
+    }
+    
+    public float NormalizedClosestOptimumPositionDistance(Vector3 aircraftPos)
+    {
+        return ClosestOptimumPositionDistance(aircraftPos) / penaltyRadius;
     }
     
     public Vector3[] NormalizedClosestOptimumPointDirections(Transform aircraftTransform, int numOfOptimumDirections, float gapBetweenOptimumDirections)

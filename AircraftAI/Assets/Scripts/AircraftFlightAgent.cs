@@ -12,6 +12,9 @@ using UnityEngine.UI;
 
 public class AircraftFlightAgent : Agent
 {
+    [Space(10)]
+    [SerializeField] private bool _trainingMode = true;
+    [Space(10)]
     [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
     public float maxWindSpeed = 5;
     public float maxTurbulence = 5;
@@ -30,6 +33,7 @@ public class AircraftFlightAgent : Agent
     private float _denseRewards;
     private float _optimalRewards;
     private float _actionPenalty;
+    
     private void Start () 
     {
         aircraftController = GetComponent<FixedController>();
@@ -77,13 +81,23 @@ public class AircraftFlightAgent : Agent
         
         var illegalAircraftRotation = Vector3.Dot(transform.forward, Vector3.up) > 0.4f || Vector3.Dot(transform.forward, Vector3.up) < -0.4f || Vector3.Dot(transform.up, Vector3.down) > 0;
         var distanceToRoute = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position);
+        var distanceToTarget = flightPathNormalizer.TargetDistance(transform.position);
         
-        if (distanceToRoute > flightPathNormalizer.penaltyRadius || illegalAircraftRotation)
+        if ((distanceToRoute > 1f || illegalAircraftRotation) && _trainingMode)
         {
             SetReward(-1);
             _sparseRewards--;
             Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
+            EndEpisode();
+        }
+        else if (distanceToTarget < 10f)
+        {
+            SetReward(20);
+            _sparseRewards++;
+            Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Debug.Log("Time: " + DateTime.UtcNow.ToString("HH:mm"));
+            Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             EndEpisode();
         }
         else
@@ -95,7 +109,7 @@ public class AircraftFlightAgent : Agent
             _denseRewards -= Mathf.Clamp01(distanceToRoute) * 0.004f;
             _optimalRewards -= Mathf.Clamp01(distanceToRoute) * 0.004f;
 
-            for (int i = 0; i < _previousActions.Length; i++)
+            for (var i = 0; i < _previousActions.Length; i++)
             {
                 var actionDifference = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
                 AddReward(-0.004f * actionDifference);

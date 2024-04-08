@@ -31486,7 +31486,7 @@ MonoBehaviour:
     m_particleCollection: 1
     m_trailRendererCollection: 1
     m_lineRendererCollection: 1
-    m_state: 0
+    m_state: 1
     m_particleShift: 0
     m_trailRendererShift: 0
     m_lineRendererShift: 0
