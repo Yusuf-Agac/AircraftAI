@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/FlightPathNormalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/FlightPathNormalizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_Flight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_Flight.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_TakeOff.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_TakeOff.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller Blur.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Fixed Wing/Skylane/Materials/Cessna Propeller.mat" afterDir="false" />
@@ -138,7 +137,9 @@
       <workItem from="1712237701709" duration="11793000" />
       <workItem from="1712341618467" duration="5413000" />
       <workItem from="1712502922268" duration="4474000" />
-      <workItem from="1712605791424" duration="1524000" />
+      <workItem from="1712605791424" duration="3581000" />
+      <workItem from="1712649238297" duration="598000" />
+      <workItem from="1713419881346" duration="6000" />
     </task>
     <servers />
   </component>
