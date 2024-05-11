@@ -43,7 +43,7 @@ public static class BezierCurveUtility
         {
             float t = i / (float)numberOfPoints;
             Vector3 pointOnCurve = CalculateBezierPoint(t, points);
-            Vector3 pointOnCurve2 = CalculateBezierPoint(t + 0.01f, points);
+            Vector3 pointOnCurve2 = CalculateBezierPoint(t + (1f / numberOfPoints), points);
 
             Vector3 lineStart = pointOnCurve;
             Vector3 lineEnd = pointOnCurve2;
