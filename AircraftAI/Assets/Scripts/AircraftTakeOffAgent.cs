@@ -7,12 +7,13 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class AircraftTakeOffAgent : Agent
 {
-    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
+    public bool trainingMode;
+    private BehaviorSelector _behaviorSelector;
+    [Range(0.1f, 25f), Space(10)] public float manoeuvreSpeed = 10f;
     public float maxWindSpeed = 10f;
     public float maxTurbulence = 10f;
     public int numOfOptimumDirections = 5;
@@ -43,15 +44,19 @@ public class AircraftTakeOffAgent : Agent
 
     private void Start () 
     {
+        _behaviorSelector = GetComponent<BehaviorSelector>();
         aircraftController = GetComponent<FixedController>();
     }
     
     public override void OnEpisodeBegin()
     {
-        airportNormalizer.AirportCurriculum();
-        aircraftController.RestoreAircraft();
-        if(airportNormalizer.trainingMode) airportNormalizer.RandomResetAircraftPosition(transform);
-        else airportNormalizer.ResetAircraftPosition(transform);
+        if (trainingMode)
+        {
+            airportNormalizer.AirportCurriculum();
+            aircraftController.RestoreAircraft();
+            if(airportNormalizer.trainingMode) airportNormalizer.RandomResetAircraftPosition(transform);
+            else airportNormalizer.ResetAircraftPosition(transform);
+        }
         StartCoroutine(AfterBegin());
     }
     
@@ -120,7 +125,9 @@ public class AircraftTakeOffAgent : Agent
             SetReward(1);
             _sparseRewards++;
             Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
-            EndEpisode();
+            
+            if(trainingMode) EndEpisode();
+            else if(_behaviorSelector) _behaviorSelector.SelectNextBehavior();
         }
         else if (outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel)
         {
