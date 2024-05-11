@@ -714,7 +714,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: d46c3dfdfbf36054387bc3af11d6e44b,
+      objectReference: {fileID: 5022602860645237092, guid: ac62b3effd72b254dbccba52366b666d,
         type: 3}
     - target: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
@@ -728,8 +728,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
+      propertyPath: m_startMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
       propertyPath: m_startSpeed
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
@@ -1630,17 +1635,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _departureAirport: {fileID: 1753789257}
-  _departureRandomRotationRange: {x: 90, y: -90}
+  _departureRandomRotationRange: {x: 60, y: -60}
   _departureLerpFrom: {fileID: 45715494}
   _departureLerpTo: {fileID: 1704827833}
   _arrivalAirport: {fileID: 136513283}
-  _arrivalRandomRotationRange: {x: 270, y: 90}
+  _arrivalRandomRotationRange: {x: 240, y: 120}
   _arrivalLerpFrom: {fileID: 355412096}
   _arrivalLerpTo: {fileID: 94234819}
   _aircraftAgents:
   - {fileID: 246778820}
   trainingMode: 1
-  penaltyRadius: 45
+  penaltyRadius: 55
   _numberOfPoints: 120
   _curvePower: 3000
   offset: {x: 0, y: 90, z: 0}

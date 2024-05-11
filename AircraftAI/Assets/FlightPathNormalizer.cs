@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Oyedoyin.FixedWing;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -17,8 +15,9 @@ public class FlightPathNormalizer : MonoBehaviour
     [SerializeField] private Vector2 _arrivalRandomRotationRange;
     [SerializeField] private Transform _arrivalLerpFrom;
     [SerializeField] private Transform _arrivalLerpTo;
+    [FormerlySerializedAs("_aircraftAgents")]
     [Space(10)]
-    [SerializeField] private List<AircraftFlightAgent> _aircraftAgents;
+    [SerializeField] internal List<AircraftFlightAgent> aircraftAgents;
     
     [Space(10)]
     [SerializeField] private bool trainingMode = true;
@@ -44,16 +43,20 @@ public class FlightPathNormalizer : MonoBehaviour
         }
     }
     
-    public void ResetAircraftPosition(Transform aircraft)
+    public void ResetAirportTransform()
     {
         _departureAirport.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(_departureRandomRotationRange.x, _departureRandomRotationRange.y), 0);
         _arrivalAirport.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(_arrivalRandomRotationRange.x, _arrivalRandomRotationRange.y), 0);
         
         _departureAirport.transform.position = Vector3.Lerp(_departureLerpFrom.position, _departureLerpTo.position, UnityEngine.Random.value);
         _arrivalAirport.transform.position = Vector3.Lerp(_arrivalLerpFrom.position, _arrivalLerpTo.position, UnityEngine.Random.value);
-        
+    }
+    
+    public void ResetAircraftPosition(Transform aircraft)
+    {
         aircraft.position = _departureAirport.AirportExitPosition;
         aircraft.rotation = Quaternion.LookRotation((_departureAirport.AirportExitPosition - _departureAirport.AirportResetPosition).normalized);
+        //aircraft.rotation = Quaternion.Euler(15f, aircraft.rotation.eulerAngles.y, 0);
     }
     
     public float TargetDistance(Vector3 aircraftPos)
@@ -105,8 +108,10 @@ public class FlightPathNormalizer : MonoBehaviour
             Gizmos.DrawSphere(BezierPoints[i], 30);
         }
         
-        foreach (var agent in _aircraftAgents)
+        foreach (var agent in aircraftAgents)
         {
+            if(agent == null) continue;
+            
             var controller = agent.aircraftController;
             // VELOCITY
             if (controller.m_core && controller.m_rigidbody)

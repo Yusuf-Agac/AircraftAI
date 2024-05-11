@@ -30779,6 +30779,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 200000
+  _trainingMode: 1
   manoeuvreSpeed: 25
   maxWindSpeed: 5
   maxTurbulence: 5
@@ -30831,7 +30832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 10
+  DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
 --- !u!114 &9217060184409094024
 MonoBehaviour:

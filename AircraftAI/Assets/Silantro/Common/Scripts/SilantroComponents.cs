@@ -950,14 +950,18 @@ namespace Oyedoyin.Common.Components
         /// </summary>
         /// <param name="craft"></param>
         /// <param name="controller"></param>
-        public void PositionAircraftFunction(Rigidbody rigidbody, Controller controller)
+        public void PositionAircraftFunction(Rigidbody rigidbody, Controller controller, bool chancePosition = false)
         {
             if (rigidbody != null && controller != null)
             {
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
-                //Vector3 initialPosition = rigidbody.transform.position;
-                //rigidbody.transform.position = new Vector3(initialPosition.x, controller.m_startAltitude, initialPosition.z);
+                controller.m_fuelSystem.ActivateTankRefill();
+                if (chancePosition)
+                {
+                    Vector3 initialPosition = rigidbody.transform.position;
+                    rigidbody.transform.position = new Vector3(initialPosition.x, controller.m_startAltitude, initialPosition.z);
+                }
                 rigidbody.velocity = rigidbody.transform.forward * controller.m_startSpeed;
             }
         }

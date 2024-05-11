@@ -8,14 +8,13 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class AircraftFlightAgent : Agent
 {
-    [Space(10)]
-    [SerializeField] private bool _trainingMode = true;
-    [Space(10)]
-    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
+    public bool trainingMode;
+    [Range(0.1f, 25f), Space(10)] public float manoeuvreSpeed = 10f;
     public float maxWindSpeed = 5;
     public float maxTurbulence = 5;
     public int numOfOptimumDirections = 2;
@@ -24,15 +23,17 @@ public class AircraftFlightAgent : Agent
     public FlightPathNormalizer flightPathNormalizer;
     public FixedController aircraftController;
     [Space(10)]
-    public Slider PitchSlider;
-    public Slider RollSlider;
-    public Slider ThrottleSlider;
+    public Slider pitchSlider;
+    public Slider rollSlider;
+    public Slider throttleSlider;
     
     private float[] _previousActions = new float[3] {0, 0, 0};
     private float _sparseRewards;
     private float _denseRewards;
     private float _optimalRewards;
     private float _actionPenalty;
+    
+    private bool _episodeStarted;
     
     private void Start () 
     {
@@ -41,9 +42,11 @@ public class AircraftFlightAgent : Agent
     
     public override void OnEpisodeBegin()
     {
-        aircraftController.RestoreAircraft();
-        flightPathNormalizer.ResetAircraftPosition(transform);
-        StartCoroutine(AfterBegin());
+        if (trainingMode)
+        {
+            _episodeStarted = false;
+            StartCoroutine(AfterBegin());
+        }
     }
     
     public override void CollectObservations(VectorSensor sensor)
@@ -83,16 +86,18 @@ public class AircraftFlightAgent : Agent
         var distanceToRoute = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position);
         var distanceToTarget = flightPathNormalizer.TargetDistance(transform.position);
         
-        if ((distanceToRoute > 1f || illegalAircraftRotation) && _trainingMode)
+        if ((distanceToRoute > 1f || illegalAircraftRotation) && trainingMode && _episodeStarted)
         {
+            _episodeStarted = false;
             SetReward(-1);
             _sparseRewards--;
             Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             EndEpisode();
         }
-        else if (distanceToTarget < 10f)
+        else if (distanceToTarget < 30f)
         {
+            _episodeStarted = false;
             SetReward(20);
             _sparseRewards++;
             Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -102,9 +107,9 @@ public class AircraftFlightAgent : Agent
         }
         else
         {
-            AddReward(Mathf.Clamp01(1 - distanceToRoute) * 0.004f);
-            _denseRewards += Mathf.Clamp01(1 - distanceToRoute) * 0.004f;
-            _optimalRewards += Mathf.Clamp01(1 - distanceToRoute) * 0.004f;
+            AddReward(Mathf.Clamp01(1 - distanceToRoute) * 0.008f);
+            _denseRewards += Mathf.Clamp01(1 - distanceToRoute) * 0.008f;
+            _optimalRewards += Mathf.Clamp01(1 - distanceToRoute) * 0.008f;
             AddReward(-Mathf.Clamp01(distanceToRoute) * 0.004f);
             _denseRewards -= Mathf.Clamp01(distanceToRoute) * 0.004f;
             _optimalRewards -= Mathf.Clamp01(distanceToRoute) * 0.004f;
@@ -123,21 +128,28 @@ public class AircraftFlightAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = PitchSlider.value;
-        continuousActionsOut[1] = RollSlider.value;
-        continuousActionsOut[2] = ThrottleSlider.value;
+        continuousActionsOut[0] = pitchSlider.value;
+        continuousActionsOut[1] = rollSlider.value;
+        continuousActionsOut[2] = throttleSlider.value;
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
     
     IEnumerator AfterBegin()
     {
+        aircraftController.m_rigidbody.isKinematic = true;
         yield return null;
         aircraftController.TurnOnEngines();
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
+        flightPathNormalizer.ResetAirportTransform();
         flightPathNormalizer.ResetAircraftPosition(transform);
+        yield return new WaitForSeconds(0.1f);
+        aircraftController.m_rigidbody.isKinematic = false;
         aircraftController.PositionAircraft();
+        aircraftController.m_core.Compute(Time.fixedDeltaTime);
         //RAISE GEAR
         if (aircraftController.gearActuator != null && aircraftController.gearActuator.actuatorState == SilantroActuator.ActuatorState.Engaged) { aircraftController.gearActuator.DisengageActuator(); }
         else { aircraftController.m_gearState = Controller.GearState.Up; }
+        yield return new WaitForSeconds(0.5f);
+        _episodeStarted = true;
     }
 }
