@@ -14,12 +14,14 @@ using UnityEngine.UI;
 public class AircraftFlightAgent : Agent
 {
     public bool trainingMode;
-    [Range(0.1f, 25f), Space(10)] public float manoeuvreSpeed = 10f;
+    [Range(0.1f, 25f), Space(10)] 
+    public float manoeuvreSpeed = 10f;
     public float maxWindSpeed = 5;
     public float maxTurbulence = 5;
     public int numOfOptimumDirections = 2;
     public float gapBetweenOptimumDirections = 25f;
     [Space(10)]
+    public ObservationCanvas observationCanvas;
     public FlightPathNormalizer flightPathNormalizer;
     public FixedController aircraftController;
     [Space(10)]
@@ -42,6 +44,7 @@ public class AircraftFlightAgent : Agent
     
     public override void OnEpisodeBegin()
     {
+        observationCanvas.ChangeMode(1);
         if (trainingMode)
         {
             _episodeStarted = false;
@@ -76,6 +79,12 @@ public class AircraftFlightAgent : Agent
         
         // ATMOSPHERE
         sensor.AddObservation(windData);
+        
+        observationCanvas.DisplayFlightData(
+            flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position), optimumDirections,
+            aircraftController.m_rigidbody.velocity.normalized, AircraftNormalizer.NormalizedSpeed(aircraftController),
+            windData[0] * 360, windData[1] * maxWindSpeed, windData[2] * maxTurbulence
+        );
     }
     
     public override void OnActionReceived(ActionBuffers actionBuffers)

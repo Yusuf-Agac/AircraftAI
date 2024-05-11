@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Performance Fighter_timers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Performance Fighter_timers.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/FlightPathNormalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/FlightPathNormalizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/AircraftPPO.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/AircraftPPO.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/MainScene_timers.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_Flight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_Flight.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftFlightAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftFlightAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportNormalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AirportNormalizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/BezierCurveUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/BezierCurveUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroComponents.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +138,7 @@
       <workItem from="1715193770201" duration="3414000" />
       <workItem from="1715271244209" duration="5069000" />
       <workItem from="1715331039129" duration="3959000" />
-      <workItem from="1715417004923" duration="1174000" />
+      <workItem from="1715417004923" duration="1175000" />
     </task>
     <servers />
   </component>

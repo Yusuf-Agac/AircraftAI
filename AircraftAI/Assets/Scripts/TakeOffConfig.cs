@@ -12,7 +12,7 @@ class TakeOffConfig : BehaviorConfig
     [Space(10)]
     [SerializeField] private AirportNormalizer airportNormalizer;
     [SerializeField] private AircraftCollisionSensors sensors;
-    [SerializeField] private AircraftRelativeTransformCanvas relativeTransformCanvas;
+    [SerializeField] private ObservationCanvas observationCanvas;
     [SerializeField] private FixedController aircraftController;
     [SerializeField] private Slider pitchSlider;
     [SerializeField] private Slider rollSlider;
@@ -39,11 +39,11 @@ class TakeOffConfig : BehaviorConfig
         airportNormalizer.aircraftAgents.Add(aircraftTakeOffAgent);
         
         aircraftTakeOffAgent.sensors = sensors;
-        aircraftTakeOffAgent.relativeTransformCanvas = relativeTransformCanvas;
+        aircraftTakeOffAgent.observationCanvas = observationCanvas;
         aircraftTakeOffAgent.aircraftController = aircraftController;
-        aircraftTakeOffAgent.PitchSlider = pitchSlider;
-        aircraftTakeOffAgent.RollSlider = rollSlider;
-        aircraftTakeOffAgent.ThrottleSlider = throttleSlider;
+        aircraftTakeOffAgent.pitchSlider = pitchSlider;
+        aircraftTakeOffAgent.rollSlider = rollSlider;
+        aircraftTakeOffAgent.throttleSlider = throttleSlider;
         
         AddDecisionRequester(transform);
     }

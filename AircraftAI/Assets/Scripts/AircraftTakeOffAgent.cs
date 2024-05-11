@@ -7,6 +7,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class AircraftTakeOffAgent : Agent
@@ -21,12 +22,12 @@ public class AircraftTakeOffAgent : Agent
     [Space(10)]
     public AirportNormalizer airportNormalizer;
     public AircraftCollisionSensors sensors;
-    public AircraftRelativeTransformCanvas relativeTransformCanvas;
+    public ObservationCanvas observationCanvas;
     public FixedController aircraftController;
     [Space(10)]
-    public Slider PitchSlider;
-    public Slider RollSlider;
-    public Slider ThrottleSlider;
+    public Slider pitchSlider;
+    public Slider rollSlider;
+    public Slider throttleSlider;
     
     private float[] _previousActions = new float[3] {0, 0, 0};
     private float _sparseRewards;
@@ -50,6 +51,7 @@ public class AircraftTakeOffAgent : Agent
     
     public override void OnEpisodeBegin()
     {
+        observationCanvas.ChangeMode(0);
         if (trainingMode)
         {
             airportNormalizer.AirportCurriculum();
@@ -64,19 +66,6 @@ public class AircraftTakeOffAgent : Agent
     {
         AtmosphereController.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence);
         var windData = AircraftNormalizer.NormalizedWind(aircraftController, maxWindSpeed, maxTurbulence);
-        
-        relativeTransformCanvas.DisplaySimData(
-            NormalizedAircraftPos, 
-            NormalizedAircraftRot,
-            airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position), 
-            DirectionToNormalizedRotation(aircraftController.m_rigidbody.velocity.normalized), 
-            AircraftNormalizer.NormalizedSpeed(aircraftController),
-            DirectionToNormalizedRotation(NormalizedExitDirection),
-            airportNormalizer.GetNormalizedExitDistance(transform.position),
-            windData[0] * 360,
-            windData[1] * maxWindSpeed,
-            windData[2] * maxTurbulence
-            );
         
         // AIRCRAFT RELATIVE TRANSFORM
         sensor.AddObservation(NormalizedAircraftPos);
@@ -111,6 +100,14 @@ public class AircraftTakeOffAgent : Agent
         
         // ATMOSPHERE
         sensor.AddObservation(windData);
+        
+        observationCanvas.DisplayTakeOffData(
+            NormalizedAircraftPos, NormalizedAircraftRot,
+            airportNormalizer.NormalizedClosestOptimumPointDistance(transform.position), optimumDirections,
+            DirectionToNormalizedRotation(aircraftController.m_rigidbody.velocity.normalized), AircraftNormalizer.NormalizedSpeed(aircraftController),
+            DirectionToNormalizedRotation(NormalizedExitDirection), airportNormalizer.GetNormalizedExitDistance(transform.position),
+            windData[0] * 360, windData[1] * maxWindSpeed, windData[2] * maxTurbulence
+        );
     }
     
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -160,9 +157,9 @@ public class AircraftTakeOffAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = PitchSlider.value;
-        continuousActionsOut[1] = RollSlider.value;
-        continuousActionsOut[2] = ThrottleSlider.value;
+        continuousActionsOut[0] = pitchSlider.value;
+        continuousActionsOut[1] = rollSlider.value;
+        continuousActionsOut[2] = throttleSlider.value;
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
     

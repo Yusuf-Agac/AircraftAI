@@ -1032,7 +1032,6 @@ GameObject:
   m_Component:
   - component: {fileID: 420836867423733503}
   - component: {fileID: 7459721040457557504}
-  - component: {fileID: 7822012216464831748}
   m_Layer: 7
   m_Name: m_sensors
   m_TagString: Aircraft
@@ -1081,28 +1080,6 @@ MonoBehaviour:
     maxDistance: 1
   - transform: {fileID: 7644638833306299622}
     maxDistance: 0.45
---- !u!114 &7822012216464831748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719204236928907841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b32f77da4bf5404699acf0614b09685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posText: {fileID: 0}
-  rotText: {fileID: 0}
-  idealPointDistanceText: {fileID: 0}
-  velocityDirText: {fileID: 0}
-  speedText: {fileID: 0}
-  exitDirectionText: {fileID: 0}
-  exitDistanceText: {fileID: 0}
-  windArrow: {fileID: 0}
-  windSpeedText: {fileID: 0}
-  turbulenceText: {fileID: 0}
 --- !u!1 &733694068963668756
 GameObject:
   m_ObjectHideFlags: 0
@@ -30779,6 +30756,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 25000
+  trainingMode: 1
   manoeuvreSpeed: 25
   maxWindSpeed: 5
   maxTurbulence: 5
@@ -30786,11 +30764,11 @@ MonoBehaviour:
   gapBetweenOptimumDirections: 25
   airportNormalizer: {fileID: 0}
   sensors: {fileID: 7459721040457557504}
-  relativeTransformCanvas: {fileID: 7822012216464831748}
+  observationCanvas: {fileID: 0}
   aircraftController: {fileID: 9217060184409094024}
-  PitchSlider: {fileID: 0}
-  RollSlider: {fileID: 0}
-  ThrottleSlider: {fileID: 0}
+  pitchSlider: {fileID: 0}
+  rollSlider: {fileID: 0}
+  throttleSlider: {fileID: 0}
 --- !u!114 &8678492145494361013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30833,7 +30811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 10
+  DecisionPeriod: 1
   TakeActionsBetweenDecisions: 1
 --- !u!114 &9217060184409094024
 MonoBehaviour:
