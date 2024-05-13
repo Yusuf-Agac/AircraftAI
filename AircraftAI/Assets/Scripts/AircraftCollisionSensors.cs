@@ -9,19 +9,24 @@ public class AircraftCollisionSensors : MonoBehaviour
     
     [Header("Sensors")]
     public Sensor[] sensors;
+    private float[] _result;
 
     public bool CollisionSensorCriticLevel => sensors.Any(sensor => Physics.Raycast(sensor.transform.position, sensor.transform.forward, sensor.maxDistance, layerMask: LayerMask.GetMask("Terrain")));
 
+    private void Awake()
+    {
+        _result = new float[sensors.Length];
+    }
+
     public float[] CollisionSensorsNormalizedLevels()
     {
-        var result = new float[sensors.Length];
         for (var i = 0; i < sensors.Length; i++)
         {
             var sensor = sensors[i];
-            var casted = Physics.Raycast(sensor.transform.position, sensor.transform.forward, out var hit, sensor.maxDistance, layerMask: LayerMask.GetMask("Terrain"));
-            result[i] = casted ? hit.distance / sensor.maxDistance * observationMultiplier : 1;
+            var casted = Physics.Raycast(sensor.transform.position, sensor.transform.forward, out var hit, sensor.maxDistance * observationMultiplier, layerMask: LayerMask.GetMask("Terrain"));
+            _result[i] = casted ? hit.distance / (sensor.maxDistance * observationMultiplier) : 1;
         }
-        return result;
+        return _result;
     }
     
     [Serializable]
