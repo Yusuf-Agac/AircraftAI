@@ -18,8 +18,8 @@ public class AircraftFlightAgent : Agent
     public float manoeuvreSpeed = 10f;
     public float maxWindSpeed = 5;
     public float maxTurbulence = 5;
-    public int numOfOptimumDirections = 2;
-    public float gapBetweenOptimumDirections = 25f;
+    public int numOfOptimalDirections = 2;
+    public float gapBetweenOptimalDirections = 25f;
     [Space(10)]
     public ObservationCanvas observationCanvas;
     public FlightPathNormalizer flightPathNormalizer;
@@ -29,61 +29,112 @@ public class AircraftFlightAgent : Agent
     public Slider rollSlider;
     public Slider throttleSlider;
     
+    private DecisionRequester _decisionRequester;
+    
     private float[] _previousActions = new float[3] {0, 0, 0};
     private float _sparseRewards;
     private float _denseRewards;
     private float _optimalRewards;
     private float _actionPenalty;
-    
+    private Vector3 _aircraftForward;
+    private Vector3 _aircraftUp;
+    private float _dotForwardUp;
+    private float _dotUpDown;
+    private float _normalizedSpeed;
+    private Vector3 _relativeVelocityDir;
+    private float _normalizedOptimalDistance;
+    private Vector3[] _optimalDirections;
+    private float _dotVelRot;
+    private float _dotVelOpt;
+    private float _dotRotOpt;
+    private float _normalizedPitchRate;
+    private float _normalizedRollRate;
+    private float _normalizedYawRate;
+    private float[] _windData;
+    private float _windAngle;
+    private float _windSpeed;
+    private float _turbulence;
     private bool _episodeStarted;
     
     private void Start () 
     {
         aircraftController = GetComponent<FixedController>();
+        _decisionRequester = GetComponent<DecisionRequester>();
     }
     
     public override void OnEpisodeBegin()
     {
-        observationCanvas.ChangeMode(1);
-        if (trainingMode)
-        {
-            _episodeStarted = false;
-            StartCoroutine(AfterBegin());
-        }
+        if (!trainingMode) return;
+        _episodeStarted = false;
+        StartCoroutine(AfterBegin());
     }
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereController.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence);
-        var windData = AircraftNormalizer.NormalizedWind(aircraftController, maxWindSpeed, maxTurbulence);
+        AtmosphereController.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence, _decisionRequester.DecisionPeriod);
         
-        // AIRCRAFT VELOCITY
-        sensor.AddObservation(AircraftNormalizer.NormalizedSpeed(aircraftController));
-        sensor.AddObservation(aircraftController.m_rigidbody.velocity.normalized);
+        _aircraftForward = transform.forward;
+        _aircraftUp = transform.up;
+        _dotForwardUp = Vector3.Dot(_aircraftForward, Vector3.up);
+        _dotUpDown = Vector3.Dot(_aircraftUp, Vector3.down);
+        
+        _normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
+        _relativeVelocityDir = aircraftController.m_rigidbody.velocity.normalized;
+
+        _normalizedOptimalDistance = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position);
+        _optimalDirections = flightPathNormalizer.NormalizedClosestOptimumPointDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        
+        _dotVelRot = Vector3.Dot(_relativeVelocityDir, _aircraftForward);
+        _dotVelOpt = Vector3.Dot(_relativeVelocityDir, _optimalDirections[0]);
+        _dotRotOpt = Vector3.Dot(_aircraftForward, _optimalDirections[0]);
+        
+        _normalizedPitchRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.q * Mathf.Rad2Deg / 45f));
+        _normalizedRollRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.p * Mathf.Rad2Deg / 45f));
+        _normalizedYawRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / 45f));
+        
+        _windData = AircraftNormalizer.NormalizedWind(aircraftController, maxWindSpeed, maxTurbulence);
+        _windAngle = _windData[0] * 360;
+        _windSpeed = _windData[1] * maxWindSpeed;
+        _turbulence = _windData[2] * maxTurbulence;
         
         // AIRCRAFT GLOBAL ROTATION
-        sensor.AddObservation(transform.forward);
-        sensor.AddObservation(Vector3.Dot(transform.forward, Vector3.up));
-        sensor.AddObservation(Vector3.Dot(transform.up, Vector3.down));
+        sensor.AddObservation(_aircraftForward);
+        sensor.AddObservation(_dotForwardUp);
+        sensor.AddObservation(_dotUpDown);
+        
+        // AIRCRAFT VELOCITY
+        sensor.AddObservation(_normalizedSpeed);
+        sensor.AddObservation(_relativeVelocityDir);
         
         // OPTIMUM POINT
-        sensor.AddObservation(flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position));
-        var optimumDirections = flightPathNormalizer.NormalizedClosestOptimumPointDirections(transform, numOfOptimumDirections, gapBetweenOptimumDirections);
-        foreach (var optimumDirection in optimumDirections)
-        {
-            sensor.AddObservation(optimumDirection);
-        }
+        sensor.AddObservation(_normalizedOptimalDistance);
+        foreach (var optimalDirection in _optimalDirections) sensor.AddObservation(optimalDirection);
+        
+        // Relative Directions
+        sensor.AddObservation(_dotVelRot);
+        sensor.AddObservation(_dotVelOpt);
+        sensor.AddObservation(_dotRotOpt);
         
         // AIRCRAFT INPUTS
         sensor.AddObservation(_previousActions);
         
-        // ATMOSPHERE
-        sensor.AddObservation(windData);
+        // AIRCRAFT AXES RATES
+        sensor.AddObservation(_normalizedPitchRate);
+        sensor.AddObservation(_normalizedRollRate);
+        sensor.AddObservation(_normalizedYawRate);
         
-        observationCanvas.DisplayFlightData(
-            flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position), optimumDirections,
-            aircraftController.m_rigidbody.velocity.normalized, AircraftNormalizer.NormalizedSpeed(aircraftController),
-            windData[0] * 360, windData[1] * maxWindSpeed, windData[2] * maxTurbulence
+        // ATMOSPHERE
+        sensor.AddObservation(_windData);
+        
+        observationCanvas.DisplayNormalizedData(
+            _aircraftForward, _dotForwardUp, _dotUpDown,
+            _relativeVelocityDir, _normalizedSpeed,
+            _normalizedOptimalDistance, _optimalDirections,
+            _dotVelRot, _dotVelOpt, _dotRotOpt,
+            _previousActions,
+            _normalizedPitchRate, _normalizedRollRate, _normalizedYawRate,
+            (float)aircraftController.m_flcs.m_pitch, (float)aircraftController.m_flcs.m_roll, (float)aircraftController.m_flcs.m_yaw,
+            _windAngle, _windSpeed, _turbulence
         );
     }
     
@@ -91,44 +142,52 @@ public class AircraftFlightAgent : Agent
     {
         aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
         
-        var illegalAircraftRotation = Vector3.Dot(transform.forward, Vector3.up) > 0.4f || Vector3.Dot(transform.forward, Vector3.up) < -0.4f || Vector3.Dot(transform.up, Vector3.down) > 0;
-        var distanceToRoute = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position);
-        var distanceToTarget = flightPathNormalizer.TargetDistance(transform.position);
+        _aircraftForward = transform.forward;
+        _aircraftUp = transform.up;
+        _dotForwardUp = Vector3.Dot(_aircraftForward, Vector3.up);
+        _dotUpDown = Vector3.Dot(_aircraftUp, Vector3.down);
+        var illegalAircraftRotation = _dotForwardUp is > 0.4f or < -0.4f || _dotUpDown > -0.3f;
+
+        var position = transform.position;
+        var distanceToRoute = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(position);
+        var distanceToTarget = flightPathNormalizer.TargetDistance(position);
         
-        if ((distanceToRoute > 1f || illegalAircraftRotation) && trainingMode && _episodeStarted)
+        if (IsEpisodeFailed(distanceToRoute, illegalAircraftRotation))
         {
             _episodeStarted = false;
             SetReward(-1);
             _sparseRewards--;
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             EndEpisode();
         }
-        else if (distanceToTarget < 30f)
+        else if (AircraftArrivedExit(distanceToTarget))
         {
             _episodeStarted = false;
             SetReward(20);
             _sparseRewards++;
-            Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-            Debug.Log("Time: " + DateTime.UtcNow.ToString("HH:mm"));
-            Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             EndEpisode();
         }
         else
         {
-            AddReward(Mathf.Clamp01(1 - distanceToRoute) * 0.008f);
-            _denseRewards += Mathf.Clamp01(1 - distanceToRoute) * 0.008f;
-            _optimalRewards += Mathf.Clamp01(1 - distanceToRoute) * 0.008f;
-            AddReward(-Mathf.Clamp01(distanceToRoute) * 0.004f);
-            _denseRewards -= Mathf.Clamp01(distanceToRoute) * 0.004f;
-            _optimalRewards -= Mathf.Clamp01(distanceToRoute) * 0.004f;
+            var reward = Mathf.Clamp01(1 - distanceToRoute) * 0.008f;
+            AddReward(reward);
+            _denseRewards += reward;
+            _optimalRewards += reward;
+            
+            var penalty = -Mathf.Clamp01(distanceToRoute) * 0.004f;
+            AddReward(penalty);
+            _denseRewards += penalty;
+            _optimalRewards += penalty;
 
             for (var i = 0; i < _previousActions.Length; i++)
             {
-                var actionDifference = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
-                AddReward(-0.004f * actionDifference);
-                _denseRewards -= 0.004f * actionDifference;
-                _actionPenalty -= 0.004f * actionDifference;
+                var actionDifferencePenalty = -Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]) * 0.004f;
+                AddReward(actionDifferencePenalty);
+                _denseRewards += actionDifferencePenalty;
+                _actionPenalty += actionDifferencePenalty;
             }
         }
         _previousActions = actionBuffers.ContinuousActions.ToArray();
@@ -143,6 +202,16 @@ public class AircraftFlightAgent : Agent
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
     
+    private static bool AircraftArrivedExit(float distanceToTarget)
+    {
+        return distanceToTarget < 30f;
+    }
+
+    private bool IsEpisodeFailed(float distanceToRoute, bool illegalAircraftRotation)
+    {
+        return (distanceToRoute > 0.99f || illegalAircraftRotation) && trainingMode && _episodeStarted;
+    }
+    
     IEnumerator AfterBegin()
     {
         aircraftController.m_rigidbody.isKinematic = true;
@@ -155,6 +224,7 @@ public class AircraftFlightAgent : Agent
         aircraftController.m_rigidbody.isKinematic = false;
         aircraftController.PositionAircraft();
         aircraftController.m_core.Compute(Time.fixedDeltaTime);
+        observationCanvas.ChangeMode(1);
         //RAISE GEAR
         if (aircraftController.gearActuator != null && aircraftController.gearActuator.actuatorState == SilantroActuator.ActuatorState.Engaged) { aircraftController.gearActuator.DisengageActuator(); }
         else { aircraftController.m_gearState = Controller.GearState.Up; }
