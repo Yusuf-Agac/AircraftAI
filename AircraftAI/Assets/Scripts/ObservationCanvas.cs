@@ -1,96 +1,187 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ObservationCanvas : MonoBehaviour
 {
-    [SerializeField] private TMP_Text posText;
-    [SerializeField] private TMP_Text rotText;
+    [SerializeField] private TMP_Text behaviourNameText;
     [Space(10)]
-    [SerializeField] private TMP_Text exitDirectionText;
-    [SerializeField] private TMP_Text exitDistanceText;
-    [Space(10)]
-    [SerializeField] private TMP_Text optimalPointDistanceText;
-    [SerializeField] private TMP_Text[] optimalDirectionTexts;
+    [SerializeField] private TMP_Text forwardText;
+    [SerializeField] private TMP_Text upDotText;
+    [SerializeField] private TMP_Text downDotText;
     [Space(10)]
     [SerializeField] private TMP_Text velocityDirText;
     [SerializeField] private TMP_Text speedText;
     [Space(10)]
+    [SerializeField] private TMP_Text optimalPointDistanceText;
+    [SerializeField] private TMP_Text[] optimalDirectionTexts;
+    [Space(10)]
+    [SerializeField] private TMP_Text dotVelRotText;
+    [SerializeField] private TMP_Text dotVelOptText;
+    [SerializeField] private TMP_Text dotRotOptText;
+    [Space(10)]
+    [SerializeField] private TMP_Text pitchInputText;
+    [SerializeField] private TMP_Text rollInputText;
+    [SerializeField] private TMP_Text yawInputText;
+    [FormerlySerializedAs("pitchAxesText")]
+    [Space(10)]
+    [SerializeField] private TMP_Text pitchRateText;
+    [FormerlySerializedAs("rollAxesText")] [SerializeField] private TMP_Text rollRateText;
+    [FormerlySerializedAs("yawAxesText")] [SerializeField] private TMP_Text yawRateText;
+    [FormerlySerializedAs("pitchAxesCurrentText")]
+    [Space]
+    [SerializeField] private TMP_Text pitchCurrentText;
+    [FormerlySerializedAs("rollAxesCurrentText")] [SerializeField] private TMP_Text rollCurrentText;
+    [FormerlySerializedAs("yawAxesCurrentText")] [SerializeField] private TMP_Text yawCurrentText;
+    [Space(10)]
     [SerializeField] private RectTransform windArrow;
     [SerializeField] private TMP_Text windSpeedText;
     [SerializeField] private TMP_Text turbulenceText;
+    [Space(10)]
+    [SerializeField] private TMP_Text posText;
+    [SerializeField] private TMP_Text rotText;
+    [Space(10)]
+    [SerializeField] private TMP_Text[] collisionDistanceTexts;
     
     public void ChangeMode(int mode)
     {
-        posText.gameObject.SetActive(mode == 0);
-        rotText.gameObject.SetActive(mode == 0);
+        posText.transform.parent.gameObject.SetActive(mode is 0 or 2);
+        rotText.transform.parent.gameObject.SetActive(mode is 0 or 2);
         
-        exitDirectionText.gameObject.SetActive(mode == 0);
-        exitDistanceText.gameObject.SetActive(mode == 0);
-        
-        optimalPointDistanceText.gameObject.SetActive(mode is 0 or 1);
-        
-        velocityDirText.gameObject.SetActive(mode is 0 or 1);
-        speedText.gameObject.SetActive(mode is 0 or 1);
-        
-        windArrow.gameObject.SetActive(mode is 0 or 1);
-        windSpeedText.gameObject.SetActive(mode is 0 or 1);
-        turbulenceText.gameObject.SetActive(mode is 0 or 1);
+        foreach (var collisionDistanceText in collisionDistanceTexts)
+        {
+            collisionDistanceText.transform.parent.gameObject.SetActive(mode is 0 or 2);
+        }
     }
     
-    public void DisplayTakeOffData(
-        Vector3 relativePosition, Vector3 relativeRotation, 
-        float optimalPositionDistance, Vector3[] optimalDirections,
+    public void DisplayNormalizedData(
+        Vector3 forward, float upDot, float downDot,
         Vector3 velocityDir, float speed, 
-        Vector3 exitDirection, float exitDistance, 
+        float optimalPositionDistance, Vector3[] optimalDirections,
+        float dotVelRot, float dotVelOpt, float dotRotOpt,
+        float[] inputs,
+        float pitchRate, float rollRate, float yawRate,
+        float pitchCurrent, float rollCurrent, float yawCurrent,
+        float windAngle, float windSpeed, float turbulence,
+        Vector3 relativePosition, Vector3 relativeRotation,
+        float[] collisionDistances)
+    {
+        DisplayBehaviourName("Take Off");
+        DisplayGlobalDirections(forward, upDot, downDot);
+        DisplayMovement(velocityDir, speed);
+        DisplayOptimal(optimalPositionDistance, optimalDirections);
+        DisplayDirectionDots(dotVelRot, dotVelOpt, dotRotOpt);
+        DisplayInputs(inputs);
+        DisplayAxesRates(pitchRate, rollRate, yawRate);
+        DisplayAxesCurrents(pitchCurrent, rollCurrent, yawCurrent);
+        DisplayWind(windAngle, windSpeed, turbulence);
+        DisplayRelativeTransform(relativePosition, relativeRotation);
+        DisplayCollisionDistances(collisionDistances);
+    }
+
+    
+
+    public void DisplayNormalizedData(
+        Vector3 forward, float upDot, float downDot,
+        Vector3 velocityDir, float speed, 
+        float optimalPositionDistance, Vector3[] optimalDirections,
+        float dotVelRot, float dotVelOpt, float dotRotOpt,
+        float[] inputs,
+        float pitchRate, float rollRate, float yawRate,
+        float pitchCurrent, float rollCurrent, float yawCurrent,
         float windAngle, float windSpeed, float turbulence)
+    {
+        DisplayBehaviourName("Flight");
+        DisplayGlobalDirections(forward, upDot, downDot);
+        DisplayMovement(velocityDir, speed);
+        DisplayOptimal(optimalPositionDistance, optimalDirections);
+        DisplayDirectionDots(dotVelRot, dotVelOpt, dotRotOpt);
+        DisplayInputs(inputs);
+        DisplayAxesRates(pitchRate, rollRate, yawRate);
+        DisplayAxesCurrents(pitchCurrent, rollCurrent, yawCurrent);
+        DisplayWind(windAngle, windSpeed, turbulence);
+    }
+    
+    private void DisplayBehaviourName(string behaviourName)
+    {
+        behaviourNameText.text = behaviourName + " Behaviour";
+    }
+
+    private void DisplayRelativeTransform(Vector3 relativePosition, Vector3 relativeRotation)
     {
         DisplayRelativePosition(relativePosition);
         DisplayRelativeRotation(relativeRotation);
-        
-        DisplayExitDirection(exitDirection);
-        DisplayExitDistance(exitDistance);
-        
-        DisplayOptimalPositionDistance(optimalPositionDistance);
-        DisplayOptimalDirections(optimalDirections);
-        
-        DisplayVelocityDir(velocityDir);
-        DisplaySpeed(speed);
-        
+    }
+
+    private void DisplayWind(float windAngle, float windSpeed, float turbulence)
+    {
         RotateWindArrow(windAngle);
         DisplayWindSpeed(windSpeed);
         DisplayTurbulence(turbulence);
     }
-    
-    public void DisplayFlightData(
-        float optimalPositionDistance, Vector3[] optimalDirections,
-        Vector3 velocityDir, float speed, 
-        float windAngle, float windSpeed, float turbulence)
+
+    private void DisplayAxesCurrents(float pitchCurrent, float rollCurrent, float yawCurrent)
+    {
+        DisplayPitchCurrent(pitchCurrent);
+        DisplayRollCurrent(rollCurrent);
+        DisplayYawCurrent(yawCurrent);
+    }
+
+    private void DisplayAxesRates(float pitchRate, float rollRate, float yawRate)
+    {
+        DisplayPitchRate(pitchRate);
+        DisplayRollRate(rollRate);
+        DisplayYawRate(yawRate);
+    }
+
+    private void DisplayInputs(float[] inputs)
+    {
+        DisplayPitchInput(inputs[0]);
+        DisplayRollInput(inputs[1]);
+        DisplayYawInput(inputs[2]);
+    }
+
+    private void DisplayDirectionDots(float dotVelRot, float dotVelOpt, float dotRotOpt)
+    {
+        DisplayDotVelRot(dotVelRot);
+        DisplayDotVelOpt(dotVelOpt);
+        DisplayDotRotOpt(dotRotOpt);
+    }
+
+    private void DisplayOptimal(float optimalPositionDistance, Vector3[] optimalDirections)
     {
         DisplayOptimalPositionDistance(optimalPositionDistance);
         DisplayOptimalDirections(optimalDirections);
-        
+    }
+
+    private void DisplayMovement(Vector3 velocityDir, float speed)
+    {
         DisplayVelocityDir(velocityDir);
         DisplaySpeed(speed);
-        
-        RotateWindArrow(windAngle);
-        DisplayWindSpeed(windSpeed);
-        DisplayTurbulence(turbulence);
+    }
+
+    private void DisplayGlobalDirections(Vector3 forward, float upDot, float downDot)
+    {
+        DisplayForward(forward);
+        DisplayUpDot(upDot);
+        DisplayDownDot(downDot);
     }
     
-    private void DisplayRelativePosition(Vector3 relativePosition) => posText.text = $"Pos{relativePosition}";
-    private void DisplayRelativeRotation(Vector3 relativeRotation) => rotText.text = $"Rot{relativeRotation}";
+    private void DisplayForward(Vector3 forward) => forwardText.text = $"{forward}";
+    private void DisplayUpDot(float upDot) => upDotText.text = $"{upDot:F2}";
+    private void DisplayDownDot(float downDot) => downDotText.text = $"{downDot:F2}";
     
-    private void DisplayExitDirection(Vector3 exitDirection) => exitDirectionText.text = $"ExitDir{exitDirection}";
-    private void DisplayExitDistance(float exitDistance) => exitDistanceText.text = $"ExitDist: {exitDistance:F2}";
+    private void DisplayVelocityDir(Vector3 velocityDir) => velocityDirText.text = $"{velocityDir}";
+    private void DisplaySpeed(float speed) => speedText.text = $"{speed:F2}";
     
-    private void DisplayOptimalPositionDistance(float distance) => optimalPointDistanceText.text = $"Dist: {distance:F2}";
+    private void DisplayOptimalPositionDistance(float distance) => optimalPointDistanceText.text = $"{distance:F2}";
     private void DisplayOptimalDirections(Vector3[] directions)
     {
         for (var i = 0; i < directions.Length && i < optimalDirectionTexts.Length; i++)
         {
             optimalDirectionTexts[i].gameObject.SetActive(true);
-            optimalDirectionTexts[i].text = $"Dir{i}{directions[i]}";
+            optimalDirectionTexts[i].text = $"{directions[i]}";
         }
         for (var i = directions.Length; i < optimalDirectionTexts.Length; i++)
         {
@@ -98,10 +189,39 @@ public class ObservationCanvas : MonoBehaviour
         }
     }
     
-    private void DisplayVelocityDir(Vector3 velocityDir) => velocityDirText.text = $"VelDir{velocityDir}";
-    private void DisplaySpeed(float speed) => speedText.text = $"Spd: {speed:F2}";
+    private void DisplayDotVelRot(float dot) => dotVelRotText.text = $"{dot:F2}";
+    private void DisplayDotVelOpt(float dot) => dotVelOptText.text = $"{dot:F2}";
+    private void DisplayDotRotOpt(float dot) => dotRotOptText.text = $"{dot:F2}";
+    
+    private void DisplayPitchInput(float pitch) => pitchInputText.text = $"{pitch:F2}";
+    private void DisplayRollInput(float roll) => rollInputText.text = $"{roll:F2}";
+    private void DisplayYawInput(float yaw) => yawInputText.text = $"{yaw:F2}";
+    
+    private void DisplayPitchRate(float pitch) => pitchRateText.text = $"{pitch:F2}";
+    private void DisplayRollRate(float roll) => rollRateText.text = $"{roll:F2}";
+    private void DisplayYawRate(float yaw) => yawRateText.text = $"{yaw:F2}";
+    
+    private void DisplayPitchCurrent(float pitch) => pitchCurrentText.text = $"{pitch:F2}";
+    private void DisplayRollCurrent(float roll) => rollCurrentText.text = $"{roll:F2}";
+    private void DisplayYawCurrent(float yaw) => yawCurrentText.text = $"{yaw:F2}";
     
     private void RotateWindArrow(float angle) => windArrow.eulerAngles = new Vector3(0, 0, angle);
     private void DisplayWindSpeed(float speed) => windSpeedText.text = $"Wind Speed: {speed:F2}";
     private void DisplayTurbulence(float turbulence) => turbulenceText.text = $"Turbulence: {turbulence:F2}";
+    
+    private void DisplayRelativePosition(Vector3 relativePosition) => posText.text = $"{relativePosition}";
+    private void DisplayRelativeRotation(Vector3 relativeRotation) => rotText.text = $"{relativeRotation}";
+    
+    private void DisplayCollisionDistances(float[] distances)
+    {
+        for (var i = 0; i < distances.Length && i < collisionDistanceTexts.Length; i++)
+        {
+            collisionDistanceTexts[i].gameObject.SetActive(true);
+            collisionDistanceTexts[i].text = $"{distances[i]:F2}";
+        }
+        for (var i = distances.Length; i < collisionDistanceTexts.Length; i++)
+        {
+            collisionDistanceTexts[i].gameObject.SetActive(false);
+        }
+    }
 }
