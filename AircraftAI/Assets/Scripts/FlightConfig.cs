@@ -1,15 +1,14 @@
 ﻿using System;
 using Oyedoyin.FixedWing;
-using Unity.MLAgents.Policies;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [Serializable]
 class FlightConfig : BehaviorConfig
 {
     [Space(10)]
+    [SerializeField] private ObservationCanvas observationCanvas;
     [SerializeField] private FlightPathNormalizer flightPathNormalizer;
     [SerializeField] private FixedController aircraftController;
     [SerializeField] private Slider pitchSlider;
@@ -29,13 +28,14 @@ class FlightConfig : BehaviorConfig
         aircraftFlightAgent.manoeuvreSpeed = manoeuvreSpeed;
         aircraftFlightAgent.maxWindSpeed = maxWindSpeed;
         aircraftFlightAgent.maxTurbulence = maxTurbulence;
-        aircraftFlightAgent.numOfOptimumDirections = numOfOptimumDirections;
-        aircraftFlightAgent.gapBetweenOptimumDirections = gapBetweenOptimumDirections;
+        aircraftFlightAgent.numOfOptimalDirections = numOfOptimumDirections;
+        aircraftFlightAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
         
         aircraftFlightAgent.flightPathNormalizer = flightPathNormalizer;
         flightPathNormalizer.aircraftAgents.Clear();
         flightPathNormalizer.aircraftAgents.Add(aircraftFlightAgent);
         
+        aircraftFlightAgent.observationCanvas = observationCanvas;
         aircraftFlightAgent.aircraftController = aircraftController;
         aircraftFlightAgent.pitchSlider = pitchSlider;
         aircraftFlightAgent.rollSlider = rollSlider;

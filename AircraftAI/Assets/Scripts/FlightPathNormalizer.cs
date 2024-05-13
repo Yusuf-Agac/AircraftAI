@@ -125,9 +125,9 @@ public class FlightPathNormalizer : MonoBehaviour
             
             // OBSERVATION
             Gizmos.color = Color.white;
-            for (int i = 0; i < agent.numOfOptimumDirections; i++)
+            for (int i = 0; i < agent.numOfOptimalDirections; i++)
             {
-                var aircraftPos = controller.transform.position + controller.transform.forward * ((i * agent.gapBetweenOptimumDirections) + 30f);
+                var aircraftPos = controller.transform.position + controller.transform.forward * ((i * agent.gapBetweenOptimalDirections) + 30f);
                 var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, _numberOfPoints);
                 Gizmos.DrawSphere(closestPoint, 0.3f);
                 Gizmos.DrawLine(closestPoint, controller.transform.position);

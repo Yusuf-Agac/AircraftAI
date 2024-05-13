@@ -31,8 +31,8 @@ class TakeOffConfig : BehaviorConfig
         aircraftTakeOffAgent.manoeuvreSpeed = manoeuvreSpeed;
         aircraftTakeOffAgent.maxWindSpeed = maxWindSpeed;
         aircraftTakeOffAgent.maxTurbulence = maxTurbulence;
-        aircraftTakeOffAgent.numOfOptimumDirections = numOfOptimumDirections;
-        aircraftTakeOffAgent.gapBetweenOptimumDirections = gapBetweenOptimumDirections;
+        aircraftTakeOffAgent.numOfOptimalDirections = numOfOptimumDirections;
+        aircraftTakeOffAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
         
         aircraftTakeOffAgent.airportNormalizer = airportNormalizer;
         airportNormalizer.aircraftAgents.Clear();

@@ -196,7 +196,7 @@ public class AirportNormalizer : MonoBehaviour
         return NormalizerUtility.NormalizeRotation(new Vector3(x, y, z));
     }
     
-    public float NormalizedClosestOptimumPointDistance(Vector3 aircraftPos)
+    public float NormalizedClosestOptimalPointDistance(Vector3 aircraftPos)
     {
         var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, numberOfPoints);
         return Vector3.Distance(closestPoint, aircraftPos) / ((AirportExitPosition - AirportResetPosition).y + HeightOffset + RandomHeightOffset);
@@ -364,17 +364,18 @@ public class AirportNormalizer : MonoBehaviour
             
                 // OBSERVATION
                 Gizmos.color = Color.white;
-                for (int i = 0; i < agent.numOfOptimumDirections; i++)
+                for (int i = 0; i < agent.numOfOptimalDirections; i++)
                 {
-                    var aircraftPos = controller.transform.position + controller.transform.forward * ((i * agent.gapBetweenOptimumDirections) + 30f);
-                    var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, numberOfPoints);
-                    Gizmos.DrawSphere(closestPoint, 0.3f);
-                    Gizmos.DrawLine(closestPoint, controller.transform.position);
-                    Gizmos.DrawLine(AirportExitPosition, controller.transform.position);
+                    var position = controller.transform.position;
+                    var aircraftForwardPosition = position + controller.transform.forward * ((i * agent.gapBetweenOptimalDirections) + 30f);
+                    var closestPosition = BezierCurveUtility.FindClosestPosition(aircraftForwardPosition, BezierPoints, numberOfPoints);
+                    Gizmos.DrawSphere(closestPosition, 0.3f);
+                    Gizmos.DrawLine(closestPosition, position);
                 }
             
                 // REWARD
-                var reward = Mathf.Clamp01(1 - (NormalizedClosestOptimumPointDistance(controller.transform.position) * 3)) - Mathf.Clamp01(NormalizedClosestOptimumPointDistance(controller.transform.position));
+                var optimalDistance = NormalizedClosestOptimalPointDistance(controller.transform.position);
+                var reward = Mathf.Clamp01(1 - (optimalDistance * 3)) - Mathf.Clamp01(optimalDistance);
                 Gizmos.color = new Color(1 - reward, reward, 0, 1);
                 var closestPointReward = BezierCurveUtility.FindClosestPosition(controller.transform.position, BezierPoints, numberOfPoints);
                 Gizmos.DrawSphere(closestPointReward, 0.3f);
