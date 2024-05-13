@@ -12,7 +12,7 @@ namespace DefaultNamespace
             var u = aircraftController.m_core.u;
             var v = aircraftController.m_core.v;
             var speed = (float)Math.Sqrt((u * u) + (v * v)) * 1.944f;
-            return Mathf.Clamp01(speed / 110f);
+            return Mathf.Clamp01(speed / 130f);
         }
 
         public static float[] NormalizedWind(FixedController fixedController, float maxWind, float maxTurbulence)
