@@ -20,7 +20,7 @@ abstract class BehaviorConfig
     [SerializeField] protected float maxWindSpeed = 5;
     [SerializeField] protected float maxTurbulence = 5;
     [SerializeField] protected int numOfOptimumDirections = 2;
-    [SerializeField] protected float gapBetweenOptimumDirections = 25f;
+    [SerializeField] protected int gapBetweenOptimumDirections = 2;
     [SerializeField] protected int maxStep = 2500000;
     
     [Space(10)]

@@ -4,53 +4,31 @@ public static class BezierCurveUtility
 {
     public static Vector3 CalculateBezierPoint(float t, Vector3[] points)
     {
-        // bezier curve have 5 points
-        Vector3 point = Mathf.Pow(1 - t, 4) * points[0] +
-                        4 * Mathf.Pow(1 - t, 3) * t * points[1] +
-                        6 * Mathf.Pow(1 - t, 2) * Mathf.Pow(t, 2) * points[2] +
-                        4 * (1 - t) * Mathf.Pow(t, 3) * points[3] +
-                        Mathf.Pow(t, 4) * points[4];
+        if (points.Length != 5) return Vector3.zero;
+        
+        t = Mathf.Clamp01(t);
+        var point = Mathf.Pow(1 - t, 4) * points[0] +
+                    4 * Mathf.Pow(1 - t, 3) * t * points[1] +
+                    6 * Mathf.Pow(1 - t, 2) * Mathf.Pow(t, 2) * points[2] +
+                    4 * (1 - t) * Mathf.Pow(t, 3) * points[3] +
+                    Mathf.Pow(t, 4) * points[4];
         return point;
     }
-
-    public static Vector3 FindClosestPoint(Vector3 pointToCheck, Vector3[] points, int numberOfPoints)
-    {
-        float minDistance = Mathf.Infinity;
-        Vector3 closestPoint = Vector3.zero;
-
-        for (int i = 0; i <= numberOfPoints; i++)
-        {
-            float t = i / (float)numberOfPoints;
-            Vector3 pointOnCurve = CalculateBezierPoint(t, points);
-
-            float distance = Vector3.Distance(pointOnCurve, pointToCheck);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                closestPoint = pointOnCurve;
-            }
-        }
-
-        return closestPoint;
-    }
     
-    public static Vector3 FindClosestPosition(Vector3 pointToCheck, Vector3[] points, int numberOfPoints)
+    public static Vector3 FindClosestPosition(Vector3 positionToCheck, Vector3[] points, int numberOfPoints)
     {
-        float minDistance = Mathf.Infinity;
-        Vector3[] closestLine = new Vector3[2];
+        var minDistance = Mathf.Infinity;
+        var closestLine = new Vector3[2];
 
-        for (int i = 0; i <= numberOfPoints; i++)
+        for (var i = 0; i <= numberOfPoints; i++)
         {
-            float t = i / (float)numberOfPoints;
-            Vector3 pointOnCurve = CalculateBezierPoint(t, points);
-            Vector3 pointOnCurve2 = CalculateBezierPoint(t + (1f / numberOfPoints), points);
+            var t = i / (float)numberOfPoints;
+            var lineStart = CalculateBezierPoint(t, points);
+            var lineEnd = CalculateBezierPoint(t + (1f / numberOfPoints), points);
 
-            Vector3 lineStart = pointOnCurve;
-            Vector3 lineEnd = pointOnCurve2;
+            var pointOnLine = ClosestPointOnLine(lineStart, lineEnd, positionToCheck);
 
-            Vector3 pointOnLine = ClosestPointOnLine(lineStart, lineEnd, pointToCheck);
-
-            float distance = Vector3.Distance(pointOnLine, pointToCheck);
+            var distance = Vector3.Distance(pointOnLine, positionToCheck);
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -59,7 +37,37 @@ public static class BezierCurveUtility
             }
         }
 
-        return ClosestPointOnLine(closestLine[0], closestLine[1], pointToCheck);
+        return ClosestPointOnLine(closestLine[0], closestLine[1], positionToCheck);
+    }
+
+    public static Vector3 FindClosestPositionsNext(Vector3 positionToCheck, Vector3[] points, int numberOfPoints, int gap)
+    {
+        var minDistance = Mathf.Infinity;
+        var closestNextLine = new Vector3[2];
+        var closestLine = new Vector3[2];
+        var closestPosition01 = 0f;
+
+        for (var i = 0; i <= numberOfPoints; i++)
+        {
+            var t = i / (float)numberOfPoints;
+            var lineStart = CalculateBezierPoint(t, points);
+            var lineEnd = CalculateBezierPoint(t + (1f / numberOfPoints), points);
+
+            var closestPosition = ClosestPointOnLine(lineStart, lineEnd, positionToCheck);
+
+            var distance = Vector3.Distance(closestPosition, positionToCheck);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestLine[0] = lineStart;
+                closestLine[1] = lineEnd;
+                closestPosition01 = PositionOnLine01(lineStart, lineEnd, closestPosition);
+                closestNextLine[0] = CalculateBezierPoint(t + (gap / (float)numberOfPoints), points);
+                closestNextLine[1] = CalculateBezierPoint(t + ((1 + gap) / (float)numberOfPoints), points);
+            }
+        }
+        
+        return GetPositionOnLine(closestNextLine[0], closestNextLine[1], closestPosition01);
     }
     
     private static Vector3 ClosestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
@@ -68,5 +76,18 @@ public static class BezierCurveUtility
         var pointDirection = (point - lineStart);
         var distance = Vector3.Dot(pointDirection, lineDirection);
         return lineStart + lineDirection * Mathf.Clamp(distance, 0, Vector3.Distance(lineStart, lineEnd));
+    }
+    
+    private static float PositionOnLine01(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
+    {
+        var lineDirection = (lineEnd - lineStart).normalized;
+        var pointDirection = (point - lineStart);
+        var distance = Vector3.Dot(pointDirection, lineDirection);
+        return Mathf.Clamp(distance, 0, Vector3.Distance(lineStart, lineEnd)) / Vector3.Distance(lineStart, lineEnd);
+    }
+    
+    private static Vector3 GetPositionOnLine(Vector3 lineStart, Vector3 lineEnd, float t)
+    {
+        return lineStart + (lineEnd - lineStart) * t;
     }
 }
