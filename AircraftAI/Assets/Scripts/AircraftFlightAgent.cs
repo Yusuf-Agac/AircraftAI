@@ -10,14 +10,19 @@ using Unity.MLAgents.Sensors;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class AircraftFlightAgent : Agent
 {
     public bool trainingMode;
+    [Space(10)] 
+    public float windDirectionSpeed = 360;
+    public float trainingMaxWindSpeed = 5;
+    public float maxWindSpeed = 5;
+    public float trainingMaxTurbulence = 5;
+    public float maxTurbulence = 5;
     [Range(0.1f, 25f), Space(10)] 
     public float manoeuvreSpeed = 10f;
-    public float maxWindSpeed = 5;
-    public float maxTurbulence = 5;
     public int numOfOptimalDirections = 2;
     public float gapBetweenOptimalDirections = 25f;
     [Space(10)]
@@ -55,7 +60,10 @@ public class AircraftFlightAgent : Agent
     private float _windSpeed;
     private float _turbulence;
     private bool _episodeStarted;
-    
+    private Vector3 _fwdOptDifference;
+    private Vector3 _velOptDifference;
+    private float _normalizedThrust;
+
     private void Start () 
     {
         aircraftController = GetComponent<FixedController>();
@@ -65,13 +73,15 @@ public class AircraftFlightAgent : Agent
     public override void OnEpisodeBegin()
     {
         if (!trainingMode) return;
+        maxWindSpeed = Random.Range(0, trainingMaxWindSpeed);
+        maxTurbulence = Random.Range(0, trainingMaxTurbulence);
         _episodeStarted = false;
         StartCoroutine(AfterBegin());
     }
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereController.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence, _decisionRequester.DecisionPeriod);
+        AtmosphereController.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence, _decisionRequester.DecisionPeriod, windDirectionSpeed);
         
         _aircraftForward = transform.forward;
         _aircraftUp = transform.up;
@@ -79,36 +89,46 @@ public class AircraftFlightAgent : Agent
         _dotUpDown = Vector3.Dot(_aircraftUp, Vector3.down);
         
         _normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
+        _normalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
         _relativeVelocityDir = aircraftController.m_rigidbody.velocity.normalized;
 
         _normalizedOptimalDistance = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position);
         _optimalDirections = flightPathNormalizer.NormalizedClosestOptimumPointDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
         
+        _fwdOptDifference = (_optimalDirections[0] - _aircraftForward) / 2f;
+        _velOptDifference = (_optimalDirections[0] - _relativeVelocityDir) / 2f;
+        
         _dotVelRot = Vector3.Dot(_relativeVelocityDir, _aircraftForward);
         _dotVelOpt = Vector3.Dot(_relativeVelocityDir, _optimalDirections[0]);
         _dotRotOpt = Vector3.Dot(_aircraftForward, _optimalDirections[0]);
         
-        _normalizedPitchRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.q * Mathf.Rad2Deg / 45f));
-        _normalizedRollRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.p * Mathf.Rad2Deg / 45f));
-        _normalizedYawRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / 45f));
+        _normalizedPitchRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.q * Mathf.Rad2Deg / 40f));
+        _normalizedRollRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.p * Mathf.Rad2Deg / 40f));
+        _normalizedYawRate = NormalizerUtility.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / 40f));
         
-        _windData = AircraftNormalizer.NormalizedWind(aircraftController, maxWindSpeed, maxTurbulence);
+        _windData = AircraftNormalizer.NormalizedWind(aircraftController, trainingMaxWindSpeed, trainingMaxTurbulence);
         _windAngle = _windData[0] * 360;
-        _windSpeed = _windData[1] * maxWindSpeed;
-        _turbulence = _windData[2] * maxTurbulence;
+        _windSpeed = _windData[1] * trainingMaxWindSpeed;
+        _turbulence = _windData[2] * trainingMaxTurbulence;
         
         // AIRCRAFT GLOBAL ROTATION
         sensor.AddObservation(_aircraftForward);
+        sensor.AddObservation(_aircraftUp);
         sensor.AddObservation(_dotForwardUp);
         sensor.AddObservation(_dotUpDown);
         
         // AIRCRAFT VELOCITY
         sensor.AddObservation(_normalizedSpeed);
+        sensor.AddObservation(_normalizedThrust);
         sensor.AddObservation(_relativeVelocityDir);
         
         // OPTIMUM POINT
         sensor.AddObservation(_normalizedOptimalDistance);
         foreach (var optimalDirection in _optimalDirections) sensor.AddObservation(optimalDirection);
+        
+        // Optimal DIRECTION DIFFERENCE
+        sensor.AddObservation(_fwdOptDifference);
+        sensor.AddObservation(_velOptDifference);
         
         // Relative Directions
         sensor.AddObservation(_dotVelRot);
@@ -127,9 +147,10 @@ public class AircraftFlightAgent : Agent
         sensor.AddObservation(_windData);
         
         observationCanvas.DisplayNormalizedData(
-            _aircraftForward, _dotForwardUp, _dotUpDown,
-            _relativeVelocityDir, _normalizedSpeed,
+            _aircraftForward, _aircraftUp, _dotForwardUp, _dotUpDown,
+            _relativeVelocityDir, _normalizedSpeed, _normalizedThrust,
             _normalizedOptimalDistance, _optimalDirections,
+            _fwdOptDifference, _velOptDifference,
             _dotVelRot, _dotVelOpt, _dotRotOpt,
             _previousActions,
             _normalizedPitchRate, _normalizedRollRate, _normalizedYawRate,
@@ -146,7 +167,7 @@ public class AircraftFlightAgent : Agent
         _aircraftUp = transform.up;
         _dotForwardUp = Vector3.Dot(_aircraftForward, Vector3.up);
         _dotUpDown = Vector3.Dot(_aircraftUp, Vector3.down);
-        var illegalAircraftRotation = _dotForwardUp is > 0.4f or < -0.4f || _dotUpDown > -0.3f;
+        var illegalAircraftRotation = _dotForwardUp is > 0.5f or < -0.5f || _dotUpDown > -0.5f;
 
         var position = transform.position;
         var distanceToRoute = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(position);
