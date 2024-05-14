@@ -8,23 +8,29 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class AircraftFlightAgent : Agent
 {
     public bool trainingMode;
-    [Space(10)] 
+    [Space(10)]
+    [SerializeField, Range(0f, 1f)] private float sparseRewardMultiplier = 1f;
+    [SerializeField, Range(0f, 1f)] private float denseRewardMultiplier = 0.001f;
+    [Space(5)]
+    [SerializeField] private float optimalDistanceRewardMultiplier = 8f;
+    [SerializeField] private float optimalDistancePenaltyMultiplier = 4f;
+    [SerializeField] private float actionDifferencePenaltyMultiplier = 4f;
+    [Space(10)]
     public float windDirectionSpeed = 360;
     public float trainingMaxWindSpeed = 5;
     public float maxWindSpeed = 5;
     public float trainingMaxTurbulence = 5;
     public float maxTurbulence = 5;
-    [Range(0.1f, 25f), Space(10)] 
+    [Range(0.1f, 25f), Space(10)]
     public float manoeuvreSpeed = 10f;
     public int numOfOptimalDirections = 2;
-    public float gapBetweenOptimalDirections = 25f;
+    [Range(1f, 25f)] public int gapBetweenOptimalDirections = 1;
     [Space(10)]
     public ObservationCanvas observationCanvas;
     public FlightPathNormalizer flightPathNormalizer;
@@ -92,8 +98,8 @@ public class AircraftFlightAgent : Agent
         _normalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
         _relativeVelocityDir = aircraftController.m_rigidbody.velocity.normalized;
 
-        _normalizedOptimalDistance = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(transform.position);
-        _optimalDirections = flightPathNormalizer.NormalizedClosestOptimumPointDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        _normalizedOptimalDistance = flightPathNormalizer.NormalizedOptimalPositionDistance(transform.position);
+        _optimalDirections = flightPathNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
         
         _fwdOptDifference = (_optimalDirections[0] - _aircraftForward) / 2f;
         _velOptDifference = (_optimalDirections[0] - _relativeVelocityDir) / 2f;
@@ -170,42 +176,45 @@ public class AircraftFlightAgent : Agent
         var illegalAircraftRotation = _dotForwardUp is > 0.5f or < -0.5f || _dotUpDown > -0.5f;
 
         var position = transform.position;
-        var distanceToRoute = flightPathNormalizer.NormalizedClosestOptimumPositionDistance(position);
+        var distanceToRoute = flightPathNormalizer.NormalizedOptimalPositionDistance(position);
         var distanceToTarget = flightPathNormalizer.TargetDistance(position);
         
-        if (IsEpisodeFailed(distanceToRoute, illegalAircraftRotation))
+        if (AircraftArrivedExit(distanceToTarget))
         {
             _episodeStarted = false;
-            SetReward(-1);
-            _sparseRewards--;
-            Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
-            EndEpisode();
-        }
-        else if (AircraftArrivedExit(distanceToTarget))
-        {
-            _episodeStarted = false;
-            SetReward(20);
-            _sparseRewards++;
+            SetReward(sparseRewardMultiplier);
+            _sparseRewards += sparseRewardMultiplier;
             Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             EndEpisode();
         }
+        else if (IsEpisodeFailed(distanceToRoute, illegalAircraftRotation))
+        {
+            _episodeStarted = false;
+            SetReward(-sparseRewardMultiplier);
+            _sparseRewards += sparseRewardMultiplier;
+            Debug.Log("Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " + _optimalRewards + " / Action: " + _actionPenalty + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
+            EndEpisode();
+        }
         else
         {
-            var reward = Mathf.Clamp01(1 - distanceToRoute) * 0.008f;
-            AddReward(reward);
-            _denseRewards += reward;
-            _optimalRewards += reward;
-            
-            var penalty = -Mathf.Clamp01(distanceToRoute) * 0.004f;
-            AddReward(penalty);
-            _denseRewards += penalty;
-            _optimalRewards += penalty;
+            var subtractedDistance = Mathf.Clamp01(1 - distanceToRoute);
+            var optimalDistanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceRewardMultiplier;
+            AddReward(optimalDistanceReward);
+            _denseRewards += optimalDistanceReward;
+            _optimalRewards += optimalDistanceReward;
+
+            var distance = Mathf.Clamp01(distanceToRoute);
+            var optimalDistancePenalty = -distance * denseRewardMultiplier * optimalDistancePenaltyMultiplier;
+            AddReward(optimalDistancePenalty);
+            _denseRewards += optimalDistancePenalty;
+            _optimalRewards += optimalDistancePenalty;
 
             for (var i = 0; i < _previousActions.Length; i++)
             {
-                var actionDifferencePenalty = -Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]) * 0.004f;
+                var actionChange = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
+                var actionDifferencePenalty = -actionChange * denseRewardMultiplier * actionDifferencePenaltyMultiplier;
                 AddReward(actionDifferencePenalty);
                 _denseRewards += actionDifferencePenalty;
                 _actionPenalty += actionDifferencePenalty;
@@ -225,7 +234,7 @@ public class AircraftFlightAgent : Agent
     
     private static bool AircraftArrivedExit(float distanceToTarget)
     {
-        return distanceToTarget < 30f;
+        return distanceToTarget < 55f;
     }
 
     private bool IsEpisodeFailed(float distanceToRoute, bool illegalAircraftRotation)
@@ -239,7 +248,7 @@ public class AircraftFlightAgent : Agent
         yield return null;
         aircraftController.TurnOnEngines();
         yield return new WaitForSeconds(0.1f);
-        flightPathNormalizer.ResetAirportTransform();
+        flightPathNormalizer.ResetFlightAirportsTransform();
         flightPathNormalizer.ResetAircraftPosition(transform);
         yield return new WaitForSeconds(0.1f);
         aircraftController.m_rigidbody.isKinematic = false;

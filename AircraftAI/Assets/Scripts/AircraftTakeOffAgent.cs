@@ -15,15 +15,22 @@ public class AircraftTakeOffAgent : Agent
 {
     public bool trainingMode;
     [Space(10)] 
+    [SerializeField] private float sparseRewardMultiplier = 1;
+    [SerializeField] private float denseRewardMultiplier = 0.001f;
+    [Space(5)]
+    [SerializeField] private float optimalRewardMultiplier = 8;
+    [SerializeField] private float optimalPenaltyMultiplier = 4;
+    [SerializeField] private float actionPenaltyMultiplier = 4;
+    [Space(10)] 
     public float windDirectionSpeed = 360;
     public float trainingMaxWindSpeed = 5;
     public float maxWindSpeed = 5;
     public float trainingMaxTurbulence = 5;
     public float maxTurbulence = 5;
-    [Range(0.1f, 25f), Space(10)] 
-    public float manoeuvreSpeed = 10f;
+    [Space(10)] 
+    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
     public int numOfOptimalDirections = 5;
-    public float gapBetweenOptimalDirections = 15f;
+    [Range(1f, 25f)] public int gapBetweenOptimalDirections = 1;
     [Space(10)] 
     public AirportNormalizer airportNormalizer;
     public AircraftCollisionSensors sensors;
@@ -118,8 +125,8 @@ public class AircraftTakeOffAgent : Agent
         _relativeAircraftPos = NormalizedAircraftPos();
         _relativeAircraftRot = NormalizedAircraftRot();
 
-        _normalizedOptimalDistance = airportNormalizer.NormalizedClosestOptimalPointDistance(transform.position);
-        _optimalDirections = airportNormalizer.NormalizedClosestOptimumPointDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        _normalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
+        _optimalDirections = airportNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
         _relativeOptimalDirections = DirectionsToNormalizedRotations(_optimalDirections);
         
         _fwdOptDifference = (_relativeOptimalDirections[0] - _relativeAircraftRot) / 2f;
@@ -235,24 +242,27 @@ public class AircraftTakeOffAgent : Agent
         }
         else
         {
-            _normalizedOptimalDistance = airportNormalizer.NormalizedClosestOptimalPointDistance(transform.position);
-            
-            var distanceReward = Mathf.Clamp01(1 - (_normalizedOptimalDistance * 3)) * 0.0006f;
+            _normalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
+
+            var subtractedDistance = Mathf.Clamp01(1 - (_normalizedOptimalDistance * 3));
+            var distanceReward = subtractedDistance * denseRewardMultiplier * optimalRewardMultiplier;
             AddReward(distanceReward);
             _denseRewards += distanceReward;
             _optimalRewards += distanceReward;
-            
-            var distancePenalty = -Mathf.Clamp01(_normalizedOptimalDistance) * 0.0003f;
+
+            var distance = Mathf.Clamp01(_normalizedOptimalDistance);
+            var distancePenalty = -distance * denseRewardMultiplier * optimalPenaltyMultiplier;
             AddReward(distancePenalty);
             _denseRewards += distancePenalty;
             _optimalRewards += distancePenalty;
 
             for (int i = 0; i < _previousActions.Length; i++)
             {
-                var penalty = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]) * -0.004f;
-                AddReward(penalty);
-                _denseRewards += penalty;
-                _actionPenalty += penalty;
+                var actionChange = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
+                var actionChangePenalty = -actionChange * denseRewardMultiplier * actionPenaltyMultiplier;
+                AddReward(actionChangePenalty);
+                _denseRewards += actionChangePenalty;
+                _actionPenalty += actionChangePenalty;
             }
         }
         _previousActions = actionBuffers.ContinuousActions.ToArray();
