@@ -199,7 +199,9 @@ public class AirportNormalizer : MonoBehaviour
     public float NormalizedClosestOptimalPointDistance(Vector3 aircraftPos)
     {
         var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, numberOfPoints);
-        return Vector3.Distance(closestPoint, aircraftPos) / ((AirportExitPosition - AirportResetPosition).y + HeightOffset + RandomHeightOffset);
+        var distance = Vector3.Distance(closestPoint, aircraftPos) /
+                       ((AirportExitPosition - AirportResetPosition).y + HeightOffset + RandomHeightOffset);
+        return Mathf.Clamp01(distance);
     }
     
     public Vector3[] NormalizedClosestOptimumPointDirections(Transform aircraftTransform, int numOfOptimumDirections, float gapBetweenOptimumDirections)
