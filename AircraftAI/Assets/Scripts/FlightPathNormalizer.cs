@@ -72,7 +72,7 @@ public class FlightPathNormalizer : MonoBehaviour
     
     public float NormalizedClosestOptimumPositionDistance(Vector3 aircraftPos)
     {
-        return ClosestOptimumPositionDistance(aircraftPos) / penaltyRadius;
+        return Mathf.Clamp01(ClosestOptimumPositionDistance(aircraftPos) / penaltyRadius);
     }
     
     public Vector3[] NormalizedClosestOptimumPointDirections(Transform aircraftTransform, int numOfOptimumDirections, float gapBetweenOptimumDirections)

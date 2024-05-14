@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &45715494
 Transform:
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &76026615
 Transform:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &94234819
 Transform:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &136513283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &230758789
 Transform:
   m_ObjectHideFlags: 0
@@ -483,11 +483,6 @@ PrefabInstance:
       objectReference: {fileID: 918419581}
     - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
-      propertyPath: maxWindSpeed
-      value: 10.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
-        type: 3}
       propertyPath: throttleSlider
       value: 
       objectReference: {fileID: 918419579}
@@ -509,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 6895609739598734724, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -636,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &355412096
 Transform:
   m_ObjectHideFlags: 0
@@ -703,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &542193891
 Transform:
   m_ObjectHideFlags: 0
@@ -793,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &606254925
 Transform:
   m_ObjectHideFlags: 0
@@ -1498,6 +1493,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3884625133849871876, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884625133849871876, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884625133849871876, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884625133849871876, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4309126382251529327, guid: ad17e7fad1974a540a4c92c4c39fecbd,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1537,6 +1552,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007550746889039712, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007550746889039712, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007550746889039712, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007550746889039712, guid: ad17e7fad1974a540a4c92c4c39fecbd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5881630902907615099, guid: ad17e7fad1974a540a4c92c4c39fecbd,
         type: 3}
@@ -2271,18 +2306,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 45715494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542129566 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
-    type: 3}
-  m_PrefabInstance: {fileID: 246778818}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1556036812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,7 +2414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1704827833
 Transform:
   m_ObjectHideFlags: 0
@@ -2427,7 +2450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1753789257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7142,7 +7165,7 @@ PrefabInstance:
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
@@ -10822,7 +10845,7 @@ MonoBehaviour:
     weightUnit: 4
     forceUnit: 0
     torqueUnit: 0
-    m_vehicle: {fileID: 1542129566}
+    m_vehicle: {fileID: 2209146688823179861}
     speed: {fileID: 6942544891400163713}
     altitude: {fileID: 1542520685756373482}
     fuel: {fileID: 819283434223056052}
