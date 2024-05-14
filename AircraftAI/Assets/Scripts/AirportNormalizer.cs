@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
-using Oyedoyin.FixedWing;
-using Unity.MLAgents;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -80,7 +77,7 @@ public class AirportNormalizer : MonoBehaviour
     private Vector3 AirportDirection => (AirportDownEndPosition - AirportDownStartPosition).normalized;
     private float AirportMaxDistance => Vector3.Distance(AirportStartLeftDownCurrentPosition, AirportEndRightDownCurrentPosition + Vector3.up * (ExitHeight + HeightOffset + RandomHeightOffset + extraRandomHeight));
     
-    public int numberOfPoints = 1000;
+    [SerializeField] private int _numberOfPoints = 100;
     private Vector3[] BezierPoints => new[] {AirportResetPosition, BezierControlPoint1, BezierControlPoint2, BezierControlPoint3, AirportExitPosition};
     [Space(10)] 
     [SerializeField] private bool showBezierGizmos;
@@ -100,27 +97,15 @@ public class AirportNormalizer : MonoBehaviour
     
     [Space(10)]
     [Range(0, 100f)]public float exitOffsets = 20f;
-    private float exitOffset
-    {
-        get => exitOffsets * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.001f;
-        set => exitOffsets = value;
-    }
+    private float exitOffset => exitOffsets * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.001f;
     [Range(0, 100f)] public float height = 20f;
-    private float HeightOffset
-    {
-        get => height * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.001f;
-        set => height = value;
-    }
-    
+    private float HeightOffset => height * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.001f;
+
     [Space(10)]
     [Range(0f, 1f)] public float extraRandomLength;
     [Range(0f, 1f)] public float extraRandomWidth;
     [Range(0f, 1f)] public float extraRandomHeight;
-    private float RandomHeightOffset
-    {
-        get => extraRandomHeight * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.025f;
-        set => extraRandomHeight = value;
-    }
+    private float RandomHeightOffset => extraRandomHeight * Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) * 0.025f;
     private float ExitHeight => Vector3.Distance(AirportDownStartPosition, AirportDownEndPosition) / 25f;
     
     [Space(10)]
@@ -141,8 +126,6 @@ public class AirportNormalizer : MonoBehaviour
     {
         if(!trainingMode) return;
         
-        /*var airportLevel = Mathf.Clamp01(Academy.Instance.EnvironmentParameters.GetWithDefault("airport_difficulty", 1));
-        Debug.Log($"Airport Difficulty: {airportLevel}" + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));*/
         transform.rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
         extraRandomWidth = Random.Range(0f, 1f);
         extraRandomLength = Random.Range(0f, 1f);
@@ -164,7 +147,6 @@ public class AirportNormalizer : MonoBehaviour
         aircraft.rotation = Quaternion.LookRotation(AirportDirection);
     }
     
-    public Vector3 GetNormalizedExitDirection(Vector3 position) => (AirportExitPosition - position).normalized;
     public float GetNormalizedExitDistance(Vector3 position) => Vector3.Distance(AirportExitPosition, position) / AirportMaxDistance;
     
     public Vector3 GetNormalizedPosition(Vector3 position, bool isSafePosition = false)
@@ -196,23 +178,32 @@ public class AirportNormalizer : MonoBehaviour
         return NormalizerUtility.NormalizeRotation(new Vector3(x, y, z));
     }
     
-    public float NormalizedClosestOptimalPointDistance(Vector3 aircraftPos)
+    public float NormalizedOptimalPositionDistance(Vector3 aircraftPos)
     {
-        var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, numberOfPoints);
+        var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, _numberOfPoints);
         var distance = Vector3.Distance(closestPoint, aircraftPos) /
                        ((AirportExitPosition - AirportResetPosition).y + HeightOffset + RandomHeightOffset);
         return Mathf.Clamp01(distance);
     }
     
-    public Vector3[] NormalizedClosestOptimumPointDirections(Transform aircraftTransform, int numOfOptimumDirections, float gapBetweenOptimumDirections)
+    public Vector3[] OptimalDirections(Transform aircraftTransform, int numOfOptimumDirections, int gapBetweenOptimumDirections)
     {
-        var directions = new Vector3[numOfOptimumDirections];
+        var directions = OptimalDirectionPositions(aircraftTransform, numOfOptimumDirections, gapBetweenOptimumDirections);
         for (int i = 0; i < numOfOptimumDirections; i++)
         {
-            var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftTransform.position + aircraftTransform.forward * ((i * gapBetweenOptimumDirections) + 30f), BezierPoints, numberOfPoints);
-            directions[i] = (closestPoint - aircraftTransform.position).normalized;
+            directions[i] = (directions[i] - aircraftTransform.position).normalized;
         }
         return directions;
+    }
+
+    private Vector3[] OptimalDirectionPositions(Transform aircraftTransform, int numOfOptimalPositions, int gapBetweenOptimalPositions)
+    {
+        var positions = new Vector3[numOfOptimalPositions];
+        for (int i = 0; i < numOfOptimalPositions; i++)
+        {
+            positions[i] = BezierCurveUtility.FindClosestPositionsNext(aircraftTransform.position, BezierPoints, _numberOfPoints, (i + 1) * gapBetweenOptimalPositions);
+        }
+        return positions;
     }
 
 #if UNITY_EDITOR
@@ -334,14 +325,14 @@ public class AirportNormalizer : MonoBehaviour
             Gizmos.DrawSphere(BezierControlPoint2, 10);
             Gizmos.DrawSphere(BezierControlPoint3, 10);
         
-            for (int i = 0; i <= numberOfPoints; i++)
+            for (int i = 0; i <= _numberOfPoints; i++)
             {
-                float t = i / (float)numberOfPoints;
+                float t = i / (float)_numberOfPoints;
                 Vector3 point = BezierCurveUtility.CalculateBezierPoint(t, BezierPoints);
 
                 if (i > 0)
                 {
-                    Vector3 previousPoint = BezierCurveUtility.CalculateBezierPoint((i - 1) / (float)numberOfPoints, BezierPoints);
+                    Vector3 previousPoint = BezierCurveUtility.CalculateBezierPoint((i - 1) / (float)_numberOfPoints, BezierPoints);
                     Gizmos.DrawLine(previousPoint, point);
                 }
             }
@@ -366,20 +357,18 @@ public class AirportNormalizer : MonoBehaviour
             
                 // OBSERVATION
                 Gizmos.color = Color.white;
-                for (int i = 0; i < agent.numOfOptimalDirections; i++)
+                var optimalPositions = OptimalDirectionPositions(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
+                foreach (var optimalPosition in optimalPositions)
                 {
-                    var position = controller.transform.position;
-                    var aircraftForwardPosition = position + controller.transform.forward * ((i * agent.gapBetweenOptimalDirections) + 30f);
-                    var closestPosition = BezierCurveUtility.FindClosestPosition(aircraftForwardPosition, BezierPoints, numberOfPoints);
-                    Gizmos.DrawSphere(closestPosition, 0.3f);
-                    Gizmos.DrawLine(closestPosition, position);
+                    Gizmos.DrawSphere(optimalPosition, 0.3f);
+                    Gizmos.DrawLine(optimalPosition, agent.transform.position);
                 }
             
                 // REWARD
-                var optimalDistance = NormalizedClosestOptimalPointDistance(controller.transform.position);
+                var optimalDistance = NormalizedOptimalPositionDistance(controller.transform.position);
                 var reward = Mathf.Clamp01(1 - (optimalDistance * 3)) - Mathf.Clamp01(optimalDistance);
                 Gizmos.color = new Color(1 - reward, reward, 0, 1);
-                var closestPointReward = BezierCurveUtility.FindClosestPosition(controller.transform.position, BezierPoints, numberOfPoints);
+                var closestPointReward = BezierCurveUtility.FindClosestPosition(controller.transform.position, BezierPoints, _numberOfPoints);
                 Gizmos.DrawSphere(closestPointReward, 0.3f);
                 Gizmos.DrawLine(closestPointReward, controller.transform.position);
             }
