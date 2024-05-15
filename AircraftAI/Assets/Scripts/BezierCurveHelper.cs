@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class BezierCurveUtility
+public static class BezierCurveHelper
 {
     public static Vector3 CalculateBezierPoint(float t, Vector3[] points)
     {
@@ -44,7 +44,6 @@ public static class BezierCurveUtility
     {
         var minDistance = Mathf.Infinity;
         var closestNextLine = new Vector3[2];
-        var closestLine = new Vector3[2];
         var closestPosition01 = 0f;
 
         for (var i = 0; i <= numberOfPoints; i++)
@@ -59,8 +58,6 @@ public static class BezierCurveUtility
             if (distance < minDistance)
             {
                 minDistance = distance;
-                closestLine[0] = lineStart;
-                closestLine[1] = lineEnd;
                 closestPosition01 = PositionOnLine01(lineStart, lineEnd, closestPosition);
                 closestNextLine[0] = CalculateBezierPoint(t + (gap / (float)numberOfPoints), points);
                 closestNextLine[1] = CalculateBezierPoint(t + ((1 + gap) / (float)numberOfPoints), points);
