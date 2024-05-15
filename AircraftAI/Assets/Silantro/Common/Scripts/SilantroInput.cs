@@ -60,11 +60,11 @@ namespace Oyedoyin.Common
         public float _mixtureInput;
         public float _carbHeatInput;
 
-        private float _pitchInput;
+        [HideInInspector] public float _pitchInput;
         public float _pitchTrimInput;
-        private float _rollInput;
+        [HideInInspector] public float _rollInput;
         public float _rollTrimInput;
-        private float _yawInput;
+        [HideInInspector] public float _yawInput;
         public float _yawTrimInput;
         public Vector2 _hatViewInput;
 

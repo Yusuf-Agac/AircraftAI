@@ -18,6 +18,31 @@ public static class AircraftNormalizer
     {
         return NormalizerUtility.ClampNP1(aircraftController.m_wowForce / 6500);
     }
+    
+    public static Vector3 NormalizedDeflections(FixedController aircraftController)
+    {
+        var elevator = -aircraftController.m_wings[0].m_controlDeflection;
+        var aileron = -aircraftController.m_wings[3].m_controlDeflection;
+        var rudder = aircraftController.m_wings[2].m_controlDeflection;
+        
+        var elevatorLimit = aircraftController.m_wings[0].c_positiveLimit;
+        var aileronLimit = aircraftController.m_wings[3].c_positiveLimit;
+        var rudderLimit = aircraftController.m_wings[2].c_positiveLimit;
+        
+        var aileronNormalized = NormalizerUtility.ClampNP1(aileron / aileronLimit);
+        var elevatorNormalized = NormalizerUtility.ClampNP1(elevator / elevatorLimit);
+        var rudderNormalized = NormalizerUtility.ClampNP1(rudder / rudderLimit);
+        return new Vector3(aileronNormalized, elevatorNormalized, rudderNormalized);
+    }
+
+    public static Vector3 NormalizedTargetDeflections(FixedController aircraftController)
+    {
+        var pitch = aircraftController.m_input._pitchInput;
+        var roll = aircraftController.m_input._rollInput;
+        var yaw = aircraftController.m_input._yawInput;
+        
+        return new Vector3(pitch, roll, yaw);
+    }
 
     public static float[] NormalizedWind(FixedController fixedController, float maxWind, float maxTurbulence)
     {
