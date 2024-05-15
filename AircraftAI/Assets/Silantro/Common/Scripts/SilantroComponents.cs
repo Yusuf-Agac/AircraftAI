@@ -950,7 +950,7 @@ namespace Oyedoyin.Common.Components
         /// </summary>
         /// <param name="craft"></param>
         /// <param name="controller"></param>
-        public void PositionAircraftFunction(Rigidbody rigidbody, Controller controller, bool chancePosition = false)
+        public void HotResetAircraftFunction(Rigidbody rigidbody, Controller controller, bool chancePosition = false)
         {
             if (rigidbody != null && controller != null)
             {
@@ -975,7 +975,7 @@ namespace Oyedoyin.Common.Components
             if (rigidbody != null && controller != null && controller.m_startMode == Controller.StartMode.Hot)
             {
                 //POSITION AIRCRAFT
-                controller.PositionAircraft();
+                controller.HotResetAircraft();
                 //SET ENGINE
                 controller.TurnOnEngines();
             }

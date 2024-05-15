@@ -751,7 +751,7 @@ namespace Oyedoyin.Common
         /// <summary>
         /// 
         /// </summary>
-        public void PositionAircraft() { m_helper.PositionAircraftFunction(m_rigidbody, m_controller); }
+        public void HotResetAircraft() { m_helper.HotResetAircraftFunction(m_rigidbody, m_controller); }
         /// <summary>
         /// 
         /// </summary>
