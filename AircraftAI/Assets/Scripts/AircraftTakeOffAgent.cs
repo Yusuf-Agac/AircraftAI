@@ -114,7 +114,7 @@ public class AircraftTakeOffAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereController.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
+        AtmosphereHelper.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
             _decisionRequester.DecisionPeriod, windDirectionSpeed);
 
         CalculateGlobalDirections();
@@ -304,7 +304,7 @@ public class AircraftTakeOffAgent : Agent
 
     private void CalculateAtmosphere()
     {
-        _windData = AtmosphereController.NormalizedWind(aircraftController, trainingMaxWindSpeed,
+        _windData = AtmosphereHelper.NormalizedWind(aircraftController, trainingMaxWindSpeed,
             trainingMaxTurbulence);
         _windAngle = _windData[0] * 360;
         _windSpeed = _windData[1] * trainingMaxWindSpeed;

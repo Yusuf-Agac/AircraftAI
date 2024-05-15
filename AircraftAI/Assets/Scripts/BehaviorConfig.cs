@@ -1,4 +1,5 @@
-﻿using Unity.Barracuda;
+﻿using System;
+using Unity.Barracuda;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
@@ -6,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-[System.Serializable]
+[Serializable]
 abstract class BehaviorConfig
 {
     public string behaviorName;
