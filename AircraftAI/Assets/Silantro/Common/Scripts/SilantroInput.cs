@@ -263,6 +263,8 @@ namespace Oyedoyin.Common
         {
             get
             {
+                if (_controller.m_flcs.m_mode == Computer.Mode.Manual) return _pitchInput;
+                
                 float _basePitchInput = _pitchInputCurve.Evaluate(_pitchInput);
                 float _presetPitchInput;
                 if (Mathf.Abs(_basePitchInput) > _pitchDeadZone) { _presetPitchInput = _basePitchInput; } else { _presetPitchInput = 0f; }
@@ -276,6 +278,8 @@ namespace Oyedoyin.Common
         {
             get
             {
+                if (_controller.m_flcs.m_mode == Computer.Mode.Manual) return _rollInput;
+                
                 float _baseRollInput = _rollInputCurve.Evaluate(_rollInput);
                 float _presetRollInput;
                 if (Mathf.Abs(_baseRollInput) > _rollDeadZone) { _presetRollInput = _baseRollInput; } else { _presetRollInput = 0f; }
@@ -289,6 +293,8 @@ namespace Oyedoyin.Common
         {
             get
             {
+                if (_controller.m_flcs.m_mode == Computer.Mode.Manual) return _yawInput;
+                
                 float _baseYawInput = _yawInputCurve.Evaluate(_yawInput);
                 float _presetYawInput;
                 if (Mathf.Abs(_baseYawInput) > _yawDeadZone) { _presetYawInput = _baseYawInput; } else { _presetYawInput = 0f; }
