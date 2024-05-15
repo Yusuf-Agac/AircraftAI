@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FlightPathNormalizer : MonoBehaviour
 {
@@ -49,16 +50,16 @@ public class FlightPathNormalizer : MonoBehaviour
     {
         boundsRotator.rotation = Quaternion.Euler(Vector3.zero);
 
-        var departureEulerAnglesY = UnityEngine.Random.Range(departureRandomRotationRange.x, departureRandomRotationRange.y);
+        var departureEulerAnglesY = Random.Range(departureRandomRotationRange.x, departureRandomRotationRange.y);
         departureAirport.transform.rotation = Quaternion.Euler(0, departureEulerAnglesY, 0);
         
-        var arrivalEulerAnglesY = UnityEngine.Random.Range(arrivalRandomRotationRange.x, arrivalRandomRotationRange.y);
+        var arrivalEulerAnglesY = Random.Range(arrivalRandomRotationRange.x, arrivalRandomRotationRange.y);
         arrivalAirport.transform.rotation = Quaternion.Euler(0, arrivalEulerAnglesY, 0);
         
-        boundsRotator.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+        boundsRotator.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         
-        departureAirport.transform.position = Vector3.Lerp(departureLerpFrom.position, departureLerpTo.position, UnityEngine.Random.value);
-        arrivalAirport.transform.position = Vector3.Lerp(arrivalLerpFrom.position, arrivalLerpTo.position, UnityEngine.Random.value);
+        departureAirport.transform.position = Vector3.Lerp(departureLerpFrom.position, departureLerpTo.position, Random.value);
+        arrivalAirport.transform.position = Vector3.Lerp(arrivalLerpFrom.position, arrivalLerpTo.position, Random.value);
     }
     
     public void ResetAircraftPosition(Transform aircraft)
@@ -67,14 +68,14 @@ public class FlightPathNormalizer : MonoBehaviour
         aircraft.rotation = Quaternion.LookRotation((departureAirport.AirportExitPosition - departureAirport.AirportResetPosition).normalized);
     }
     
-    public float TargetDistance(Vector3 aircraftPos)
+    public float ArriveDistance(Vector3 aircraftPos)
     {
         return Vector3.Distance(arrivalAirport.AirportExitPosition, aircraftPos);
     }
 
     private float ClosestOptimumPositionDistance(Vector3 aircraftPos)
     {
-        var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, BezierPoints, numberOfPoints);
+        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, BezierPoints, numberOfPoints);
         return Vector3.Distance(closestPoint, aircraftPos);
     }
     
@@ -98,7 +99,7 @@ public class FlightPathNormalizer : MonoBehaviour
         var positions = new Vector3[numOfOptimalPositions];
         for (var i = 0; i < numOfOptimalPositions; i++)
         {
-            positions[i] = BezierCurveUtility.FindClosestPositionsNext(aircraftTransform.position, BezierPoints, numberOfPoints, (i + 1) * gapBetweenOptimalPositions);
+            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, BezierPoints, numberOfPoints, (i + 1) * gapBetweenOptimalPositions);
         }
         return positions;
     }
@@ -108,11 +109,11 @@ public class FlightPathNormalizer : MonoBehaviour
     {
         if(!departureAirport || !arrivalAirport) return;
         
-        var previousPoint = BezierCurveUtility.CalculateBezierPoint(0, BezierPoints);
+        var previousPoint = BezierCurveHelper.CalculateBezierPoint(0, BezierPoints);
         for (var i = 1; i < numberOfPoints + 1; i++)
         {
             Gizmos.color = Color.blue;
-            var point = BezierCurveUtility.CalculateBezierPoint(i / (float)numberOfPoints, BezierPoints);
+            var point = BezierCurveHelper.CalculateBezierPoint(i / (float)numberOfPoints, BezierPoints);
             Gizmos.DrawLine(previousPoint, point);
             Gizmos.color = Color.red;
             if(i != numberOfPoints) DrawCircle(point, (point - previousPoint).normalized, penaltyRadius);
@@ -152,7 +153,7 @@ public class FlightPathNormalizer : MonoBehaviour
             // REWARD
             var reward = Mathf.Clamp01(1 - NormalizedOptimalPositionDistance(controller.transform.position)) - Mathf.Clamp01(NormalizedOptimalPositionDistance(controller.transform.position));
             Gizmos.color = new Color(1 - reward, reward, 0, 1);
-            var closestPointReward = BezierCurveUtility.FindClosestPosition(controller.transform.position, BezierPoints, numberOfPoints);
+            var closestPointReward = BezierCurveHelper.FindClosestPosition(controller.transform.position, BezierPoints, numberOfPoints);
             Gizmos.DrawSphere(closestPointReward, 0.3f);
             Gizmos.DrawLine(closestPointReward, controller.transform.position);
         }
