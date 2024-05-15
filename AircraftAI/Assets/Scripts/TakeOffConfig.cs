@@ -1,9 +1,7 @@
 ﻿using System;
 using Oyedoyin.FixedWing;
-using Unity.MLAgents.Policies;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [Serializable]
@@ -22,7 +20,7 @@ class TakeOffConfig : BehaviorConfig
     {
         AddBehaviorComponent(transform);
         
-        AircraftTakeOffAgent aircraftTakeOffAgent = transform.AddComponent<AircraftTakeOffAgent>();
+        var aircraftTakeOffAgent = transform.AddComponent<AircraftTakeOffAgent>();
         Agent = aircraftTakeOffAgent;
         
         aircraftTakeOffAgent.MaxStep = maxStep;

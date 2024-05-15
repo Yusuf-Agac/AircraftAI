@@ -5,6 +5,7 @@ public class RewardCanvas : MonoBehaviour
 {
     [SerializeField] private TMP_Text sparseRewardText;
     [SerializeField] private TMP_Text denseRewardText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text optimalDistanceRewardText;
     [SerializeField] private TMP_Text actionDifferenceRewardText;

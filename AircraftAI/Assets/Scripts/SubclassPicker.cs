@@ -16,7 +16,7 @@ public class SubclassPickerDrawer : PropertyDrawer
         return EditorGUI.GetPropertyHeight(property);
     }
 
-    IEnumerable GetClasses(Type baseType)
+    private static IEnumerable GetClasses(Type baseType)
     {
         if (baseType.IsArray) baseType = baseType.GetElementType();
         return Assembly.GetAssembly(baseType).GetTypes().Where(t => t.IsClass && !t.IsAbstract && baseType.IsAssignableFrom(t));
@@ -24,25 +24,23 @@ public class SubclassPickerDrawer : PropertyDrawer
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        Type t = fieldInfo.FieldType;
-        string typeName = property.managedReferenceValue?.GetType().Name ?? "Not set";
+        var t = fieldInfo.FieldType;
+        var typeName = property.managedReferenceValue?.GetType().Name ?? "Not set";
 
-        Rect dropdownRect = position;
+        var dropdownRect = position;
         dropdownRect.x += EditorGUIUtility.labelWidth + 2;
         dropdownRect.width -= EditorGUIUtility.labelWidth + 2;
         dropdownRect.height = EditorGUIUtility.singleLineHeight;
         if (EditorGUI.DropdownButton(dropdownRect, new(typeName), FocusType.Keyboard))
         {
-            GenericMenu menu = new GenericMenu();
+            var menu = new GenericMenu();
 
-            // null
             menu.AddItem(new GUIContent("None"), property.managedReferenceValue == null, () =>
             {
                 property.managedReferenceValue = null;
                 property.serializedObject.ApplyModifiedProperties();
             });
 
-            // inherited types
             foreach (Type type in GetClasses(t))
             {
                 menu.AddItem(new GUIContent(type.Name), typeName == type.Name, () =>

@@ -1,56 +1,66 @@
-﻿using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class ObservationCanvas : MonoBehaviour
 {
     [SerializeField] private TMP_Text behaviourNameText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text forwardText;
     [SerializeField] private TMP_Text upDotText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text upText;
     [SerializeField] private TMP_Text downDotText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text velocityDirText;
     [SerializeField] private TMP_Text speedText;
     [SerializeField] private TMP_Text thrustText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text optimalPointDistanceText;
     [SerializeField] private TMP_Text[] optimalDirectionTexts;
+    
     [Space(10)]
     [SerializeField] private TMP_Text fwdDirDifferenceText;
     [SerializeField] private TMP_Text velDirDifferenceText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text dotVelRotText;
     [SerializeField] private TMP_Text dotVelOptText;
     [SerializeField] private TMP_Text dotRotOptText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text pitchInputText;
     [SerializeField] private TMP_Text rollInputText;
     [SerializeField] private TMP_Text yawInputText;
-    [FormerlySerializedAs("pitchAxesText")]
+    
     [Space(10)]
     [SerializeField] private TMP_Text pitchRateText;
-    [FormerlySerializedAs("rollAxesText")] [SerializeField] private TMP_Text rollRateText;
-    [FormerlySerializedAs("yawAxesText")] [SerializeField] private TMP_Text yawRateText;
-    [FormerlySerializedAs("pitchAxesCurrentText")]
+    [SerializeField] private TMP_Text rollRateText;
+    [SerializeField] private TMP_Text yawRateText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text pitchTargetText;
     [SerializeField] private TMP_Text rollTargetText;
     [SerializeField] private TMP_Text yawTargetText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text pitchCurrentText;
-    [FormerlySerializedAs("rollAxesCurrentText")] [SerializeField] private TMP_Text rollCurrentText;
-    [FormerlySerializedAs("yawAxesCurrentText")] [SerializeField] private TMP_Text yawCurrentText;
+    [SerializeField] private TMP_Text rollCurrentText;
+    [SerializeField] private TMP_Text yawCurrentText;
+    
     [Space(10)]
     [SerializeField] private RectTransform windArrow;
     [SerializeField] private TMP_Text windSpeedText;
     [SerializeField] private TMP_Text turbulenceText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text posText;
     [SerializeField] private TMP_Text rotText;
+    
     [Space(10)]
     [SerializeField] private TMP_Text[] collisionDistanceTexts;
     
