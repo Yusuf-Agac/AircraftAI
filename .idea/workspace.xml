@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/ML-Agents_Canvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/ML-Agents_Canvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/RewardCanvas.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/RewardCanvas.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_Flight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_Flight.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_TakeOff.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Cessna 182 Skylane_TakeOff.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Observations.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Prefabs/Observations.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftFlightAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftFlightAgent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftNormalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftNormalizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/ObservationCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/ObservationCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Silantro/Common/Scripts/SilantroInput.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +158,7 @@
       <workItem from="1715611440731" duration="781000" />
       <workItem from="1715673523671" duration="1175000" />
       <workItem from="1715708068070" duration="592000" />
+      <workItem from="1715778244616" duration="3892000" />
     </task>
     <servers />
   </component>

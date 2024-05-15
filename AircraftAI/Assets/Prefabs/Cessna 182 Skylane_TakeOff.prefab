@@ -8899,7 +8899,7 @@ MonoBehaviour:
   spoilerType: 0
   slatMovement: 0
   stabilatorType: 0
-  deflectionType: 1
+  deflectionType: 0
   trimState: 1
   flapAnalysis: 2
   controlAnalysis: 2
@@ -8913,7 +8913,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 745.91, y: -0.03200006, z: 2981.37}
+  leadingRoot: {x: 690.41, y: 7.968, z: 2951.9702}
   m_axisScale: 0.25
   subdivision: 5
   m_section: -1
@@ -8961,15 +8961,15 @@ MonoBehaviour:
     m_forward: {x: -0.06073312, y: 0, z: 0.99815404}
     m_right: {x: 0.99815404, y: 0, z: 0.06073312}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 745.91, y: -0.03200006, z: 2980.663}
-    m_tipCenter: {x: 745.5649, y: -0.03200006, z: 2980.6685}
-    m_quaterCenter: {x: 745.7374, y: -0.03200006, z: 2981.006}
-    m_leading_tipLocal: {x: -0.20002726, y: 0, z: 0.46640763}
-    m_leading_rootLocal: {x: -0.000015563039, y: 0, z: 0.50007576}
-    m_trailing_tipLocal: {x: -0.20002726, y: 0, z: -0.4586893}
-    m_trailing_rootLocal: {x: -0.000015563039, y: 0, z: -0.49995437}
-    m_quater_root: {x: 745.91, y: -0.03200006, z: 2981.0166}
-    m_quater_tip: {x: 745.5649, y: -0.03200006, z: 2980.9956}
+    m_rootCenter: {x: 690.41, y: 7.968, z: 2951.2632}
+    m_tipCenter: {x: 690.0649, y: 7.968, z: 2951.2686}
+    m_quaterCenter: {x: 690.2374, y: 7.968, z: 2951.6062}
+    m_leading_tipLocal: {x: -0.20002726, y: -0.00000004949137, z: 0.46640763}
+    m_leading_rootLocal: {x: -0.000015563039, y: -0.00000004949137, z: 0.50007576}
+    m_trailing_tipLocal: {x: -0.20002726, y: -0.00000004949137, z: -0.4586893}
+    m_trailing_rootLocal: {x: -0.000015563039, y: -0.00000004949137, z: -0.49995437}
+    m_quater_root: {x: 690.41, y: 7.968, z: 2951.6167}
+    m_quater_tip: {x: 690.0649, y: 7.968, z: 2951.5957}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9076,15 +9076,15 @@ MonoBehaviour:
     m_forward: {x: -0.06143667, y: 0, z: 0.998111}
     m_right: {x: 0.998111, y: 0, z: 0.06143667}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 745.5649, y: -0.03200006, z: 2980.6685}
-    m_tipCenter: {x: 745.2198, y: -0.03200006, z: 2980.6738}
-    m_quaterCenter: {x: 745.39233, y: -0.03200006, z: 2980.9849}
-    m_leading_tipLocal: {x: -0.40003893, y: 0, z: 0.43273947}
-    m_leading_rootLocal: {x: -0.20002726, y: 0, z: 0.46640763}
-    m_trailing_tipLocal: {x: -0.40003893, y: 0, z: -0.41742426}
-    m_trailing_rootLocal: {x: -0.20002726, y: 0, z: -0.4586893}
-    m_quater_root: {x: 745.5649, y: -0.03200006, z: 2980.9956}
-    m_quater_tip: {x: 745.2198, y: -0.03200006, z: 2980.9744}
+    m_rootCenter: {x: 690.0649, y: 7.968, z: 2951.2686}
+    m_tipCenter: {x: 689.7198, y: 7.968, z: 2951.274}
+    m_quaterCenter: {x: 689.89233, y: 7.968, z: 2951.585}
+    m_leading_tipLocal: {x: -0.40003893, y: -0.00000004949137, z: 0.43273947}
+    m_leading_rootLocal: {x: -0.20002726, y: -0.00000004949137, z: 0.46640763}
+    m_trailing_tipLocal: {x: -0.40003893, y: -0.00000004949137, z: -0.41742426}
+    m_trailing_rootLocal: {x: -0.20002726, y: -0.00000004949137, z: -0.4586893}
+    m_quater_root: {x: 690.0649, y: 7.968, z: 2951.5957}
+    m_quater_tip: {x: 689.7198, y: 7.968, z: 2951.5745}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9191,15 +9191,15 @@ MonoBehaviour:
     m_forward: {x: -0.06143667, y: 0, z: 0.998111}
     m_right: {x: 0.998111, y: 0, z: 0.06143667}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 745.2198, y: -0.03200006, z: 2980.6738}
-    m_tipCenter: {x: 744.8747, y: -0.03200006, z: 2980.6792}
-    m_quaterCenter: {x: 745.04724, y: -0.03200006, z: 2980.9639}
-    m_leading_tipLocal: {x: -0.6000506, y: 0, z: 0.3988987}
-    m_leading_rootLocal: {x: -0.40003893, y: 0, z: 0.43273947}
-    m_trailing_tipLocal: {x: -0.6000506, y: 0, z: -0.37598655}
-    m_trailing_rootLocal: {x: -0.40003893, y: 0, z: -0.41742426}
-    m_quater_root: {x: 745.2198, y: -0.03200006, z: 2980.9744}
-    m_quater_tip: {x: 744.8747, y: -0.03200006, z: 2980.9531}
+    m_rootCenter: {x: 689.7198, y: 7.968, z: 2951.274}
+    m_tipCenter: {x: 689.3747, y: 7.968, z: 2951.2793}
+    m_quaterCenter: {x: 689.54724, y: 7.968, z: 2951.564}
+    m_leading_tipLocal: {x: -0.6000506, y: -0.00000004949137, z: 0.3988987}
+    m_leading_rootLocal: {x: -0.40003893, y: -0.00000004949137, z: 0.43273947}
+    m_trailing_tipLocal: {x: -0.6000506, y: -0.00000004949137, z: -0.37598655}
+    m_trailing_rootLocal: {x: -0.40003893, y: -0.00000004949137, z: -0.41742426}
+    m_quater_root: {x: 689.7198, y: 7.968, z: 2951.5745}
+    m_quater_tip: {x: 689.3747, y: 7.968, z: 2951.5532}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9306,15 +9306,15 @@ MonoBehaviour:
     m_forward: {x: -0.06073312, y: 0, z: 0.99815404}
     m_right: {x: 0.99815404, y: 0, z: 0.06073312}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 744.8747, y: -0.03200006, z: 2980.6792}
-    m_tipCenter: {x: 744.5296, y: -0.03200006, z: 2980.6846}
-    m_quaterCenter: {x: 744.70215, y: -0.03200006, z: 2980.9426}
-    m_leading_tipLocal: {x: -0.8000623, y: 0, z: 0.36523053}
-    m_leading_rootLocal: {x: -0.6000506, y: 0, z: 0.3988987}
-    m_trailing_tipLocal: {x: -0.8000623, y: 0, z: -0.33472148}
-    m_trailing_rootLocal: {x: -0.6000506, y: 0, z: -0.37598655}
-    m_quater_root: {x: 744.8747, y: -0.03200006, z: 2980.9531}
-    m_quater_tip: {x: 744.5296, y: -0.03200006, z: 2980.9321}
+    m_rootCenter: {x: 689.3747, y: 7.968, z: 2951.2793}
+    m_tipCenter: {x: 689.0296, y: 7.968, z: 2951.2847}
+    m_quaterCenter: {x: 689.20215, y: 7.968, z: 2951.5427}
+    m_leading_tipLocal: {x: -0.8000623, y: -0.00000004949137, z: 0.36523053}
+    m_leading_rootLocal: {x: -0.6000506, y: -0.00000004949137, z: 0.3988987}
+    m_trailing_tipLocal: {x: -0.8000623, y: -0.00000004949137, z: -0.33472148}
+    m_trailing_rootLocal: {x: -0.6000506, y: -0.00000004949137, z: -0.37598655}
+    m_quater_root: {x: 689.3747, y: 7.968, z: 2951.5532}
+    m_quater_tip: {x: 689.0296, y: 7.968, z: 2951.5322}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -9421,15 +9421,15 @@ MonoBehaviour:
     m_forward: {x: -0.06143667, y: 0, z: 0.998111}
     m_right: {x: 0.998111, y: 0, z: 0.06143667}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 744.5296, y: -0.03200006, z: 2980.6846}
-    m_tipCenter: {x: 744.1845, y: -0.03200006, z: 2980.69}
-    m_quaterCenter: {x: 744.35706, y: -0.03200006, z: 2980.9214}
-    m_leading_tipLocal: {x: -1.000074, y: 0, z: 0.3315624}
-    m_leading_rootLocal: {x: -0.8000623, y: 0, z: 0.36523053}
-    m_trailing_tipLocal: {x: -1.000074, y: 0, z: -0.29345644}
-    m_trailing_rootLocal: {x: -0.8000623, y: 0, z: -0.33472148}
-    m_quater_root: {x: 744.5296, y: -0.03200006, z: 2980.9321}
-    m_quater_tip: {x: 744.1845, y: -0.03200006, z: 2980.911}
+    m_rootCenter: {x: 689.0296, y: 7.968, z: 2951.2847}
+    m_tipCenter: {x: 688.6845, y: 7.968, z: 2951.29}
+    m_quaterCenter: {x: 688.85706, y: 7.968, z: 2951.5215}
+    m_leading_tipLocal: {x: -1.000074, y: -0.00000004949137, z: 0.3315624}
+    m_leading_rootLocal: {x: -0.8000623, y: -0.00000004949137, z: 0.36523053}
+    m_trailing_tipLocal: {x: -1.000074, y: -0.00000004949137, z: -0.29345644}
+    m_trailing_rootLocal: {x: -0.8000623, y: -0.00000004949137, z: -0.33472148}
+    m_quater_root: {x: 689.0296, y: 7.968, z: 2951.5322}
+    m_quater_tip: {x: 688.6845, y: 7.968, z: 2951.511}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -17488,7 +17488,7 @@ MonoBehaviour:
   spoilerType: 0
   slatMovement: 0
   stabilatorType: 0
-  deflectionType: 1
+  deflectionType: 0
   trimState: 1
   flapAnalysis: 2
   controlAnalysis: 2
@@ -17502,7 +17502,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 746.09, y: -0.03200006, z: 2981.37}
+  leadingRoot: {x: 690.59, y: 7.968, z: 2951.9702}
   m_axisScale: 0.25
   subdivision: 5
   m_section: 1
@@ -17550,15 +17550,15 @@ MonoBehaviour:
     m_forward: {x: 0.06073312, y: 0, z: 0.99815404}
     m_right: {x: 0.99815404, y: 0, z: -0.06073312}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 746.09, y: -0.03200006, z: 2980.663}
-    m_tipCenter: {x: 746.4351, y: -0.03200006, z: 2980.6685}
-    m_quaterCenter: {x: 746.2626, y: -0.03200006, z: 2981.006}
-    m_leading_tipLocal: {x: 0.20002726, y: 0, z: 0.46640763}
-    m_leading_rootLocal: {x: 0.000015563039, y: 0, z: 0.50007576}
-    m_trailing_tipLocal: {x: 0.20002726, y: 0, z: -0.4586893}
-    m_trailing_rootLocal: {x: 0.000015563039, y: 0, z: -0.49995437}
-    m_quater_root: {x: 746.09, y: -0.03200006, z: 2981.0166}
-    m_quater_tip: {x: 746.4351, y: -0.03200006, z: 2980.9956}
+    m_rootCenter: {x: 690.59, y: 7.968, z: 2951.2632}
+    m_tipCenter: {x: 690.9351, y: 7.968, z: 2951.2686}
+    m_quaterCenter: {x: 690.7626, y: 7.968, z: 2951.6062}
+    m_leading_tipLocal: {x: 0.20002726, y: -0.00000004949137, z: 0.46640763}
+    m_leading_rootLocal: {x: 0.000015563039, y: -0.00000004949137, z: 0.50007576}
+    m_trailing_tipLocal: {x: 0.20002726, y: -0.00000004949137, z: -0.4586893}
+    m_trailing_rootLocal: {x: 0.000015563039, y: -0.00000004949137, z: -0.49995437}
+    m_quater_root: {x: 690.59, y: 7.968, z: 2951.6167}
+    m_quater_tip: {x: 690.9351, y: 7.968, z: 2951.5957}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -17665,15 +17665,15 @@ MonoBehaviour:
     m_forward: {x: 0.06143667, y: 0, z: 0.998111}
     m_right: {x: 0.998111, y: 0, z: -0.06143667}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 746.4351, y: -0.03200006, z: 2980.6685}
-    m_tipCenter: {x: 746.7802, y: -0.03200006, z: 2980.6738}
-    m_quaterCenter: {x: 746.60767, y: -0.03200006, z: 2980.9849}
-    m_leading_tipLocal: {x: 0.40003893, y: 0, z: 0.43273947}
-    m_leading_rootLocal: {x: 0.20002726, y: 0, z: 0.46640763}
-    m_trailing_tipLocal: {x: 0.40003893, y: 0, z: -0.41742426}
-    m_trailing_rootLocal: {x: 0.20002726, y: 0, z: -0.4586893}
-    m_quater_root: {x: 746.4351, y: -0.03200006, z: 2980.9956}
-    m_quater_tip: {x: 746.7802, y: -0.03200006, z: 2980.9744}
+    m_rootCenter: {x: 690.9351, y: 7.968, z: 2951.2686}
+    m_tipCenter: {x: 691.2802, y: 7.968, z: 2951.274}
+    m_quaterCenter: {x: 691.10767, y: 7.968, z: 2951.585}
+    m_leading_tipLocal: {x: 0.40003893, y: -0.00000004949137, z: 0.43273947}
+    m_leading_rootLocal: {x: 0.20002726, y: -0.00000004949137, z: 0.46640763}
+    m_trailing_tipLocal: {x: 0.40003893, y: -0.00000004949137, z: -0.41742426}
+    m_trailing_rootLocal: {x: 0.20002726, y: -0.00000004949137, z: -0.4586893}
+    m_quater_root: {x: 690.9351, y: 7.968, z: 2951.5957}
+    m_quater_tip: {x: 691.2802, y: 7.968, z: 2951.5745}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -17780,15 +17780,15 @@ MonoBehaviour:
     m_forward: {x: 0.06143667, y: 0, z: 0.998111}
     m_right: {x: 0.998111, y: 0, z: -0.06143667}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 746.7802, y: -0.03200006, z: 2980.6738}
-    m_tipCenter: {x: 747.1253, y: -0.03200006, z: 2980.6792}
-    m_quaterCenter: {x: 746.95276, y: -0.03200006, z: 2980.9639}
-    m_leading_tipLocal: {x: 0.6000506, y: 0, z: 0.3988987}
-    m_leading_rootLocal: {x: 0.40003893, y: 0, z: 0.43273947}
-    m_trailing_tipLocal: {x: 0.6000506, y: 0, z: -0.37598655}
-    m_trailing_rootLocal: {x: 0.40003893, y: 0, z: -0.41742426}
-    m_quater_root: {x: 746.7802, y: -0.03200006, z: 2980.9744}
-    m_quater_tip: {x: 747.1253, y: -0.03200006, z: 2980.9531}
+    m_rootCenter: {x: 691.2802, y: 7.968, z: 2951.274}
+    m_tipCenter: {x: 691.6253, y: 7.968, z: 2951.2793}
+    m_quaterCenter: {x: 691.45276, y: 7.968, z: 2951.564}
+    m_leading_tipLocal: {x: 0.6000506, y: -0.00000004949137, z: 0.3988987}
+    m_leading_rootLocal: {x: 0.40003893, y: -0.00000004949137, z: 0.43273947}
+    m_trailing_tipLocal: {x: 0.6000506, y: -0.00000004949137, z: -0.37598655}
+    m_trailing_rootLocal: {x: 0.40003893, y: -0.00000004949137, z: -0.41742426}
+    m_quater_root: {x: 691.2802, y: 7.968, z: 2951.5745}
+    m_quater_tip: {x: 691.6253, y: 7.968, z: 2951.5532}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -17895,15 +17895,15 @@ MonoBehaviour:
     m_forward: {x: 0.06073312, y: 0, z: 0.99815404}
     m_right: {x: 0.99815404, y: 0, z: -0.06073312}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 747.1253, y: -0.03200006, z: 2980.6792}
-    m_tipCenter: {x: 747.4704, y: -0.03200006, z: 2980.6846}
-    m_quaterCenter: {x: 747.29785, y: -0.03200006, z: 2980.9426}
-    m_leading_tipLocal: {x: 0.8000623, y: 0, z: 0.36523053}
-    m_leading_rootLocal: {x: 0.6000506, y: 0, z: 0.3988987}
-    m_trailing_tipLocal: {x: 0.8000623, y: 0, z: -0.33472148}
-    m_trailing_rootLocal: {x: 0.6000506, y: 0, z: -0.37598655}
-    m_quater_root: {x: 747.1253, y: -0.03200006, z: 2980.9531}
-    m_quater_tip: {x: 747.4704, y: -0.03200006, z: 2980.9321}
+    m_rootCenter: {x: 691.6253, y: 7.968, z: 2951.2793}
+    m_tipCenter: {x: 691.9704, y: 7.968, z: 2951.2847}
+    m_quaterCenter: {x: 691.79785, y: 7.968, z: 2951.5427}
+    m_leading_tipLocal: {x: 0.8000623, y: -0.00000004949137, z: 0.36523053}
+    m_leading_rootLocal: {x: 0.6000506, y: -0.00000004949137, z: 0.3988987}
+    m_trailing_tipLocal: {x: 0.8000623, y: -0.00000004949137, z: -0.33472148}
+    m_trailing_rootLocal: {x: 0.6000506, y: -0.00000004949137, z: -0.37598655}
+    m_quater_root: {x: 691.6253, y: 7.968, z: 2951.5532}
+    m_quater_tip: {x: 691.9704, y: 7.968, z: 2951.5322}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -18010,15 +18010,15 @@ MonoBehaviour:
     m_forward: {x: 0.06143667, y: 0, z: 0.998111}
     m_right: {x: 0.998111, y: 0, z: -0.06143667}
     m_up: {x: 0, y: 1, z: 0}
-    m_rootCenter: {x: 747.4704, y: -0.03200006, z: 2980.6846}
-    m_tipCenter: {x: 747.8155, y: -0.03200006, z: 2980.69}
-    m_quaterCenter: {x: 747.64294, y: -0.03200006, z: 2980.9214}
-    m_leading_tipLocal: {x: 1.000074, y: 0, z: 0.3315624}
-    m_leading_rootLocal: {x: 0.8000623, y: 0, z: 0.36523053}
-    m_trailing_tipLocal: {x: 1.000074, y: 0, z: -0.29345644}
-    m_trailing_rootLocal: {x: 0.8000623, y: 0, z: -0.33472148}
-    m_quater_root: {x: 747.4704, y: -0.03200006, z: 2980.9321}
-    m_quater_tip: {x: 747.8155, y: -0.03200006, z: 2980.911}
+    m_rootCenter: {x: 691.9704, y: 7.968, z: 2951.2847}
+    m_tipCenter: {x: 692.3155, y: 7.968, z: 2951.29}
+    m_quaterCenter: {x: 692.14294, y: 7.968, z: 2951.5215}
+    m_leading_tipLocal: {x: 1.000074, y: -0.00000004949137, z: 0.3315624}
+    m_leading_rootLocal: {x: 0.8000623, y: -0.00000004949137, z: 0.36523053}
+    m_trailing_tipLocal: {x: 1.000074, y: -0.00000004949137, z: -0.29345644}
+    m_trailing_rootLocal: {x: 0.8000623, y: -0.00000004949137, z: -0.33472148}
+    m_quater_root: {x: 691.9704, y: 7.968, z: 2951.5322}
+    m_quater_tip: {x: 692.3155, y: 7.968, z: 2951.511}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26211,7 +26211,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 745.45734, y: 0.6546123, z: 2985.8882}
+  leadingRoot: {x: 689.95734, y: 8.654612, z: 2956.4883}
   m_axisScale: 0.5
   subdivision: 10
   m_section: -1
@@ -26243,7 +26243,7 @@ MonoBehaviour:
   m_tipSuperfoil: {fileID: 0}
   m_cells:
   - m_reset: 0
-    n_rotation: {x: 0.03807873, y: 0.00061855273, z: 0.021976782, w: -0.99903286}
+    n_rotation: {x: 0.038078733, y: 0.0006186246, z: 0.02197678, w: -0.99903286}
     m_eulerAngles: {x: 355.354, y: 359.967, z: 358.21802}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26257,18 +26257,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.675038
     m_tipChord: 1.6683378
-    m_forward: {x: 0.00043778692, y: 0.07611099, z: 0.9970993}
-    m_right: {x: 0.9990333, y: -0.04386395, z: 0.002909605}
-    m_up: {x: 0.04395816, y: 0.99613404, z: -0.076056615}
-    m_rootCenter: {x: 745.454, y: 0.591, z: 2985.053}
-    m_tipCenter: {x: 744.9513, y: 0.61320865, z: 2985.0532}
-    m_quaterCenter: {x: 745.20435, y: 0.6338469, z: 2985.47}
-    m_leading_tipLocal: {x: -0.10000324, y: 0.000050379673, z: 0.49795365}
-    m_leading_rootLocal: {x: -0.000006158354, y: -0.0000793731, z: 0.5000539}
-    m_trailing_tipLocal: {x: -0.10000461, y: 0.00009781695, z: -0.4980875}
-    m_trailing_rootLocal: {x: -0.0000021672004, y: 0.00009300863, z: -0.5000796}
-    m_quater_root: {x: 745.4557, y: 0.6228062, z: 2985.4707}
-    m_quater_tip: {x: 744.953, y: 0.64488757, z: 2985.4692}
+    m_forward: {x: 0.00043764326, y: 0.076111, z: 0.9970993}
+    m_right: {x: 0.9990333, y: -0.043863937, z: 0.0029097483}
+    m_up: {x: 0.043958165, y: 0.99613404, z: -0.07605662}
+    m_rootCenter: {x: 689.954, y: 8.591, z: 2955.653}
+    m_tipCenter: {x: 689.4513, y: 8.613208, z: 2955.6533}
+    m_quaterCenter: {x: 689.70435, y: 8.633846, z: 2956.07}
+    m_leading_tipLocal: {x: -0.10000323, y: 0.00003782064, z: 0.4979536}
+    m_leading_rootLocal: {x: -0.0000061520614, y: -0.00008626263, z: 0.5000539}
+    m_trailing_tipLocal: {x: -0.10000461, y: 0.000094443945, z: -0.4980875}
+    m_trailing_rootLocal: {x: -0.0000021661822, y: 0.00009186038, z: -0.5000796}
+    m_quater_root: {x: 689.9557, y: 8.622806, z: 2956.0708}
+    m_quater_tip: {x: 689.453, y: 8.644886, z: 2956.0693}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26305,9 +26305,9 @@ MonoBehaviour:
     "\u0413": 2.5370178
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199966
-    "\u1D27LE": 0.40057996
-    "\u1D27CT": 0.010315866
-    "\u1D27QT": 0.20545055
+    "\u1D27LE": 0.4005851
+    "\u1D27CT": 0.010319475
+    "\u1D27QT": 0.20545879
     m_area: 0.8412265
     m_wettedArea: 1.717329
     m_foilArea: 0.19117399
@@ -26346,9 +26346,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.000058018915
+    "CY\u03B2_CL": 0.00005802366
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.0005144104
+    "Cn\u03B2_CL": 0.0005144148
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -26375,15 +26375,15 @@ MonoBehaviour:
     m_forward: {x: 0.00043778692, y: 0.07611099, z: 0.9970993}
     m_right: {x: 0.9990333, y: -0.04386395, z: 0.002909605}
     m_up: {x: 0.04395816, y: 0.99613404, z: -0.076056615}
-    m_rootCenter: {x: 744.9513, y: 0.61320865, z: 2985.0532}
-    m_tipCenter: {x: 744.4486, y: 0.6354173, z: 2985.0535}
-    m_quaterCenter: {x: 744.70166, y: 0.65592825, z: 2985.4685}
-    m_leading_tipLocal: {x: -0.20000033, y: 0.00018020422, z: 0.49585342}
-    m_leading_rootLocal: {x: -0.10000324, y: 0.000050379673, z: 0.49795365}
-    m_trailing_tipLocal: {x: -0.20000708, y: 0.000102553495, z: -0.4960954}
-    m_trailing_rootLocal: {x: -0.10000461, y: 0.00009781695, z: -0.4980875}
-    m_quater_root: {x: 744.953, y: 0.64488757, z: 2985.4692}
-    m_quater_tip: {x: 744.4503, y: 0.66696894, z: 2985.4678}
+    m_rootCenter: {x: 689.4513, y: 8.613208, z: 2955.6533}
+    m_tipCenter: {x: 688.9486, y: 8.635416, z: 2955.6536}
+    m_quaterCenter: {x: 689.20166, y: 8.655927, z: 2956.0686}
+    m_leading_tipLocal: {x: -0.20000033, y: 0.00017101818, z: 0.49585336}
+    m_leading_rootLocal: {x: -0.10000323, y: 0.00003782064, z: 0.4979536}
+    m_trailing_tipLocal: {x: -0.20000705, y: 0.000087697954, z: -0.49609545}
+    m_trailing_rootLocal: {x: -0.10000461, y: 0.000094443945, z: -0.4980875}
+    m_quater_root: {x: 689.453, y: 8.644886, z: 2956.0693}
+    m_quater_tip: {x: 688.9503, y: 8.666967, z: 2956.0679}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26420,11 +26420,11 @@ MonoBehaviour:
     "\u0413": 2.5370178
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199966
-    "\u1D27LE": 0.40057996
-    "\u1D27CT": 0.010315866
+    "\u1D27LE": 0.40057683
+    "\u1D27CT": 0.010319475
     "\u1D27QT": 0.20545055
-    m_area: 0.8377774
-    m_wettedArea: 1.7102878
+    m_area: 0.8377778
+    m_wettedArea: 1.7102886
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
@@ -26490,15 +26490,15 @@ MonoBehaviour:
     m_forward: {x: 0.004329902, y: 0.07593953, z: 0.99710304}
     m_right: {x: 0.999024, y: -0.04416014, z: -0.000975001}
     m_up: {x: 0.04395817, y: 0.99613404, z: -0.07605662}
-    m_rootCenter: {x: 744.4486, y: 0.6354173, z: 2985.0535}
-    m_tipCenter: {x: 743.9459, y: 0.6578927, z: 2985.0571}
-    m_quaterCenter: {x: 744.199, y: 0.67809594, z: 2985.468}
-    m_leading_tipLocal: {x: -0.30001032, y: 0.0003196454, z: 0.4943379}
-    m_leading_rootLocal: {x: -0.20000033, y: 0.00018020422, z: 0.49585342}
-    m_trailing_tipLocal: {x: -0.30000216, y: 0.00020941294, z: -0.4905946}
-    m_trailing_rootLocal: {x: -0.20000708, y: 0.000102553495, z: -0.4960954}
-    m_quater_root: {x: 744.4503, y: 0.66696894, z: 2985.4678}
-    m_quater_tip: {x: 743.9476, y: 0.68922293, z: 2985.4683}
+    m_rootCenter: {x: 688.9486, y: 8.635416, z: 2955.6536}
+    m_tipCenter: {x: 688.4459, y: 8.657891, z: 2955.6572}
+    m_quaterCenter: {x: 688.699, y: 8.678095, z: 2956.068}
+    m_leading_tipLocal: {x: -0.30001032, y: 0.00030421573, z: 0.49433783}
+    m_leading_rootLocal: {x: -0.20000033, y: 0.00017101818, z: 0.49585336}
+    m_trailing_tipLocal: {x: -0.30000216, y: 0.00019739216, z: -0.49059466}
+    m_trailing_rootLocal: {x: -0.20000705, y: 0.000087697954, z: -0.49609545}
+    m_quater_root: {x: 688.9503, y: 8.666967, z: 2956.0679}
+    m_quater_tip: {x: 688.4476, y: 8.689221, z: 2956.0684}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26535,17 +26535,17 @@ MonoBehaviour:
     "\u0413": 2.5370178
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.91999996
-    "\u1D27LE": 0.28905797
-    "\u1D27CT": -0.38005587
+    "\u1D27LE": 0.28906363
+    "\u1D27CT": -0.38005432
     "\u1D27QT": -0.017767768
-    m_area: 0.8331377
-    m_wettedArea: 1.700816
+    m_area: 0.8331376
+    m_wettedArea: 1.7008158
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0000128
-    m_e: 0.7841583
+    m_e: 0.78415823
     m_ARf: 0.5500621
     m_u: 0
     m_v: 0
@@ -26578,7 +26578,7 @@ MonoBehaviour:
     "\u0394CDsfr": 0
     "CY\u03B2_CL": 0.00000042596608
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.0004052533
+    "Cn\u03B2_CL": 0.00040525332
     CL: 0
     CD: 0
     Cm: 0
@@ -26588,7 +26588,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: 0.038035907, y: -0.0013248239, z: 0.022050815, w: -0.9990322}
+    n_rotation: {x: 0.038035907, y: -0.001324806, z: 0.022050813, w: -0.9990322}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26602,18 +26602,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6499727
     m_tipChord: 1.6432927
-    m_forward: {x: 0.004324529, y: 0.07593977, z: 0.99710304}
-    m_right: {x: 0.99902403, y: -0.04415973, z: -0.000969638}
-    m_up: {x: 0.04395817, y: 0.99613404, z: -0.07605662}
-    m_rootCenter: {x: 743.9459, y: 0.6578927, z: 2985.0571}
-    m_tipCenter: {x: 743.44324, y: 0.68023473, z: 2985.059}
-    m_quaterCenter: {x: 743.6962, y: 0.7003305, z: 2985.4685}
-    m_leading_tipLocal: {x: -0.40000886, y: 0.00030536397, z: 0.49340636}
-    m_leading_rootLocal: {x: -0.30001032, y: 0.0003196454, z: 0.4943379}
-    m_trailing_tipLocal: {x: -0.40000597, y: 0.00041405347, z: -0.4877245}
-    m_trailing_rootLocal: {x: -0.30000216, y: 0.00020941294, z: -0.4905946}
-    m_quater_root: {x: 743.9476, y: 0.68922293, z: 2985.4683}
-    m_quater_tip: {x: 743.4449, y: 0.71143806, z: 2985.4688}
+    m_forward: {x: 0.004324493, y: 0.07593977, z: 0.99710304}
+    m_right: {x: 0.99902403, y: -0.044159725, z: -0.00096960226}
+    m_up: {x: 0.043958165, y: 0.99613404, z: -0.07605662}
+    m_rootCenter: {x: 688.4459, y: 8.657891, z: 2955.6572}
+    m_tipCenter: {x: 687.94324, y: 8.680233, z: 2955.6592}
+    m_quaterCenter: {x: 688.1962, y: 8.700329, z: 2956.0686}
+    m_leading_tipLocal: {x: -0.40000886, y: 0.00028763778, z: 0.49340627}
+    m_leading_rootLocal: {x: -0.30001032, y: 0.00030421573, z: 0.49433783}
+    m_trailing_tipLocal: {x: -0.40000597, y: 0.0003986238, z: -0.4877246}
+    m_trailing_rootLocal: {x: -0.30000216, y: 0.00019739216, z: -0.49059466}
+    m_quater_root: {x: 688.4476, y: 8.689221, z: 2956.0684}
+    m_quater_tip: {x: 687.9449, y: 8.711436, z: 2956.0688}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26623,7 +26623,7 @@ MonoBehaviour:
     _controlRootChord: 37.1
     _controlTipChord: 37.2
     _flapRootChord: 37.010098
-    _flapTipChord: 37.115738
+    _flapTipChord: 37.115734
     _frc: 0.3
     _ftc: 0.4
     _mfx: 0.35000002
@@ -26650,9 +26650,9 @@ MonoBehaviour:
     "\u0413": 2.5370178
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.91999996
-    "\u1D27LE": 0.17767176
-    "\u1D27CT": -0.18487215
-    "\u1D27QT": -0.017459603
+    "\u1D27LE": 0.17767383
+    "\u1D27CT": -0.18486956
+    "\u1D27QT": -0.017457541
     m_area: 0.828553
     m_wettedArea: 1.6914567
     m_foilArea: 0
@@ -26691,9 +26691,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00000041131634
+    "CY\u03B2_CL": 0.00000041121913
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.0004053983
+    "Cn\u03B2_CL": 0.00040539927
     CL: 0
     CD: 0
     Cm: 0
@@ -26703,7 +26703,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: 0.038106114, y: 0.008004448, z: 0.037406635, w: -0.99854124}
+    n_rotation: {x: 0.038106114, y: 0.008004485, z: 0.03740663, w: -0.99854124}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26717,18 +26717,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6432927
     m_tipChord: 1.5709511
-    m_forward: {x: -0.0131347, y: 0.07669989, z: 0.99696773}
-    m_right: {x: 0.99707335, y: -0.074094094, z: 0.018836387}
-    m_up: {x: 0.07531417, y: 0.9942973, z: -0.07550221}
-    m_rootCenter: {x: 743.44324, y: 0.68023473, z: 2985.059}
-    m_tipCenter: {x: 742.93994, y: 0.6874253, z: 2985.07}
-    m_quaterCenter: {x: 743.19324, y: 0.7143465, z: 2985.4653}
-    m_leading_tipLocal: {x: -0.49999487, y: -0.15179467, z: 0.47743067}
-    m_leading_rootLocal: {x: -0.40000886, y: 0.00030536397, z: 0.49340636}
-    m_trailing_tipLocal: {x: -0.50000125, y: -0.15180458, z: -0.46043283}
-    m_trailing_rootLocal: {x: -0.40000597, y: 0.00041405347, z: -0.4877245}
-    m_quater_root: {x: 743.4449, y: 0.71143806, z: 2985.4688}
-    m_quater_tip: {x: 742.9415, y: 0.717255, z: 2985.4617}
+    m_forward: {x: -0.013134773, y: 0.07669989, z: 0.99696773}
+    m_right: {x: 0.99707335, y: -0.07409409, z: 0.018836457}
+    m_up: {x: 0.075314164, y: 0.9942973, z: -0.07550221}
+    m_rootCenter: {x: 687.94324, y: 8.680233, z: 2955.6592}
+    m_tipCenter: {x: 687.43994, y: 8.687423, z: 2955.6702}
+    m_quaterCenter: {x: 687.69324, y: 8.714344, z: 2956.0654}
+    m_leading_tipLocal: {x: -0.4999948, y: -0.15182327, z: 0.47743052}
+    m_leading_rootLocal: {x: -0.40000886, y: 0.00028763778, z: 0.49340627}
+    m_trailing_tipLocal: {x: -0.50000125, y: -0.15182517, z: -0.46043292}
+    m_trailing_rootLocal: {x: -0.40000597, y: 0.0003986238, z: -0.4877246}
+    m_quater_root: {x: 687.9449, y: 8.711436, z: 2956.0688}
+    m_quater_tip: {x: 687.4415, y: 8.717253, z: 2956.0618}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26764,17 +26764,17 @@ MonoBehaviour:
     "\u03BB": 0.93786
     "\u0413": 0.73703
     "\u03B8": -4.3559875
-    "m_K\u03B8": 0.9199219
-    "\u1D27LE": 3.044234
-    "\u1D27CT": -1.0790398
-    "\u1D27QT": 0.9838708
+    "m_K\u03B8": 0.9199218
+    "\u1D27LE": 3.0442438
+    "\u1D27CT": -1.0790325
+    "\u1D27QT": 0.983875
     m_area: 0.8091686
     m_wettedArea: 1.6518841
     m_foilArea: 0.17025885
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
-    "m_Mcrit\u1D27": 1.0014131
+    "m_Mcrit\u1D27": 1.0014132
     m_e: 0.7840275
     m_ARf: 0.5500621
     m_u: 0
@@ -26806,9 +26806,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0022298403
+    "CY\u03B2_CL": 0.0022298722
     "\u0394CY\u03B2": -0.000073703
-    "Cn\u03B2_CL": 0.0020283672
+    "Cn\u03B2_CL": 0.0020283945
     CL: 0
     CD: 0
     Cm: 0
@@ -26818,7 +26818,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: 0.038097285, y: 0.0065465267, z: 0.037462533, w: -0.9985501}
+    n_rotation: {x: 0.038097285, y: 0.006546558, z: 0.03746253, w: -0.9985501}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26832,18 +26832,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.5709511
     m_tipChord: 1.4762579
-    m_forward: {x: -0.010219629, y: 0.0765746, z: 0.9970115}
-    m_right: {x: 0.9971074, y: -0.07431763, z: 0.015928512}
-    m_up: {x: 0.075315244, y: 0.9942903, z: -0.0755936}
-    m_rootCenter: {x: 742.93994, y: 0.6874253, z: 2985.07}
-    m_tipCenter: {x: 742.43665, y: 0.6951499, z: 2985.0881}
-    m_quaterCenter: {x: 742.6898, y: 0.7202183, z: 2985.459}
-    m_leading_tipLocal: {x: -0.59998965, y: -0.3040802, z: 0.45911524}
-    m_leading_rootLocal: {x: -0.49999487, y: -0.15179467, z: 0.47743067}
-    m_trailing_tipLocal: {x: -0.59999895, y: -0.30396387, z: -0.42232385}
-    m_trailing_rootLocal: {x: -0.50000125, y: -0.15180458, z: -0.46043283}
-    m_quater_root: {x: 742.9415, y: 0.717255, z: 2985.4617}
-    m_quater_tip: {x: 742.4381, y: 0.72318155, z: 2985.456}
+    m_forward: {x: -0.010219691, y: 0.0765746, z: 0.9970115}
+    m_right: {x: 0.9971074, y: -0.07431762, z: 0.015928574}
+    m_up: {x: 0.07531524, y: 0.9942903, z: -0.0755936}
+    m_rootCenter: {x: 687.43994, y: 8.687423, z: 2955.6702}
+    m_tipCenter: {x: 686.93665, y: 8.695147, z: 2955.6882}
+    m_quaterCenter: {x: 687.1898, y: 8.720216, z: 2956.059}
+    m_leading_tipLocal: {x: -0.59998965, y: -0.3041088, z: 0.4591151}
+    m_leading_rootLocal: {x: -0.4999948, y: -0.15182327, z: 0.47743052}
+    m_trailing_tipLocal: {x: -0.5999989, y: -0.3039993, z: -0.42232397}
+    m_trailing_rootLocal: {x: -0.50000125, y: -0.15182517, z: -0.46043292}
+    m_quater_root: {x: 687.4415, y: 8.717253, z: 2956.0618}
+    m_quater_tip: {x: 686.9381, y: 8.723179, z: 2956.0562}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -26851,7 +26851,7 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     _controlRootChord: 15.243181
-    _controlTipChord: 16.95072
+    _controlTipChord: 16.950718
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.5
@@ -26881,10 +26881,10 @@ MonoBehaviour:
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199462
     "\u1D27LE": 3.4890425
-    "\u1D27CT": -1.8869623
-    "\u1D27QT": 0.8166765
-    m_area: 0.7674525
-    m_wettedArea: 1.5667224
+    "\u1D27CT": -1.8869557
+    "\u1D27QT": 0.81668013
+    m_area: 0.7674524
+    m_wettedArea: 1.5667223
     m_foilArea: 0.17025885
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
@@ -26921,9 +26921,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.001263465
+    "CY\u03B2_CL": 0.0012634807
     "\u0394CY\u03B2": -0.000073703
-    "Cn\u03B2_CL": 0.0012823865
+    "Cn\u03B2_CL": 0.0012823973
     CL: 0
     CD: 0
     Cm: 0
@@ -26933,7 +26933,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: 0.038132116, y: 0.0030504456, z: 0.021884024, w: -0.9990284}
+    n_rotation: {x: 0.038132116, y: 0.0030505396, z: 0.02188402, w: -0.9990284}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -26947,26 +26947,26 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.4762579
     m_tipChord: 1.3920571
-    m_forward: {x: -0.004425995, y: 0.07632365, z: 0.9970733}
-    m_right: {x: 0.99902356, y: -0.043492883, z: 0.0077639315}
+    m_forward: {x: -0.004426183, y: 0.07632365, z: 0.9970733}
+    m_right: {x: 0.99902356, y: -0.04349287, z: 0.0077641197}
     m_up: {x: 0.043958165, y: 0.99613404, z: -0.07605662}
-    m_rootCenter: {x: 742.43665, y: 0.6951499, z: 2985.0881}
-    m_tipCenter: {x: 741.934, y: 0.7186263, z: 2985.105}
-    m_quaterCenter: {x: 742.18677, y: 0.73412037, z: 2985.454}
-    m_leading_tipLocal: {x: -0.69999343, y: -0.30398083, z: 0.443859}
-    m_leading_rootLocal: {x: -0.59998965, y: -0.3040802, z: 0.45911524}
-    m_trailing_tipLocal: {x: -0.6999972, y: -0.30387276, z: -0.38729563}
-    m_trailing_rootLocal: {x: -0.59999895, y: -0.30396387, z: -0.42232385}
-    m_quater_root: {x: 742.4381, y: 0.72318155, z: 2985.456}
-    m_quater_tip: {x: 741.9354, y: 0.74505913, z: 2985.4521}
+    m_rootCenter: {x: 686.93665, y: 8.695147, z: 2955.6882}
+    m_tipCenter: {x: 686.434, y: 8.718622, z: 2955.705}
+    m_quaterCenter: {x: 686.68677, y: 8.7341175, z: 2956.0542}
+    m_leading_tipLocal: {x: -0.6999934, y: -0.30401686, z: 0.44385883}
+    m_leading_rootLocal: {x: -0.59998965, y: -0.3041088, z: 0.4591151}
+    m_trailing_tipLocal: {x: -0.6999971, y: -0.30391568, z: -0.3872958}
+    m_trailing_rootLocal: {x: -0.5999989, y: -0.3039993, z: -0.42232397}
+    m_quater_root: {x: 686.9381, y: 8.723179, z: 2956.0562}
+    m_quater_tip: {x: 686.4354, y: 8.745055, z: 2956.0522}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 16.95072
-    _controlTipChord: 18.802681
+    _controlRootChord: 16.950718
+    _controlTipChord: 18.80268
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.6
@@ -26995,11 +26995,11 @@ MonoBehaviour:
     "\u0413": 2.5370178
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.91998106
-    "\u1D27LE": 2.9073696
-    "\u1D27CT": -1.8849077
-    "\u1D27QT": 0.4843952
-    m_area: 0.7221166
-    m_wettedArea: 1.474171
+    "\u1D27LE": 2.9073765
+    "\u1D27CT": -1.8849008
+    "\u1D27QT": 0.484406
+    m_area: 0.72211653
+    m_wettedArea: 1.4741709
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
@@ -27036,9 +27036,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0003526452
+    "CY\u03B2_CL": 0.00035266273
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.0007111322
+    "Cn\u03B2_CL": 0.0007111426
     CL: 0
     CD: 0
     Cm: 0
@@ -27048,7 +27048,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: 0.038163967, y: 0.00450631, z: 0.021828432, w: -0.9990229}
+    n_rotation: {x: 0.038163967, y: 0.0045064003, z: 0.021828428, w: -0.9990229}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -27062,25 +27062,25 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.3920571
     m_tipChord: 1.3036352
-    m_forward: {x: -0.007337694, y: 0.07645009, z: 0.9970464}
-    m_right: {x: 0.99900645, y: -0.04327025, z: 0.010669933}
+    m_forward: {x: -0.007337875, y: 0.07645009, z: 0.9970464}
+    m_right: {x: 0.99900645, y: -0.043270234, z: 0.010670112}
     m_up: {x: 0.04395816, y: 0.99613404, z: -0.07605662}
-    m_rootCenter: {x: 741.934, y: 0.7186263, z: 2985.105}
-    m_tipCenter: {x: 741.4314, y: 0.74210274, z: 2985.1218}
-    m_quaterCenter: {x: 741.6841, y: 0.75595784, z: 2985.4495}
-    m_leading_tipLocal: {x: -0.7999954, y: -0.30381003, z: 0.42728752}
-    m_leading_rootLocal: {x: -0.69999343, y: -0.30398083, z: 0.443859}
-    m_trailing_tipLocal: {x: -0.79999703, y: -0.3038528, z: -0.35095218}
-    m_trailing_rootLocal: {x: -0.6999972, y: -0.30387276, z: -0.38729563}
-    m_quater_root: {x: 741.9354, y: 0.74505913, z: 2985.4521}
-    m_quater_tip: {x: 741.43274, y: 0.76685655, z: 2985.4468}
+    m_rootCenter: {x: 686.434, y: 8.718622, z: 2955.705}
+    m_tipCenter: {x: 685.9314, y: 8.742098, z: 2955.722}
+    m_quaterCenter: {x: 686.1841, y: 8.755953, z: 2956.0496}
+    m_leading_tipLocal: {x: -0.7999954, y: -0.30385235, z: 0.4272873}
+    m_leading_rootLocal: {x: -0.6999934, y: -0.30401686, z: 0.44385883}
+    m_trailing_tipLocal: {x: -0.79999703, y: -0.30390427, z: -0.35095245}
+    m_trailing_rootLocal: {x: -0.6999971, y: -0.30391568, z: -0.3872958}
+    m_quater_root: {x: 686.4354, y: 8.745055, z: 2956.0522}
+    m_quater_tip: {x: 685.93274, y: 8.766851, z: 2956.0469}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 18.802681
+    _controlRootChord: 18.80268
     _controlTipChord: 20.848114
     _flapRootChord: 0
     _flapTipChord: 0
@@ -27110,11 +27110,11 @@ MonoBehaviour:
     "\u0413": 2.5370178
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.91996574
-    "\u1D27LE": 3.1575274
-    "\u1D27CT": -1.8849077
-    "\u1D27QT": 0.6513877
-    m_area: 0.67860216
-    m_wettedArea: 1.3853382
+    "\u1D27LE": 3.1575334
+    "\u1D27CT": -1.8849008
+    "\u1D27QT": 0.651398
+    m_area: 0.6786021
+    m_wettedArea: 1.3853381
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
@@ -27151,9 +27151,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0007017181
+    "CY\u03B2_CL": 0.0007017453
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.00091859925
+    "Cn\u03B2_CL": 0.0009186158
     CL: 0
     CD: 0
     Cm: 0
@@ -27163,7 +27163,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: 0.03819052, y: 0.005722926, z: 0.021781938, w: -0.99901664}
+    n_rotation: {x: 0.03819052, y: 0.005723016, z: 0.021781934, w: -0.99901664}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -27177,18 +27177,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.3036352
     m_tipChord: 1.2094377
-    m_forward: {x: -0.00977087, y: 0.076555245, z: 0.99701744}
-    m_right: {x: 0.9989856, y: -0.043083917, z: 0.013098324}
-    m_up: {x: 0.04395816, y: 0.99613404, z: -0.07605662}
-    m_rootCenter: {x: 741.4314, y: 0.74210274, z: 2985.1218}
-    m_tipCenter: {x: 740.9288, y: 0.76557916, z: 2985.1387}
-    m_quaterCenter: {x: 741.1814, y: 0.7777004, z: 2985.4434}
-    m_leading_tipLocal: {x: -0.89999515, y: -0.30377597, z: 0.40910754}
-    m_leading_rootLocal: {x: -0.7999954, y: -0.30381003, z: 0.42728752}
-    m_trailing_tipLocal: {x: -0.8999993, y: -0.3036962, z: -0.3130002}
-    m_trailing_rootLocal: {x: -0.79999703, y: -0.3038528, z: -0.35095218}
-    m_quater_root: {x: 741.43274, y: 0.76685655, z: 2985.4468}
-    m_quater_tip: {x: 740.93, y: 0.7885443, z: 2985.4402}
+    m_forward: {x: -0.009771049, y: 0.07655525, z: 0.99701744}
+    m_right: {x: 0.9989856, y: -0.043083902, z: 0.0130985025}
+    m_up: {x: 0.04395816, y: 0.99613404, z: -0.076056615}
+    m_rootCenter: {x: 685.9314, y: 8.742098, z: 2955.722}
+    m_tipCenter: {x: 685.4288, y: 8.7655735, z: 2955.7388}
+    m_quaterCenter: {x: 685.6814, y: 8.777695, z: 2956.0435}
+    m_leading_tipLocal: {x: -0.89999515, y: -0.30383432, z: 0.40910724}
+    m_leading_rootLocal: {x: -0.7999954, y: -0.30385235, z: 0.4272873}
+    m_trailing_tipLocal: {x: -0.8999992, y: -0.30374652, z: -0.31300044}
+    m_trailing_rootLocal: {x: -0.79999703, y: -0.30390427, z: -0.35095245}
+    m_quater_root: {x: 685.93274, y: 8.766851, z: 2956.0469}
+    m_quater_tip: {x: 685.43, y: 8.788538, z: 2956.0403}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -27225,16 +27225,16 @@ MonoBehaviour:
     "\u0413": 2.5370178
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199495
-    "\u1D27LE": 3.4633126
-    "\u1D27CT": -1.8849077
-    "\u1D27QT": 0.7909384
-    m_area: 0.6326218
-    m_wettedArea: 1.2914712
+    "\u1D27LE": 3.463327
+    "\u1D27CT": -1.8849008
+    "\u1D27QT": 0.7909487
+    m_area: 0.63262194
+    m_wettedArea: 1.2914715
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
-    "m_Mcrit\u1D27": 1.0018296
+    "m_Mcrit\u1D27": 1.0018297
     m_e: 0.78407377
     m_ARf: 0.5500621
     m_u: 0
@@ -27266,9 +27266,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0011565547
+    "CY\u03B2_CL": 0.0011565959
     "\u0394CY\u03B2": -0.0002537018
-    "Cn\u03B2_CL": 0.0012094227
+    "Cn\u03B2_CL": 0.0012094504
     CL: 0
     CD: 0
     Cm: 0
@@ -27278,7 +27278,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: 0.021455025, y: -0.0039044155, z: 0.0370735, w: -0.99907464}
+    n_rotation: {x: 0.021455023, y: -0.0039044425, z: 0.0370735, w: -0.99907464}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 4432982852434453378}
     m_spanFill: 0
@@ -27292,18 +27292,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.2094377
     m_tipChord: 1.1288416
-    m_forward: {x: 0.009392431, y: 0.042580843, z: 0.9990489}
-    m_right: {x: 0.99722064, y: -0.07424593, z: -0.0062107793}
+    m_forward: {x: 0.009392485, y: 0.042580836, z: 0.9990489}
+    m_right: {x: 0.99722064, y: -0.07424593, z: -0.0062108333}
     m_up: {x: 0.07391085, y: 0.9963305, z: -0.043159842}
-    m_rootCenter: {x: 740.9288, y: 0.76557916, z: 2985.1387}
-    m_tipCenter: {x: 740.42554, y: 0.77471393, z: 2985.1638}
-    m_quaterCenter: {x: 740.6782, y: 0.7876763, z: 2985.4429}
-    m_leading_tipLocal: {x: -0.9998815, y: -0.62780493, z: 0.39904326}
-    m_leading_rootLocal: {x: -0.89999515, y: -0.30377597, z: 0.40910754}
-    m_trailing_tipLocal: {x: -1.0001078, y: -0.26737255, z: -0.27458504}
-    m_trailing_rootLocal: {x: -0.8999993, y: -0.3036962, z: -0.3130002}
-    m_quater_root: {x: 740.93, y: 0.7885443, z: 2985.4402}
-    m_quater_tip: {x: 740.4265, y: 0.78680825, z: 2985.4458}
+    m_rootCenter: {x: 685.4288, y: 8.7655735, z: 2955.7388}
+    m_tipCenter: {x: 684.92554, y: 8.774708, z: 2955.764}
+    m_quaterCenter: {x: 685.1782, y: 8.78767, z: 2956.043}
+    m_leading_tipLocal: {x: -0.99988145, y: -0.6278599, z: 0.399043}
+    m_leading_rootLocal: {x: -0.89999515, y: -0.30383432, z: 0.40910724}
+    m_trailing_tipLocal: {x: -1.0001078, y: -0.2674355, z: -0.27458537}
+    m_trailing_rootLocal: {x: -0.8999992, y: -0.30374652, z: -0.31300044}
+    m_quater_root: {x: 685.43, y: 8.788538, z: 2956.0403}
+    m_quater_tip: {x: 684.9265, y: 8.786802, z: 2956.046}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -27311,13 +27311,13 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     _controlRootChord: 23.079231
-    _controlTipChord: 25.500826
+    _controlTipChord: 25.500828
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.9
     _ftc: 1
     _mfx: 0.95
-    m_controlChord: 0.24310268
+    m_controlChord: 0.2431027
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -27340,11 +27340,11 @@ MonoBehaviour:
     "\u0413": 0.8370056
     "\u03B8": -2.4559937
     "m_K\u03B8": 0.91998756
-    "\u1D27LE": 1.9188713
-    "\u1D27CT": -2.7017238
-    "\u1D27QT": -0.39205003
-    m_area: 0.58967656
-    m_wettedArea: 1.2038002
+    "\u1D27LE": 1.9188681
+    "\u1D27CT": -2.7017198
+    "\u1D27QT": -0.39205313
+    m_area: 0.5896764
+    m_wettedArea: 1.2037998
     m_foilArea: 0.08682231
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
@@ -27381,9 +27381,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00022229394
+    "CY\u03B2_CL": 0.0002222977
     "\u0394CY\u03B2": -0.00008370056
-    "Cn\u03B2_CL": 0.00019022457
+    "Cn\u03B2_CL": 0.00019022216
     CL: 0
     CD: 0
     Cm: 0
@@ -27396,9 +27396,9 @@ MonoBehaviour:
   m_flapActuator: {fileID: 0}
   m_slatActuator: {fileID: 0}
   m_spoilerActuator: {fileID: 0}
-  m_area: 7.540332794189453
-  m_wettedArea: 15.393276691436768
-  m_aspectRatio: 3.3577723860835107
+  m_area: 7.540332853794098
+  m_wettedArea: 15.393276810646057
+  m_aspectRatio: 3.357772359541071
   m_maximumAOA: 0
   m_stallAngle: 12
   k: 0
@@ -27409,7 +27409,7 @@ MonoBehaviour:
   m_controlDeflection: 0
   _trimDeflection: 0
   _trimTabDeflection: 0
-  m_controlArea: 0.79089653
+  m_controlArea: 0.79089665
   c_positiveLimit: 22
   c_negativeLimit: 30
   m_controlColor: {r: 0, g: 1, b: 0, a: 1}
@@ -27433,15 +27433,15 @@ MonoBehaviour:
   _positiveTrimLimit: 5
   _positiveTrimTabLimit: 3
   _currentControlEffectiveness: 0
-  _controlLockPoint: 761.2838
-  _controlNullPoint: 2407.3901
-  _controlFullPoint: 240.74513
+  _controlLockPoint: 761.28375
+  _controlNullPoint: 2407.39
+  _controlFullPoint: 240.74512
   _controlEfficiencyCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 468.00854
-      value: 100
+      time: 468.0085
+      value: 99.999985
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27450,7 +27450,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 565.2085
-      value: 68.56121
+      value: 68.5612
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27459,7 +27459,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 662.4085
-      value: 49.91593
+      value: 49.91592
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27468,7 +27468,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 759.6085
-      value: 37.958496
+      value: 37.958492
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27477,7 +27477,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 856.80853
-      value: 29.834578
+      value: 29.834574
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27486,7 +27486,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 954.0085
-      value: 24.0648
+      value: 24.064796
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27495,7 +27495,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1051.2085
-      value: 19.820227
+      value: 19.820223
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27504,7 +27504,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1148.4086
-      value: 16.607079
+      value: 16.607077
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27513,7 +27513,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1245.6085
-      value: 14.116362
+      value: 14.116361
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27522,7 +27522,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1342.8085
-      value: 12.146682
+      value: 12.146679
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27531,7 +27531,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1440.0085
-      value: 10.562229
+      value: 10.562227
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27540,7 +27540,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1537.2085
-      value: 9.268728
+      value: 9.268725
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27549,7 +27549,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1634.4086
-      value: 8.199066
+      value: 8.199064
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27558,7 +27558,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1731.6085
-      value: 7.304427
+      value: 7.304426
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27567,7 +27567,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1828.8085
-      value: 6.5486097
+      value: 6.548609
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27576,7 +27576,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1926.0085
-      value: 5.9043107
+      value: 5.9043093
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27590,7 +27590,7 @@ MonoBehaviour:
   m_flapTipChord: 37.8
   m_flapSections: 01010101000000000000
   m_flapDeflection: 0
-  m_flapArea: 1.2343674
+  m_flapArea: 1.2343671
   f_positiveLimit: 30
   f_negativeLimit: 20
   m_flapColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -27602,7 +27602,7 @@ MonoBehaviour:
   - 40
   - 60
   m_currentFlapStep: 0
-  SWf: 6.8198895
+  SWf: 6.81989
   _primaryFlapModel: {fileID: 2108570245601890282}
   _supportFlapModel: {fileID: 0}
   _primaryFlapAxis: {x: 0, y: 0, z: 0}
@@ -27616,9 +27616,9 @@ MonoBehaviour:
   _flapActuationSpeed: 20
   _flapActuatorDeflection: 0
   _maximumFlapTorque: 7000
-  _flapLockPoint: 1802.5538
-  _flapNullPoint: 5700.1743
-  _flapFullPoint: 570.0319
+  _flapLockPoint: 1802.554
+  _flapNullPoint: 5700.175
+  _flapFullPoint: 570.032
   _currentFlapEffectiveness: 0
   _baseFlapDeflection: 0
   _flcsFlapCommand: 0
@@ -27628,7 +27628,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1108.1421
+      time: 1108.1422
       value: 99.999985
       inSlope: 0
       outSlope: 0
@@ -27637,7 +27637,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1205.342
+      time: 1205.3422
       value: 84.52085
       inSlope: 0
       outSlope: 0
@@ -27646,7 +27646,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1302.5421
+      time: 1302.5422
       value: 72.37637
       inSlope: 0
       outSlope: 0
@@ -27655,7 +27655,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1399.7421
+      time: 1399.7422
       value: 62.673134
       inSlope: 0
       outSlope: 0
@@ -27664,7 +27664,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1496.942
+      time: 1496.9421
       value: 54.79809
       inSlope: 0
       outSlope: 0
@@ -27673,7 +27673,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1594.1421
+      time: 1594.1422
       value: 48.319214
       inSlope: 0
       outSlope: 0
@@ -27682,8 +27682,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1691.342
-      value: 42.924965
+      time: 1691.3422
+      value: 42.92497
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27691,8 +27691,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1788.5421
-      value: 38.386074
+      time: 1788.5422
+      value: 38.386078
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -27700,7 +27700,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1885.7421
+      time: 1885.7422
       value: 34.530815
       inSlope: 0
       outSlope: 0
@@ -30053,7 +30053,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 0
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 746, y: -0.545, z: 2986.7876}
+  leadingRoot: {x: 690.5, y: 7.455, z: 2957.3877}
   m_axisScale: 0.25
   subdivision: 3
   m_section: 1
@@ -30100,15 +30100,15 @@ MonoBehaviour:
     m_forward: {x: 0, y: 0, z: 1}
     m_right: {x: -0.00000011920929, y: 1.0000001, z: 0}
     m_up: {x: -1.0000001, y: -0.00000011920929, z: 0}
-    m_rootCenter: {x: 746, y: -0.545, z: 2985}
-    m_tipCenter: {x: 746, y: -0.26999998, z: 2985}
-    m_quaterCenter: {x: 746, y: -0.4075, z: 2985.8938}
+    m_rootCenter: {x: 690.5, y: 7.455, z: 2955.6}
+    m_tipCenter: {x: 690.5, y: 7.73, z: 2955.6}
+    m_quaterCenter: {x: 690.5, y: 7.5924997, z: 2956.494}
     m_leading_tipLocal: {x: 0.33333343, y: -0.00000013898482, z: 0.50002736}
-    m_leading_rootLocal: {x: 0, y: 0, z: 0.50002736}
+    m_leading_rootLocal: {x: -0.00000007224806, y: 3.3136562e-14, z: 0.50002736}
     m_trailing_tipLocal: {x: 0.33333343, y: -0.00000013898482, z: -0.50002736}
-    m_trailing_rootLocal: {x: 0, y: 0, z: -0.50002736}
-    m_quater_root: {x: 746, y: -0.545, z: 2985.8938}
-    m_quater_tip: {x: 746, y: -0.26999998, z: 2985.8938}
+    m_trailing_rootLocal: {x: -0.00000007224806, y: 3.3136562e-14, z: -0.50002736}
+    m_quater_root: {x: 690.5, y: 7.455, z: 2956.494}
+    m_quater_tip: {x: 690.5, y: 7.73, z: 2956.494}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -30156,7 +30156,7 @@ MonoBehaviour:
     m_liftSlope: 4.1048336
     "m_Mcrit\u1D27": 1
     m_e: 0.5287492
-    m_ARf: 0.057346914
+    m_ARf: 0.057346947
     m_u: 0
     m_v: 0
     m_w: 0
@@ -30188,7 +30188,7 @@ MonoBehaviour:
     "\u0394CDsfr": 0
     "CY\u03B2_CL": 0
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0060184062
+    "Cn\u03B2_CL": 0.0060184025
     CL: 0
     CD: 0
     Cm: 0
@@ -30215,15 +30215,15 @@ MonoBehaviour:
     m_forward: {x: 0, y: 0, z: 1}
     m_right: {x: -0.00000011920929, y: 1.0000001, z: 0}
     m_up: {x: -1.0000001, y: -0.00000011920929, z: 0}
-    m_rootCenter: {x: 746, y: -0.26999998, z: 2985}
-    m_tipCenter: {x: 746, y: 0.005000055, z: 2985}
-    m_quaterCenter: {x: 746, y: -0.13249993, z: 2985.8938}
-    m_leading_tipLocal: {x: 0.66666687, y: -0.00000027796963, z: 0.50002736}
-    m_leading_rootLocal: {x: 0.3333335, y: -0.00000013898482, z: 0.50002736}
-    m_trailing_tipLocal: {x: 0.66666687, y: -0.00000027796963, z: -0.50002736}
-    m_trailing_rootLocal: {x: 0.3333335, y: -0.00000013898482, z: -0.50002736}
-    m_quater_root: {x: 746, y: -0.26999992, z: 2985.8938}
-    m_quater_tip: {x: 746, y: 0.005000055, z: 2985.8938}
+    m_rootCenter: {x: 690.5, y: 7.73, z: 2955.6}
+    m_tipCenter: {x: 690.5, y: 8.005, z: 2955.6}
+    m_quaterCenter: {x: 690.5, y: 7.8675003, z: 2956.494}
+    m_leading_tipLocal: {x: 0.6666669, y: -0.00000027796963, z: 0.50002736}
+    m_leading_rootLocal: {x: 0.33333343, y: -0.00000013898482, z: 0.50002736}
+    m_trailing_tipLocal: {x: 0.6666669, y: -0.00000027796963, z: -0.50002736}
+    m_trailing_rootLocal: {x: 0.33333343, y: -0.00000013898482, z: -0.50002736}
+    m_quater_root: {x: 690.5, y: 7.73, z: 2956.494}
+    m_quater_tip: {x: 690.5, y: 8.005, z: 2956.494}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -30271,7 +30271,7 @@ MonoBehaviour:
     m_liftSlope: 4.1048336
     "m_Mcrit\u1D27": 1
     m_e: 0.5287492
-    m_ARf: 0.057346914
+    m_ARf: 0.057346947
     m_u: 0
     m_v: 0
     m_w: 0
@@ -30303,7 +30303,7 @@ MonoBehaviour:
     "\u0394CDsfr": 0
     "CY\u03B2_CL": 0
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0060184062
+    "Cn\u03B2_CL": 0.0060184025
     CL: 0
     CD: 0
     Cm: 0
@@ -30330,15 +30330,15 @@ MonoBehaviour:
     m_forward: {x: 0, y: 0, z: 1}
     m_right: {x: -0.00000011920929, y: 1.0000001, z: 0}
     m_up: {x: -1.0000001, y: -0.00000011920929, z: 0}
-    m_rootCenter: {x: 746, y: 0.005000055, z: 2985}
-    m_tipCenter: {x: 746, y: 0.2800001, z: 2985}
-    m_quaterCenter: {x: 746, y: 0.14250013, z: 2985.8938}
-    m_leading_tipLocal: {x: 1.0000004, y: -0.00000055593927, z: 0.50002736}
-    m_leading_rootLocal: {x: 0.666667, y: -0.00000027796963, z: 0.50002736}
-    m_trailing_tipLocal: {x: 1.0000004, y: -0.00000055593927, z: -0.50002736}
-    m_trailing_rootLocal: {x: 0.666667, y: -0.00000027796963, z: -0.50002736}
-    m_quater_root: {x: 746, y: 0.005000174, z: 2985.8938}
-    m_quater_tip: {x: 746, y: 0.2800001, z: 2985.8938}
+    m_rootCenter: {x: 690.5, y: 8.005, z: 2955.6}
+    m_tipCenter: {x: 690.5, y: 8.28, z: 2955.6}
+    m_quaterCenter: {x: 690.5, y: 8.1425, z: 2956.494}
+    m_leading_tipLocal: {x: 0.9999999, y: -0.00000055593927, z: 0.50002736}
+    m_leading_rootLocal: {x: 0.6666669, y: -0.00000027796963, z: 0.50002736}
+    m_trailing_tipLocal: {x: 0.9999999, y: -0.00000055593927, z: -0.50002736}
+    m_trailing_rootLocal: {x: 0.6666669, y: -0.00000027796963, z: -0.50002736}
+    m_quater_root: {x: 690.5, y: 8.005, z: 2956.494}
+    m_quater_tip: {x: 690.5, y: 8.28, z: 2956.494}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -30378,15 +30378,15 @@ MonoBehaviour:
     "\u1D27LE": 0
     "\u1D27CT": 0
     "\u1D27QT": 0
-    m_area: 0.98317903
-    m_wettedArea: 2.005075
+    m_area: 0.98317736
+    m_wettedArea: 2.0050714
     m_foilArea: 0
     m_effectiveThickness: 0.11996008
     m_edgeRadius: 0.96808946
     m_liftSlope: 4.1048336
     "m_Mcrit\u1D27": 1
     m_e: 0.5287492
-    m_ARf: 0.057346914
+    m_ARf: 0.057346947
     m_u: 0
     m_v: 0
     m_w: 0
@@ -30418,7 +30418,7 @@ MonoBehaviour:
     "\u0394CDsfr": 0
     "CY\u03B2_CL": 0
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0060184062
+    "Cn\u03B2_CL": 0.0060184025
     CL: 0
     CD: 0
     Cm: 0
@@ -30431,9 +30431,9 @@ MonoBehaviour:
   m_flapActuator: {fileID: 0}
   m_slatActuator: {fileID: 0}
   m_spoilerActuator: {fileID: 0}
-  m_area: 2.9495370984077454
-  m_wettedArea: 6.015224933624268
-  m_aspectRatio: 0.2307565416613646
+  m_area: 2.9495354294776917
+  m_wettedArea: 6.015221357345581
+  m_aspectRatio: 0.23075667222990215
   m_maximumAOA: 0
   m_stallAngle: 14
   k: 0
@@ -30666,7 +30666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7509382747687662
 Transform:
   m_ObjectHideFlags: 0
@@ -30757,6 +30757,13 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 25000
   trainingMode: 1
+  sparseRewardMultiplier: 1
+  denseRewardMultiplier: 0.0005
+  optimalDistanceRewardMultiplier: 6
+  optimalDistancePenaltyMultiplier: 6
+  actionDifferencePenaltyMultiplier: 1
+  forwardVelocityDifferencePenaltyMultiplier: 190
+  optimalVelocityDifferencePenaltyMultiplier: 35
   windDirectionSpeed: 360
   trainingMaxWindSpeed: 15
   maxWindSpeed: 10
@@ -30764,10 +30771,11 @@ MonoBehaviour:
   maxTurbulence: 10
   manoeuvreSpeed: 25
   numOfOptimalDirections: 1
-  gapBetweenOptimalDirections: 40
+  gapBetweenOptimalDirections: 3
+  observationCanvas: {fileID: 0}
+  rewardCanvas: {fileID: 0}
   airportNormalizer: {fileID: 0}
   sensors: {fileID: 7459721040457557504}
-  observationCanvas: {fileID: 0}
   aircraftController: {fileID: 9217060184409094024}
   pitchSlider: {fileID: 0}
   rollSlider: {fileID: 0}
@@ -30785,7 +30793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 45
+    VectorObservationSize: 51
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -31458,8 +31466,11 @@ MonoBehaviour:
     _propPitchInput: 0
     _mixtureInput: 0
     _carbHeatInput: 0
+    _pitchInput: 0
     _pitchTrimInput: 0
+    _rollInput: 0
     _rollTrimInput: 0
+    _yawInput: 0
     _yawTrimInput: 0
     _hatViewInput: {x: 0, y: 0}
   m_originShift:
@@ -39844,7 +39855,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 0
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 746, y: 0.24577239, z: 2982.9397}
+  leadingRoot: {x: 690.5, y: 8.245773, z: 2953.5398}
   m_axisScale: 0.25
   subdivision: 15
   m_section: 1
@@ -39892,15 +39903,15 @@ MonoBehaviour:
     m_forward: {x: 0, y: 0.98150325, z: 0.19144565}
     m_right: {x: -0.000000029802322, y: 0.19144568, z: -0.98150325}
     m_up: {x: -1, y: -0.000000029802322, z: 0}
-    m_rootCenter: {x: 746, y: 0.145, z: 2981.505}
-    m_tipCenter: {x: 746, y: 0.23015258, z: 2981.2244}
-    m_quaterCenter: {x: 746, y: 0.23392688, z: 2982.0244}
-    m_leading_tipLocal: {x: 0.066666946, y: 0, z: 0.3246878}
-    m_leading_rootLocal: {x: 0.000007839967, y: -0.000000066857666, z: 0.49993914}
-    m_trailing_tipLocal: {x: 0.066671684, y: 0.000000099241845, z: -0.51516217}
-    m_trailing_rootLocal: {x: 0.0000026402313, y: 0.000000066857666, z: -0.50002044}
-    m_quater_root: {x: 746, y: 0.1953862, z: 2982.2222}
-    m_quater_tip: {x: 746, y: 0.27246755, z: 2981.827}
+    m_rootCenter: {x: 690.5, y: 8.145, z: 2952.105}
+    m_tipCenter: {x: 690.5, y: 8.230153, z: 2951.8245}
+    m_quaterCenter: {x: 690.5, y: 8.233928, z: 2952.6245}
+    m_leading_tipLocal: {x: 0.06666729, y: 0, z: 0.32468784}
+    m_leading_rootLocal: {x: 0.000008428796, y: -0.000000066857666, z: 0.49993914}
+    m_trailing_tipLocal: {x: 0.066672, y: 0.000000099241845, z: -0.51516217}
+    m_trailing_rootLocal: {x: 0.0000026354828, y: 0.000000066857666, z: -0.50002044}
+    m_quater_root: {x: 690.5, y: 8.195387, z: 2952.8223}
+    m_quater_tip: {x: 690.5, y: 8.272469, z: 2952.427}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -39940,15 +39951,15 @@ MonoBehaviour:
     "\u1D27LE": 78.279045
     "\u1D27CT": 69.095985
     "\u1D27QT": 74.945496
-    m_area: 0.56362665
-    m_wettedArea: 1.1327579
+    m_area: 0.56362754
+    m_wettedArea: 1.1327597
     m_foilArea: 0.28113762
     m_effectiveThickness: 0.06301237
     m_edgeRadius: 0.28097567
     m_liftSlope: 5.929869
     "m_Mcrit\u1D27": 4.922581
-    m_e: 0.39869308
-    m_ARf: 0.20269512
+    m_e: 0.39869353
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -39978,9 +39989,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0018410757
+    "CY\u03B2_CL": 0.001841082
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0017887887
+    "Cn\u03B2_CL": 0.001788795
     CL: 0
     CD: 0
     Cm: 0
@@ -40007,15 +40018,15 @@ MonoBehaviour:
     m_forward: {x: 0, y: 0.9816835, z: 0.19051957}
     m_right: {x: -0.000000059604645, y: 0.19051963, z: -0.9816835}
     m_up: {x: -1, y: -0.000000059604645, z: 0}
-    m_rootCenter: {x: 746, y: 0.23015258, z: 2981.2244}
-    m_tipCenter: {x: 746, y: 0.31520423, z: 2980.9424}
-    m_quaterCenter: {x: 746, y: 0.31095922, z: 2981.6284}
-    m_leading_tipLocal: {x: 0.13333091, y: 0, z: 0.14892626}
-    m_leading_rootLocal: {x: 0.066666946, y: 0, z: 0.3246878}
-    m_trailing_tipLocal: {x: 0.13333839, y: 0.00000013371533, z: -0.5308144}
-    m_trailing_rootLocal: {x: 0.0666717, y: 0.000000099241845, z: -0.51516217}
-    m_quater_root: {x: 746, y: 0.27246755, z: 2981.827}
-    m_quater_tip: {x: 746, y: 0.34945086, z: 2981.4302}
+    m_rootCenter: {x: 690.5, y: 8.230153, z: 2951.8245}
+    m_tipCenter: {x: 690.5, y: 8.315206, z: 2951.5425}
+    m_quaterCenter: {x: 690.5, y: 8.310961, z: 2952.2285}
+    m_leading_tipLocal: {x: 0.13333154, y: 0, z: 0.14892627}
+    m_leading_rootLocal: {x: 0.06666729, y: 0, z: 0.32468784}
+    m_trailing_tipLocal: {x: 0.13333946, y: 0.00000013371533, z: -0.5308144}
+    m_trailing_rootLocal: {x: 0.066672, y: 0.000000099241845, z: -0.51516217}
+    m_quater_root: {x: 690.5, y: 8.272469, z: 2952.427}
+    m_quater_tip: {x: 690.5, y: 8.349452, z: 2952.0303}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40053,17 +40064,17 @@ MonoBehaviour:
     "\u03B8": -4.017334
     "m_K\u03B8": 0.25882655
     "\u1D27LE": 78.312126
-    "\u1D27CT": 69.1979
+    "\u1D27CT": 69.19789
     "\u1D27QT": 74.99956
-    m_area: 0.46809933
-    m_wettedArea: 0.9412732
+    m_area: 0.46810165
+    m_wettedArea: 0.94127786
     m_foilArea: 0
     m_effectiveThickness: 0.06507835
     m_edgeRadius: 0.30377945
     m_liftSlope: 5.9102826
     "m_Mcrit\u1D27": 4.936321
-    m_e: 0.39789706
-    m_ARf: 0.20269512
+    m_e: 0.3978975
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40093,9 +40104,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0013870897
+    "CY\u03B2_CL": 0.0013870944
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0017834313
+    "Cn\u03B2_CL": 0.0017834374
     CL: 0
     CD: 0
     Cm: 0
@@ -40122,15 +40133,15 @@ MonoBehaviour:
     m_forward: {x: 0, y: 0.9791274, z: 0.2032479}
     m_right: {x: -0.00000011920929, y: 0.20324802, z: -0.9791274}
     m_up: {x: -1.0000001, y: -0.00000011920929, z: 0}
-    m_rootCenter: {x: 746, y: 0.31520423, z: 2980.9424}
-    m_tipCenter: {x: 746, y: 0.401318, z: 2980.6755}
-    m_quaterCenter: {x: 746, y: 0.3886251, z: 2981.2415}
-    m_leading_tipLocal: {x: 0.19999808, y: 0, z: -0.018583015}
-    m_leading_rootLocal: {x: 0.13333091, y: 0, z: 0.14892626}
-    m_trailing_tipLocal: {x: 0.20000067, y: 0.00000013371533, z: -0.5441699}
-    m_trailing_rootLocal: {x: 0.1333384, y: 0.00000013371533, z: -0.5308144}
-    m_quater_root: {x: 746, y: 0.34945086, z: 2981.4302}
-    m_quater_tip: {x: 746, y: 0.42779934, z: 2981.0527}
+    m_rootCenter: {x: 690.5, y: 8.315206, z: 2951.5425}
+    m_tipCenter: {x: 690.5, y: 8.4013195, z: 2951.2756}
+    m_quaterCenter: {x: 690.5, y: 8.388626, z: 2951.8416}
+    m_leading_tipLocal: {x: 0.19999884, y: 0, z: -0.018582985}
+    m_leading_rootLocal: {x: 0.13333154, y: 0, z: 0.14892627}
+    m_trailing_tipLocal: {x: 0.20000182, y: 0.00000013371533, z: -0.54416984}
+    m_trailing_rootLocal: {x: 0.13333946, y: 0.00000013371533, z: -0.5308144}
+    m_quater_root: {x: 690.5, y: 8.349452, z: 2952.0303}
+    m_quater_tip: {x: 690.5, y: 8.427801, z: 2951.6528}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40167,7 +40178,7 @@ MonoBehaviour:
     "\u0413": 90
     "\u03B8": -4.017334
     "m_K\u03B8": 0.2713446
-    "\u1D27LE": 77.75333
+    "\u1D27LE": 77.75332
     "\u1D27CT": 68.09668
     "\u1D27QT": 74.25571
     m_area: 0.35399735
@@ -40176,9 +40187,9 @@ MonoBehaviour:
     m_effectiveThickness: 0.06714433
     m_edgeRadius: 0.32658324
     m_liftSlope: 5.8906956
-    "m_Mcrit\u1D27": 4.7142906
-    m_e: 0.4085603
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 4.7142878
+    m_e: 0.40856072
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40208,9 +40219,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.030460367
+    "CY\u03B2_CL": 0.030460482
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.00097095274
+    "Cn\u03B2_CL": -0.0009709475
     CL: 0
     CD: 0
     Cm: 0
@@ -40237,15 +40248,15 @@ MonoBehaviour:
     m_forward: {x: 0.000000029802322, y: 0.9717641, z: 0.23595476}
     m_right: {x: 0.000000059604645, y: 0.23595476, z: -0.9717641}
     m_up: {x: -1, y: 0.000000059604645, z: -0.000000029802322}
-    m_rootCenter: {x: 746, y: 0.401318, z: 2980.6755}
-    m_tipCenter: {x: 746, y: 0.45277244, z: 2980.5332}
-    m_quaterCenter: {x: 746, y: 0.4516316, z: 2980.9546}
-    m_leading_tipLocal: {x: 0.23906668, y: 0, z: -0.10428736}
-    m_leading_rootLocal: {x: 0.19999811, y: 0, z: -0.018583013}
-    m_trailing_tipLocal: {x: 0.23907062, y: 0, z: -0.5546688}
-    m_trailing_rootLocal: {x: 0.20000067, y: 0.00000013371533, z: -0.5441699}
-    m_quater_root: {x: 746, y: 0.42779934, z: 2981.0527}
-    m_quater_tip: {x: 746, y: 0.4754639, z: 2980.8564}
+    m_rootCenter: {x: 690.5, y: 8.4013195, z: 2951.2756}
+    m_tipCenter: {x: 690.5, y: 8.452774, z: 2951.1333}
+    m_quaterCenter: {x: 690.5, y: 8.451633, z: 2951.5547}
+    m_leading_tipLocal: {x: 0.23906744, y: 0, z: -0.104287334}
+    m_leading_rootLocal: {x: 0.19999884, y: 0, z: -0.018582985}
+    m_trailing_tipLocal: {x: 0.23907192, y: 0, z: -0.5546687}
+    m_trailing_rootLocal: {x: 0.20000182, y: 0.00000013371533, z: -0.54416984}
+    m_quater_root: {x: 690.5, y: 8.427801, z: 2951.6528}
+    m_quater_tip: {x: 690.5, y: 8.475466, z: 2951.4565}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40285,15 +40296,15 @@ MonoBehaviour:
     "\u1D27LE": 76.03886
     "\u1D27CT": 66.1089
     "\u1D27QT": 72.33475
-    m_area: 0.16740862
-    m_wettedArea: 0.33699176
+    m_area: 0.16740903
+    m_wettedArea: 0.3369926
     m_foilArea: 0
     m_effectiveThickness: 0.069210306
     m_edgeRadius: 0.349387
     m_liftSlope: 5.871109
     "m_Mcrit\u1D27": 4.1448407
-    m_e: 0.4333958
-    m_ARf: 0.20269512
+    m_e: 0.4333962
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40323,9 +40334,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.000075462776
+    "CY\u03B2_CL": 0.00007546293
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0013899403
+    "Cn\u03B2_CL": 0.0013899445
     CL: 0
     CD: 0
     Cm: 0
@@ -40335,7 +40346,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.35146037, y: 0.35146037, z: 0.6135761, w: 0.6135761}
+    n_rotation: {x: -0.35146034, y: 0.35146034, z: 0.6135761, w: 0.6135761}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40349,18 +40360,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 1.295575
     m_tipChord: 1.1477097
-    m_forward: {x: 0, y: 0.86259073, z: 0.5059024}
-    m_right: {x: -0.00000010430813, y: 0.5059025, z: -0.86259073}
-    m_up: {x: -1.0000001, y: -0.00000010430813, z: 0}
-    m_rootCenter: {x: 746, y: 0.45277244, z: 2980.5332}
-    m_tipCenter: {x: 746, y: 0.54900527, z: 2980.4104}
-    m_quaterCenter: {x: 746, y: 0.52228546, z: 2980.7766}
-    m_leading_tipLocal: {x: 0.30573228, y: 0, z: -0.17021836}
-    m_leading_rootLocal: {x: 0.23906672, y: 0, z: -0.10428736}
-    m_trailing_tipLocal: {x: 0.30573806, y: 0, z: -0.56921506}
-    m_trailing_rootLocal: {x: 0.23907062, y: 0, z: -0.5546688}
-    m_quater_root: {x: 746, y: 0.47546393, z: 2980.8564}
-    m_quater_tip: {x: 746, y: 0.56910694, z: 2980.6968}
+    m_forward: {x: 0, y: 0.8625907, z: 0.5059025}
+    m_right: {x: -0.000000059604645, y: 0.5059026, z: -0.8625907}
+    m_up: {x: -1, y: -0.000000059604645, z: 0}
+    m_rootCenter: {x: 690.5, y: 8.452774, z: 2951.1333}
+    m_tipCenter: {x: 690.5, y: 8.549007, z: 2951.0105}
+    m_quaterCenter: {x: 690.5, y: 8.522287, z: 2951.3767}
+    m_leading_tipLocal: {x: 0.3057335, y: 0, z: -0.17021833}
+    m_leading_rootLocal: {x: 0.23906744, y: 0, z: -0.104287334}
+    m_trailing_tipLocal: {x: 0.30573958, y: 0, z: -0.569215}
+    m_trailing_rootLocal: {x: 0.23907192, y: 0, z: -0.5546687}
+    m_quater_root: {x: 690.5, y: 8.475466, z: 2951.4565}
+    m_quater_tip: {x: 690.5, y: 8.569109, z: 2951.2969}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40368,13 +40379,13 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     _controlRootChord: 35.55212
-    _controlTipChord: 38.34124
+    _controlTipChord: 38.341244
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.26666668
     _ftc: 0.33333334
     _mfx: 0.3
-    m_controlChord: 0.36964408
+    m_controlChord: 0.3696441
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -40396,19 +40407,19 @@ MonoBehaviour:
     "\u03BB": 0.39895168
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.5650911
-    "\u1D27LE": 61.124123
-    "\u1D27CT": 47.89901
-    "\u1D27QT": 55.591385
-    m_area: 0.17956524
-    m_wettedArea: 0.36165583
+    "m_K\u03B8": 0.56509113
+    "\u1D27LE": 61.124115
+    "\u1D27CT": 47.899002
+    "\u1D27QT": 55.59138
+    m_area: 0.1795656
+    m_wettedArea: 0.36165655
     m_foilArea: 0
     m_effectiveThickness: 0.071276285
     m_edgeRadius: 0.37219077
     m_liftSlope: 5.8515224
-    "m_Mcrit\u1D27": 2.0707629
-    m_e: 0.54742795
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 2.0707626
+    m_e: 0.547428
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40438,9 +40449,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.01415304
+    "CY\u03B2_CL": 0.0141533
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.000982795
+    "Cn\u03B2_CL": 0.0009827812
     CL: 0
     CD: 0
     Cm: 0
@@ -40450,7 +40461,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.28060362, y: 0.28060362, z: 0.6490467, w: 0.6490467}
+    n_rotation: {x: -0.28060344, y: 0.2806034, z: 0.6490468, w: 0.6490468}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40464,32 +40475,32 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 1.1477097
     m_tipChord: 1.0777005
-    m_forward: {x: 0, y: 0.7284994, z: 0.68504643}
-    m_right: {x: -0.000000059604645, y: 0.6850465, z: -0.7284994}
-    m_up: {x: -1, y: -0.000000059604645, z: 0}
-    m_rootCenter: {x: 746, y: 0.54900527, z: 2980.4104}
-    m_tipCenter: {x: 746, y: 0.64780605, z: 2980.3242}
-    m_quaterCenter: {x: 746, y: 0.6178943, z: 2980.645}
-    m_leading_tipLocal: {x: 0.37239596, y: 0, z: -0.2098616}
-    m_leading_rootLocal: {x: 0.3057323, y: 0, z: -0.17021836}
-    m_trailing_tipLocal: {x: 0.3724023, y: 0, z: -0.5845271}
-    m_trailing_rootLocal: {x: 0.3057381, y: 0, z: -0.56921506}
-    m_quater_root: {x: 746, y: 0.569107, z: 2980.6968}
-    m_quater_tip: {x: 746, y: 0.6666815, z: 2980.593}
+    m_forward: {x: -0.000000059604645, y: 0.728499, z: 0.6850469}
+    m_right: {x: 0, y: 0.6850469, z: -0.728499}
+    m_up: {x: -1, y: -0.000000029802322, z: -0.000000059604645}
+    m_rootCenter: {x: 690.5, y: 8.549007, z: 2951.0105}
+    m_tipCenter: {x: 690.5, y: 8.647809, z: 2950.9243}
+    m_quaterCenter: {x: 690.5, y: 8.617897, z: 2951.245}
+    m_leading_tipLocal: {x: 0.372398, y: 0, z: -0.20986152}
+    m_leading_rootLocal: {x: 0.3057335, y: 0, z: -0.17021833}
+    m_trailing_tipLocal: {x: 0.37240407, y: 0, z: -0.5845271}
+    m_trailing_rootLocal: {x: 0.30573958, y: 0, z: -0.569215}
+    m_quater_root: {x: 690.5, y: 8.569109, z: 2951.2969}
+    m_quater_tip: {x: 690.5, y: 8.666685, z: 2951.193}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 38.34124
-    _controlTipChord: 39.469383
+    _controlRootChord: 38.341244
+    _controlTipChord: 39.469387
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.33333334
     _ftc: 0.4
     _mfx: 0.36666667
-    m_controlChord: 0.38908234
+    m_controlChord: 0.38908237
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -40511,19 +40522,19 @@ MonoBehaviour:
     "\u03BB": 0.374616
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.7344007
-    "\u1D27LE": 47.47382
-    "\u1D27CT": 37.078987
-    "\u1D27QT": 42.743404
-    m_area: 0.14405857
-    m_wettedArea: 0.2902979
+    "m_K\u03B8": 0.73440105
+    "\u1D27LE": 47.473797
+    "\u1D27CT": 37.078968
+    "\u1D27QT": 42.74337
+    m_area: 0.14405945
+    m_wettedArea: 0.29029965
     m_foilArea: 0
     m_effectiveThickness: 0.073342256
     m_edgeRadius: 0.39499456
     m_liftSlope: 5.831936
-    "m_Mcrit\u1D27": 1.4794497
-    m_e: 0.5786207
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.4794489
+    m_e: 0.57862055
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40553,9 +40564,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.04885934
+    "CY\u03B2_CL": 0.04886849
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.0037486788
+    "Cn\u03B2_CL": -0.0037501438
     CL: 0
     CD: 0
     Cm: 0
@@ -40582,15 +40593,15 @@ MonoBehaviour:
     m_forward: {x: 0, y: 0.6617872, z: 0.7496917}
     m_right: {x: 0.000000014901161, y: 0.7496917, z: -0.6617872}
     m_up: {x: -1, y: 0.000000014901161, z: 0}
-    m_rootCenter: {x: 746, y: 0.64780605, z: 2980.3242}
-    m_tipCenter: {x: 746, y: 0.7474083, z: 2980.2495}
-    m_quaterCenter: {x: 746, y: 0.71604323, z: 2980.5493}
-    m_leading_tipLocal: {x: 0.4390625, y: 0, z: -0.24210328}
-    m_leading_rootLocal: {x: 0.372396, y: 0, z: -0.2098616}
-    m_trailing_tipLocal: {x: 0.4390581, y: 0, z: -0.59924394}
-    m_trailing_rootLocal: {x: 0.3724023, y: 0, z: -0.5845271}
-    m_quater_root: {x: 746, y: 0.6666816, z: 2980.593}
-    m_quater_tip: {x: 746, y: 0.76540494, z: 2980.5059}
+    m_rootCenter: {x: 690.5, y: 8.647809, z: 2950.9243}
+    m_tipCenter: {x: 690.5, y: 8.747412, z: 2950.8496}
+    m_quaterCenter: {x: 690.5, y: 8.716047, z: 2951.1494}
+    m_leading_tipLocal: {x: 0.4390648, y: 0, z: -0.24210319}
+    m_leading_rootLocal: {x: 0.372398, y: 0, z: -0.20986152}
+    m_trailing_tipLocal: {x: 0.43906015, y: 0, z: -0.5992439}
+    m_trailing_rootLocal: {x: 0.37240407, y: 0, z: -0.5845271}
+    m_quater_root: {x: 690.5, y: 8.666685, z: 2951.193}
+    m_quater_tip: {x: 690.5, y: 8.7654085, z: 2951.106}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -40598,13 +40609,13 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     _controlRootChord: 39.469387
-    _controlTipChord: 39.300602
+    _controlTipChord: 39.30061
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.4
     _ftc: 0.46666667
     _mfx: 0.43333334
-    m_controlChord: 0.39385253
+    m_controlChord: 0.39385256
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -40626,19 +40637,19 @@ MonoBehaviour:
     "\u03BB": 0.357175
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.79421335
-    "\u1D27LE": 41.56479
-    "\u1D27CT": 32.852375
-    "\u1D27QT": 37.41898
-    m_area: 0.13027765
-    m_wettedArea: 0.2626674
+    "m_K\u03B8": 0.7942134
+    "\u1D27LE": 41.56478
+    "\u1D27CT": 32.852364
+    "\u1D27QT": 37.418976
+    m_area: 0.13027796
+    m_wettedArea: 0.262668
     m_foilArea: 0
     m_effectiveThickness: 0.075408235
     m_edgeRadius: 0.41779834
     m_liftSlope: 5.8123493
-    "m_Mcrit\u1D27": 1.3365303
-    m_e: 0.586013
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.3365302
+    m_e: 0.5860129
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40668,9 +40679,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00065215497
+    "CY\u03B2_CL": 0.0006521758
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.001751688
+    "Cn\u03B2_CL": 0.0017516951
     CL: 0
     CD: 0
     Cm: 0
@@ -40680,7 +40691,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.24268985, y: 0.24268985, z: 0.6641549, w: 0.6641549}
+    n_rotation: {x: -0.24268983, y: 0.24268983, z: 0.6641549, w: 0.6641549}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40694,32 +40705,32 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 1.027526
     m_tipChord: 0.98594165
-    m_forward: {x: 0, y: 0.6447346, z: 0.76440656}
-    m_right: {x: -0.00000012665987, y: 0.7644067, z: -0.6447346}
-    m_up: {x: -1.0000001, y: -0.00000012665987, z: 0}
-    m_rootCenter: {x: 746, y: 0.7474083, z: 2980.2495}
-    m_tipCenter: {x: 746, y: 0.8471365, z: 2980.1765}
-    m_quaterCenter: {x: 746, y: 0.8149049, z: 2980.464}
-    m_leading_tipLocal: {x: 0.5057279, y: 0, z: -0.27221817}
-    m_leading_rootLocal: {x: 0.43906257, y: 0, z: -0.24210328}
-    m_trailing_tipLocal: {x: 0.5057226, y: 0, z: -0.6148963}
-    m_trailing_rootLocal: {x: 0.43905815, y: 0, z: -0.59924394}
-    m_quater_root: {x: 746, y: 0.76540506, z: 2980.5059}
-    m_quater_tip: {x: 746, y: 0.86440486, z: 2980.4224}
+    m_forward: {x: 0, y: 0.64473456, z: 0.76440656}
+    m_right: {x: -0.00000011175871, y: 0.7644067, z: -0.64473456}
+    m_up: {x: -1.0000001, y: -0.00000011175871, z: 0}
+    m_rootCenter: {x: 690.5, y: 8.747412, z: 2950.8496}
+    m_tipCenter: {x: 690.5, y: 8.84714, z: 2950.7766}
+    m_quaterCenter: {x: 690.5, y: 8.814909, z: 2951.0642}
+    m_leading_tipLocal: {x: 0.5057301, y: 0, z: -0.27221808}
+    m_leading_rootLocal: {x: 0.4390648, y: 0, z: -0.24210319}
+    m_trailing_tipLocal: {x: 0.5057252, y: 0, z: -0.6148962}
+    m_trailing_rootLocal: {x: 0.43906015, y: 0, z: -0.5992439}
+    m_quater_root: {x: 690.5, y: 8.7654085, z: 2951.106}
+    m_quater_tip: {x: 690.5, y: 8.8644085, z: 2951.0225}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 39.300602
-    _controlTipChord: 39.717113
+    _controlRootChord: 39.30061
+    _controlTipChord: 39.71711
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.46666667
     _ftc: 0.53333336
     _mfx: 0.5
-    m_controlChord: 0.39509422
+    m_controlChord: 0.39509425
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -40741,19 +40752,19 @@ MonoBehaviour:
     "\u03BB": 0.34272
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.80769736
+    "m_K\u03B8": 0.8076974
     "\u1D27LE": 39.633244
-    "\u1D27CT": 32.184998
-    "\u1D27QT": 36.128437
-    m_area: 0.12390993
-    m_wettedArea: 0.24996184
+    "\u1D27CT": 32.18499
+    "\u1D27QT": 36.128433
+    m_area: 0.12391044
+    m_wettedArea: 0.24996287
     m_foilArea: 0
     m_effectiveThickness: 0.077474214
     m_edgeRadius: 0.44060212
     m_liftSlope: 5.7927628
     "m_Mcrit\u1D27": 1.2984596
-    m_e: 0.58749586
-    m_ARf: 0.20269512
+    m_e: 0.5874957
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40783,9 +40794,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 367.57047
+    "CY\u03B2_CL": 379.49127
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -47033.246
+    "Cn\u03B2_CL": -50130.58
     CL: 0
     CD: 0
     Cm: 0
@@ -40795,7 +40806,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.24370094, y: 0.24370094, z: 0.6637845, w: 0.6637845}
+    n_rotation: {x: -0.24370092, y: 0.24370092, z: 0.6637845, w: 0.6637845}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40809,32 +40820,32 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.98594165
     m_tipChord: 0.9404161
-    m_forward: {x: 0, y: 0.6470596, z: 0.7624394}
-    m_right: {x: -0.000000037252903, y: 0.7624394, z: -0.6470596}
-    m_up: {x: -1, y: -0.000000037252903, z: 0}
-    m_rootCenter: {x: 746, y: 0.8471365, z: 2980.1765}
-    m_tipCenter: {x: 746, y: 0.94690037, z: 2980.104}
-    m_quaterCenter: {x: 746, y: 0.91388816, z: 2980.3804}
-    m_leading_tipLocal: {x: 0.57239366, y: 0, z: -0.30284348}
-    m_leading_rootLocal: {x: 0.5057279, y: 0, z: -0.27221817}
-    m_trailing_tipLocal: {x: 0.5723884, y: 0, z: -0.62969786}
-    m_trailing_rootLocal: {x: 0.50572264, y: 0, z: -0.6148963}
-    m_quater_root: {x: 746, y: 0.8644049, z: 2980.4224}
-    m_quater_tip: {x: 746, y: 0.9633714, z: 2980.3384}
+    m_forward: {x: 0, y: 0.64705956, z: 0.7624394}
+    m_right: {x: -0.000000022351742, y: 0.7624395, z: -0.64705956}
+    m_up: {x: -1, y: -0.000000022351742, z: 0}
+    m_rootCenter: {x: 690.5, y: 8.84714, z: 2950.7766}
+    m_tipCenter: {x: 690.5, y: 8.946904, z: 2950.704}
+    m_quaterCenter: {x: 690.5, y: 8.913892, z: 2950.9805}
+    m_leading_tipLocal: {x: 0.572396, y: 0, z: -0.3028434}
+    m_leading_rootLocal: {x: 0.5057301, y: 0, z: -0.27221808}
+    m_trailing_tipLocal: {x: 0.572391, y: 0, z: -0.62969774}
+    m_trailing_rootLocal: {x: 0.5057252, y: 0, z: -0.6148962}
+    m_quater_root: {x: 690.5, y: 8.8644085, z: 2951.0225}
+    m_quater_tip: {x: 690.5, y: 8.963375, z: 2950.9385}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 39.717113
+    _controlRootChord: 39.71711
     _controlTipChord: 39.765987
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.53333336
     _ftc: 0.6
     _mfx: 0.5666667
-    m_controlChord: 0.39741755
+    m_controlChord: 0.39741752
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -40857,18 +40868,18 @@ MonoBehaviour:
     "\u0413": 90
     "\u03B8": -4.017334
     "m_K\u03B8": 0.80589795
-    "\u1D27LE": 40.107037
+    "\u1D27LE": 40.107033
     "\u1D27CT": 31.992508
-    "\u1D27QT": 36.302937
-    m_area: 0.11821054
-    m_wettedArea: 0.23859154
+    "\u1D27QT": 36.302933
+    m_area: 0.11821057
+    m_wettedArea: 0.2385916
     m_foilArea: 0
     m_effectiveThickness: 0.07954019
     m_edgeRadius: 0.4634059
     m_liftSlope: 5.7731757
     "m_Mcrit\u1D27": 1.307459
-    m_e: 0.58730155
-    m_ARf: 0.20269512
+    m_e: 0.5873014
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -40898,9 +40909,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.13824318
+    "CY\u03B2_CL": 0.1382483
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.02258559
+    "Cn\u03B2_CL": -0.022586744
     CL: 0
     CD: 0
     Cm: 0
@@ -40910,7 +40921,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.23962864, y: 0.23962864, z: 0.6652655, w: 0.6652655}
+    n_rotation: {x: -0.23962848, y: 0.23962846, z: 0.6652655, w: 0.6652655}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -40924,26 +40935,26 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.9404161
     m_tipChord: 0.90658
-    m_forward: {x: 0, y: 0.6376667, z: 0.7703124}
-    m_right: {x: -0.00000016391277, y: 0.7703126, z: -0.6376667}
-    m_up: {x: -1.0000001, y: -0.00000016391277, z: 0}
-    m_rootCenter: {x: 746, y: 0.94690037, z: 2980.104}
-    m_tipCenter: {x: 746, y: 1.0465748, z: 2980.0303}
-    m_quaterCenter: {x: 746, y: 1.0129124, z: 2980.2974}
-    m_leading_tipLocal: {x: 0.6390557, y: 0, z: -0.33185253}
-    m_leading_rootLocal: {x: 0.57239366, y: 0, z: -0.30284348}
-    m_trailing_tipLocal: {x: 0.6390532, y: 0, z: -0.6469666}
-    m_trailing_rootLocal: {x: 0.57238847, y: 0, z: -0.62969786}
-    m_quater_root: {x: 746, y: 0.96337146, z: 2980.3384}
-    m_quater_tip: {x: 746, y: 1.0624533, z: 2980.2563}
+    m_forward: {x: 0, y: 0.6376662, z: 0.7703128}
+    m_right: {x: 0.000000007450581, y: 0.7703128, z: -0.6376662}
+    m_up: {x: -1, y: -0.000000007450581, z: 0}
+    m_rootCenter: {x: 690.5, y: 8.946904, z: 2950.704}
+    m_tipCenter: {x: 690.5, y: 9.046579, z: 2950.6304}
+    m_quaterCenter: {x: 690.5, y: 9.012917, z: 2950.8975}
+    m_leading_tipLocal: {x: 0.6390584, y: 0, z: -0.3318524}
+    m_leading_rootLocal: {x: 0.572396, y: 0, z: -0.3028434}
+    m_trailing_tipLocal: {x: 0.6390563, y: 0, z: -0.64696646}
+    m_trailing_rootLocal: {x: 0.572391, y: 0, z: -0.62969774}
+    m_quater_root: {x: 690.5, y: 8.963375, z: 2950.9385}
+    m_quater_tip: {x: 690.5, y: 9.062458, z: 2950.8564}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 39.765984
-    _controlTipChord: 40.089283
+    _controlRootChord: 39.765987
+    _controlTipChord: 40.08928
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.6
@@ -40971,19 +40982,19 @@ MonoBehaviour:
     "\u03BB": 0.31513333
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.8130936
-    "\u1D27LE": 38.58412
-    "\u1D27CT": 32.472225
-    "\u1D27QT": 35.600704
-    m_area: 0.114177234
-    m_wettedArea: 0.23057352
+    "m_K\u03B8": 0.8130939
+    "\u1D27LE": 38.584106
+    "\u1D27CT": 32.472206
+    "\u1D27QT": 35.600677
+    m_area: 0.1141778
+    m_wettedArea: 0.23057467
     m_foilArea: 0
     m_effectiveThickness: 0.08160617
     m_edgeRadius: 0.48620966
     m_liftSlope: 5.753589
-    "m_Mcrit\u1D27": 1.279274
-    m_e: 0.58807224
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.2792737
+    m_e: 0.5880721
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -41013,9 +41024,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.049750615
+    "CY\u03B2_CL": 0.049742833
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.007606775
+    "Cn\u03B2_CL": -0.0076057473
     CL: 0
     CD: 0
     Cm: 0
@@ -41025,7 +41036,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.2391112, y: 0.23911119, z: 0.66545165, w: 0.66545165}
+    n_rotation: {x: -0.239111, y: 0.239111, z: 0.6654517, w: 0.6654517}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -41039,26 +41050,26 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.90658
     m_tipChord: 0.8604483
-    m_forward: {x: 0, y: 0.63646775, z: 0.77130336}
-    m_right: {x: -0.00000008195639, y: 0.7713034, z: -0.63646775}
-    m_up: {x: -1.0000001, y: -0.00000009685755, z: 0}
-    m_rootCenter: {x: 746, y: 1.0465748, z: 2980.0303}
-    m_tipCenter: {x: 746, y: 1.1464971, z: 2979.96}
-    m_quaterCenter: {x: 746, y: 1.1120104, z: 2980.2153}
-    m_leading_tipLocal: {x: 0.70572144, y: 0, z: -0.36179727}
-    m_leading_rootLocal: {x: 0.6390557, y: 0, z: -0.33185253}
-    m_trailing_tipLocal: {x: 0.7057244, y: 0, z: -0.66091716}
-    m_trailing_rootLocal: {x: 0.6390532, y: 0, z: -0.6469666}
-    m_quater_root: {x: 746, y: 1.0624533, z: 2980.2563}
-    m_quater_tip: {x: 746, y: 1.1615674, z: 2980.1746}
+    m_forward: {x: 0, y: 0.6364673, z: 0.7713037}
+    m_right: {x: -0.00000008940697, y: 0.7713038, z: -0.6364673}
+    m_up: {x: -1.0000001, y: -0.00000008940697, z: 0}
+    m_rootCenter: {x: 690.5, y: 9.046579, z: 2950.6304}
+    m_tipCenter: {x: 690.5, y: 9.1465025, z: 2950.56}
+    m_quaterCenter: {x: 690.5, y: 9.112016, z: 2950.8154}
+    m_leading_tipLocal: {x: 0.70572495, y: 0, z: -0.3617971}
+    m_leading_rootLocal: {x: 0.6390584, y: 0, z: -0.3318524}
+    m_trailing_tipLocal: {x: 0.70572776, y: 0, z: -0.66091704}
+    m_trailing_rootLocal: {x: 0.6390563, y: 0, z: -0.64696646}
+    m_quater_root: {x: 690.5, y: 9.062458, z: 2950.8564}
+    m_quater_tip: {x: 690.5, y: 9.161573, z: 2950.7747}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 40.089283
-    _controlTipChord: 40.219162
+    _controlRootChord: 40.08928
+    _controlTipChord: 40.219166
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.6666667
@@ -41086,19 +41097,19 @@ MonoBehaviour:
     "\u03BB": 0.29909766
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.81399804
-    "\u1D27LE": 39.47384
-    "\u1D27CT": 31.116302
-    "\u1D27QT": 35.51159
-    m_area: 0.10744137
-    m_wettedArea: 0.21708632
+    "m_K\u03B8": 0.81399834
+    "\u1D27LE": 39.473804
+    "\u1D27CT": 31.11628
+    "\u1D27QT": 35.51156
+    m_area: 0.10744194
+    m_wettedArea: 0.21708746
     m_foilArea: 0
     m_effectiveThickness: 0.08367215
     m_edgeRadius: 0.5090135
     m_liftSlope: 5.7340026
-    "m_Mcrit\u1D27": 1.2954795
-    m_e: 0.58816797
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.2954789
+    m_e: 0.5881678
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -41128,9 +41139,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.030630155
+    "CY\u03B2_CL": 0.03062544
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.0049460176
+    "Cn\u03B2_CL": -0.0049453196
     CL: 0
     CD: 0
     Cm: 0
@@ -41157,29 +41168,29 @@ MonoBehaviour:
     m_forward: {x: -0.000000029802322, y: 0.6435679, z: 0.7653891}
     m_right: {x: -0.00000011920929, y: 0.7653892, z: -0.6435679}
     m_up: {x: -1.0000001, y: -0.00000013411045, z: -0.000000029802322}
-    m_rootCenter: {x: 746, y: 1.1464971, z: 2979.96}
-    m_tipCenter: {x: 746, y: 1.2462075, z: 2979.8867}
-    m_quaterCenter: {x: 746, y: 1.2110729, z: 2980.1328}
-    m_leading_tipLocal: {x: 0.7723902, y: 0, z: -0.39174184}
-    m_leading_rootLocal: {x: 0.70572144, y: 0, z: -0.36179727}
-    m_trailing_tipLocal: {x: 0.7723846, y: 0, z: -0.67691}
-    m_trailing_rootLocal: {x: 0.7057245, y: 0, z: -0.66091716}
-    m_quater_root: {x: 746, y: 1.1615676, z: 2980.1746}
-    m_quater_tip: {x: 746, y: 1.2605782, z: 2980.0913}
+    m_rootCenter: {x: 690.5, y: 9.1465025, z: 2950.56}
+    m_tipCenter: {x: 690.5, y: 9.246213, z: 2950.4868}
+    m_quaterCenter: {x: 690.5, y: 9.211079, z: 2950.733}
+    m_leading_tipLocal: {x: 0.77239394, y: 0, z: -0.3917417}
+    m_leading_rootLocal: {x: 0.70572495, y: 0, z: -0.3617971}
+    m_trailing_tipLocal: {x: 0.77238786, y: 0, z: -0.67690986}
+    m_trailing_rootLocal: {x: 0.70572776, y: 0, z: -0.66091704}
+    m_quater_root: {x: 690.5, y: 9.161573, z: 2950.7747}
+    m_quater_tip: {x: 690.5, y: 9.260584, z: 2950.6914}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 40.219162
-    _controlTipChord: 40.268337
+    _controlRootChord: 40.219166
+    _controlTipChord: 40.268345
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.73333335
     _ftc: 0.8
     _mfx: 0.76666665
-    m_controlChord: 0.40243956
+    m_controlChord: 0.4024396
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -41202,18 +41213,18 @@ MonoBehaviour:
     "\u0413": 90
     "\u03B8": -4.017334
     "m_K\u03B8": 0.8085957
-    "\u1D27LE": 39.47373
-    "\u1D27CT": 32.28094
+    "\u1D27LE": 39.47372
+    "\u1D27CT": 32.280937
     "\u1D27QT": 36.041042
-    m_area: 0.103587165
-    m_wettedArea: 0.20941013
+    m_area: 0.10358724
+    m_wettedArea: 0.2094103
     m_foilArea: 0
     m_effectiveThickness: 0.08573813
     m_edgeRadius: 0.5318172
     m_liftSlope: 5.714416
-    "m_Mcrit\u1D27": 1.2954774
-    m_e: 0.5875925
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.2954773
+    m_e: 0.5875923
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -41243,9 +41254,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": -0.853436
+    "CY\u03B2_CL": -0.85344243
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.042409394
+    "Cn\u03B2_CL": -0.042408932
     CL: 0
     CD: 0
     Cm: 0
@@ -41255,7 +41266,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.23962691, y: 0.23962691, z: 0.6652661, w: 0.6652661}
+    n_rotation: {x: -0.23962677, y: 0.23962677, z: 0.66526616, w: 0.66526616}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -41269,32 +41280,32 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.8205018
     m_tipChord: 0.77617973
-    m_forward: {x: 0, y: 0.63766265, z: 0.77031577}
-    m_right: {x: -0.000000059604645, y: 0.7703158, z: -0.63766265}
-    m_up: {x: -1, y: -0.000000059604645, z: 0}
-    m_rootCenter: {x: 746, y: 1.2462075, z: 2979.8867}
-    m_tipCenter: {x: 746, y: 1.3460773, z: 2979.8157}
-    m_quaterCenter: {x: 746, y: 1.3101251, z: 2980.0503}
-    m_leading_tipLocal: {x: 0.8390521, y: 0, z: -0.42160162}
-    m_leading_rootLocal: {x: 0.7723902, y: 0, z: -0.39174184}
-    m_trailing_tipLocal: {x: 0.8390584, y: 0, z: -0.69145596}
-    m_trailing_rootLocal: {x: 0.77238464, y: 0, z: -0.67691}
-    m_quater_root: {x: 746, y: 1.2605783, z: 2980.0913}
-    m_quater_tip: {x: 746, y: 1.3596718, z: 2980.0093}
+    m_forward: {x: 0, y: 0.6376623, z: 0.77031606}
+    m_right: {x: -0.00000009685755, y: 0.7703161, z: -0.6376623}
+    m_up: {x: -1.0000001, y: -0.00000009685755, z: 0}
+    m_rootCenter: {x: 690.5, y: 9.246213, z: 2950.4868}
+    m_tipCenter: {x: 690.5, y: 9.346084, z: 2950.4158}
+    m_quaterCenter: {x: 690.5, y: 9.310131, z: 2950.6504}
+    m_leading_tipLocal: {x: 0.83905625, y: 0, z: -0.42160147}
+    m_leading_rootLocal: {x: 0.77239394, y: 0, z: -0.3917417}
+    m_trailing_tipLocal: {x: 0.83906215, y: 0, z: -0.69145584}
+    m_trailing_rootLocal: {x: 0.77238786, y: 0, z: -0.67690986}
+    m_quater_root: {x: 690.5, y: 9.260584, z: 2950.6914}
+    m_quater_tip: {x: 690.5, y: 9.359678, z: 2950.6094}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 40.268337
-    _controlTipChord: 40.707348
+    _controlRootChord: 40.268345
+    _controlTipChord: 40.70735
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.8
     _ftc: 0.8666667
     _mfx: 0.8333334
-    m_controlChord: 0.4048844
+    m_controlChord: 0.4048845
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -41316,19 +41327,19 @@ MonoBehaviour:
     "\u03BB": 0.26980534
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.81309664
-    "\u1D27LE": 39.394
-    "\u1D27CT": 31.410187
-    "\u1D27QT": 35.600407
-    m_area: 0.09741757
-    m_wettedArea: 0.19704244
+    "m_K\u03B8": 0.8130969
+    "\u1D27LE": 39.393986
+    "\u1D27CT": 31.410166
+    "\u1D27QT": 35.600384
+    m_area: 0.09741806
+    m_wettedArea: 0.19704343
     m_foilArea: 0
     m_effectiveThickness: 0.08780411
     m_edgeRadius: 0.554621
     m_liftSlope: 5.694829
-    "m_Mcrit\u1D27": 1.2939959
-    m_e: 0.5880726
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.2939955
+    m_e: 0.5880724
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -41358,9 +41369,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.049663596
+    "CY\u03B2_CL": 0.049656942
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": -0.007595271
+    "Cn\u03B2_CL": -0.007594393
     CL: 0
     CD: 0
     Cm: 0
@@ -41370,7 +41381,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.24787271, y: 0.24787271, z: 0.662238, w: 0.662238}
+    n_rotation: {x: -0.24787273, y: 0.24787273, z: 0.662238, w: 0.662238}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0.1
@@ -41384,18 +41395,18 @@ MonoBehaviour:
     m_span: 0.1044954
     m_rootChord: 0.77617973
     m_tipChord: 0.73252505
-    m_forward: {x: 0, y: 0.6566029, z: 0.75423646}
-    m_right: {x: -0.00000011175871, y: 0.7542366, z: -0.6566029}
-    m_up: {x: -1.0000001, y: -0.00000011175871, z: 0}
-    m_rootCenter: {x: 746, y: 1.3460773, z: 2979.8157}
-    m_tipCenter: {x: 746, y: 1.4455436, z: 2979.7405}
-    m_quaterCenter: {x: 746, y: 1.4090228, z: 2979.9663}
-    m_leading_tipLocal: {x: 0.9056466, y: 0, z: -0.45282516}
-    m_leading_rootLocal: {x: 0.8390522, y: 0, z: -0.42160162}
-    m_trailing_tipLocal: {x: 0.90565693, y: 0, z: -0.7075362}
-    m_trailing_rootLocal: {x: 0.83905846, y: 0, z: -0.69145596}
-    m_quater_root: {x: 746, y: 1.359672, z: 2980.0093}
-    m_quater_tip: {x: 746, y: 1.4583735, z: 2979.9233}
+    m_forward: {x: 0, y: 0.656603, z: 0.75423646}
+    m_right: {x: -0.00000012665987, y: 0.7542366, z: -0.656603}
+    m_up: {x: -1.0000001, y: -0.00000012665987, z: 0}
+    m_rootCenter: {x: 690.5, y: 9.346084, z: 2950.4158}
+    m_tipCenter: {x: 690.5, y: 9.44555, z: 2950.3406}
+    m_quaterCenter: {x: 690.5, y: 9.409029, z: 2950.5664}
+    m_leading_tipLocal: {x: 0.9056505, y: 0, z: -0.45282504}
+    m_leading_rootLocal: {x: 0.83905625, y: 0, z: -0.42160147}
+    m_trailing_tipLocal: {x: 0.9056611, y: 0, z: -0.70753604}
+    m_trailing_rootLocal: {x: 0.83906215, y: 0, z: -0.69145584}
+    m_quater_root: {x: 690.5, y: 9.359678, z: 2950.6094}
+    m_quater_tip: {x: 690.5, y: 9.45838, z: 2950.5234}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41431,19 +41442,19 @@ MonoBehaviour:
     "\u03BB": 0.25463068
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.7983838
-    "\u1D27LE": 40.6824
+    "m_K\u03B8": 0.7983837
+    "\u1D27LE": 40.682404
     "\u1D27CT": 33.070137
-    "\u1D27QT": 37.023964
-    m_area: 0.09365365
-    m_wettedArea: 0.18952993
+    "\u1D27QT": 37.023968
+    m_area: 0.093653776
+    m_wettedArea: 0.18953018
     m_foilArea: 0
     m_effectiveThickness: 0.08987009
     m_edgeRadius: 0.57742476
     m_liftSlope: 5.6752424
-    "m_Mcrit\u1D27": 1.3186791
-    m_e: 0.5864783
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.3186792
+    m_e: 0.5864781
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -41473,9 +41484,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.004845644
+    "CY\u03B2_CL": 0.0048455885
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0017082407
+    "Cn\u03B2_CL": 0.001708251
     CL: 0
     CD: 0
     Cm: 0
@@ -41485,7 +41496,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.24917167, y: 0.24917166, z: 0.6617503, w: 0.6617503}
+    n_rotation: {x: -0.24917158, y: 0.24917158, z: 0.6617504, w: 0.6617504}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2518129958973740962}
     m_spanFill: 0
@@ -41499,18 +41510,18 @@ MonoBehaviour:
     m_span: 0.1046
     m_rootChord: 0.73252505
     m_tipChord: 0.6705853
-    m_forward: {x: -0.000000029802322, y: 0.6595577, z: 0.7516539}
-    m_right: {x: 0.000000014901161, y: 0.7516539, z: -0.6595577}
-    m_up: {x: -1, y: 0, z: -0.000000029802322}
-    m_rootCenter: {x: 746, y: 1.4455436, z: 2979.7405}
-    m_tipCenter: {x: 746, y: 1.5454135, z: 2979.6694}
-    m_quaterCenter: {x: 746, y: 1.507766, z: 2979.88}
-    m_leading_tipLocal: {x: 0.9723194, y: 0, z: -0.48583227}
-    m_leading_rootLocal: {x: 0.9056467, y: 0, z: -0.45282516}
-    m_trailing_tipLocal: {x: 0.9723197, y: 0, z: -0.718935}
-    m_trailing_rootLocal: {x: 0.9056571, y: 0, z: -0.7075362}
-    m_quater_root: {x: 746, y: 1.4583737, z: 2979.9233}
-    m_quater_tip: {x: 746, y: 1.5571585, z: 2979.8367}
+    m_forward: {x: 0, y: 0.6595576, z: 0.7516541}
+    m_right: {x: -0.00000008940697, y: 0.75165415, z: -0.6595576}
+    m_up: {x: -1.0000001, y: -0.00000008940697, z: 0}
+    m_rootCenter: {x: 690.5, y: 9.44555, z: 2950.3406}
+    m_tipCenter: {x: 690.5, y: 9.545421, z: 2950.2695}
+    m_quaterCenter: {x: 690.5, y: 9.507772, z: 2950.48}
+    m_leading_tipLocal: {x: 0.9723239, y: 0, z: -0.48583212}
+    m_leading_rootLocal: {x: 0.9056505, y: 0, z: -0.45282504}
+    m_trailing_tipLocal: {x: 0.97232425, y: 0, z: -0.7189347}
+    m_trailing_rootLocal: {x: 0.9056611, y: 0, z: -0.70753604}
+    m_quater_root: {x: 690.5, y: 9.45838, z: 2950.5234}
+    m_quater_tip: {x: 690.5, y: 9.557165, z: 2950.4368}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -41542,23 +41553,23 @@ MonoBehaviour:
     m_spoilerTipCorrection: 0
     m_meanChord: 0.7020144
     m_rootArea: 0
-    m_tipArea: 0.022933573
+    m_tipArea: 0.022933569
     "\u03BB": 0.23309998
     "\u0413": 90
     "\u03B8": -4.017334
-    "m_K\u03B8": 0.79601455
-    "\u1D27LE": 42.233
-    "\u1D27CT": 31.410187
-    "\u1D27QT": 37.248814
-    m_area: 0.08525608
-    m_wettedArea: 0.17262708
-    m_foilArea: 0.022933573
+    "m_K\u03B8": 0.79601467
+    "\u1D27LE": 42.232983
+    "\u1D27CT": 31.410166
+    "\u1D27QT": 37.2488
+    m_area: 0.08525666
+    m_wettedArea: 0.17262825
+    m_foilArea: 0.022933569
     m_effectiveThickness: 0.09193607
     m_edgeRadius: 0.60022855
     m_liftSlope: 5.655656
-    "m_Mcrit\u1D27": 1.3505892
-    m_e: 0.5862147
-    m_ARf: 0.20269512
+    "m_Mcrit\u1D27": 1.3505888
+    m_e: 0.58621454
+    m_ARf: 0.2026946
     m_u: 0
     m_v: 0
     m_w: 0
@@ -41588,9 +41599,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0018188414
+    "CY\u03B2_CL": 0.0018189868
     "\u0394CY\u03B2": -0.009
-    "Cn\u03B2_CL": 0.0017886978
+    "Cn\u03B2_CL": 0.0017887047
     CL: 0
     CD: 0
     Cm: 0
@@ -41603,9 +41614,9 @@ MonoBehaviour:
   m_flapActuator: {fileID: 0}
   m_slatActuator: {fileID: 0}
   m_spoilerActuator: {fileID: 0}
-  m_area: 2.8506869301199913
-  m_wettedArea: 5.742679387331009
-  m_aspectRatio: 0.8635676516930463
+  m_area: 2.850695066154003
+  m_wettedArea: 5.742695733904839
+  m_aspectRatio: 0.8635651870254397
   m_maximumAOA: 0
   m_stallAngle: 6
   k: 0
@@ -41616,11 +41627,11 @@ MonoBehaviour:
   m_controlDeflection: 0
   _trimDeflection: 0
   _trimTabDeflection: 0
-  m_controlArea: 0.60901797
+  m_controlArea: 0.6090204
   c_positiveLimit: 25
   c_negativeLimit: 20
   m_controlColor: {r: 1, g: 0, b: 0, a: 1}
-  SWc: 5.3805227
+  SWc: 5.3805366
   stabilatorCouplingPercentage: 30
   _baseInput: 0
   _trimInput: 0
@@ -41640,14 +41651,14 @@ MonoBehaviour:
   _positiveTrimLimit: 5
   _positiveTrimTabLimit: 3
   _currentControlEffectiveness: 0
-  _controlLockPoint: 2168.8594
-  _controlNullPoint: 6858.5337
-  _controlFullPoint: 685.8708
+  _controlLockPoint: 2168.855
+  _controlNullPoint: 6858.52
+  _controlFullPoint: 685.8694
   _controlEfficiencyCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1333.3328
+      time: 1333.3301
       value: 100
       inSlope: 0
       outSlope: 0
@@ -41656,8 +41667,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1430.5328
-      value: 86.87125
+      time: 1430.53
+      value: 86.87123
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -41665,8 +41676,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1527.7328
-      value: 76.16808
+      time: 1527.7301
+      value: 76.168045
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -41674,8 +41685,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1624.9329
-      value: 67.32777
+      time: 1624.93
+      value: 67.32773
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -41683,8 +41694,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1722.1328
-      value: 59.941788
+      time: 1722.1301
+      value: 59.94174
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -41692,8 +41703,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1819.3328
-      value: 53.707767
+      time: 1819.3301
+      value: 53.707714
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -41701,8 +41712,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1916.5328
-      value: 48.398033
+      time: 1916.53
+      value: 48.397972
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -44189,7 +44200,7 @@ MonoBehaviour:
   sweepCorrectionMethod: 1
   surfaceFinish: 4
   foilType: 0
-  leadingRoot: {x: 746.54266, y: 0.6546123, z: 2985.8882}
+  leadingRoot: {x: 691.04266, y: 8.654612, z: 2956.4883}
   m_axisScale: 0.5
   subdivision: 10
   m_section: 1
@@ -44221,7 +44232,7 @@ MonoBehaviour:
   m_tipSuperfoil: {fileID: 0}
   m_cells:
   - m_reset: 0
-    n_rotation: {x: -0.038078725, y: 0.00061855663, z: 0.021976877, w: 0.99903286}
+    n_rotation: {x: -0.038078725, y: 0.0006186286, z: 0.021976875, w: 0.99903286}
     m_eulerAngles: {x: 355.35376, y: 359.96738, z: 1.7823566}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44235,18 +44246,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.675038
     m_tipChord: 1.6683378
-    m_forward: {x: -0.00043778622, y: 0.07611098, z: 0.9970993}
-    m_right: {x: 0.9990333, y: 0.04386414, z: -0.0029096198}
-    m_up: {x: -0.04395835, y: 0.99613404, z: -0.07605661}
-    m_rootCenter: {x: 746.546, y: 0.591, z: 2985.053}
-    m_tipCenter: {x: 747.0487, y: 0.61320865, z: 2985.0532}
-    m_quaterCenter: {x: 746.79565, y: 0.6338469, z: 2985.47}
-    m_leading_tipLocal: {x: 0.100003205, y: 0.000050379673, z: 0.49795368}
-    m_leading_rootLocal: {x: 0.000006127352, y: -0.00007930134, z: 0.5000539}
-    m_trailing_tipLocal: {x: 0.10000464, y: 0.000097601645, z: -0.4980874}
-    m_trailing_rootLocal: {x: 0.0000021982025, y: 0.00009293686, z: -0.5000796}
-    m_quater_root: {x: 746.5443, y: 0.6228062, z: 2985.4707}
-    m_quater_tip: {x: 747.047, y: 0.64488757, z: 2985.4692}
+    m_forward: {x: -0.00043764221, y: 0.07611099, z: 0.9970993}
+    m_right: {x: 0.9990333, y: 0.043864127, z: -0.0029097633}
+    m_up: {x: -0.043958355, y: 0.99613404, z: -0.0760566}
+    m_rootCenter: {x: 691.046, y: 8.591, z: 2955.653}
+    m_tipCenter: {x: 691.5487, y: 8.613208, z: 2955.6533}
+    m_quaterCenter: {x: 691.29565, y: 8.633846, z: 2956.07}
+    m_leading_tipLocal: {x: 0.1000032, y: 0.00003782064, z: 0.49795362}
+    m_leading_rootLocal: {x: 0.000006121059, y: -0.00008619087, z: 0.5000539}
+    m_trailing_tipLocal: {x: 0.10000464, y: 0.00009422865, z: -0.4980874}
+    m_trailing_rootLocal: {x: 0.0000021971846, y: 0.00009178861, z: -0.5000796}
+    m_quater_root: {x: 691.0443, y: 8.622806, z: 2956.0708}
+    m_quater_tip: {x: 691.547, y: 8.644886, z: 2956.0693}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44283,9 +44294,9 @@ MonoBehaviour:
     "\u0413": 2.537005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199966
-    "\u1D27LE": 0.4005693
-    "\u1D27CT": 0.010305223
-    "\u1D27QT": 0.2054399
+    "\u1D27LE": 0.40057445
+    "\u1D27CT": 0.010308833
+    "\u1D27QT": 0.20544815
     m_area: 0.8412265
     m_wettedArea: 1.717329
     m_foilArea: 0.19117399
@@ -44294,7 +44305,7 @@ MonoBehaviour:
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0000244
     m_e: 0.7841539
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -44324,9 +44335,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.000058012036
+    "CY\u03B2_CL": 0.000058016798
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.0005144016
+    "Cn\u03B2_CL": 0.00051440607
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -44353,15 +44364,15 @@ MonoBehaviour:
     m_forward: {x: -0.00043778622, y: 0.07611098, z: 0.9970993}
     m_right: {x: 0.9990333, y: 0.04386414, z: -0.0029096198}
     m_up: {x: -0.04395835, y: 0.99613404, z: -0.07605661}
-    m_rootCenter: {x: 747.0487, y: 0.61320865, z: 2985.0532}
-    m_tipCenter: {x: 747.5514, y: 0.6354173, z: 2985.0535}
-    m_quaterCenter: {x: 747.29834, y: 0.65592825, z: 2985.4685}
-    m_leading_tipLocal: {x: 0.2000003, y: 0.00018006068, z: 0.4958535}
-    m_leading_rootLocal: {x: 0.100003205, y: 0.000050379673, z: 0.49795368}
-    m_trailing_tipLocal: {x: 0.2000071, y: 0.0001023382, z: -0.49609527}
-    m_trailing_rootLocal: {x: 0.10000464, y: 0.000097601645, z: -0.4980874}
-    m_quater_root: {x: 747.047, y: 0.64488757, z: 2985.4692}
-    m_quater_tip: {x: 747.5497, y: 0.66696894, z: 2985.4678}
+    m_rootCenter: {x: 691.5487, y: 8.613208, z: 2955.6533}
+    m_tipCenter: {x: 692.0514, y: 8.635416, z: 2955.6536}
+    m_quaterCenter: {x: 691.79834, y: 8.655927, z: 2956.0686}
+    m_leading_tipLocal: {x: 0.20000027, y: 0.00017087466, z: 0.49585348}
+    m_leading_rootLocal: {x: 0.1000032, y: 0.00003782064, z: 0.49795362}
+    m_trailing_tipLocal: {x: 0.20000708, y: 0.00008748265, z: -0.49609536}
+    m_trailing_rootLocal: {x: 0.10000464, y: 0.00009422865, z: -0.4980874}
+    m_quater_root: {x: 691.547, y: 8.644886, z: 2956.0693}
+    m_quater_tip: {x: 692.0497, y: 8.666967, z: 2956.0679}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44398,18 +44409,18 @@ MonoBehaviour:
     "\u0413": 2.537005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199966
-    "\u1D27LE": 0.4005693
-    "\u1D27CT": 0.010305223
+    "\u1D27LE": 0.40056622
+    "\u1D27CT": 0.010308833
     "\u1D27QT": 0.2054399
-    m_area: 0.8377774
-    m_wettedArea: 1.7102878
+    m_area: 0.8377778
+    m_wettedArea: 1.7102886
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0000244
     m_e: 0.7841539
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -44439,7 +44450,7 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.000058012036
+    "CY\u03B2_CL": 0.000058012043
     "\u0394CY\u03B2": -0.00025370048
     "Cn\u03B2_CL": 0.0005144016
     CL: 0.154
@@ -44451,7 +44462,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.03818519, y: 0.005478858, z: 0.021791363, w: 0.999018}
+    n_rotation: {x: -0.03818519, y: 0.005478889, z: 0.021791361, w: 0.999018}
     m_eulerAngles: {x: 358.06314, y: 358.6502, z: 1.8254217}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44465,18 +44476,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6616377
     m_tipChord: 1.6499727
-    m_forward: {x: 0.009282741, y: 0.07653417, z: 0.99702376}
-    m_right: {x: 0.99899024, y: 0.04312151, z: -0.01261117}
+    m_forward: {x: 0.009282803, y: 0.07653417, z: 0.99702376}
+    m_right: {x: 0.99899024, y: 0.0431215, z: -0.012611233}
     m_up: {x: -0.04395835, y: 0.99613404, z: -0.0760566}
-    m_rootCenter: {x: 747.5514, y: 0.6354173, z: 2985.0535}
-    m_tipCenter: {x: 748.0541, y: 0.6573591, z: 2985.0503}
-    m_quaterCenter: {x: 747.801, y: 0.67782915, z: 2985.4646}
-    m_leading_tipLocal: {x: 0.30000472, y: 0.00020711643, z: 0.49024463}
-    m_leading_rootLocal: {x: 0.2000003, y: 0.00018006068, z: 0.4958535}
-    m_trailing_tipLocal: {x: 0.2999966, y: 0.00009796048, z: -0.49468786}
-    m_trailing_rootLocal: {x: 0.2000071, y: 0.0001023382, z: -0.49609527}
-    m_quater_root: {x: 747.5497, y: 0.66696894, z: 2985.4678}
-    m_quater_tip: {x: 748.0524, y: 0.6886893, z: 2985.4614}
+    m_rootCenter: {x: 692.0514, y: 8.635416, z: 2955.6536}
+    m_tipCenter: {x: 692.5541, y: 8.657357, z: 2955.6504}
+    m_quaterCenter: {x: 692.301, y: 8.677828, z: 2956.0647}
+    m_leading_tipLocal: {x: 0.3000047, y: 0.00018766787, z: 0.4902445}
+    m_leading_rootLocal: {x: 0.20000027, y: 0.00017087466, z: 0.49585348}
+    m_trailing_tipLocal: {x: 0.29999658, y: 0.00008080842, z: -0.4946879}
+    m_trailing_rootLocal: {x: 0.20000708, y: 0.00008748265, z: -0.49609536}
+    m_quater_root: {x: 692.0497, y: 8.666967, z: 2956.0679}
+    m_quater_tip: {x: 692.5524, y: 8.688687, z: 2956.0615}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44513,18 +44524,18 @@ MonoBehaviour:
     "\u0413": 2.537005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.91995305
-    "\u1D27LE": 1.0696807
-    "\u1D27CT": 0.400676
-    "\u1D27QT": 0.76293164
-    m_area: 0.83309305
-    m_wettedArea: 1.700725
+    "\u1D27LE": 1.0696899
+    "\u1D27CT": 0.40068167
+    "\u1D27QT": 0.7629352
+    m_area: 0.83309346
+    m_wettedArea: 1.7007258
     m_foilArea: 0.18474273
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0001743
-    m_e: 0.784081
-    m_ARf: 0.5500647
+    m_e: 0.7840809
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -44554,9 +44565,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0010494505
+    "CY\u03B2_CL": 0.0010494636
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.001138168
+    "Cn\u03B2_CL": 0.0011381768
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -44566,7 +44577,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.0381108, y: 0.0020785183, z: 0.021921206, w: 0.9990309}
+    n_rotation: {x: -0.0381108, y: 0.0020785588, z: 0.021921204, w: 0.9990309}
     m_eulerAngles: {x: 358.43784, y: 357.361, z: 1.8528589}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44580,18 +44591,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6499727
     m_tipChord: 1.6432927
-    m_forward: {x: 0.0024821386, y: 0.07623886, z: 0.99708647}
-    m_right: {x: 0.9990303, y: 0.043641496, z: -0.0058238776}
+    m_forward: {x: 0.0024822194, y: 0.07623886, z: 0.99708647}
+    m_right: {x: 0.9990303, y: 0.04364149, z: -0.0058239577}
     m_up: {x: -0.043958355, y: 0.99613404, z: -0.07605661}
-    m_rootCenter: {x: 748.0541, y: 0.6573591, z: 2985.0503}
-    m_tipCenter: {x: 748.55676, y: 0.67943436, z: 2985.0488}
-    m_quaterCenter: {x: 748.3038, y: 0.6996635, z: 2985.46}
-    m_leading_tipLocal: {x: 0.40000045, y: 0.00013750349, z: 0.48726645}
-    m_leading_rootLocal: {x: 0.30000472, y: 0.00020711643, z: 0.49024463}
-    m_trailing_tipLocal: {x: 0.39999762, y: 0.00024615708, z: -0.49386448}
-    m_trailing_rootLocal: {x: 0.2999966, y: 0.00009796048, z: -0.49468786}
-    m_quater_root: {x: 748.0524, y: 0.6886893, z: 2985.4614}
-    m_quater_tip: {x: 748.5551, y: 0.7106377, z: 2985.4585}
+    m_rootCenter: {x: 692.5541, y: 8.657357, z: 2955.6504}
+    m_tipCenter: {x: 693.05676, y: 8.679432, z: 2955.649}
+    m_quaterCenter: {x: 692.8038, y: 8.699661, z: 2956.06}
+    m_leading_tipLocal: {x: 0.40000042, y: 0.00011288779, z: 0.48726633}
+    m_leading_rootLocal: {x: 0.3000047, y: 0.00018766787, z: 0.4902445}
+    m_trailing_tipLocal: {x: 0.39999762, y: 0.0002238379, z: -0.4938646}
+    m_trailing_rootLocal: {x: 0.29999658, y: 0.00008080842, z: -0.4946879}
+    m_quater_root: {x: 692.5524, y: 8.688687, z: 2956.0615}
+    m_quater_tip: {x: 693.0551, y: 8.710635, z: 2956.0586}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44601,7 +44612,7 @@ MonoBehaviour:
     _controlRootChord: 37.1
     _controlTipChord: 37.2
     _flapRootChord: 37.010098
-    _flapTipChord: 37.115738
+    _flapTipChord: 37.115734
     _frc: 0.3
     _ftc: 0.4
     _mfx: 0.35000002
@@ -44628,9 +44639,9 @@ MonoBehaviour:
     "\u0413": 2.537005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199888
-    "\u1D27LE": 0.56801987
-    "\u1D27CT": 0.20549299
-    "\u1D27QT": 0.3729013
+    "\u1D27LE": 0.5680245
+    "\u1D27CT": 0.20549764
+    "\u1D27QT": 0.3729059
     m_area: 0.8285311
     m_wettedArea: 1.6914119
     m_foilArea: 0.093207225
@@ -44638,8 +44649,8 @@ MonoBehaviour:
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0000491
-    m_e: 0.7841408
-    m_ARf: 0.5500647
+    m_e: 0.78414077
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -44669,9 +44680,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00019974058
+    "CY\u03B2_CL": 0.00019974587
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.0006181185
+    "Cn\u03B2_CL": 0.00061812194
     CL: 0.154
     CD: 1.11222
     Cm: -0.037
@@ -44681,7 +44692,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.03833873, y: 0.00680356, z: 0.006023328, w: 0.99922353}
+    n_rotation: {x: -0.038338732, y: 0.0068035964, z: 0.0060233264, w: 0.99922353}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44695,18 +44706,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.6432927
     m_tipChord: 1.5709511
-    m_forward: {x: 0.013134701, y: 0.07669988, z: 0.99696773}
-    m_right: {x: 0.99983484, y: 0.011515622, z: -0.014058407}
-    m_up: {x: -0.012558981, y: 0.9969877, z: -0.076535955}
-    m_rootCenter: {x: 748.55676, y: 0.67943436, z: 2985.0488}
-    m_tipCenter: {x: 749.06006, y: 0.68662494, z: 2985.0598}
-    m_quaterCenter: {x: 748.80676, y: 0.71354616, z: 2985.455}
-    m_leading_tipLocal: {x: 0.49998644, y: -0.15196314, z: 0.47129077}
-    m_leading_rootLocal: {x: 0.40000045, y: 0.00013750349, z: 0.48726645}
-    m_trailing_tipLocal: {x: 0.49999294, y: -0.15197201, z: -0.46657273}
-    m_trailing_rootLocal: {x: 0.39999762, y: 0.00024615708, z: -0.49386448}
-    m_quater_root: {x: 748.5551, y: 0.7106377, z: 2985.4585}
-    m_quater_tip: {x: 749.0585, y: 0.7164546, z: 2985.4514}
+    m_forward: {x: 0.013134774, y: 0.07669989, z: 0.99696773}
+    m_right: {x: 0.99983484, y: 0.011515616, z: -0.01405848}
+    m_up: {x: -0.012558981, y: 0.9969877, z: -0.07653596}
+    m_rootCenter: {x: 693.05676, y: 8.679432, z: 2955.649}
+    m_tipCenter: {x: 693.56006, y: 8.686622, z: 2955.66}
+    m_quaterCenter: {x: 693.30676, y: 8.713543, z: 2956.0552}
+    m_leading_tipLocal: {x: 0.49998644, y: -0.15199806, z: 0.47129062}
+    m_leading_rootLocal: {x: 0.40000042, y: 0.00011288779, z: 0.48726633}
+    m_trailing_tipLocal: {x: 0.49999288, y: -0.15200004, z: -0.46657285}
+    m_trailing_rootLocal: {x: 0.39999762, y: 0.0002238379, z: -0.4938646}
+    m_quater_root: {x: 693.0551, y: 8.710635, z: 2956.0586}
+    m_quater_tip: {x: 693.5585, y: 8.716452, z: 2956.0515}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44743,9 +44754,9 @@ MonoBehaviour:
     "\u0413": 0.737005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199219
-    "\u1D27LE": 3.0442238
-    "\u1D27CT": -1.0790504
-    "\u1D27QT": 0.98386014
+    "\u1D27LE": 3.0442333
+    "\u1D27CT": -1.0790434
+    "\u1D27QT": 0.9838643
     m_area: 0.8091686
     m_wettedArea: 1.6518841
     m_foilArea: 0
@@ -44754,7 +44765,7 @@ MonoBehaviour:
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0014131
     m_e: 0.7840288
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -44784,9 +44795,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0022297269
+    "CY\u03B2_CL": 0.0022297592
     "\u0394CY\u03B2": -0.000073700496
-    "Cn\u03B2_CL": 0.002028298
+    "Cn\u03B2_CL": 0.002028325
     CL: 0
     CD: 0
     Cm: 0
@@ -44796,7 +44807,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.03828411, y: 0.005346639, z: 0.0060789185, w: 0.9992341}
+    n_rotation: {x: -0.03828411, y: 0.005346666, z: 0.0060789175, w: 0.9992341}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44810,18 +44821,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.5709511
     m_tipChord: 1.4762579
-    m_forward: {x: 0.010219636, y: 0.07657459, z: 0.9970115}
-    m_right: {x: 0.9998689, y: 0.011739142, z: -0.01115054}
+    m_forward: {x: 0.01021969, y: 0.07657459, z: 0.9970115}
+    m_right: {x: 0.9998689, y: 0.0117391385, z: -0.011150594}
     m_up: {x: -0.012557907, y: 0.99699473, z: -0.07644457}
-    m_rootCenter: {x: 749.06006, y: 0.68662494, z: 2985.0598}
-    m_tipCenter: {x: 749.56335, y: 0.6943495, z: 2985.078}
-    m_quaterCenter: {x: 749.3102, y: 0.71941787, z: 2985.4487}
-    m_leading_tipLocal: {x: 0.59998125, y: -0.30424878, z: 0.45297536}
-    m_leading_rootLocal: {x: 0.49998644, y: -0.15196314, z: 0.47129077}
-    m_trailing_tipLocal: {x: 0.59999055, y: -0.3041314, z: -0.42846367}
-    m_trailing_rootLocal: {x: 0.49999294, y: -0.15197201, z: -0.46657273}
-    m_quater_root: {x: 749.0585, y: 0.7164546, z: 2985.4514}
-    m_quater_tip: {x: 749.5619, y: 0.7223811, z: 2985.4458}
+    m_rootCenter: {x: 693.56006, y: 8.686622, z: 2955.66}
+    m_tipCenter: {x: 694.06335, y: 8.694345, z: 2955.678}
+    m_quaterCenter: {x: 693.8102, y: 8.719415, z: 2956.0488}
+    m_leading_tipLocal: {x: 0.59998125, y: -0.30428365, z: 0.45297518}
+    m_leading_rootLocal: {x: 0.49998644, y: -0.15199806, z: 0.47129062}
+    m_trailing_tipLocal: {x: 0.59999055, y: -0.30417427, z: -0.42846388}
+    m_trailing_rootLocal: {x: 0.49999288, y: -0.15200004, z: -0.46657285}
+    m_quater_root: {x: 693.5585, y: 8.716452, z: 2956.0515}
+    m_quater_tip: {x: 694.0619, y: 8.722378, z: 2956.046}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -44829,13 +44840,13 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     _controlRootChord: 15.212019
-    _controlTipChord: 16.95072
+    _controlTipChord: 16.950718
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.5
     _ftc: 0.6
     _mfx: 0.55
-    m_controlChord: 0.16097116
+    m_controlChord: 0.16097113
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -44859,17 +44870,17 @@ MonoBehaviour:
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199462
     "\u1D27LE": 3.489032
-    "\u1D27CT": -1.886973
-    "\u1D27QT": 0.8166663
-    m_area: 0.7674525
-    m_wettedArea: 1.5667224
+    "\u1D27CT": -1.8869663
+    "\u1D27QT": 0.8166694
+    m_area: 0.7674524
+    m_wettedArea: 1.5667223
     m_foilArea: 0.17025885
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0018569
     m_e: 0.7840695
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -44899,9 +44910,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0012634037
+    "CY\u03B2_CL": 0.0012634172
     "\u0394CY\u03B2": -0.000073700496
-    "Cn\u03B2_CL": 0.0012823554
+    "Cn\u03B2_CL": 0.0012823647
     CL: 0
     CD: 0
     Cm: 0
@@ -44911,7 +44922,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.03813211, y: 0.003050445, z: 0.02188412, w: 0.9990284}
+    n_rotation: {x: -0.038132112, y: 0.0030505436, z: 0.021884115, w: 0.9990284}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -44925,32 +44936,32 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.4762579
     m_tipChord: 1.3920571
-    m_forward: {x: 0.004425987, y: 0.076323636, z: 0.9970733}
-    m_right: {x: 0.99902356, y: 0.043493073, z: -0.0077639376}
-    m_up: {x: -0.043958355, y: 0.99613404, z: -0.07605661}
-    m_rootCenter: {x: 749.56335, y: 0.6943495, z: 2985.078}
-    m_tipCenter: {x: 750.066, y: 0.71782595, z: 2985.0947}
-    m_quaterCenter: {x: 749.81323, y: 0.73331994, z: 2985.4438}
-    m_leading_tipLocal: {x: 0.69998497, y: -0.3041488, z: 0.43771926}
-    m_leading_rootLocal: {x: 0.59998125, y: -0.30424878, z: 0.45297536}
-    m_trailing_tipLocal: {x: 0.69998884, y: -0.30404082, z: -0.3934354}
-    m_trailing_rootLocal: {x: 0.59999055, y: -0.3041314, z: -0.42846367}
-    m_quater_root: {x: 749.5619, y: 0.7223811, z: 2985.4458}
-    m_quater_tip: {x: 750.0646, y: 0.74425876, z: 2985.442}
+    m_forward: {x: 0.004426184, y: 0.07632364, z: 0.9970733}
+    m_right: {x: 0.99902356, y: 0.04349306, z: -0.0077641346}
+    m_up: {x: -0.043958355, y: 0.99613404, z: -0.076056615}
+    m_rootCenter: {x: 694.06335, y: 8.694345, z: 2955.678}
+    m_tipCenter: {x: 694.566, y: 8.717821, z: 2955.6948}
+    m_quaterCenter: {x: 694.31323, y: 8.733316, z: 2956.044}
+    m_leading_tipLocal: {x: 0.69998497, y: -0.30419168, z: 0.43771902}
+    m_leading_rootLocal: {x: 0.59998125, y: -0.30428365, z: 0.45297518}
+    m_trailing_tipLocal: {x: 0.6999888, y: -0.30409056, z: -0.39343563}
+    m_trailing_rootLocal: {x: 0.59999055, y: -0.30417427, z: -0.42846388}
+    m_quater_root: {x: 694.0619, y: 8.722378, z: 2956.046}
+    m_quater_tip: {x: 694.5646, y: 8.744254, z: 2956.042}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 16.95072
+    _controlRootChord: 16.950718
     _controlTipChord: 18.820255
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.6
     _ftc: 0.7
     _mfx: 0.65
-    m_controlChord: 0.17901863
+    m_controlChord: 0.1790186
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -44973,18 +44984,18 @@ MonoBehaviour:
     "\u0413": 2.537005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.91998106
-    "\u1D27LE": 2.907359
-    "\u1D27CT": -1.8849181
-    "\u1D27QT": 0.48438406
-    m_area: 0.7221166
-    m_wettedArea: 1.474171
+    "\u1D27LE": 2.9073658
+    "\u1D27CT": -1.8849115
+    "\u1D27QT": 0.48439535
+    m_area: 0.72211653
+    m_wettedArea: 1.4741709
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0012888
     m_e: 0.7841279
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -45014,9 +45025,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00035262256
+    "CY\u03B2_CL": 0.0003526409
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.00071111944
+    "Cn\u03B2_CL": 0.0007111303
     CL: 0
     CD: 0
     Cm: 0
@@ -45026,7 +45037,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.03816396, y: 0.004506314, z: 0.021828527, w: 0.9990229}
+    n_rotation: {x: -0.038163964, y: 0.004506404, z: 0.021828523, w: 0.9990229}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -45040,18 +45051,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.3920571
     m_tipChord: 1.3036352
-    m_forward: {x: 0.007337696, y: 0.07645007, z: 0.9970464}
-    m_right: {x: 0.9990064, y: 0.04327044, z: -0.010669948}
-    m_up: {x: -0.04395835, y: 0.99613404, z: -0.07605661}
-    m_rootCenter: {x: 750.066, y: 0.71782595, z: 2985.0947}
-    m_tipCenter: {x: 750.5686, y: 0.7413024, z: 2985.1116}
-    m_quaterCenter: {x: 750.3159, y: 0.7551575, z: 2985.4392}
-    m_leading_tipLocal: {x: 0.7999871, y: -0.30397815, z: 0.42114782}
-    m_leading_rootLocal: {x: 0.69998497, y: -0.3041488, z: 0.43771926}
-    m_trailing_tipLocal: {x: 0.7999887, y: -0.304021, z: -0.3570919}
-    m_trailing_rootLocal: {x: 0.69998884, y: -0.30404082, z: -0.3934354}
-    m_quater_root: {x: 750.0646, y: 0.74425876, z: 2985.442}
-    m_quater_tip: {x: 750.56726, y: 0.7660562, z: 2985.4365}
+    m_forward: {x: 0.0073378757, y: 0.07645008, z: 0.9970464}
+    m_right: {x: 0.9990064, y: 0.043270424, z: -0.010670127}
+    m_up: {x: -0.04395835, y: 0.99613404, z: -0.076056615}
+    m_rootCenter: {x: 694.566, y: 8.717821, z: 2955.6948}
+    m_tipCenter: {x: 695.0686, y: 8.741297, z: 2955.7117}
+    m_quaterCenter: {x: 694.8159, y: 8.755152, z: 2956.0393}
+    m_leading_tipLocal: {x: 0.79998696, y: -0.30402735, z: 0.4211476}
+    m_leading_rootLocal: {x: 0.69998497, y: -0.30419168, z: 0.43771902}
+    m_trailing_tipLocal: {x: 0.7999887, y: -0.30407932, z: -0.35709217}
+    m_trailing_rootLocal: {x: 0.6999888, y: -0.30409056, z: -0.39343563}
+    m_quater_root: {x: 694.5646, y: 8.744254, z: 2956.042}
+    m_quater_tip: {x: 695.06726, y: 8.76605, z: 2956.0366}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -45088,18 +45099,18 @@ MonoBehaviour:
     "\u0413": 2.537005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.91996574
-    "\u1D27LE": 3.157517
-    "\u1D27CT": -1.8849181
-    "\u1D27QT": 0.6513771
-    m_area: 0.67860216
-    m_wettedArea: 1.3853382
+    "\u1D27LE": 3.1575227
+    "\u1D27CT": -1.8849115
+    "\u1D27QT": 0.65138733
+    m_area: 0.6786021
+    m_wettedArea: 1.3853381
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0015204
     m_e: 0.78410226
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -45129,9 +45140,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0007016807
+    "CY\u03B2_CL": 0.00070170785
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.0009185808
+    "Cn\u03B2_CL": 0.0009185972
     CL: 0
     CD: 0
     Cm: 0
@@ -45141,7 +45152,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.038190514, y: 0.00572293, z: 0.021782033, w: 0.99901664}
+    n_rotation: {x: -0.038190518, y: 0.0057230196, z: 0.02178203, w: 0.99901664}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -45155,18 +45166,18 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.3036352
     m_tipChord: 1.2094377
-    m_forward: {x: 0.009770871, y: 0.07655523, z: 0.99701744}
-    m_right: {x: 0.9989856, y: 0.043084104, z: -0.01309834}
+    m_forward: {x: 0.009771049, y: 0.076555245, z: 0.99701744}
+    m_right: {x: 0.9989856, y: 0.04308409, z: -0.013098517}
     m_up: {x: -0.043958347, y: 0.99613404, z: -0.07605661}
-    m_rootCenter: {x: 750.5686, y: 0.7413024, z: 2985.1116}
-    m_tipCenter: {x: 751.0712, y: 0.7647788, z: 2985.1284}
-    m_quaterCenter: {x: 750.8186, y: 0.77690005, z: 2985.433}
-    m_leading_tipLocal: {x: 0.8999868, y: -0.30394414, z: 0.40296787}
-    m_leading_rootLocal: {x: 0.7999871, y: -0.30397815, z: 0.42114782}
-    m_trailing_tipLocal: {x: 0.89999086, y: -0.30386454, z: -0.31913984}
-    m_trailing_rootLocal: {x: 0.7999887, y: -0.304021, z: -0.3570919}
-    m_quater_root: {x: 750.56726, y: 0.7660562, z: 2985.4365}
-    m_quater_tip: {x: 751.07, y: 0.7877439, z: 2985.43}
+    m_rootCenter: {x: 695.0686, y: 8.741297, z: 2955.7117}
+    m_tipCenter: {x: 695.5712, y: 8.764772, z: 2955.7285}
+    m_quaterCenter: {x: 695.3186, y: 8.776894, z: 2956.0332}
+    m_leading_tipLocal: {x: 0.8999867, y: -0.30400932, z: 0.40296754}
+    m_leading_rootLocal: {x: 0.79998696, y: -0.30402735, z: 0.4211476}
+    m_trailing_tipLocal: {x: 0.89999086, y: -0.3039217, z: -0.31914008}
+    m_trailing_rootLocal: {x: 0.7999887, y: -0.30407932, z: -0.35709217}
+    m_quater_root: {x: 695.06726, y: 8.76605, z: 2956.0366}
+    m_quater_tip: {x: 695.57, y: 8.787737, z: 2956.03}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
@@ -45174,13 +45185,13 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     _controlRootChord: 20.848091
-    _controlTipChord: 23.059013
+    _controlTipChord: 23.05901
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.8
     _ftc: 0.9
     _mfx: 0.85
-    m_controlChord: 0.2197222
+    m_controlChord: 0.21972215
     m_flapChord: 0
     m_slatChord: 0
     m_spoilerChord: 0
@@ -45203,18 +45214,18 @@ MonoBehaviour:
     "\u0413": 2.537005
     "\u03B8": -4.3559875
     "m_K\u03B8": 0.9199495
-    "\u1D27LE": 3.4633017
-    "\u1D27CT": -1.8849181
-    "\u1D27QT": 0.79092777
-    m_area: 0.6326218
-    m_wettedArea: 1.2914712
+    "\u1D27LE": 3.4633164
+    "\u1D27CT": -1.8849115
+    "\u1D27QT": 0.790938
+    m_area: 0.63262194
+    m_wettedArea: 1.2914715
     m_foilArea: 0
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
-    "m_Mcrit\u1D27": 1.0018296
+    "m_Mcrit\u1D27": 1.0018297
     m_e: 0.7840751
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -45244,9 +45255,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.0011564966
+    "CY\u03B2_CL": 0.0011565378
     "\u0394CY\u03B2": -0.00025370048
-    "Cn\u03B2_CL": 0.0012093934
+    "Cn\u03B2_CL": 0.0012094209
     CL: 0
     CD: 0
     Cm: 0
@@ -45256,7 +45267,7 @@ MonoBehaviour:
     m_drag: 0
     m_moment: 0
   - m_reset: 0
-    n_rotation: {x: -0.021329746, y: -0.004539191, z: 0.007418186, w: 0.9997347}
+    n_rotation: {x: -0.021329744, y: -0.004539218, z: 0.007418188, w: 0.9997347}
     m_eulerAngles: {x: 0, y: 0, z: 0}
     m_foil: {fileID: 2732223980497867676}
     m_spanFill: 0
@@ -45270,26 +45281,26 @@ MonoBehaviour:
     m_span: 0.5031771
     m_rootChord: 1.2094377
     m_tipChord: 1.1288416
-    m_forward: {x: -0.009392429, y: 0.042580828, z: 0.9990489}
-    m_right: {x: 0.9998487, y: 0.015026076, z: 0.008759517}
-    m_up: {x: -0.014638796, y: 0.99898005, z: -0.04271552}
-    m_rootCenter: {x: 751.0712, y: 0.7647788, z: 2985.1284}
-    m_tipCenter: {x: 751.57446, y: 0.77391356, z: 2985.1536}
-    m_quaterCenter: {x: 751.3218, y: 0.7868759, z: 2985.4326}
-    m_leading_tipLocal: {x: 0.9998731, y: -0.6279733, z: 0.39290366}
-    m_leading_rootLocal: {x: 0.8999868, y: -0.30394414, z: 0.40296787}
-    m_trailing_tipLocal: {x: 1.0000994, y: -0.2675409, z: -0.28072464}
-    m_trailing_rootLocal: {x: 0.89999086, y: -0.30386454, z: -0.31913984}
-    m_quater_root: {x: 751.07, y: 0.7877439, z: 2985.43}
-    m_quater_tip: {x: 751.5735, y: 0.7860079, z: 2985.4355}
+    m_forward: {x: -0.009392483, y: 0.042580824, z: 0.9990489}
+    m_right: {x: 0.9998487, y: 0.01502608, z: 0.008759571}
+    m_up: {x: -0.014638799, y: 0.99898005, z: -0.042715516}
+    m_rootCenter: {x: 695.5712, y: 8.764772, z: 2955.7285}
+    m_tipCenter: {x: 696.07446, y: 8.773907, z: 2955.7537}
+    m_quaterCenter: {x: 695.8218, y: 8.786869, z: 2956.0327}
+    m_leading_tipLocal: {x: 0.9998731, y: -0.628035, z: 0.39290336}
+    m_leading_rootLocal: {x: 0.8999867, y: -0.30400932, z: 0.40296754}
+    m_trailing_tipLocal: {x: 1.0000993, y: -0.26761067, z: -0.28072497}
+    m_trailing_rootLocal: {x: 0.89999086, y: -0.3039217, z: -0.31914008}
+    m_quater_root: {x: 695.57, y: 8.787737, z: 2956.03}
+    m_quater_tip: {x: 696.0735, y: 8.786001, z: 2956.0356}
     groundAxis: {x: 0, y: -1, z: 0}
     rects:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
-    _controlRootChord: 23.059013
-    _controlTipChord: 25.500826
+    _controlRootChord: 23.05901
+    _controlTipChord: 25.500828
     _flapRootChord: 0
     _flapTipChord: 0
     _frc: 0.9
@@ -45318,18 +45329,18 @@ MonoBehaviour:
     "\u0413": 0.8370049
     "\u03B8": -2.4559937
     "m_K\u03B8": 0.91998756
-    "\u1D27LE": 1.9188606
-    "\u1D27CT": -2.7017348
-    "\u1D27QT": -0.3920607
-    m_area: 0.58967656
-    m_wettedArea: 1.2038002
+    "\u1D27LE": 1.9188576
+    "\u1D27CT": -2.7017305
+    "\u1D27QT": -0.3920638
+    m_area: 0.5896764
+    m_wettedArea: 1.2037998
     m_foilArea: 0.08682231
     m_effectiveThickness: 0.123958744
     m_edgeRadius: 1.0750041
     m_liftSlope: 4.870001
     "m_Mcrit\u1D27": 1.0005611
     m_e: 0.7841388
-    m_ARf: 0.5500647
+    m_ARf: 0.5500646
     m_u: 0
     m_v: 0
     m_w: 0
@@ -45359,9 +45370,9 @@ MonoBehaviour:
     "\u0394CDw": 0
     "\u0394CDi": 0
     "\u0394CDsfr": 0
-    "CY\u03B2_CL": 0.00022230404
+    "CY\u03B2_CL": 0.0002223078
     "\u0394CY\u03B2": -0.000083700485
-    "Cn\u03B2_CL": 0.00019021143
+    "Cn\u03B2_CL": 0.00019020904
     CL: 0
     CD: 0
     Cm: 0
@@ -45374,9 +45385,9 @@ MonoBehaviour:
   m_flapActuator: {fileID: 0}
   m_slatActuator: {fileID: 0}
   m_spoilerActuator: {fileID: 0}
-  m_area: 7.540266215801239
-  m_wettedArea: 15.39314079284668
-  m_aspectRatio: 3.357802034250705
+  m_area: 7.540266811847687
+  m_wettedArea: 15.393141984939575
+  m_aspectRatio: 3.357801768821639
   m_maximumAOA: 0
   m_stallAngle: 12
   k: 0
@@ -45387,7 +45398,7 @@ MonoBehaviour:
   m_controlDeflection: 0
   _trimDeflection: 0
   _trimTabDeflection: 0
-  m_controlArea: 0.79065025
+  m_controlArea: 0.7906501
   c_positiveLimit: 22
   c_negativeLimit: 30
   m_controlColor: {r: 0, g: 1, b: 0, a: 1}
@@ -45411,14 +45422,14 @@ MonoBehaviour:
   _positiveTrimLimit: 5
   _positiveTrimTabLimit: 3
   _currentControlEffectiveness: 0
-  _controlLockPoint: 761.40234
+  _controlLockPoint: 761.4024
   _controlNullPoint: 2407.7651
-  _controlFullPoint: 240.78262
+  _controlFullPoint: 240.78264
   _controlEfficiencyCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 468.08142
+      time: 468.08145
       value: 100
       inSlope: 0
       outSlope: 0
@@ -45427,8 +45438,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 565.28143
-      value: 68.56487
+      time: 565.2815
+      value: 68.564865
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -45436,7 +45447,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 662.48145
+      time: 662.4815
       value: 49.920486
       inSlope: 0
       outSlope: 0
@@ -45445,7 +45456,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 759.6814
+      time: 759.68146
       value: 37.96303
       inSlope: 0
       outSlope: 0
@@ -45454,7 +45465,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 856.8814
+      time: 856.8815
       value: 29.838795
       inSlope: 0
       outSlope: 0
@@ -45463,7 +45474,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 954.0814
+      time: 954.0815
       value: 24.068619
       inSlope: 0
       outSlope: 0
@@ -45472,7 +45483,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1051.2814
+      time: 1051.2815
       value: 19.823652
       inSlope: 0
       outSlope: 0
@@ -45481,8 +45492,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1148.4813
-      value: 16.610146
+      time: 1148.4814
+      value: 16.610144
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -45490,8 +45501,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1245.6814
-      value: 14.119108
+      time: 1245.6815
+      value: 14.119106
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -45499,8 +45510,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1342.8813
-      value: 12.149147
+      time: 1342.8815
+      value: 12.149145
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -45508,7 +45519,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1440.0814
+      time: 1440.0815
       value: 10.56445
       inSlope: 0
       outSlope: 0
@@ -45517,7 +45528,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1537.2814
+      time: 1537.2815
       value: 9.270736
       inSlope: 0
       outSlope: 0
@@ -45526,7 +45537,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1634.4813
+      time: 1634.4814
       value: 8.200889
       inSlope: 0
       outSlope: 0
@@ -45535,7 +45546,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1731.6814
+      time: 1731.6815
       value: 7.306088
       inSlope: 0
       outSlope: 0
@@ -45544,7 +45555,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1828.8813
+      time: 1828.8815
       value: 6.550127
       inSlope: 0
       outSlope: 0
@@ -45553,8 +45564,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1926.0814
-      value: 5.905702
+      time: 1926.0815
+      value: 5.905703
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -45580,7 +45591,7 @@ MonoBehaviour:
   - 40
   - 60
   m_currentFlapStep: 0
-  SWf: 6.8197536
+  SWf: 6.8197556
   _primaryFlapModel: {fileID: 2214861326899929562}
   _supportFlapModel: {fileID: 0}
   _primaryFlapAxis: {x: 0, y: 0, z: 0}

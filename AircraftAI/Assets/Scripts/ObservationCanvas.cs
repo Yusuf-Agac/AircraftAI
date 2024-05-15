@@ -36,7 +36,11 @@ public class ObservationCanvas : MonoBehaviour
     [FormerlySerializedAs("rollAxesText")] [SerializeField] private TMP_Text rollRateText;
     [FormerlySerializedAs("yawAxesText")] [SerializeField] private TMP_Text yawRateText;
     [FormerlySerializedAs("pitchAxesCurrentText")]
-    [Space]
+    [Space(10)]
+    [SerializeField] private TMP_Text pitchTargetText;
+    [SerializeField] private TMP_Text rollTargetText;
+    [SerializeField] private TMP_Text yawTargetText;
+    [Space(10)]
     [SerializeField] private TMP_Text pitchCurrentText;
     [FormerlySerializedAs("rollAxesCurrentText")] [SerializeField] private TMP_Text rollCurrentText;
     [FormerlySerializedAs("yawAxesCurrentText")] [SerializeField] private TMP_Text yawCurrentText;
@@ -67,9 +71,10 @@ public class ObservationCanvas : MonoBehaviour
         float optimalPositionDistance, Vector3[] optimalDirections,
         Vector3 fwdDirDifference, Vector3 velDirDifference,
         float dotVelRot, float dotVelOpt, float dotRotOpt,
-        float[] inputs,
-        float pitchRate, float rollRate, float yawRate,
-        float pitchCurrent, float rollCurrent, float yawCurrent,
+        float[] axesInputs,
+        Vector3 axesTarget,
+        Vector3 axesCurrent,
+        Vector3 axesRate,
         float windAngle, float windSpeed, float turbulence,
         Vector3 relativePosition, Vector3 relativeRotation,
         float[] collisionDistances)
@@ -80,15 +85,14 @@ public class ObservationCanvas : MonoBehaviour
         DisplayOptimal(optimalPositionDistance, optimalDirections);
         DisplayDifference(fwdDirDifference, velDirDifference);
         DisplayDirectionDots(dotVelRot, dotVelOpt, dotRotOpt);
-        DisplayInputs(inputs);
-        DisplayAxesRates(pitchRate, rollRate, yawRate);
-        DisplayAxesCurrents(pitchCurrent, rollCurrent, yawCurrent);
+        DisplayInputs(axesInputs);
+        DisplayAxesTargets(axesTarget);
+        DisplayAxesCurrents(axesCurrent);
+        DisplayAxesRates(axesRate);
         DisplayWind(windAngle, windSpeed, turbulence);
         DisplayRelativeTransform(relativePosition, relativeRotation);
         DisplayCollisionDistances(collisionDistances);
     }
-
-    
 
     public void DisplayNormalizedData(
         Vector3 forward, Vector3 up, float upDot, float downDot,
@@ -96,9 +100,10 @@ public class ObservationCanvas : MonoBehaviour
         float optimalPositionDistance, Vector3[] optimalDirections,
         Vector3 fwdDirDifference, Vector3 velDirDifference,
         float dotVelRot, float dotVelOpt, float dotRotOpt,
-        float[] inputs,
-        float pitchRate, float rollRate, float yawRate,
-        float pitchCurrent, float rollCurrent, float yawCurrent,
+        float[] axesInputs,
+        Vector3 axesTarget,
+        Vector3 axesCurrent,
+        Vector3 axesRate,
         float windAngle, float windSpeed, float turbulence)
     {
         DisplayBehaviourName("Flight");
@@ -107,9 +112,10 @@ public class ObservationCanvas : MonoBehaviour
         DisplayOptimal(optimalPositionDistance, optimalDirections);
         DisplayDifference(fwdDirDifference, velDirDifference);
         DisplayDirectionDots(dotVelRot, dotVelOpt, dotRotOpt);
-        DisplayInputs(inputs);
-        DisplayAxesRates(pitchRate, rollRate, yawRate);
-        DisplayAxesCurrents(pitchCurrent, rollCurrent, yawCurrent);
+        DisplayInputs(axesInputs);
+        DisplayAxesTargets(axesTarget);
+        DisplayAxesCurrents(axesCurrent);
+        DisplayAxesRates(axesRate);
         DisplayWind(windAngle, windSpeed, turbulence);
     }
     
@@ -130,26 +136,33 @@ public class ObservationCanvas : MonoBehaviour
         DisplayWindSpeed(windSpeed);
         DisplayTurbulence(turbulence);
     }
-
-    private void DisplayAxesCurrents(float pitchCurrent, float rollCurrent, float yawCurrent)
-    {
-        DisplayPitchCurrent(pitchCurrent);
-        DisplayRollCurrent(rollCurrent);
-        DisplayYawCurrent(yawCurrent);
-    }
-
-    private void DisplayAxesRates(float pitchRate, float rollRate, float yawRate)
-    {
-        DisplayPitchRate(pitchRate);
-        DisplayRollRate(rollRate);
-        DisplayYawRate(yawRate);
-    }
-
+    
     private void DisplayInputs(float[] inputs)
     {
         DisplayPitchInput(inputs[0]);
         DisplayRollInput(inputs[1]);
         DisplayYawInput(inputs[2]);
+    }
+    
+    private void DisplayAxesTargets(Vector3 axesTarget)
+    {
+        DisplayPitchTarget(axesTarget[0]);
+        DisplayRollTarget(axesTarget[1]);
+        DisplayYawTarget(axesTarget[2]);
+    }
+    
+    private void DisplayAxesCurrents(Vector3 axesCurrent)
+    {
+        DisplayPitchCurrent(axesCurrent[0]);
+        DisplayRollCurrent(axesCurrent[1]);
+        DisplayYawCurrent(axesCurrent[2]);
+    }
+    
+    private void DisplayAxesRates(Vector3 axesRate)
+    {
+        DisplayPitchRate(axesRate[0]);
+        DisplayRollRate(axesRate[1]);
+        DisplayYawRate(axesRate[2]);
     }
 
     private void DisplayDirectionDots(float dotVelRot, float dotVelOpt, float dotRotOpt)
@@ -223,6 +236,10 @@ public class ObservationCanvas : MonoBehaviour
     private void DisplayPitchRate(float pitch) => pitchRateText.text = $"{pitch:F2}";
     private void DisplayRollRate(float roll) => rollRateText.text = $"{roll:F2}";
     private void DisplayYawRate(float yaw) => yawRateText.text = $"{yaw:F2}";
+    
+    private void DisplayPitchTarget(float pitch) => pitchTargetText.text = $"{pitch:F2}";
+    private void DisplayRollTarget(float roll) => rollTargetText.text = $"{roll:F2}";
+    private void DisplayYawTarget(float yaw) => yawTargetText.text = $"{yaw:F2}";
     
     private void DisplayPitchCurrent(float pitch) => pitchCurrentText.text = $"{pitch:F2}";
     private void DisplayRollCurrent(float roll) => rollCurrentText.text = $"{roll:F2}";
