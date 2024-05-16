@@ -277,33 +277,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airportStartLeft: {fileID: 146297847}
-  airportStartRight: {fileID: 1030937725}
-  airportEndLeft: {fileID: 1788204146}
-  airportEndRight: {fileID: 1898849966}
-  _numberOfPoints: 100
+  airportStartLeft:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  airportStartRight:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  airportEndLeft:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  airportEndRight:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  aircraftAgents: []
+  trainingMode: 1
   showBezierGizmos: 0
   showTrainingGizmos: 0
   showObservationsGizmos: 0
   showZonesGizmos: 1
-  aircraftAgents: []
-  trainingMode: 1
-  bezierPoint1: 0.283
-  bezierPoint2: 0.283
-  bezierPoint3: 0.723
-  exitOffsets: 20
-  height: 20
+  zExitOffsets: 20
+  yExitOffsets: 20
   extraRandomLength: 0
   extraRandomWidth: 0
-  extraRandomHeight: 1
   trainLengthBounds: 702.2
   trainWidthBounds: 25
+  heightMultiplier: 0.1
   zResetOffset: 36.6
   xRandomResetArea: 12.09
   zRandomResetArea: 25
   safeZoneWidth: 7
   safeZoneLength: 7
-  safeZoneHeight: 1
+  numberOfBezierPoints: 100
+  bezierPoint1: 0.283
+  bezierPoint2: 0.283
+  bezierPoint3: 0.723
 --- !u!4 &136513284
 Transform:
   m_ObjectHideFlags: 0
@@ -698,7 +733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606254924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.8922736, z: 0, w: -0.45149508}
   m_LocalPosition: {x: 746, y: 0.9, z: 2985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -721,34 +756,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airportStartLeft: {fileID: 552825618}
-  airportStartRight: {fileID: 1369214079}
-  airportEndLeft: {fileID: 1230260408}
-  airportEndRight: {fileID: 1316546270}
-  _numberOfPoints: 100
-  showBezierGizmos: 0
-  showTrainingGizmos: 1
-  showObservationsGizmos: 1
-  showZonesGizmos: 1
+  airportStartLeft:
+    pivotTransform: {fileID: 552825618}
+    down: {x: 711.50256, y: 0.1599983, z: 3016.7322}
+    up: {x: 711.50256, y: 88.90896, z: 3016.7322}
+    downCurrent: {x: 355.03387, y: 0.1599983, z: 3172.587}
+    upCurrent: {x: 355.03387, y: 151.13673, z: 3172.587}
+    downTrain: {x: 70.54718, y: 0.1599983, z: 3304.6318}
+    upTrain: {x: 70.54718, y: 201.261, z: 3304.6318}
+    downSafe: {x: 358.87814, y: 0.1599983, z: 3163.4644}
+    downRandomReset: {x: 357.16202, y: 1.1599983, z: 3150.8318}
+  airportStartRight:
+    pivotTransform: {fileID: 1369214079}
+    down: {x: 694.4901, y: 0.1599983, z: 2974.0198}
+    up: {x: 694.4901, y: 88.90896, z: 2974.0198}
+    downCurrent: {x: 330.5135, y: 0.1599983, z: 3111.4302}
+    upCurrent: {x: 330.5135, y: 151.13673, z: 3111.4302}
+    downTrain: {x: 34.683655, y: 0.1599983, z: 3215.6094}
+    upTrain: {x: 34.683655, y: 201.261, z: 3215.6094}
+    downSafe: {x: 339.63608, y: 0.1599983, z: 3115.2744}
+    downRandomReset: {x: 346.907, y: 1.1599983, z: 3125.639}
+  airportEndLeft:
+    pivotTransform: {fileID: 1230260408}
+    down: {x: 1738.9415, y: 0.1599983, z: 2598.3384}
+    up: {x: 1738.9415, y: 88.90896, z: 2598.3384}
+    downCurrent: {x: 2102.9182, y: 0.1599983, z: 2460.928}
+    upCurrent: {x: 2102.9182, y: 151.13673, z: 2460.928}
+    downTrain: {x: 2398.748, y: 0.1599983, z: 2356.7488}
+    upTrain: {x: 2398.748, y: 201.261, z: 2356.7488}
+    downSafe: {x: 2093.7957, y: 0.1599983, z: 2457.0837}
+    downRandomReset: {x: 412.73428, y: 1.1599983, z: 3128.2107}
+  airportEndRight:
+    pivotTransform: {fileID: 1316546270}
+    down: {x: 1721.9292, y: 0.1599983, z: 2555.626}
+    up: {x: 1721.9292, y: 88.90896, z: 2555.626}
+    downCurrent: {x: 2078.398, y: 0.1599983, z: 2399.7712}
+    upCurrent: {x: 2078.398, y: 151.13673, z: 2399.7712}
+    downTrain: {x: 2362.8845, y: 0.1599983, z: 2267.7263}
+    upTrain: {x: 2362.8845, y: 201.261, z: 2267.7263}
+    downSafe: {x: 2074.5537, y: 0.1599983, z: 2408.8938}
+    downRandomReset: {x: 402.47928, y: 1.1599983, z: 3103.0178}
   aircraftAgents:
   - {fileID: 4608920154714674734}
   trainingMode: 1
+  showBezierGizmos: 1
+  showTrainingGizmos: 1
+  showObservationsGizmos: 1
+  showZonesGizmos: 1
+  zExitOffsets: 30
+  yExitOffsets: 30
+  extraRandomLength: 0.5538642
+  extraRandomWidth: 0.39827794
+  trainLengthBounds: 702.2
+  trainWidthBounds: 25
+  heightMultiplier: 0.08
+  zResetOffset: 40
+  xRandomResetArea: 13.6
+  zRandomResetArea: 30
+  safeZoneWidth: 7
+  safeZoneLength: 7
+  numberOfBezierPoints: 100
   bezierPoint1: 0.283
   bezierPoint2: 0.283
   bezierPoint3: 0.723
-  exitOffsets: 20
-  height: 20
-  extraRandomLength: 0
-  extraRandomWidth: 0
-  extraRandomHeight: 1
-  trainLengthBounds: 702.2
-  trainWidthBounds: 25
-  zResetOffset: 36.6
-  xRandomResetArea: 12.09
-  zRandomResetArea: 25
-  safeZoneWidth: 7
-  safeZoneLength: 7
-  safeZoneHeight: 1
 --- !u!1 &773096406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,33 +2116,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airportStartLeft: {fileID: 1206125819}
-  airportStartRight: {fileID: 60717970}
-  airportEndLeft: {fileID: 414253677}
-  airportEndRight: {fileID: 2047285132}
-  _numberOfPoints: 100
+  airportStartLeft:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  airportStartRight:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  airportEndLeft:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  airportEndRight:
+    pivotTransform: {fileID: 0}
+    down: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    downCurrent: {x: 0, y: 0, z: 0}
+    upCurrent: {x: 0, y: 0, z: 0}
+    downTrain: {x: 0, y: 0, z: 0}
+    upTrain: {x: 0, y: 0, z: 0}
+    downSafe: {x: 0, y: 0, z: 0}
+    downRandomReset: {x: 0, y: 0, z: 0}
+  aircraftAgents: []
+  trainingMode: 1
   showBezierGizmos: 0
   showTrainingGizmos: 0
   showObservationsGizmos: 0
   showZonesGizmos: 1
-  aircraftAgents: []
-  trainingMode: 1
-  bezierPoint1: 0.283
-  bezierPoint2: 0.283
-  bezierPoint3: 0.723
-  exitOffsets: 20
-  height: 20
+  zExitOffsets: 20
+  yExitOffsets: 20
   extraRandomLength: 0
   extraRandomWidth: 0
-  extraRandomHeight: 1
   trainLengthBounds: 702.2
   trainWidthBounds: 25
+  heightMultiplier: 0.1
   zResetOffset: 36.6
   xRandomResetArea: 12.09
   zRandomResetArea: 25
   safeZoneWidth: 7
   safeZoneLength: 7
-  safeZoneHeight: 1
+  numberOfBezierPoints: 100
+  bezierPoint1: 0.283
+  bezierPoint2: 0.283
+  bezierPoint3: 0.723
 --- !u!4 &1753789258
 Transform:
   m_ObjectHideFlags: 0
@@ -6636,15 +6741,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 690.5
+      value: 743.7
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2955.6
+      value: 2983.2
       objectReference: {fileID: 0}
     - target: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
       propertyPath: m_LocalRotation.w

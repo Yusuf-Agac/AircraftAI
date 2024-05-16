@@ -60,13 +60,13 @@ public class AircraftTakeOffAgent : Agent
     private float _dotForwardUp;
     private float _dotUpDown;
 
-    private float _normalizedSpeed;
+    [HideInInspector] public float normalizedSpeed;
     private float _normalizedThrust;
     private Vector3 _relativeVelocityDir;
-    private Vector3 _normalizedVelocity;
+    [HideInInspector] public Vector3 normalizedVelocity;
 
     private float _normalizedOptimalDistance;
-    private Vector3[] _optimalDirections;
+    [HideInInspector] public Vector3[] optimalDirections;
     private Vector3[] _relativeOptimalDirections;
 
     private Vector3 _relativeAircraftPos;
@@ -133,7 +133,7 @@ public class AircraftTakeOffAgent : Agent
         sensor.AddObservation(_dotForwardUp);
         sensor.AddObservation(_dotUpDown);
 
-        sensor.AddObservation(_normalizedSpeed);
+        sensor.AddObservation(normalizedSpeed);
         sensor.AddObservation(_normalizedThrust);
         sensor.AddObservation(_relativeVelocityDir);
 
@@ -162,7 +162,7 @@ public class AircraftTakeOffAgent : Agent
 
         observationCanvas.DisplayNormalizedData(
             _aircraftForward, _aircraftUp, _dotForwardUp, _dotUpDown,
-            _relativeVelocityDir, _normalizedSpeed, _normalizedThrust,
+            _relativeVelocityDir, normalizedSpeed, _normalizedThrust,
             _normalizedOptimalDistance, _relativeOptimalDirections,
             _fwdOptDifference, _velOptDifference,
             _dotVelRot, _dotVelOpt, _dotRotOpt,
@@ -320,9 +320,9 @@ public class AircraftTakeOffAgent : Agent
 
     private void CalculateDirectionSimilarities()
     {
-        _dotVelRot = Vector3.Dot(_normalizedVelocity, _aircraftForward);
-        _dotVelOpt = Vector3.Dot(_normalizedVelocity, _optimalDirections[0]);
-        _dotRotOpt = Vector3.Dot(_aircraftForward, _optimalDirections[0]);
+        _dotVelRot = Vector3.Dot(normalizedVelocity, _aircraftForward);
+        _dotVelOpt = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
+        _dotRotOpt = Vector3.Dot(_aircraftForward, optimalDirections[0]);
     }
 
     private void CalculateDirectionDifferences()
@@ -331,12 +331,12 @@ public class AircraftTakeOffAgent : Agent
         _velOptDifference = (_relativeOptimalDirections[0] - _relativeVelocityDir) / 2f;
     }
 
-    private void CalculateOptimalTransforms()
+    public void CalculateOptimalTransforms()
     {
         _normalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
-        _optimalDirections =
+        optimalDirections =
             airportNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
-        _relativeOptimalDirections = DirectionsToNormalizedRotations(_optimalDirections);
+        _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
 
     private void CalculateRelativeTransform()
@@ -347,10 +347,10 @@ public class AircraftTakeOffAgent : Agent
 
     private void CalculateMovementVariables()
     {
-        _normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
+        normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
         _normalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
-        _normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
-        _relativeVelocityDir = DirectionToNormalizedRotation(_normalizedVelocity);
+        normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
+        _relativeVelocityDir = DirectionToNormalizedRotation(normalizedVelocity);
     }
 
     private void CalculateGlobalDirections()

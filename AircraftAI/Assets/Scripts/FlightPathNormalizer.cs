@@ -36,12 +36,12 @@ public class FlightPathNormalizer : MonoBehaviour
         get
         {
             var points = new Vector3[5];
-            var dynamicCurvePower = Vector3.Distance(departureAirport.AirportExitPosition, arrivalAirport.AirportExitPosition) / 4f;
-            points[0] = departureAirport.AirportExitPosition;
-            points[1] = departureAirport.AirportExitPosition + (departureAirport.AirportExitPosition - departureAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-            points[2] = ((departureAirport.AirportExitPosition + (departureAirport.AirportExitPosition - departureAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportExitPosition + (arrivalAirport.AirportExitPosition - arrivalAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
-            points[3] = arrivalAirport.AirportExitPosition + (arrivalAirport.AirportExitPosition - arrivalAirport.AirportResetPosition).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-            points[4] = arrivalAirport.AirportExitPosition;
+            var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
+            points[0] = departureAirport.AirportPositions.Exit;
+            points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
+            points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
+            points[3] = arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
+            points[4] = arrivalAirport.AirportPositions.Exit;
             return points;
         }
     }
@@ -64,13 +64,13 @@ public class FlightPathNormalizer : MonoBehaviour
     
     public void ResetAircraftPosition(Transform aircraft)
     {
-        aircraft.position = departureAirport.AirportExitPosition;
-        aircraft.rotation = Quaternion.LookRotation((departureAirport.AirportExitPosition - departureAirport.AirportResetPosition).normalized);
+        aircraft.position = departureAirport.AirportPositions.Exit;
+        aircraft.rotation = Quaternion.LookRotation((departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized);
     }
     
     public float ArriveDistance(Vector3 aircraftPos)
     {
-        return Vector3.Distance(arrivalAirport.AirportExitPosition, aircraftPos);
+        return Vector3.Distance(arrivalAirport.AirportPositions.Exit, aircraftPos);
     }
 
     private float ClosestOptimumPositionDistance(Vector3 aircraftPos)

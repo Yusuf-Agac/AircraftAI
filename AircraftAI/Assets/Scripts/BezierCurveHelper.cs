@@ -4,7 +4,7 @@ public static class BezierCurveHelper
 {
     public static Vector3 CalculateBezierPoint(float t, Vector3[] points)
     {
-        if (points.Length != 5) return Vector3.zero;
+        if (points == null || points.Length != 5) return Vector3.zero;
         
         t = Mathf.Clamp01(t);
         var point = Mathf.Pow(1 - t, 4) * points[0] +
@@ -17,6 +17,8 @@ public static class BezierCurveHelper
     
     public static Vector3 FindClosestPosition(Vector3 positionToCheck, Vector3[] points, int numberOfPoints)
     {
+        if(points == null) return Vector3.zero;
+        
         var minDistance = Mathf.Infinity;
         var closestLine = new Vector3[2];
 
@@ -42,6 +44,8 @@ public static class BezierCurveHelper
 
     public static Vector3 FindClosestPositionsNext(Vector3 positionToCheck, Vector3[] points, int numberOfPoints, int gap)
     {
+        if(points == null) return Vector3.zero;
+        
         var minDistance = Mathf.Infinity;
         var closestNextLine = new Vector3[2];
         var closestPosition01 = 0f;
