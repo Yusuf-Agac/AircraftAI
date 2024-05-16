@@ -6,13 +6,18 @@ using UnityEngine;
 public static class AircraftNormalizer
 {
     private const float MaxAxesRate = 40f;
+    internal const float MaxSpeed = 150f;
     
     public static float NormalizedSpeed(Controller aircraftController)
     {
+        return NormalizerHelper.ClampNP1(Speed(aircraftController) / MaxSpeed);
+    }
+    
+    private static float Speed(Controller aircraftController)
+    {
         var u = aircraftController.m_core.u;
         var v = aircraftController.m_core.v;
-        var speed = (float)Math.Sqrt((u * u) + (v * v)) * 1.944f;
-        return NormalizerHelper.ClampNP1(speed / 150f);
+        return (float)Math.Sqrt((u * u) + (v * v)) * 1.944f;
     }
         
     public static float NormalizedThrust(Controller aircraftController)
