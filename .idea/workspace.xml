@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9531e9fd-6a32-40dc-bf1f-1c005cd37f56" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/AircraftPPO.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Configs/AircraftPPO.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/ML-Agents/Timers/Training_timers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scenes/Training.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AircraftAI/Assets/Scripts/AircraftTakeOffAgent.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +147,7 @@
       <workItem from="1715673523671" duration="1175000" />
       <workItem from="1715708068070" duration="592000" />
       <workItem from="1715778244616" duration="4078000" />
+      <workItem from="1715948459744" duration="544000" />
     </task>
     <servers />
   </component>

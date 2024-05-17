@@ -229,6 +229,7 @@ public class AircraftTakeOffAgent : Agent
     
     private void SetDirectionDifferenceReward()
     {
+        if(Vector3.Distance(aircraftController.m_rigidbody.velocity, Vector3.zero) < 0.5f) return;
         var forwardVelocityDifference = (_dotVelRot - 1f) / 2f;
         var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
                                         forwardVelocityDifferencePenaltyMultiplier;

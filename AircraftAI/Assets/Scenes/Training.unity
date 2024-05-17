@@ -733,7 +733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606254924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.8922736, z: 0, w: -0.45149508}
+  m_LocalRotation: {x: 0, y: 0.91648227, z: 0, w: -0.40007526}
   m_LocalPosition: {x: 746, y: 0.9, z: 2985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -758,44 +758,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airportStartLeft:
     pivotTransform: {fileID: 552825618}
-    down: {x: 711.50256, y: 0.1599983, z: 3016.7322}
-    up: {x: 711.50256, y: 88.90896, z: 3016.7322}
-    downCurrent: {x: 355.03387, y: 0.1599983, z: 3172.587}
-    upCurrent: {x: 355.03387, y: 151.13673, z: 3172.587}
-    downTrain: {x: 70.54718, y: 0.1599983, z: 3304.6318}
-    upTrain: {x: 70.54718, y: 201.261, z: 3304.6318}
-    downSafe: {x: 358.87814, y: 0.1599983, z: 3163.4644}
-    downRandomReset: {x: 357.16202, y: 1.1599983, z: 3150.8318}
+    down: {x: 708.1256, y: 0.1599983, z: 3012.614}
+    up: {x: 708.1256, y: 88.90895, z: 3012.614}
+    downCurrent: {x: 708.1256, y: 0.1599983, z: 3012.614}
+    upCurrent: {x: 708.1256, y: 88.90895, z: 3012.614}
+    downTrain: {x: 43.462646, y: 0.1599983, z: 3234.984}
+    upTrain: {x: 43.462646, y: 200.909, z: 3234.984}
+    downSafe: {x: 712.9799, y: 0.1599983, z: 3003.9863}
+    downRandomReset: {x: 714.95966, y: 1.1599983, z: 2999.2861}
   airportStartRight:
     pivotTransform: {fileID: 1369214079}
-    down: {x: 694.4901, y: 0.1599983, z: 2974.0198}
-    up: {x: 694.4901, y: 88.90896, z: 2974.0198}
-    downCurrent: {x: 330.5135, y: 0.1599983, z: 3111.4302}
-    upCurrent: {x: 330.5135, y: 151.13673, z: 3111.4302}
-    downTrain: {x: 34.683655, y: 0.1599983, z: 3215.6094}
-    upTrain: {x: 34.683655, y: 201.261, z: 3215.6094}
-    downSafe: {x: 339.63608, y: 0.1599983, z: 3115.2744}
-    downRandomReset: {x: 346.907, y: 1.1599983, z: 3125.639}
+    down: {x: 696.0682, y: 0.1599983, z: 2968.2476}
+    up: {x: 696.0682, y: 88.90895, z: 2968.2476}
+    downCurrent: {x: 696.0682, y: 0.1599983, z: 2968.2476}
+    upCurrent: {x: 696.0682, y: 88.90895, z: 2968.2476}
+    downTrain: {x: 12.538757, y: 0.1599983, z: 3123.2078}
+    upTrain: {x: 12.538757, y: 200.909, z: 3123.2078}
+    downSafe: {x: 704.6958, y: 0.1599983, z: 2973.1018}
+    downRandomReset: {x: 708.49115, y: 1.1599983, z: 2976.1743}
   airportEndLeft:
     pivotTransform: {fileID: 1230260408}
-    down: {x: 1738.9415, y: 0.1599983, z: 2598.3384}
-    up: {x: 1738.9415, y: 88.90896, z: 2598.3384}
-    downCurrent: {x: 2102.9182, y: 0.1599983, z: 2460.928}
-    upCurrent: {x: 2102.9182, y: 151.13673, z: 2460.928}
-    downTrain: {x: 2398.748, y: 0.1599983, z: 2356.7488}
-    upTrain: {x: 2398.748, y: 201.261, z: 2356.7488}
-    downSafe: {x: 2093.7957, y: 0.1599983, z: 2457.0837}
-    downRandomReset: {x: 412.73428, y: 1.1599983, z: 3128.2107}
+    down: {x: 1776.3942, y: 0.1599983, z: 2713.4714}
+    up: {x: 1776.3942, y: 88.90895, z: 2713.4714}
+    downCurrent: {x: 1776.3942, y: 0.1599983, z: 2713.4714}
+    upCurrent: {x: 1776.3942, y: 88.90895, z: 2713.4714}
+    downTrain: {x: 2459.9236, y: 0.1599983, z: 2558.5112}
+    upTrain: {x: 2459.9236, y: 200.909, z: 2558.5112}
+    downSafe: {x: 1767.7666, y: 0.1599983, z: 2708.6172}
+    downRandomReset: {x: 772.7393, y: 1.1599983, z: 2983.1147}
   airportEndRight:
     pivotTransform: {fileID: 1316546270}
-    down: {x: 1721.9292, y: 0.1599983, z: 2555.626}
-    up: {x: 1721.9292, y: 88.90896, z: 2555.626}
-    downCurrent: {x: 2078.398, y: 0.1599983, z: 2399.7712}
-    upCurrent: {x: 2078.398, y: 151.13673, z: 2399.7712}
-    downTrain: {x: 2362.8845, y: 0.1599983, z: 2267.7263}
-    upTrain: {x: 2362.8845, y: 201.261, z: 2267.7263}
-    downSafe: {x: 2074.5537, y: 0.1599983, z: 2408.8938}
-    downRandomReset: {x: 402.47928, y: 1.1599983, z: 3103.0178}
+    down: {x: 1764.3369, y: 0.1599983, z: 2669.105}
+    up: {x: 1764.3369, y: 88.90895, z: 2669.105}
+    downCurrent: {x: 1764.3369, y: 0.1599983, z: 2669.105}
+    upCurrent: {x: 1764.3369, y: 88.90895, z: 2669.105}
+    downTrain: {x: 2429, y: 0.1599983, z: 2446.735}
+    upTrain: {x: 2429, y: 200.909, z: 2446.735}
+    downSafe: {x: 1759.4825, y: 0.1599983, z: 2677.7327}
+    downRandomReset: {x: 766.2708, y: 1.1599983, z: 2960.003}
   aircraftAgents:
   - {fileID: 4608920154714674734}
   trainingMode: 1
@@ -805,13 +805,13 @@ MonoBehaviour:
   showZonesGizmos: 1
   zExitOffsets: 30
   yExitOffsets: 30
-  extraRandomLength: 0.5538642
-  extraRandomWidth: 0.39827794
-  trainLengthBounds: 702.2
-  trainWidthBounds: 25
+  extraRandomLength: 0.79211926
+  extraRandomWidth: 0.788519
+  trainLengthBounds: 700
+  trainWidthBounds: 35
   heightMultiplier: 0.08
   zResetOffset: 40
-  xRandomResetArea: 13.6
+  xRandomResetArea: 12
   zRandomResetArea: 30
   safeZoneWidth: 7
   safeZoneLength: 7
