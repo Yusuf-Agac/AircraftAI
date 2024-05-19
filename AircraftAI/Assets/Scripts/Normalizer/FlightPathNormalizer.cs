@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
+using Oyedoyin.FixedWing;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class FlightPathNormalizer : MonoBehaviour
 {
     [Space(10)]
+    [SerializeField] private bool trainingMode = true;
+    
+    [Space(10)]
     [SerializeField] private Transform boundsRotator;
+    
     [Space(10)]
     [SerializeField] private AirportNormalizer departureAirport;
     [SerializeField] private Vector2 departureRandomRotationRange;
@@ -23,43 +28,41 @@ public class FlightPathNormalizer : MonoBehaviour
     [SerializeField] internal List<AircraftFlightAgent> aircraftAgents;
     
     [Space(10)]
-    [SerializeField] private bool trainingMode = true;
-    [Space(10)]
     public float penaltyRadius = 10;
     [SerializeField] private int numberOfPoints = 100;
     [SerializeField] private float curvePower = 1000;
 
     public Vector3 offset;
 
-    Vector3[] BezierPoints
-    {
-        get
-        {
-            var points = new Vector3[5];
-            var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
-            points[0] = departureAirport.AirportPositions.Exit;
-            points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-            points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
-            points[3] = arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-            points[4] = arrivalAirport.AirportPositions.Exit;
-            return points;
-        }
-    }
+    private Vector3[] _bezierPoints;
     
+#if UNITY_EDITOR
+    [InspectorButton("Reset Flight")]
+#endif
     public void ResetFlightAirportsTransform()
     {
-        boundsRotator.rotation = Quaternion.Euler(Vector3.zero);
-
         var departureEulerAnglesY = Random.Range(departureRandomRotationRange.x, departureRandomRotationRange.y);
-        departureAirport.transform.rotation = Quaternion.Euler(0, departureEulerAnglesY, 0);
+        departureAirport.transform.localRotation = Quaternion.Euler(0, departureEulerAnglesY, 0);
         
         var arrivalEulerAnglesY = Random.Range(arrivalRandomRotationRange.x, arrivalRandomRotationRange.y);
-        arrivalAirport.transform.rotation = Quaternion.Euler(0, arrivalEulerAnglesY, 0);
+        arrivalAirport.transform.localRotation = Quaternion.Euler(0, arrivalEulerAnglesY, 0);
         
         boundsRotator.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         
         departureAirport.transform.position = Vector3.Lerp(departureLerpFrom.position, departureLerpTo.position, Random.value);
         arrivalAirport.transform.position = Vector3.Lerp(arrivalLerpFrom.position, arrivalLerpTo.position, Random.value);
+        
+        departureAirport.RestoreAirport();
+        arrivalAirport.RestoreAirport();
+        
+        var points = new Vector3[5];
+        var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
+        points[0] = departureAirport.AirportPositions.Exit;
+        points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
+        points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
+        points[3] = arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
+        points[4] = arrivalAirport.AirportPositions.Exit;
+        _bezierPoints = points;
     }
     
     public void ResetAircraftPosition(Transform aircraft)
@@ -75,7 +78,7 @@ public class FlightPathNormalizer : MonoBehaviour
 
     private float ClosestOptimumPositionDistance(Vector3 aircraftPos)
     {
-        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, BezierPoints, numberOfPoints);
+        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, _bezierPoints, numberOfPoints);
         return Vector3.Distance(closestPoint, aircraftPos);
     }
     
@@ -99,7 +102,7 @@ public class FlightPathNormalizer : MonoBehaviour
         var positions = new Vector3[numOfOptimalPositions];
         for (var i = 0; i < numOfOptimalPositions; i++)
         {
-            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, BezierPoints, numberOfPoints, (i + 1) * gapBetweenOptimalPositions);
+            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, _bezierPoints, numberOfPoints, (i + 1) * gapBetweenOptimalPositions);
         }
         return positions;
     }
@@ -109,56 +112,86 @@ public class FlightPathNormalizer : MonoBehaviour
     {
         if(!departureAirport || !arrivalAirport) return;
         
-        var previousPoint = BezierCurveHelper.CalculateBezierPoint(0, BezierPoints);
+        GizmosDrawFlightPath();
+
+        GizmosDrawBezierControlPoints();
+        
+        GizmosDrawAgentsObservations();
+    }
+
+    private void GizmosDrawAgentsObservations()
+    {
+        foreach (var agent in aircraftAgents)
+        {
+            if(agent == null) continue;
+            GizmosDrawAgentMovement(agent);
+            GizmosDrawAgentOptimalPositionReward(agent);
+            GizmosDrawAgentOptimalDirection(agent);
+        }
+    }
+
+    private static void GizmosDrawAgentMovement(AircraftFlightAgent agent)
+    {
+        var speed = AircraftNormalizer.MaxSpeed * agent.normalizedSpeed;
+        var velocityDir = agent.normalizedVelocity;
+            
+        Gizmos.color = new Color(1 - speed, speed, 0, 1);
+        Gizmos.DrawRay(agent.transform.position, velocityDir * 15f);
+    }
+
+    private void GizmosDrawAgentOptimalDirection(AircraftFlightAgent agent)
+    {
+        Gizmos.color = Color.white;
+        agent.CalculateOptimalTransforms();
+        var optimalDirections = agent.optimalDirections;
+        foreach (var optimalDirection in optimalDirections)
+        {
+            Gizmos.DrawRay(agent.transform.position, optimalDirection * 10f);
+        }
+        var optimalPositions = OptimalDirectionPositions(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
+        foreach (var optimalPosition in optimalPositions)
+        {
+            Gizmos.DrawSphere(optimalPosition, 0.3f);
+            Gizmos.DrawLine(optimalPosition, agent.transform.position);
+        }
+    }
+
+    private void GizmosDrawAgentOptimalPositionReward(AircraftFlightAgent agent)
+    {
+        var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
+        var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
+        Gizmos.color = new Color(1 - reward, reward, 0, 1);
+        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, _bezierPoints, numberOfPoints);
+        Gizmos.DrawSphere(closestPointReward, 0.3f);
+        Gizmos.DrawLine(closestPointReward, agent.transform.position);
+    }
+
+    private void GizmosDrawFlightPath()
+    {
+        var previousPoint = BezierCurveHelper.CalculateBezierPoint(0, _bezierPoints);
         for (var i = 1; i < numberOfPoints + 1; i++)
         {
             Gizmos.color = Color.blue;
-            var point = BezierCurveHelper.CalculateBezierPoint(i / (float)numberOfPoints, BezierPoints);
+            var point = BezierCurveHelper.CalculateBezierPoint(i / (float)numberOfPoints, _bezierPoints);
             Gizmos.DrawLine(previousPoint, point);
             Gizmos.color = Color.red;
             if(i != numberOfPoints) DrawCircle(point, (point - previousPoint).normalized, penaltyRadius);
             previousPoint = point;
         }
+    }
 
-        for (var i = 1; i < BezierPoints.Length-1; i++)
+    private void GizmosDrawBezierControlPoints()
+    {
+        if (_bezierPoints != null)
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(BezierPoints[i], 30);
-        }
-        
-        foreach (var agent in aircraftAgents)
-        {
-            if(agent == null) continue;
-            
-            var controller = agent.aircraftController;
-            // VELOCITY
-            if (controller.m_core && controller.m_rigidbody)
+            for (var i = 1; i < _bezierPoints.Length-1; i++)
             {
-                var u = controller.m_core.u;
-                var v = controller.m_core.v;
-                var speed = Mathf.Clamp01(((float)Math.Sqrt((u * u) + (v * v)) * 1.944f) / 110f);
-                Gizmos.color = new Color(1 - speed, speed, 0, 1);
-                Gizmos.DrawRay(controller.transform.position, controller.m_rigidbody.velocity * 0.7f);
+                Gizmos.color = Color.blue;
+                Gizmos.DrawSphere(_bezierPoints[i], 30);
             }
-            
-            // OBSERVATION
-            Gizmos.color = Color.white;
-            var optimalPositions = OptimalDirectionPositions(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
-            foreach (var optimalPosition in optimalPositions)
-            {
-                Gizmos.DrawSphere(optimalPosition, 0.3f);
-                Gizmos.DrawLine(optimalPosition, agent.transform.position);
-            }
-            
-            // REWARD
-            var reward = Mathf.Clamp01(1 - NormalizedOptimalPositionDistance(controller.transform.position)) - Mathf.Clamp01(NormalizedOptimalPositionDistance(controller.transform.position));
-            Gizmos.color = new Color(1 - reward, reward, 0, 1);
-            var closestPointReward = BezierCurveHelper.FindClosestPosition(controller.transform.position, BezierPoints, numberOfPoints);
-            Gizmos.DrawSphere(closestPointReward, 0.3f);
-            Gizmos.DrawLine(closestPointReward, controller.transform.position);
         }
     }
-    
+
     private void DrawCircle(Vector3 position, Vector3 direction, float radius)
     {
         var rotation = Quaternion.LookRotation(direction + offset);
