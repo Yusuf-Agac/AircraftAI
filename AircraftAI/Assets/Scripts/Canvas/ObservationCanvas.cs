@@ -54,7 +54,9 @@ public class ObservationCanvas : MonoBehaviour
     [Space(10)]
     [SerializeField] private RectTransform windArrow;
     [SerializeField] private TMP_Text windSpeedText;
+    [SerializeField] private TMP_Text windSpeedNormalizedText;
     [SerializeField] private TMP_Text turbulenceText;
+    [SerializeField] private TMP_Text turbulenceNormalizedText;
     
     [Space(10)]
     [SerializeField] private TMP_Text posText;
@@ -84,7 +86,7 @@ public class ObservationCanvas : MonoBehaviour
         Vector3 axesTarget,
         Vector3 axesCurrent,
         Vector3 axesRate,
-        float windAngle, float windSpeed, float turbulence,
+        float windAngle, float windSpeed, float windSpeedNormalized, float turbulence, float turbulenceNormalized,
         Vector3 relativePosition, Vector3 relativeRotation,
         float[] collisionDistances)
     {
@@ -98,7 +100,7 @@ public class ObservationCanvas : MonoBehaviour
         DisplayAxesTargets(axesTarget);
         DisplayAxesCurrents(axesCurrent);
         DisplayAxesRates(axesRate);
-        DisplayWind(windAngle, windSpeed, turbulence);
+        DisplayWind(windAngle, windSpeed, windSpeedNormalized, turbulence, turbulenceNormalized);
         DisplayRelativeTransform(relativePosition, relativeRotation);
         DisplayCollisionDistances(collisionDistances);
     }
@@ -113,7 +115,7 @@ public class ObservationCanvas : MonoBehaviour
         Vector3 axesTarget,
         Vector3 axesCurrent,
         Vector3 axesRate,
-        float windAngle, float windSpeed, float turbulence)
+        float windAngle, float windSpeed, float windSpeedNormalized, float turbulence, float turbulenceNormalized)
     {
         DisplayBehaviourName("Flight");
         DisplayGlobalDirections(forward, up, upDot, downDot);
@@ -125,7 +127,7 @@ public class ObservationCanvas : MonoBehaviour
         DisplayAxesTargets(axesTarget);
         DisplayAxesCurrents(axesCurrent);
         DisplayAxesRates(axesRate);
-        DisplayWind(windAngle, windSpeed, turbulence);
+        DisplayWind(windAngle, windSpeed, windSpeedNormalized, turbulence, turbulenceNormalized);
     }
     
     private void DisplayBehaviourName(string behaviourName)
@@ -139,11 +141,11 @@ public class ObservationCanvas : MonoBehaviour
         DisplayRelativeRotation(relativeRotation);
     }
 
-    private void DisplayWind(float windAngle, float windSpeed, float turbulence)
+    private void DisplayWind(float windAngle, float windSpeed, float windSpeedNormalized, float turbulence, float turbulenceNormalized)
     {
-        RotateWindArrow(windAngle);
-        DisplayWindSpeed(windSpeed);
-        DisplayTurbulence(turbulence);
+        RotateWindArrow(windAngle, windSpeedNormalized);
+        DisplayWindSpeed(windSpeed, windSpeedNormalized);
+        DisplayTurbulence(turbulence, turbulenceNormalized);
     }
     
     private void DisplayInputs(float[] inputs)
@@ -254,9 +256,23 @@ public class ObservationCanvas : MonoBehaviour
     private void DisplayRollCurrent(float roll) => rollCurrentText.text = $"{roll:F2}";
     private void DisplayYawCurrent(float yaw) => yawCurrentText.text = $"{yaw:F2}";
     
-    private void RotateWindArrow(float angle) => windArrow.eulerAngles = new Vector3(0, 0, angle);
-    private void DisplayWindSpeed(float speed) => windSpeedText.text = $"Wind Speed: {speed:F2}";
-    private void DisplayTurbulence(float turbulence) => turbulenceText.text = $"Turbulence: {turbulence:F2}";
+    private void RotateWindArrow(float angle, float normalizedSpeed)
+    {
+        windArrow.transform.localScale = Vector3.one * Mathf.Clamp(normalizedSpeed, 0.3f, 1f);
+        windArrow.eulerAngles = new Vector3(0, 0, angle);
+    }
+
+    private void DisplayWindSpeed(float speed, float normalizedSpeed)
+    {
+        windSpeedText.text = $"Wind Speed: {speed:F2}";
+        windSpeedNormalizedText.text = $"WN: {normalizedSpeed:F2}";
+    }
+
+    private void DisplayTurbulence(float turbulence, float normalizedTurbulence)
+    {
+        turbulenceText.text = $"Turbulence: {turbulence:F2}";
+        turbulenceNormalizedText.text = $"TN: {normalizedTurbulence:F2}";
+    }
     
     private void DisplayRelativePosition(Vector3 relativePosition) => posText.text = $"{relativePosition}";
     private void DisplayRelativeRotation(Vector3 relativeRotation) => rotText.text = $"{relativeRotation}";
