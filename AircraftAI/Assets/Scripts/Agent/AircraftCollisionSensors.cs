@@ -40,6 +40,12 @@ public class AircraftCollisionSensors : MonoBehaviour
     {
         foreach (var sensor in sensors)
         {
+            if (!Physics.Raycast(sensor.transform.position, sensor.transform.forward, out var hit,
+                    sensor.maxDistance * observationMultiplier, layerMask: LayerMask.GetMask("Terrain")))
+            {
+                continue;
+            }
+                
             Gizmos.color = Color.red;
             Gizmos.DrawRay(sensor.transform.position, sensor.transform.forward * sensor.maxDistance);
             

@@ -13,33 +13,40 @@ public class AircraftTakeOffAgent : Agent
 {
     public bool trainingMode;
 
-    [Space(10)] [SerializeField] private float sparseRewardMultiplier = 1;
+    [Space(10)] 
+    [SerializeField] private float sparseRewardMultiplier = 1;
     [SerializeField] private float denseRewardMultiplier = 0.001f;
 
-    [Space(5)] [SerializeField] private float optimalDistanceRewardMultiplier = 8;
+    [Space(5)] 
+    [SerializeField] private float optimalDistanceRewardMultiplier = 8;
     [SerializeField] private float optimalDistancePenaltyMultiplier = 4;
     [SerializeField] private float actionDifferencePenaltyMultiplier = 4;
     [SerializeField] private float forwardVelocityDifferencePenaltyMultiplier = 4;
     [SerializeField] private float optimalVelocityDifferencePenaltyMultiplier = 4;
 
-    [Space(10)] public float windDirectionSpeed = 360;
+    [Space(10)] 
+    public float windDirectionSpeed = 360;
     public float trainingMaxWindSpeed = 5;
     public float maxWindSpeed = 5;
     public float trainingMaxTurbulence = 5;
     public float maxTurbulence = 5;
 
-    [Space(10)] [Range(1, 3)] public int numOfOptimalDirections = 1;
+    [Space(10)] 
+    [Range(1, 3)] public int numOfOptimalDirections = 1;
     [Range(1, 10)] public int gapBetweenOptimalDirections = 1;
 
-    [Space(10)] [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
+    [Space(10)] 
+    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
 
-    [Space(10)] public ObservationCanvas observationCanvas;
+    [Space(10)] 
+    public ObservationCanvas observationCanvas;
     public RewardCanvas rewardCanvas;
     public AirportNormalizer airportNormalizer;
     public FixedController aircraftController;
     public AircraftCollisionSensors sensors;
 
-    [Space(10)] public Slider pitchSlider;
+    [Space(10)] 
+    public Slider pitchSlider;
     public Slider rollSlider;
     public Slider throttleSlider;
 
@@ -170,7 +177,7 @@ public class AircraftTakeOffAgent : Agent
             _normalizedTargetAxes,
             _normalizedCurrentAxes,
             _normalizedAxesRates,
-            _windAngle, _windSpeed, _turbulence,
+            _windAngle, _windSpeed, _windData[1], _turbulence, _windData[2],
             _relativeAircraftPos, _relativeAircraftRot,
             _normalizedCollisionSensors
         );
@@ -230,14 +237,14 @@ public class AircraftTakeOffAgent : Agent
     private void SetDirectionDifferenceReward()
     {
         if(Vector3.Distance(aircraftController.m_rigidbody.velocity, Vector3.zero) < 0.5f) return;
-        var forwardVelocityDifference = (_dotVelRot - 1f) / 2f;
+        var forwardVelocityDifference = NormalizerHelper.ClampNP1((_dotVelRot - 0.995f) * 30f);
         var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
                                         forwardVelocityDifferencePenaltyMultiplier;
         AddReward(velocityDifferencePenalty);
         _denseRewards += velocityDifferencePenalty;
         _forwardVelocityDifferenceReward += velocityDifferencePenalty;
 
-        var optimalVelocityDifference = (_dotVelOpt - 1f) / 2f;
+        var optimalVelocityDifference = NormalizerHelper.ClampNP1((_dotVelOpt - 0.88f) * 10f);
         var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
                                                optimalVelocityDifferencePenaltyMultiplier;
         AddReward(optimalVelocityDifferencePenalty);
@@ -259,7 +266,7 @@ public class AircraftTakeOffAgent : Agent
 
     private void SetOptimalDistanceReward()
     {
-        var subtractedDistance = Mathf.Clamp01(1 - (_normalizedOptimalDistance * 3));
+        var subtractedDistance = Mathf.Clamp01(1 - _normalizedOptimalDistance);
         var distanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceRewardMultiplier;
         AddReward(distanceReward);
         _denseRewards += distanceReward;
