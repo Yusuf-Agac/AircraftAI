@@ -94,7 +94,9 @@ public class AirportNormalizer : MonoBehaviour
     [Range(0f, 1f), SerializeField] private float bezierPoint2 = 0.37f;
     [Range(0f, 1f), SerializeField] private float bezierPoint3 = 0.7f;
     
+#if UNITY_EDITOR
     [InspectorButton("Update Airport Transforms")]
+#endif
     public void RestoreAirport()
     {
         UpdateAirportTransforms();
@@ -187,9 +189,9 @@ public class AirportNormalizer : MonoBehaviour
     private void UpdateEdgeTransformsDownPositions(AirportEdgePositions edgePositions, int isStart, int isLeft)
     {
         edgePositions.down = edgePositions.pivotTransform.position;
-        edgePositions.downCurrent = trainingMode ? edgePositions.down + -isLeft * edgePositions.pivotTransform.right * extraRandomWidth * trainWidthBounds + -isStart * edgePositions.pivotTransform.forward * extraRandomLength * trainLengthBounds : edgePositions.pivotTransform.position;
-        edgePositions.downTrain = edgePositions.pivotTransform.position + (-isLeft * edgePositions.pivotTransform.right * trainWidthBounds) + (-isStart * edgePositions.pivotTransform.forward * trainLengthBounds);
-        edgePositions.downSafe = edgePositions.downCurrent + (isLeft * edgePositions.pivotTransform.right * safeZoneWidth) + (isStart * edgePositions.pivotTransform.forward * safeZoneLength);
+        edgePositions.downCurrent = trainingMode ? edgePositions.down + edgePositions.pivotTransform.right * (-isLeft * extraRandomWidth * trainWidthBounds) + edgePositions.pivotTransform.forward * (-isStart * extraRandomLength * trainLengthBounds) : edgePositions.pivotTransform.position;
+        edgePositions.downTrain = edgePositions.pivotTransform.position + (edgePositions.pivotTransform.right * (-isLeft * trainWidthBounds)) + (edgePositions.pivotTransform.forward * (-isStart * trainLengthBounds));
+        edgePositions.downSafe = edgePositions.downCurrent + (edgePositions.pivotTransform.right * (isLeft * safeZoneWidth)) + (edgePositions.pivotTransform.forward * (isStart * safeZoneLength));
     }
 
     private void UpdateEdgeTransformsUpPositions(AirportEdgePositions edgePositions, int isStart, int isLeft)
@@ -197,7 +199,7 @@ public class AirportNormalizer : MonoBehaviour
         edgePositions.up = edgePositions.down + Vector3.up * AirportPositions.MinHeight;
         edgePositions.upCurrent = edgePositions.downCurrent + Vector3.up * AirportPositions.Height;
         edgePositions.upTrain = edgePositions.downTrain + Vector3.up * AirportPositions.MaxHeight;
-        edgePositions.downRandomReset = AirportPositions.Reset + (-isLeft * edgePositions.pivotTransform.right * xRandomResetArea) + (-isStart * edgePositions.pivotTransform.forward * zRandomResetArea);
+        edgePositions.downRandomReset = AirportPositions.Reset + (edgePositions.pivotTransform.right * (-isLeft * xRandomResetArea)) + (edgePositions.pivotTransform.forward * (-isStart * zRandomResetArea));
     }
     
     public float GetNormalizedExitDistance(Vector3 position) => Vector3.Distance(AirportPositions.Exit, position) / AirportPositions.MaxDistance;
@@ -234,7 +236,7 @@ public class AirportNormalizer : MonoBehaviour
     public float NormalizedOptimalPositionDistance(Vector3 aircraftPos)
     {
         var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, AirportPositions.BezierPoints, numberOfBezierPoints);
-        var distance = Vector3.Distance(closestPoint, aircraftPos) / ((AirportPositions.Exit - AirportPositions.Reset).y);
+        var distance = Vector3.Distance(closestPoint, aircraftPos) / (Vector3.Distance(airportStartLeft.downCurrent, airportStartRight.downCurrent) / 3f);
         return Mathf.Clamp01(distance);
     }
     
@@ -267,7 +269,6 @@ public class AirportNormalizer : MonoBehaviour
         
         if (!trainingMode || showTrainingGizmos)
         {
-            Gizmos.color = trainingMode ? new Color(1, 0, 0, 0.2f) : Color.red;
             GizmosDrawAirportDefaultBounds();
         }
         
@@ -275,10 +276,8 @@ public class AirportNormalizer : MonoBehaviour
         {
             if (showTrainingGizmos)
             {
-                Gizmos.color = new Color(1, 1, 0, 0.2f);
                 GizmosDrawAirportDefaultTrainBounds();
             }
-            Gizmos.color = Color.red;
             GizmosDrawAirportCurrentBounds();
         }
 
@@ -287,7 +286,6 @@ public class AirportNormalizer : MonoBehaviour
             GizmosDrawAirportZones();
         }
         
-        Gizmos.color = new Color(0, 1, 0, 0.4f);
         GizmosDrawAirportStartExit();
 
         if (showBezierGizmos)
@@ -316,7 +314,7 @@ public class AirportNormalizer : MonoBehaviour
     private void GizmosDrawAgentOptimalPositionReward(AircraftTakeOffAgent agent)
     {
         var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
-        var reward = Mathf.Clamp01(1 - (optimalDistance * 3)) - Mathf.Clamp01(optimalDistance);
+        var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
         var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, AirportPositions.BezierPoints, numberOfBezierPoints);
         Gizmos.DrawSphere(closestPointReward, 0.3f);
@@ -346,11 +344,13 @@ public class AirportNormalizer : MonoBehaviour
         var velocityDir = agent.normalizedVelocity;
             
         Gizmos.color = new Color(1 - speed, speed, 0, 1);
-        Gizmos.DrawRay(agent.transform.position, velocityDir * 10f);
+        Gizmos.DrawRay(agent.transform.position, velocityDir * 15f);
     }
 
     private void GizmosDrawAirportStartExit()
     {
+        Gizmos.color = new Color(0, 1, 0, 0.4f);
+        
         Gizmos.DrawSphere(AirportPositions.Reset, 2f);
         Gizmos.DrawSphere(AirportPositions.Exit, 0.02f * AirportPositions.MaxDistance);
     }
@@ -393,6 +393,8 @@ public class AirportNormalizer : MonoBehaviour
 
     private void GizmosDrawAirportCurrentBounds()
     {
+        Gizmos.color = Color.red;
+        
         Gizmos.DrawLine(airportStartLeft.downCurrent, airportStartRight.downCurrent);
         Gizmos.DrawLine(airportEndLeft.downCurrent, airportEndRight.downCurrent);
         Gizmos.DrawLine(airportStartLeft.downCurrent, airportEndLeft.downCurrent);
@@ -421,6 +423,8 @@ public class AirportNormalizer : MonoBehaviour
 
     private void GizmosDrawAirportDefaultTrainBounds()
     {
+        Gizmos.color = new Color(1, 1, 0, 0.2f);
+        
         Gizmos.DrawLine(airportStartLeft.downTrain, airportStartRight.downTrain);
         Gizmos.DrawLine(airportEndLeft.downTrain, airportEndRight.downTrain);
         Gizmos.DrawLine(airportStartLeft.downTrain, airportEndLeft.downTrain);
@@ -449,6 +453,8 @@ public class AirportNormalizer : MonoBehaviour
 
     private void GizmosDrawAirportDefaultBounds()
     {
+        Gizmos.color = trainingMode ? new Color(1, 0, 0, 0.2f) : Color.red;
+        
         Gizmos.DrawLine(airportStartLeft.down, airportStartRight.down);
         Gizmos.DrawLine(airportEndLeft.down, airportEndRight.down);
         Gizmos.DrawLine(airportStartLeft.down, airportEndLeft.down);
