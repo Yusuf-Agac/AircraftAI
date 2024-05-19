@@ -5,9 +5,9 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public class SubclassPicker : PropertyAttribute { }
 
-#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(SubclassPicker))]
 public class SubclassPickerDrawer : PropertyDrawer
 {

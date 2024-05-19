@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEditor;
-
+#if UNITY_EDITOR
 [AttributeUsage(AttributeTargets.Method, Inherited = true, AllowMultiple = false)]
 public class InspectorButtonAttribute : PropertyAttribute
 {
@@ -39,3 +39,4 @@ public class InspectorButtonEditor : Editor
         }
     }
 }
+#endif

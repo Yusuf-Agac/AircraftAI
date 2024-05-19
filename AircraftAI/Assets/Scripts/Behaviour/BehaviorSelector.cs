@@ -2,9 +2,14 @@
 using Unity.MLAgents.Policies;
 using UnityEngine;
 
+
 public class BehaviorSelector : MonoBehaviour
 {
-    [SerializeReference, SubclassPicker] private BehaviorConfig[] behaviors;
+#if UNITY_EDITOR
+    [SerializeReference, SubclassPicker] 
+#endif
+    private BehaviorConfig[] behaviors;
+    
     private int _behaviorIndex;
 
     private BehaviorParameters _behaviorParameters;
