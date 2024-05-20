@@ -41,6 +41,20 @@ public class FlightPathNormalizer : MonoBehaviour
 #endif
     public void ResetFlightAirportsTransform()
     {
+        departureAirport.UpdateAirportTransforms();
+        arrivalAirport.UpdateAirportTransforms();
+        
+        var points = new Vector3[5];
+        var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
+        points[0] = departureAirport.AirportPositions.Exit;
+        points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
+        points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
+        points[3] = arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
+        points[4] = arrivalAirport.AirportPositions.Exit;
+        _bezierPoints = points;
+        
+        if(!trainingMode) return;
+        
         var departureEulerAnglesY = Random.Range(departureRandomRotationRange.x, departureRandomRotationRange.y);
         departureAirport.transform.localRotation = Quaternion.Euler(0, departureEulerAnglesY, 0);
         
@@ -55,8 +69,8 @@ public class FlightPathNormalizer : MonoBehaviour
         departureAirport.RestoreAirport();
         arrivalAirport.RestoreAirport();
         
-        var points = new Vector3[5];
-        var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
+        points = new Vector3[5];
+        dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
         points[0] = departureAirport.AirportPositions.Exit;
         points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
         points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;

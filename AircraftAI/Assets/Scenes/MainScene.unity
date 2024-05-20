@@ -259,44 +259,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airportStartLeft:
     pivotTransform: {fileID: 1958469618}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: -3614.4475, y: 120.86, z: 18612.193}
+    up: {x: -3614.4475, y: 533.8423, z: 18612.193}
+    downCurrent: {x: -3614.4475, y: 120.86, z: 18612.193}
+    upCurrent: {x: -3614.4475, y: 533.8423, z: 18612.193}
+    downTrain: {x: -3614.4475, y: 120.86, z: 18612.193}
+    upTrain: {x: -3614.4475, y: 533.8423, z: 18612.193}
+    downSafe: {x: -3615.301, y: 120.86, z: 18602.18}
+    downRandomReset: {x: -3626.596, y: 121.86, z: 18592.014}
   airportStartRight:
     pivotTransform: {fileID: 559262909}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: -3673.326, y: 120.86, z: 18611.33}
+    up: {x: -3673.326, y: 533.8423, z: 18611.33}
+    downCurrent: {x: -3673.326, y: 120.86, z: 18611.33}
+    upCurrent: {x: -3673.326, y: 533.8423, z: 18611.33}
+    downTrain: {x: -3673.326, y: 120.86, z: 18611.33}
+    upTrain: {x: -3673.326, y: 533.8423, z: 18611.33}
+    downSafe: {x: -3672.1794, y: 120.86, z: 18601.348}
+    downRandomReset: {x: -3660.5925, y: 121.86, z: 18591.514}
   airportEndLeft:
     pivotTransform: {fileID: 703874155}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: -3554.0022, y: 120.86, z: 14482.951}
+    up: {x: -3554.0022, y: 533.8423, z: 14482.951}
+    downCurrent: {x: -3554.0022, y: 120.86, z: 14482.951}
+    upCurrent: {x: -3554.0022, y: 533.8423, z: 14482.951}
+    downTrain: {x: -3554.0022, y: 120.86, z: 14482.951}
+    upTrain: {x: -3554.0022, y: 533.8423, z: 14482.951}
+    downSafe: {x: -3555.1487, y: 120.86, z: 14492.936}
+    downRandomReset: {x: -3625.863, y: 121.86, z: 18542.018}
   airportEndRight:
     pivotTransform: {fileID: 962001493}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: -3612.8213, y: 120.86, z: 14481.8125}
+    up: {x: -3612.8213, y: 533.8423, z: 14481.8125}
+    downCurrent: {x: -3612.8213, y: 120.86, z: 14481.8125}
+    upCurrent: {x: -3612.8213, y: 533.8423, z: 14481.8125}
+    downTrain: {x: -3612.8213, y: 120.86, z: 14481.8125}
+    upTrain: {x: -3612.8213, y: 533.8423, z: 14481.8125}
+    downSafe: {x: -3611.9678, y: 120.86, z: 14491.826}
+    downRandomReset: {x: -3659.8596, y: 121.86, z: 18541.518}
   aircraftAgents: []
   trainingMode: 0
   showBezierGizmos: 1
@@ -897,44 +897,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airportStartLeft:
     pivotTransform: {fileID: 552825618}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: 5732.6416, y: 50.304188, z: -17160.945}
+    up: {x: 5732.6416, y: 196.87933, z: -17160.945}
+    downCurrent: {x: 5732.6416, y: 50.304188, z: -17160.945}
+    upCurrent: {x: 5732.6416, y: 196.87933, z: -17160.945}
+    downTrain: {x: 5732.6416, y: 50.304188, z: -17160.945}
+    upTrain: {x: 5732.6416, y: 196.87933, z: -17160.945}
+    downSafe: {x: 5723.595, y: 50.304188, z: -17165.322}
+    downRandomReset: {x: 5708.042, y: 51.304188, z: -17159.094}
   airportStartRight:
     pivotTransform: {fileID: 1369214079}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: 5701.848, y: 50.304188, z: -17110.754}
+    up: {x: 5701.848, y: 196.87933, z: -17110.754}
+    downCurrent: {x: 5701.848, y: 50.304188, z: -17110.754}
+    upCurrent: {x: 5701.848, y: 196.87933, z: -17110.754}
+    downTrain: {x: 5701.848, y: 50.304188, z: -17110.754}
+    upTrain: {x: 5701.848, y: 196.87933, z: -17110.754}
+    downSafe: {x: 5693.8477, y: 50.304188, z: -17116.834}
+    downRandomReset: {x: 5692.3535, y: 51.304188, z: -17133.523}
   airportEndLeft:
     pivotTransform: {fileID: 1230260408}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: 3650.3792, y: 50.304188, z: -18438.457}
+    up: {x: 3650.3792, y: 196.87933, z: -18438.457}
+    downCurrent: {x: 3650.3792, y: 50.304188, z: -18438.457}
+    upCurrent: {x: 3650.3792, y: 196.87933, z: -18438.457}
+    downTrain: {x: 3650.3792, y: 50.304188, z: -18438.457}
+    upTrain: {x: 3650.3792, y: 196.87933, z: -18438.457}
+    downSafe: {x: 3658.38, y: 50.304188, z: -18432.377}
+    downRandomReset: {x: 5665.424, y: 51.304188, z: -17185.242}
   airportEndRight:
     pivotTransform: {fileID: 1316546270}
-    down: {x: 0, y: 0, z: 0}
-    up: {x: 0, y: 0, z: 0}
-    downCurrent: {x: 0, y: 0, z: 0}
-    upCurrent: {x: 0, y: 0, z: 0}
-    downTrain: {x: 0, y: 0, z: 0}
-    upTrain: {x: 0, y: 0, z: 0}
-    downSafe: {x: 0, y: 0, z: 0}
-    downRandomReset: {x: 0, y: 0, z: 0}
+    down: {x: 3619.5854, y: 50.304188, z: -18388.266}
+    up: {x: 3619.5854, y: 196.87933, z: -18388.266}
+    downCurrent: {x: 3619.5854, y: 50.304188, z: -18388.266}
+    upCurrent: {x: 3619.5854, y: 196.87933, z: -18388.266}
+    downTrain: {x: 3619.5854, y: 50.304188, z: -18388.266}
+    upTrain: {x: 3619.5854, y: 196.87933, z: -18388.266}
+    downSafe: {x: 3628.632, y: 50.304188, z: -18383.889}
+    downRandomReset: {x: 5649.7354, y: 51.304188, z: -17159.672}
   aircraftAgents:
   - {fileID: 869324147}
   trainingMode: 0
@@ -987,20 +987,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37bc0e1c7f8b9449b7a6309ce45059b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trainingMode: 0
   boundsRotator: {fileID: 0}
-  departureAirport: {fileID: 0}
+  departureAirport: {fileID: 606254926}
   departureRandomRotationRange: {x: 0, y: 0}
   departureLerpFrom: {fileID: 0}
   departureLerpTo: {fileID: 0}
-  arrivalAirport: {fileID: 0}
+  arrivalAirport: {fileID: 18515004}
   arrivalRandomRotationRange: {x: 0, y: 0}
   arrivalLerpFrom: {fileID: 0}
   arrivalLerpTo: {fileID: 0}
   aircraftAgents: []
-  trainingMode: 0
-  penaltyRadius: 40
-  numberOfPoints: 100
-  curvePower: 1000
+  penaltyRadius: 55
+  numberOfPoints: 220
+  curvePower: 8000
   offset: {x: 0, y: 90, z: 0}
 --- !u!4 &608748170
 Transform:
@@ -1150,6 +1150,84 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1001 &836702210
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5671.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 51.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17164.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.47531718
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.87981457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -123.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509382747687662, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: rewardCanvas
+      value: 
+      objectReference: {fileID: 1550059899}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: observationCanvas
+      value: 
+      objectReference: {fileID: 1550059900}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: flightPathNormalizer
+      value: 
+      objectReference: {fileID: 608748169}
+    - target: {fileID: 6895609739598734724, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: m_Name
+      value: Cessna 182 Skylane_Flight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895609739598734724, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1dd03ca6b8838d74ebdfd01dd697434b, type: 3}
 --- !u!1001 &844128717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49794,3 +49872,4 @@ SceneRoots:
   - {fileID: 606254925}
   - {fileID: 1287982653032503083}
   - {fileID: 844128717}
+  - {fileID: 836702210}

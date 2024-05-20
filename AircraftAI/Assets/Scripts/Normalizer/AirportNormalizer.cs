@@ -128,7 +128,7 @@ public class AirportNormalizer : MonoBehaviour
         aircraft.rotation = Quaternion.LookRotation(AirportPositions.Direction);
     }
     
-    private void UpdateAirportTransforms()
+    public void UpdateAirportTransforms()
     {
         UpdateEdgeTransformsDownPositions(airportStartLeft, 1, 1);
         UpdateEdgeTransformsDownPositions(airportStartRight, 1, -1);
