@@ -309,7 +309,7 @@ namespace Oyedoyin.Common
         /// <summary>
         /// 
         /// </summary>
-        public void SetAgentInputs(ActionBuffers actionBuffer, float manoeuvreSpeed, float throttleSpeed = 0, bool onGround = false)
+        public void SetAgentInputs(ActionBuffers actionBuffer, float manoeuvreSpeed, float throttleSpeed = 5, bool onGround = false)
         {
             _targetPitchInput = actionBuffer.ContinuousActions[0];
             _targetRollInput = actionBuffer.ContinuousActions[1];

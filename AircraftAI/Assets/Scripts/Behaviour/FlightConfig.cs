@@ -8,12 +8,7 @@ using UnityEngine.UI;
 class FlightConfig : BehaviorConfig
 {
     [Space(10)]
-    [SerializeField] private ObservationCanvas observationCanvas;
     [SerializeField] private FlightPathNormalizer flightPathNormalizer;
-    [SerializeField] private FixedController aircraftController;
-    [SerializeField] private Slider pitchSlider;
-    [SerializeField] private Slider rollSlider;
-    [SerializeField] private Slider throttleSlider;
     
     public override void SetBehaviorComponent(Transform transform)
     {
@@ -26,6 +21,7 @@ class FlightConfig : BehaviorConfig
         
         aircraftFlightAgent.trainingMode = false;
         aircraftFlightAgent.manoeuvreSpeed = manoeuvreSpeed;
+        aircraftFlightAgent.windDirectionSpeed = windDirectionSpeed;
         aircraftFlightAgent.maxWindSpeed = maxWindSpeed;
         aircraftFlightAgent.maxTurbulence = maxTurbulence;
         aircraftFlightAgent.numOfOptimalDirections = numOfOptimumDirections;
@@ -36,10 +32,8 @@ class FlightConfig : BehaviorConfig
         flightPathNormalizer.aircraftAgents.Add(aircraftFlightAgent);
         
         aircraftFlightAgent.observationCanvas = observationCanvas;
+        aircraftFlightAgent.rewardCanvas = rewardCanvas;
         aircraftFlightAgent.aircraftController = aircraftController;
-        aircraftFlightAgent.pitchSlider = pitchSlider;
-        aircraftFlightAgent.rollSlider = rollSlider;
-        aircraftFlightAgent.yawSlider = throttleSlider;
         
         AddDecisionRequester(transform);
     }

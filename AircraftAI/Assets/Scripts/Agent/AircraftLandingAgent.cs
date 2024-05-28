@@ -30,10 +30,10 @@ public class AircraftLandingAgent : Agent
 
     [Space(10)] 
     public float windDirectionSpeed = 360;
-    public float trainingMaxWindSpeed = 5;
-    public float maxWindSpeed = 5;
-    public float trainingMaxTurbulence = 5;
-    public float maxTurbulence = 5;
+    public float trainingMaxWindSpeed = 15;
+    public float maxWindSpeed = 15;
+    public float trainingMaxTurbulence = 15;
+    public float maxTurbulence = 15;
 
     [Space(10)] 
     [Range(1, 3)] public int numOfOptimalDirections = 1;
@@ -122,9 +122,7 @@ public class AircraftLandingAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        observationCanvas.ChangeMode(2);
-        rewardCanvas.ChangeMode(2);
-        aircraftController.m_wheels.EngageBrakes();
+        StartCoroutine(AfterStart());
         
         if (!trainingMode) return;
         
@@ -483,7 +481,14 @@ public class AircraftLandingAgent : Agent
         return directions.Select(DirectionToNormalizedRotation).ToArray();
     }
         
-
+    private IEnumerator AfterStart()
+    {
+        yield return null;
+        observationCanvas.ChangeMode(2);
+        rewardCanvas.ChangeMode(2);
+        aircraftController.m_wheels.EngageBrakes();
+    }
+    
     private IEnumerator ResetPhysics()
     {
         _episodeStarted = false;

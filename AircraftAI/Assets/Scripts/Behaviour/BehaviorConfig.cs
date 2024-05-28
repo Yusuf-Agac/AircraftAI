@@ -1,4 +1,5 @@
 ﻿using System;
+using Oyedoyin.FixedWing;
 using Unity.Barracuda;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
@@ -18,11 +19,16 @@ abstract class BehaviorConfig
     
     [Space(10)]
     [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
+    [SerializeField] protected float windDirectionSpeed = 360;
     [SerializeField] protected float maxWindSpeed = 5;
     [SerializeField] protected float maxTurbulence = 5;
     [SerializeField] protected int numOfOptimumDirections = 2;
     [SerializeField] protected int gapBetweenOptimumDirections = 2;
     [SerializeField] protected int maxStep = 2500000;
+    [Space(10)]
+    [SerializeField] protected ObservationCanvas observationCanvas;
+    [SerializeField] protected RewardCanvas rewardCanvas;
+    [SerializeField] protected FixedController aircraftController;
     
     [Space(10)]
     protected Agent Agent;

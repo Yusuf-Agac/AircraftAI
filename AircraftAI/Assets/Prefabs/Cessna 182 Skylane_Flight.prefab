@@ -30778,7 +30778,7 @@ MonoBehaviour:
   aircraftController: {fileID: 9217060184409094024}
   pitchSlider: {fileID: 0}
   rollSlider: {fileID: 0}
-  throttleSlider: {fileID: 0}
+  yawSlider: {fileID: 0}
   normalizedSpeed: 0
   normalizedVelocity: {x: 0, y: 0, z: 0}
   optimalDirections:
@@ -31476,6 +31476,7 @@ MonoBehaviour:
     _yawInput: 0
     _yawTrimInput: 0
     _hatViewInput: {x: 0, y: 0}
+    _targetThrottleInput: 0
   m_originShift:
     m_sceneState: 0
     m_particleCollection: 1

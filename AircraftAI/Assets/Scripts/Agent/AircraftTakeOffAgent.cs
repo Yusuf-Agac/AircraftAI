@@ -27,10 +27,10 @@ public class AircraftTakeOffAgent : Agent
 
     [Space(10)] 
     public float windDirectionSpeed = 360;
-    public float trainingMaxWindSpeed = 5;
-    public float maxWindSpeed = 5;
-    public float trainingMaxTurbulence = 5;
-    public float maxTurbulence = 5;
+    public float trainingMaxWindSpeed = 15;
+    public float maxWindSpeed = 15;
+    public float trainingMaxTurbulence = 15;
+    public float maxTurbulence = 15;
 
     [Space(10)] 
     [Range(1, 3)] public int numOfOptimalDirections = 1;
@@ -111,11 +111,16 @@ public class AircraftTakeOffAgent : Agent
         if (trainingMode)
         {
             airportNormalizer.RestoreAirport();
-            aircraftController.RestoreAircraft();
-            airportNormalizer.ResetAircraftTransformTakeOff(transform);
             ResetAtmosphereBounds();
         }
-
+        else
+        {
+            airportNormalizer.UpdateAirportTransforms();
+        }
+        aircraftController.RestoreAircraft();
+        airportNormalizer.ResetAircraftTransformTakeOff(transform);
+        
+        rewardCanvas.ChangeMode(0);
         observationCanvas.ChangeMode(0);
         StartCoroutine(ResetPhysics());
     }
@@ -195,12 +200,15 @@ public class AircraftTakeOffAgent : Agent
         {
             if (AircraftArrivedExit())
             {
-                SetSparseReward(true);
-                LogRewardsOnEpisodeEnd(true);
-                if (trainingMode) EndEpisode();
+                if (trainingMode)
+                {
+                    SetSparseReward(true);
+                    LogRewardsOnEpisodeEnd(true);
+                    EndEpisode();
+                }
                 else if (_behaviorSelector) _behaviorSelector.SelectNextBehavior();
             }
-            else if (IsEpisodeFailed())
+            else if (IsEpisodeFailed() && trainingMode)
             {
                 SetSparseReward(false);
                 LogRewardsOnEpisodeEnd(false);

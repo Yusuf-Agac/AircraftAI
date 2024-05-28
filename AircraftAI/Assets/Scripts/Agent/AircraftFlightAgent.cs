@@ -28,10 +28,10 @@ public class AircraftFlightAgent : Agent
 
     [Space(10)] 
     public float windDirectionSpeed = 360;
-    public float trainingMaxWindSpeed = 5;
-    public float maxWindSpeed = 5;
-    public float trainingMaxTurbulence = 5;
-    public float maxTurbulence = 5;
+    public float trainingMaxWindSpeed = 15;
+    public float maxWindSpeed = 15;
+    public float trainingMaxTurbulence = 15;
+    public float maxTurbulence = 15;
 
     [Space(10)] 
     [Range(1, 3)] public int numOfOptimalDirections = 1;
@@ -94,14 +94,14 @@ public class AircraftFlightAgent : Agent
 
     private void Start()
     {
+        _behaviorSelector = GetComponent<BehaviorSelector>();
         aircraftController = GetComponent<FixedController>();
         _decisionRequester = GetComponent<DecisionRequester>();
     }
 
     public override void OnEpisodeBegin()
     {
-        observationCanvas.ChangeMode(1);
-        rewardCanvas.ChangeMode(1);
+        StartCoroutine(AfterFrameStart());
         
         if (!trainingMode) return;
         
@@ -176,15 +176,22 @@ public class AircraftFlightAgent : Agent
         {
             if (AircraftArrivedExit(arriveDistance))
             {
-                SetSparseReward(true);
-                LogRewardsOnEpisodeEnd(true);
-                EndEpisode();
+                if (trainingMode)
+                {
+                    SetSparseReward(true);
+                    LogRewardsOnEpisodeEnd(true);
+                    EndEpisode();
+                }
+                else if (_behaviorSelector) _behaviorSelector.SelectNextBehavior();
             }
             else if (IsEpisodeFailed(distanceToRoute, illegalAircraftRotation))
             {
-                SetSparseReward(false);
-                LogRewardsOnEpisodeEnd(false);
-                EndEpisode();
+                if (trainingMode)
+                {
+                    SetSparseReward(false);
+                    LogRewardsOnEpisodeEnd(false);
+                    EndEpisode();   
+                }
             }
             else
             {
@@ -353,6 +360,15 @@ public class AircraftFlightAgent : Agent
         maxTurbulence = Random.Range(0, trainingMaxTurbulence);
     }
 
+    private IEnumerator AfterFrameStart()
+    {
+        yield return null;
+        observationCanvas.ChangeMode(1);
+        rewardCanvas.ChangeMode(1);
+        flightPathNormalizer.ResetFlightAirportsTransform();
+        if (!trainingMode) _episodeStarted = true;
+    }
+    
     private IEnumerator ResetPhysics()
     {
         _episodeStarted = false;
