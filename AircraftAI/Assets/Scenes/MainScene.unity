@@ -482,6 +482,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cessna 182 Skylane_Landing
       objectReference: {fileID: 0}
+    - target: {fileID: 838858924935534284, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
         type: 3}
       propertyPath: rewardCanvas
@@ -507,18 +512,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4076ecbe319d550489f1279819fa4970, type: 3}
---- !u!114 &153989646 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
-    type: 3}
-  m_PrefabInstance: {fileID: 153989645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f25bc08469480198b349c3f371d8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!21 &397281797
 Material:
   serializedVersion: 8
@@ -1042,8 +1035,7 @@ MonoBehaviour:
     downSafe: {x: 3628.632, y: 50.304188, z: -18383.889}
     downRandomReset: {x: 5649.7354, y: 51.304188, z: -17159.672}
   aircraftTakeOffAgents: []
-  aircraftLandingAgents:
-  - {fileID: 153989646}
+  aircraftLandingAgents: []
   trainingMode: 0
   landingMode: 0
   showBezierGizmos: 1
@@ -1312,9 +1304,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
+      propertyPath: maxWindSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
       propertyPath: rewardCanvas
       value: 
       objectReference: {fileID: 1550059899}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: maxTurbulence
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
       propertyPath: observationCanvas
@@ -1325,6 +1327,16 @@ PrefabInstance:
       propertyPath: flightPathNormalizer
       value: 
       objectReference: {fileID: 608748169}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: trainingMaxWindSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
+      propertyPath: trainingMaxTurbulence
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6895609739598734724, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
       propertyPath: m_Name
@@ -1993,18 +2005,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4899c9cfe44949b1581f4f427ceadf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1694023746 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6472610605687219428, guid: 4076ecbe319d550489f1279819fa4970,
-    type: 3}
-  m_PrefabInstance: {fileID: 153989645}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1764134948
@@ -2713,7 +2713,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_display.m_vehicle
       value: 
-      objectReference: {fileID: 1694023746}
+      objectReference: {fileID: 4620621824570532261}
     - target: {fileID: 3239463906863180046, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -24171,7 +24171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraFocus: 0
   cameraState: 1
-  cameraMode: 0
+  cameraMode: 2
   startState: 1
   attachment: 0
   exteriorObject: {fileID: 0}
@@ -38911,13 +38911,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7604185113641932977}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.03979509, y: 0.24509189, z: -0.010069316, w: 0.96863055}
+  m_LocalPosition: {x: -4.69, y: 1.33, z: -8.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6670924774347279585}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.705, y: 28.399, z: 0}
 --- !u!33 &6766279629686913248
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -40058,7 +40058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6936683551616775082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40074,6 +40074,7 @@ MonoBehaviour:
   behaviors:
   - rid: 2305832271958769665
   - rid: 2305832271958769667
+  - rid: 2305832667923873792
   references:
     version: 2
     RefIds:
@@ -40081,45 +40082,64 @@ MonoBehaviour:
       type: {class: TakeOffConfig, ns: , asm: Assembly-CSharp}
       data:
         behaviorName: AircraftTakeOff
-        spaceSize: 39
+        spaceSize: 51
         continuousActions: 3
-        model: {fileID: 5022602860645237092, guid: ca16f8dce52da4d459c28f463b2eec75,
+        model: {fileID: 5022602860645237092, guid: 38ec8ff5e5dc1924481c73256624ff4b,
           type: 3}
         decisionPeriod: 1
-        manoeuvreSpeed: 25
-        maxWindSpeed: 5
-        maxTurbulence: 5
-        numOfOptimumDirections: 3
-        gapBetweenOptimumDirections: 25
+        manoeuvreSpeed: 10
+        windDirectionSpeed: 360
+        maxWindSpeed: 7
+        maxTurbulence: 7
+        numOfOptimumDirections: 1
+        gapBetweenOptimumDirections: 3
         maxStep: 2500000
+        observationCanvas: {fileID: 1550059900}
+        rewardCanvas: {fileID: 1550059899}
+        aircraftController: {fileID: 4620621824570532261}
         airportNormalizer: {fileID: 606254926}
         sensors: {fileID: 6372712999388639277}
-        observationCanvas: {fileID: 0}
-        aircraftController: {fileID: 4620621824570532261}
-        pitchSlider: {fileID: 0}
-        rollSlider: {fileID: 0}
-        throttleSlider: {fileID: 0}
     - rid: 2305832271958769667
       type: {class: FlightConfig, ns: , asm: Assembly-CSharp}
       data:
         behaviorName: AircraftFlight
-        spaceSize: 25
+        spaceSize: 41
         continuousActions: 3
-        model: {fileID: 5022602860645237092, guid: ac62b3effd72b254dbccba52366b666d,
+        model: {fileID: 5022602860645237092, guid: a773eefaf7427754f92d346dae2bbc84,
           type: 3}
         decisionPeriod: 1
-        manoeuvreSpeed: 25
+        manoeuvreSpeed: 10
+        windDirectionSpeed: 360
+        maxWindSpeed: 7
+        maxTurbulence: 7
+        numOfOptimumDirections: 1
+        gapBetweenOptimumDirections: 1
+        maxStep: 2500000
+        observationCanvas: {fileID: 1550059900}
+        rewardCanvas: {fileID: 1550059899}
+        aircraftController: {fileID: 4620621824570532261}
+        flightPathNormalizer: {fileID: 608748169}
+    - rid: 2305832667923873792
+      type: {class: LandingConfig, ns: , asm: Assembly-CSharp}
+      data:
+        behaviorName: AircraftLanding
+        spaceSize: 55
+        continuousActions: 4
+        model: {fileID: 5022602860645237092, guid: 692034cb73f552a4ca0b22bcf4948c66,
+          type: 3}
+        decisionPeriod: 1
+        manoeuvreSpeed: 10
+        windDirectionSpeed: 360
         maxWindSpeed: 5
         maxTurbulence: 5
-        numOfOptimumDirections: 3
-        gapBetweenOptimumDirections: 50
+        numOfOptimumDirections: 1
+        gapBetweenOptimumDirections: 3
         maxStep: 2500000
-        observationCanvas: {fileID: 0}
-        flightPathNormalizer: {fileID: 608748169}
+        observationCanvas: {fileID: 1550059900}
+        rewardCanvas: {fileID: 1550059899}
         aircraftController: {fileID: 4620621824570532261}
-        pitchSlider: {fileID: 0}
-        rollSlider: {fileID: 0}
-        throttleSlider: {fileID: 0}
+        airportNormalizer: {fileID: 18515004}
+        sensors: {fileID: 6372712999388639277}
 --- !u!4 &6939533606337299888
 Transform:
   m_ObjectHideFlags: 0
