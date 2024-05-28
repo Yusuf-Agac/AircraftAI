@@ -7,6 +7,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -48,7 +49,7 @@ public class AircraftFlightAgent : Agent
     [Space(10)] 
     public Slider pitchSlider;
     public Slider rollSlider;
-    public Slider throttleSlider;
+    [FormerlySerializedAs("throttleSlider")] public Slider yawSlider;
 
     private DecisionRequester _decisionRequester;
     private BehaviorSelector _behaviorSelector;
@@ -100,6 +101,8 @@ public class AircraftFlightAgent : Agent
     public override void OnEpisodeBegin()
     {
         observationCanvas.ChangeMode(1);
+        rewardCanvas.ChangeMode(1);
+        
         if (!trainingMode) return;
         
         ResetAtmosphereBounds();
@@ -279,7 +282,7 @@ public class AircraftFlightAgent : Agent
         var continuousActionsOut = actionsOut.ContinuousActions;
         continuousActionsOut[0] = pitchSlider.value;
         continuousActionsOut[1] = rollSlider.value;
-        continuousActionsOut[2] = throttleSlider.value;
+        continuousActionsOut[2] = yawSlider.value;
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
 

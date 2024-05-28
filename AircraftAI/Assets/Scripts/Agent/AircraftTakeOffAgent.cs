@@ -6,6 +6,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -48,7 +49,7 @@ public class AircraftTakeOffAgent : Agent
     [Space(10)] 
     public Slider pitchSlider;
     public Slider rollSlider;
-    public Slider throttleSlider;
+    [FormerlySerializedAs("throttleSlider")] public Slider yawSlider;
 
     private DecisionRequester _decisionRequester;
     private BehaviorSelector _behaviorSelector;
@@ -111,7 +112,7 @@ public class AircraftTakeOffAgent : Agent
         {
             airportNormalizer.RestoreAirport();
             aircraftController.RestoreAircraft();
-            airportNormalizer.ResetAircraftTransform(transform);
+            airportNormalizer.ResetAircraftTransformTakeOff(transform);
             ResetAtmosphereBounds();
         }
 
@@ -230,7 +231,7 @@ public class AircraftTakeOffAgent : Agent
         var continuousActionsOut = actionsOut.ContinuousActions;
         continuousActionsOut[0] = pitchSlider.value;
         continuousActionsOut[1] = rollSlider.value;
-        continuousActionsOut[2] = throttleSlider.value;
+        continuousActionsOut[2] = yawSlider.value;
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
     
@@ -341,9 +342,9 @@ public class AircraftTakeOffAgent : Agent
 
     public void CalculateOptimalTransforms()
     {
-        _normalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
+        _normalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistanceTakeOff(transform.position);
         optimalDirections =
-            airportNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+            airportNormalizer.OptimalDirectionsTakeOff(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
 
