@@ -1,45 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
-
-[Serializable]
-public class AirportEdgePositions
-{
-    public Transform pivotTransform;
-
-    [HideInInspector] public Vector3 down;
-    [HideInInspector] public Vector3 up;
-    [HideInInspector] public Vector3 downCurrent;
-    [HideInInspector] public Vector3 upCurrent;
-    [HideInInspector] public Vector3 downTrain;
-    [HideInInspector] public Vector3 upTrain;
-    [HideInInspector] public Vector3 downSafe;
-    [HideInInspector] public Vector3 downRandomReset;
-}
-
-public class AirportPositions
-{
-    public Vector3 DownCurrentStart;
-    public Vector3 DownCurrentEnd;
-    public Vector3 UpStart;
-    public Vector3 UpEnd;
-    
-    public float Height;
-    public float MaxHeight;
-    public float MinHeight;
-    public Vector3 Direction;
-    public float MaxDistance;
-    
-    public Vector3 Reset;
-    public Vector3 Exit;
-    
-    public Vector3 BezierControlPoint1;
-    public Vector3 BezierControlPoint2;
-    public Vector3 BezierControlPoint3;
-    
-    public Vector3[] BezierPoints;
-}
 
 public class AirportNormalizer : MonoBehaviour
 {
@@ -50,11 +12,13 @@ public class AirportNormalizer : MonoBehaviour
 
     public readonly AirportPositions AirportPositions = new();
     
-    [Space(10)] 
-    public List<AircraftTakeOffAgent> aircraftAgents;
+    [FormerlySerializedAs("aircraftAgents")] [Space(10)] 
+    public List<AircraftTakeOffAgent> aircraftTakeOffAgents;
+    public List<AircraftLandingAgent> aircraftLandingAgents;
 
     [Header("Configurations")]
     public bool trainingMode;
+    public bool landingMode;
     
     [Space(10)] 
     [SerializeField] private bool showBezierGizmos;
@@ -75,7 +39,8 @@ public class AirportNormalizer : MonoBehaviour
     public float trainWidthBounds;
 
     [Space(10)] 
-    public float heightMultiplier = 0.1f;
+    public float heightMultiplier = 0.07f;
+    public float landingHeightMultiplier = 0.7f;
     
     [Space(10)]
     public float zResetOffset = 45f;
@@ -90,9 +55,14 @@ public class AirportNormalizer : MonoBehaviour
     
     [Space(10)] 
     [SerializeField] private int numberOfBezierPoints = 100;
-    [Range(0f, 1f), SerializeField] private float bezierPoint1 = 0.35f;
-    [Range(0f, 1f), SerializeField] private float bezierPoint2 = 0.37f;
-    [Range(0f, 1f), SerializeField] private float bezierPoint3 = 0.7f;
+    [Space(10)] 
+    [FormerlySerializedAs("bezierPoint1")] [Range(0f, 1f), SerializeField] private float takeOffBezierPoint1 = 0.35f;
+    [FormerlySerializedAs("bezierPoint2")] [Range(0f, 1f), SerializeField] private float takeOffBezierPoint2 = 0.37f;
+    [FormerlySerializedAs("bezierPoint3")] [Range(0f, 1f), SerializeField] private float takeOffBezierPoint3 = 0.7f;
+    [Space(10)] 
+    [Range(0f, 1f), SerializeField] private float landingBezierPoint1 = 0.35f;
+    [Range(0f, 1f), SerializeField] private float landingBezierPoint2 = 0.37f;
+    [Range(0f, 1f), SerializeField] private float landingBezierPoint3 = 0.7f;
     
 #if UNITY_EDITOR
     [InspectorButton("Update Airport Transforms")]
@@ -108,7 +78,7 @@ public class AirportNormalizer : MonoBehaviour
         UpdateAirportTransforms();
     }
 
-    public void ResetAircraftTransform(Transform aircraft)
+    public void ResetAircraftTransformTakeOff(Transform aircraft)
     {
         if (trainingMode)
         {
@@ -117,6 +87,12 @@ public class AirportNormalizer : MonoBehaviour
         }
         aircraft.position = AirportPositions.Reset;
         aircraft.rotation = Quaternion.LookRotation(AirportPositions.Direction);
+    }
+    
+    public void ResetAircraftTransformLanding(Transform aircraft)
+    {
+        aircraft.position = AirportPositions.Exit;
+        aircraft.rotation = Quaternion.LookRotation(-AirportPositions.Direction);
     }
     
     private void RandomResetAircraftPosition(Transform aircraft)
@@ -148,21 +124,24 @@ public class AirportNormalizer : MonoBehaviour
         AirportPositions.DownCurrentStart = (airportStartLeft.downCurrent + airportStartRight.downCurrent) / 2;
         AirportPositions.DownCurrentEnd = (airportEndLeft.downCurrent + airportEndRight.downCurrent) / 2;
         
-        AirportPositions.Height = Vector3.Distance(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd) * heightMultiplier;
+        AirportPositions.Height = Vector3.Distance(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd) * heightMultiplier * (landingMode ? landingHeightMultiplier : 1f);
         
         var trainDownStartPosition = (airportStartLeft.downTrain + airportStartRight.downTrain) / 2;
         var trainDownEndPosition = (airportEndLeft.downTrain + airportEndRight.downTrain) / 2;
-        AirportPositions.MaxHeight = Vector3.Distance(trainDownStartPosition, trainDownEndPosition) * heightMultiplier;
+        AirportPositions.MaxHeight = Vector3.Distance(trainDownStartPosition, trainDownEndPosition) * heightMultiplier * (landingMode ? landingHeightMultiplier : 1f);
         
         var defaultDownStartPosition = (airportStartLeft.down + airportStartRight.down) / 2;
         var defaultDownEndPosition = (airportEndLeft.down + airportEndRight.down) / 2;
-        AirportPositions.MinHeight = Vector3.Distance(defaultDownStartPosition, defaultDownEndPosition) * heightMultiplier;
+        AirportPositions.MinHeight = Vector3.Distance(defaultDownStartPosition, defaultDownEndPosition) * heightMultiplier * (landingMode ? landingHeightMultiplier : 1f);
         
         AirportPositions.Direction = (AirportPositions.DownCurrentEnd - AirportPositions.DownCurrentStart).normalized;
         AirportPositions.Reset = AirportPositions.DownCurrentStart + AirportPositions.Direction * zResetOffset + Vector3.up;
         
-        AirportPositions.BezierControlPoint1 = Vector3.Lerp(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd, bezierPoint1);
-        AirportPositions.BezierControlPoint2 = Vector3.Lerp(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd, bezierPoint2);
+        AirportPositions.TakeOffBezierControlPoint1 = Vector3.Lerp(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd, takeOffBezierPoint1);
+        AirportPositions.TakeOffBezierControlPoint2 = Vector3.Lerp(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd, takeOffBezierPoint2);
+        
+        AirportPositions.LandingBezierControlPoint1 = Vector3.Lerp(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd, landingBezierPoint1);
+        AirportPositions.LandingBezierControlPoint2 = Vector3.Lerp(AirportPositions.DownCurrentStart, AirportPositions.DownCurrentEnd, landingBezierPoint2);
     }
 
     private void UpdateAirportUpPositions()
@@ -174,14 +153,24 @@ public class AirportNormalizer : MonoBehaviour
         
         AirportPositions.MaxDistance = Vector3.Distance(airportStartLeft.downCurrent, airportEndRight.upCurrent + Vector3.up * AirportPositions.Height);
         
-        AirportPositions.BezierControlPoint3 = Vector3.Lerp(AirportPositions.UpStart, AirportPositions.UpEnd, bezierPoint3);
-        AirportPositions.BezierControlPoint3.y = AirportPositions.Exit.y;
-        AirportPositions.BezierPoints = new[]
+        AirportPositions.TakeOffBezierControlPoint3 = Vector3.Lerp(AirportPositions.UpStart, AirportPositions.UpEnd, takeOffBezierPoint3);
+        AirportPositions.LandingBezierControlPoint3 = Vector3.Lerp(AirportPositions.UpStart, AirportPositions.UpEnd, landingBezierPoint3);
+        
+        AirportPositions.TakeOffBezierControlPoint3.y = AirportPositions.Exit.y;
+        AirportPositions.TakeOffBezierPoints = new[]
         {
             AirportPositions.Reset, 
-            AirportPositions.BezierControlPoint1, 
-            AirportPositions.BezierControlPoint2, 
-            AirportPositions.BezierControlPoint3, 
+            AirportPositions.TakeOffBezierControlPoint1, 
+            AirportPositions.TakeOffBezierControlPoint2, 
+            AirportPositions.TakeOffBezierControlPoint3, 
+            AirportPositions.Exit
+        };
+        AirportPositions.LandingBezierPoints = new[]
+        {
+            AirportPositions.Reset,
+            AirportPositions.LandingBezierControlPoint1,
+            AirportPositions.LandingBezierControlPoint2,
+            AirportPositions.LandingBezierControlPoint3,
             AirportPositions.Exit
         };
     }
@@ -233,16 +222,33 @@ public class AirportNormalizer : MonoBehaviour
         return NormalizerHelper.NormalizeRotation(new Vector3(x, y, z));
     }
     
-    public float NormalizedOptimalPositionDistance(Vector3 aircraftPos)
+    public float NormalizedOptimalPositionDistanceTakeOff(Vector3 aircraftPos)
     {
-        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, AirportPositions.BezierPoints, numberOfBezierPoints);
+        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, AirportPositions.TakeOffBezierPoints, numberOfBezierPoints);
         var distance = Vector3.Distance(closestPoint, aircraftPos) / (Vector3.Distance(airportStartLeft.downCurrent, airportStartRight.downCurrent) / 3f);
         return Mathf.Clamp01(distance);
     }
     
-    public Vector3[] OptimalDirections(Transform aircraftTransform, int numOfOptimumDirections, int gapBetweenOptimumDirections)
+    public float NormalizedOptimalPositionDistanceLanding(Vector3 aircraftPos)
     {
-        var directions = OptimalDirectionPositions(aircraftTransform, numOfOptimumDirections, gapBetweenOptimumDirections);
+        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, AirportPositions.LandingBezierPoints, numberOfBezierPoints);
+        var distance = Vector3.Distance(closestPoint, aircraftPos) / (Vector3.Distance(airportStartLeft.downCurrent, airportStartRight.downCurrent) / 3f);
+        return Mathf.Clamp01(distance);
+    }
+    
+    public Vector3[] OptimalDirectionsTakeOff(Transform aircraftTransform, int numOfOptimumDirections, int gapBetweenOptimumDirections)
+    {
+        var directions = OptimalDirectionPositionsTakeOff(aircraftTransform, numOfOptimumDirections, gapBetweenOptimumDirections);
+        for (var i = 0; i < numOfOptimumDirections; i++)
+        {
+            directions[i] = (directions[i] - aircraftTransform.position).normalized;
+        }
+        return directions;
+    }
+    
+    public Vector3[] OptimalDirectionsLanding(Transform aircraftTransform, int numOfOptimumDirections, int gapBetweenOptimumDirections)
+    {
+        var directions = OptimalDirectionPositionsLanding(aircraftTransform, numOfOptimumDirections, gapBetweenOptimumDirections);
         for (var i = 0; i < numOfOptimumDirections; i++)
         {
             directions[i] = (directions[i] - aircraftTransform.position).normalized;
@@ -250,12 +256,22 @@ public class AirportNormalizer : MonoBehaviour
         return directions;
     }
 
-    private Vector3[] OptimalDirectionPositions(Transform aircraftTransform, int numOfOptimalPositions, int gapBetweenOptimalPositions)
+    private Vector3[] OptimalDirectionPositionsTakeOff(Transform aircraftTransform, int numOfOptimalPositions, int gapBetweenOptimalPositions)
     {
         var positions = new Vector3[numOfOptimalPositions];
         for (var i = 0; i < numOfOptimalPositions; i++)
         {
-            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, AirportPositions.BezierPoints, numberOfBezierPoints, (i + 1) * gapBetweenOptimalPositions);
+            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, AirportPositions.TakeOffBezierPoints, numberOfBezierPoints, (i + 1) * gapBetweenOptimalPositions);
+        }
+        return positions;
+    }
+    
+    private Vector3[] OptimalDirectionPositionsLanding(Transform aircraftTransform, int numOfOptimalPositions, int gapBetweenOptimalPositions)
+    {
+        var positions = new Vector3[numOfOptimalPositions];
+        for (var i = 0; i < numOfOptimalPositions; i++)
+        {
+            positions[i] = BezierCurveHelper.FindClosestPositionsPrevious(aircraftTransform.position, AirportPositions.LandingBezierPoints, numberOfBezierPoints, (i + 1) * gapBetweenOptimalPositions);
         }
         return positions;
     }
@@ -288,10 +304,7 @@ public class AirportNormalizer : MonoBehaviour
         
         GizmosDrawAirportStartExit();
 
-        if (showBezierGizmos)
-        {
-            GizmosDrawAirportBezierCurve();
-        }
+        GizmosDrawAirportBezierCurve();
 
         if (showObservationsGizmos)
         {
@@ -301,27 +314,36 @@ public class AirportNormalizer : MonoBehaviour
 
     private void GizmosDrawAgentsObservations()
     {
-        foreach (var agent in aircraftAgents)
+        foreach (var agent in aircraftTakeOffAgents)
         {
             if(agent == null) continue;
 
-            GizmosDrawAgentMovement(agent);
-            GizmosDrawAgentOptimalDirection(agent);
-            GizmosDrawAgentOptimalPositionReward(agent);
+            GizmosDrawAgentMovementTakeOff(agent);
+            GizmosDrawAgentOptimalDirectionTakeOff(agent);
+            GizmosDrawAgentOptimalPositionRewardTakeOff(agent);
+        }
+
+        foreach (var agent in aircraftLandingAgents)
+        {
+            if(agent == null) continue;
+
+            GizmosDrawAgentMovementLanding(agent);
+            GizmosDrawAgentOptimalDirectionLanding(agent);
+            GizmosDrawAgentOptimalPositionRewardLanding(agent);
         }
     }
 
-    private void GizmosDrawAgentOptimalPositionReward(AircraftTakeOffAgent agent)
+    private void GizmosDrawAgentOptimalPositionRewardTakeOff(AircraftTakeOffAgent agent)
     {
-        var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
+        var optimalDistance = NormalizedOptimalPositionDistanceTakeOff(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
-        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, AirportPositions.BezierPoints, numberOfBezierPoints);
+        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, AirportPositions.TakeOffBezierPoints, numberOfBezierPoints);
         Gizmos.DrawSphere(closestPointReward, 0.3f);
         Gizmos.DrawLine(closestPointReward, agent.transform.position);
     }
 
-    private void GizmosDrawAgentOptimalDirection(AircraftTakeOffAgent agent)
+    private void GizmosDrawAgentOptimalDirectionTakeOff(AircraftTakeOffAgent agent)
     {
         Gizmos.color = Color.white;
         agent.CalculateOptimalTransforms();
@@ -330,7 +352,7 @@ public class AirportNormalizer : MonoBehaviour
         {
             Gizmos.DrawRay(agent.transform.position, optimalDirection * 10f);
         }
-        var optimalPositions = OptimalDirectionPositions(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
+        var optimalPositions = OptimalDirectionPositionsTakeOff(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
         foreach (var optimalPosition in optimalPositions)
         {
             Gizmos.DrawSphere(optimalPosition, 0.3f);
@@ -338,7 +360,43 @@ public class AirportNormalizer : MonoBehaviour
         }
     }
 
-    private static void GizmosDrawAgentMovement(AircraftTakeOffAgent agent)
+    private static void GizmosDrawAgentMovementTakeOff(AircraftTakeOffAgent agent)
+    {
+        var speed = AircraftNormalizer.MaxSpeed * agent.normalizedSpeed;
+        var velocityDir = agent.normalizedVelocity;
+            
+        Gizmos.color = new Color(1 - speed, speed, 0, 1);
+        Gizmos.DrawRay(agent.transform.position, velocityDir * 15f);
+    }
+    
+    private void GizmosDrawAgentOptimalPositionRewardLanding(AircraftLandingAgent agent)
+    {
+        var optimalDistance = NormalizedOptimalPositionDistanceTakeOff(agent.transform.position);
+        var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
+        Gizmos.color = new Color(1 - reward, reward, 0, 1);
+        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, AirportPositions.LandingBezierPoints, numberOfBezierPoints);
+        Gizmos.DrawSphere(closestPointReward, 0.3f);
+        Gizmos.DrawLine(closestPointReward, agent.transform.position);
+    }
+
+    private void GizmosDrawAgentOptimalDirectionLanding(AircraftLandingAgent agent)
+    {
+        Gizmos.color = Color.white;
+        agent.CalculateOptimalTransforms();
+        var optimalDirections = agent.optimalDirections;
+        foreach (var optimalDirection in optimalDirections)
+        {
+            Gizmos.DrawRay(agent.transform.position, optimalDirection * 10f);
+        }
+        var optimalPositions = OptimalDirectionPositionsLanding(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
+        foreach (var optimalPosition in optimalPositions)
+        {
+            Gizmos.DrawSphere(optimalPosition, 0.3f);
+            Gizmos.DrawLine(optimalPosition, agent.transform.position);
+        }
+    }
+
+    private static void GizmosDrawAgentMovementLanding(AircraftLandingAgent agent)
     {
         var speed = AircraftNormalizer.MaxSpeed * agent.normalizedSpeed;
         var velocityDir = agent.normalizedVelocity;
@@ -357,21 +415,49 @@ public class AirportNormalizer : MonoBehaviour
 
     private void GizmosDrawAirportBezierCurve()
     {
-        Gizmos.color = new Color(0, 0, 1, 0.6f);
-        
-        Gizmos.DrawSphere(AirportPositions.BezierControlPoint1, 3);
-        Gizmos.DrawSphere(AirportPositions.BezierControlPoint2, 3);
-        Gizmos.DrawSphere(AirportPositions.BezierControlPoint3, 3);
-        
-        for (var i = 0; i <= numberOfBezierPoints; i++)
-        {
-            var t = i / (float)numberOfBezierPoints;
-            var point = BezierCurveHelper.CalculateBezierPoint(t, AirportPositions.BezierPoints);
+        if(!showBezierGizmos) return;
 
-            if (i > 0)
+        switch (landingMode)
+        {
+            case false:
             {
-                var previousPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, AirportPositions.BezierPoints);
-                Gizmos.DrawLine(previousPoint, point);
+                Gizmos.color = new Color(0, 0, 1, 0.6f);
+                Gizmos.DrawSphere(AirportPositions.TakeOffBezierControlPoint1, 3);
+                Gizmos.DrawSphere(AirportPositions.TakeOffBezierControlPoint2, 3);
+                Gizmos.DrawSphere(AirportPositions.TakeOffBezierControlPoint3, 3);
+            
+                for (var i = 0; i <= numberOfBezierPoints; i++)
+                {
+                    var t = i / (float)numberOfBezierPoints;
+                    var pointTakeOff = BezierCurveHelper.CalculateBezierPoint(t, AirportPositions.TakeOffBezierPoints);
+                    if (i > 0)
+                    {
+                        var previousTakeOffPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, AirportPositions.TakeOffBezierPoints);
+                        Gizmos.DrawLine(previousTakeOffPoint, pointTakeOff);
+                    }
+                }
+
+                break;
+            }
+            case true:
+            {
+                Gizmos.color = new Color(1, 0, 1, 0.6f);
+                Gizmos.DrawSphere(AirportPositions.LandingBezierControlPoint1, 3);
+                Gizmos.DrawSphere(AirportPositions.LandingBezierControlPoint2, 3);
+                Gizmos.DrawSphere(AirportPositions.LandingBezierControlPoint3, 3);
+            
+                for (var i = 0; i <= numberOfBezierPoints; i++)
+                {
+                    var t = i / (float)numberOfBezierPoints;
+                    var pointLanding = BezierCurveHelper.CalculateBezierPoint(t, AirportPositions.LandingBezierPoints);
+                    if (i > 0)
+                    {
+                        var previousLandingPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, AirportPositions.LandingBezierPoints);
+                        Gizmos.DrawLine(previousLandingPoint, pointLanding);
+                    }
+                }
+
+                break;
             }
         }
     }
