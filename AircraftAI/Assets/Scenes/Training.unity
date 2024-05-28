@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &76026615
 Transform:
   m_ObjectHideFlags: 0
@@ -219,6 +219,123 @@ Transform:
   m_Children: []
   m_Father: {fileID: 158152968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &138806882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 138806883}
+  - component: {fileID: 138806884}
+  m_Layer: 0
+  m_Name: AtaturkAirport
+  m_TagString: Aircraft
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &138806883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138806882}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.8427743, z: -0, w: 0.53826725}
+  m_LocalPosition: {x: 746, y: 0.9, z: 2985}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1410798511}
+  - {fileID: 1812981021}
+  - {fileID: 657781716}
+  - {fileID: 656368205}
+  m_Father: {fileID: 1771710451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &138806884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138806882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  airportStartLeft:
+    pivotTransform: {fileID: 1410798511}
+    down: {x: 734.8208, y: 0.1599983, z: 2939.4805}
+    up: {x: 734.8208, y: 54.518753, z: 2939.4805}
+    downCurrent: {x: 806.2308, y: 0.1599983, z: 2164.293}
+    upCurrent: {x: 806.2308, y: 130.78607, z: 2164.293}
+    downTrain: {x: 874.06213, y: 0.1599983, z: 1445.5471}
+    upTrain: {x: 874.06213, y: 201.51878, z: 1445.5471}
+    downSafe: {x: 812.3715, y: 0.1599983, z: 2172.0576}
+    downRandomReset: {x: 834.8342, y: 1.1599983, z: 2177.876}
+  airportStartRight:
+    pivotTransform: {fileID: 1812981021}
+    down: {x: 780.44464, y: 0.1599983, z: 2945.1577}
+    up: {x: 780.44464, y: 54.518753, z: 2945.1577}
+    downCurrent: {x: 889.5912, y: 0.1599983, z: 2174.3774}
+    upCurrent: {x: 889.5912, y: 130.78607, z: 2174.3774}
+    downTrain: {x: 989.2135, y: 0.1599983, z: 1459.3445}
+    upTrain: {x: 989.2135, y: 201.51878, z: 1459.3445}
+    downSafe: {x: 881.8264, y: 0.1599983, z: 2180.518}
+    downRandomReset: {x: 858.67224, y: 1.1599983, z: 2180.6602}
+  airportEndLeft:
+    pivotTransform: {fileID: 657781716}
+    down: {x: 606.2816, y: 0.1599983, z: 4041.3708}
+    up: {x: 606.2816, y: 54.518753, z: 4041.3708}
+    downCurrent: {x: 497.13507, y: 0.1599983, z: 4812.1514}
+    upCurrent: {x: 497.13507, y: 130.78607, z: 4812.1514}
+    downTrain: {x: 397.5128, y: 0.1599983, z: 5527.184}
+    upTrain: {x: 397.5128, y: 201.51878, z: 5527.184}
+    downSafe: {x: 504.8998, y: 0.1599983, z: 4806.0107}
+    downRandomReset: {x: 827.874, y: 1.1599983, z: 2237.4707}
+  airportEndRight:
+    pivotTransform: {fileID: 656368205}
+    down: {x: 651.9055, y: 0.1599983, z: 4047.0483}
+    up: {x: 651.9055, y: 54.518753, z: 4047.0483}
+    downCurrent: {x: 580.49554, y: 0.1599983, z: 4822.236}
+    upCurrent: {x: 580.49554, y: 130.78607, z: 4822.236}
+    downTrain: {x: 512.6642, y: 0.1599983, z: 5540.9814}
+    upTrain: {x: 512.6642, y: 201.51878, z: 5540.9814}
+    downSafe: {x: 574.3548, y: 0.1599983, z: 4814.471}
+    downRandomReset: {x: 851.71204, y: 1.1599983, z: 2240.255}
+  aircraftTakeOffAgents: []
+  aircraftLandingAgents:
+  - {fileID: 8148915049682574520}
+  trainingMode: 1
+  landingMode: 1
+  showBezierGizmos: 1
+  showTrainingGizmos: 1
+  showObservationsGizmos: 1
+  showZonesGizmos: 1
+  zExitOffsets: 30
+  yExitOffsets: 30
+  extraRandomLength: 0.51882535
+  extraRandomWidth: 0.54275733
+  trainLengthBounds: 1500
+  trainWidthBounds: 35
+  heightMultiplier: 0.07
+  landingHeightMultiplier: 0.7
+  zResetOffset: 40
+  xRandomResetArea: 12
+  zRandomResetArea: 30
+  safeZoneWidth: 7
+  safeZoneLength: 7
+  numberOfBezierPoints: 100
+  takeOffBezierPoint1: 0.283
+  takeOffBezierPoint2: 0.283
+  takeOffBezierPoint3: 0.723
+  landingBezierPoint1: 0.782
+  landingBezierPoint2: 0.86
+  landingBezierPoint3: 0.907
 --- !u!1 &158152967
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
         type: 3}
+      propertyPath: yawSlider
+      value: 
+      objectReference: {fileID: 918419579}
+    - target: {fileID: 76747583557686644, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
+        type: 3}
       propertyPath: rollSlider
       value: 
       objectReference: {fileID: 918419580}
@@ -393,18 +515,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a684105c8bd7782419fba7a59276bfd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &246778821 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 1dd03ca6b8838d74ebdfd01dd697434b,
-    type: 3}
-  m_PrefabInstance: {fileID: 246778818}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &355412095
@@ -576,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &606254925
 Transform:
   m_ObjectHideFlags: 0
@@ -648,10 +758,12 @@ MonoBehaviour:
     upTrain: {x: -1729.0725, y: 287.81537, z: 2305.66}
     downSafe: {x: -549.5933, y: 0.1599983, z: 2648.9373}
     downRandomReset: {x: 982.2445, y: 1.1599983, z: 3075.7334}
-  aircraftAgents:
+  aircraftTakeOffAgents:
   - {fileID: 4608920154714674734}
+  aircraftLandingAgents: []
   trainingMode: 1
-  showBezierGizmos: 1
+  landingMode: 0
+  showBezierGizmos: 0
   showTrainingGizmos: 1
   showObservationsGizmos: 1
   showZonesGizmos: 1
@@ -662,15 +774,81 @@ MonoBehaviour:
   trainLengthBounds: 1500
   trainWidthBounds: 35
   heightMultiplier: 0.07
+  landingHeightMultiplier: 0.7
   zResetOffset: 40
   xRandomResetArea: 12
   zRandomResetArea: 30
   safeZoneWidth: 7
   safeZoneLength: 7
   numberOfBezierPoints: 100
-  bezierPoint1: 0.283
-  bezierPoint2: 0.283
-  bezierPoint3: 0.723
+  takeOffBezierPoint1: 0.283
+  takeOffBezierPoint2: 0.283
+  takeOffBezierPoint3: 0.723
+  landingBezierPoint1: 0.35
+  landingBezierPoint2: 0.37
+  landingBezierPoint3: 0.7
+--- !u!1 &656368204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656368205}
+  m_Layer: 0
+  m_Name: EndRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &656368205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656368204}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: -924, y: -0.7400017, z: -532}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 138806883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &657781715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 657781716}
+  m_Layer: 0
+  m_Name: EndLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &657781716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657781715}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: -899.66235, y: -0.7400017, z: -571.00586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 138806883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1300,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 606254925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1410798510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410798511}
+  m_Layer: 0
+  m_Name: StartLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410798511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410798510}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: 46, y: -0.7400017, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 138806883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1586376745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,9 +1474,11 @@ MonoBehaviour:
     upTrain: {x: -22326.182, y: 91.62999, z: -13754.975}
     downSafe: {x: -22335.885, y: 0, z: -13753.014}
     downRandomReset: {x: -23381.49, y: 1, z: -14421.766}
-  aircraftAgents: []
+  aircraftTakeOffAgents: []
+  aircraftLandingAgents: []
   trainingMode: 0
-  showBezierGizmos: 1
+  landingMode: 0
+  showBezierGizmos: 0
   showTrainingGizmos: 0
   showObservationsGizmos: 0
   showZonesGizmos: 1
@@ -1278,15 +1489,19 @@ MonoBehaviour:
   trainLengthBounds: 0
   trainWidthBounds: 0
   heightMultiplier: 0.07
+  landingHeightMultiplier: 0.7
   zResetOffset: 36
   xRandomResetArea: 12
   zRandomResetArea: 25
   safeZoneWidth: 7
   safeZoneLength: 7
   numberOfBezierPoints: 100
-  bezierPoint1: 0.283
-  bezierPoint2: 0.283
-  bezierPoint3: 0.723
+  takeOffBezierPoint1: 0.283
+  takeOffBezierPoint2: 0.283
+  takeOffBezierPoint3: 0.723
+  landingBezierPoint1: 0.35
+  landingBezierPoint2: 0.37
+  landingBezierPoint3: 0.7
 --- !u!4 &1753789258
 Transform:
   m_ObjectHideFlags: 0
@@ -1321,7 +1536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1771710451
 Transform:
   m_ObjectHideFlags: 0
@@ -1334,8 +1549,41 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8148915049682574519}
+  - {fileID: 138806883}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1812981020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812981021}
+  m_Layer: 0
+  m_Name: StartRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1812981021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812981020}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.87262386, z: -0, w: 0.48839292}
+  m_LocalPosition: {x: 21.662598, y: -0.7400017, z: 48.00586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 138806883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1935305591
 GameObject:
@@ -1437,9 +1685,11 @@ MonoBehaviour:
     upTrain: {x: 12062.416, y: 91.630066, z: 16905.055}
     downSafe: {x: 12070.814, y: 0, z: 16899.814}
     downRandomReset: {x: 13284.545, y: 1, z: 17159.396}
-  aircraftAgents: []
+  aircraftTakeOffAgents: []
+  aircraftLandingAgents: []
   trainingMode: 0
-  showBezierGizmos: 1
+  landingMode: 0
+  showBezierGizmos: 0
   showTrainingGizmos: 0
   showObservationsGizmos: 0
   showZonesGizmos: 1
@@ -1450,15 +1700,19 @@ MonoBehaviour:
   trainLengthBounds: 0
   trainWidthBounds: 0
   heightMultiplier: 0.07
+  landingHeightMultiplier: 0.7
   zResetOffset: 36
   xRandomResetArea: 12
   zRandomResetArea: 25
   safeZoneWidth: 7
   safeZoneLength: 7
   numberOfBezierPoints: 100
-  bezierPoint1: 0.283
-  bezierPoint2: 0.283
-  bezierPoint3: 0.723
+  takeOffBezierPoint1: 0.283
+  takeOffBezierPoint2: 0.283
+  takeOffBezierPoint3: 0.723
+  landingBezierPoint1: 0.35
+  landingBezierPoint2: 0.37
+  landingBezierPoint3: 0.7
 --- !u!4 &2011016093
 Transform:
   m_ObjectHideFlags: 0
@@ -1869,6 +2123,129 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2488604955541196070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1771710451}
+    m_Modifications:
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 749.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3037.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838858924935534284, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_Name
+      value: Cessna 182 Skylane_Landing
+      objectReference: {fileID: 0}
+    - target: {fileID: 991684175398673624, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_hsi.pitchTape
+      value: 
+      objectReference: {fileID: 7007889166707120016}
+    - target: {fileID: 991684175398673624, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_hsi.rollAnchor
+      value: 
+      objectReference: {fileID: 6626510520726597900}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: yawSlider
+      value: 
+      objectReference: {fileID: 918419579}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: rollSlider
+      value: 
+      objectReference: {fileID: 918419580}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: pitchSlider
+      value: 
+      objectReference: {fileID: 918419581}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: rewardCanvas
+      value: 
+      objectReference: {fileID: 1694924573}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: airportNormalizer
+      value: 
+      objectReference: {fileID: 138806884}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: observationCanvas
+      value: 
+      objectReference: {fileID: 918419578}
+    - target: {fileID: 6472610605687219428, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_input.m_yawTouch
+      value: 
+      objectReference: {fileID: 6468113904741956401}
+    - target: {fileID: 6472610605687219428, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_input.m_joystickTouch
+      value: 
+      objectReference: {fileID: 1393690577022853621}
+    - target: {fileID: 6472610605687219428, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_input.m_throttleTouch
+      value: 
+      objectReference: {fileID: 5215578639559870218}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4076ecbe319d550489f1279819fa4970, type: 3}
 --- !u!1 &2488633207227802490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,6 +2555,11 @@ PrefabInstance:
       objectReference: {fileID: 6626510520726597900}
     - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
+      propertyPath: yawSlider
+      value: 
+      objectReference: {fileID: 918419579}
+    - target: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
+        type: 3}
       propertyPath: rollSlider
       value: 
       objectReference: {fileID: 918419580}
@@ -2214,7 +2596,7 @@ PrefabInstance:
     - target: {fileID: 6895609739598734724, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
         type: 3}
@@ -2262,6 +2644,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 321204044967323230, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321204044967323230, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321204044967323230, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 457919892139729781, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2371,7 +2768,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_display.m_vehicle
       value: 
-      objectReference: {fileID: 246778821}
+      objectReference: {fileID: 8148915049682574521}
     - target: {fileID: 3239463906863180046, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2392,11 +2789,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3579043578359914532, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2209146688823179861}
+    - target: {fileID: 3666026578747860794, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666026578747860794, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3702399307493335830, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3439,6 +3866,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7448400364061469211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &8148915049682574519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+    type: 3}
+  m_PrefabInstance: {fileID: 2488604955541196070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8148915049682574520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+    type: 3}
+  m_PrefabInstance: {fileID: 2488604955541196070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f25bc08469480198b349c3f371d8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8148915049682574521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6472610605687219428, guid: 4076ecbe319d550489f1279819fa4970,
+    type: 3}
+  m_PrefabInstance: {fileID: 2488604955541196070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8218184717275366744
 GameObject:
   m_ObjectHideFlags: 0

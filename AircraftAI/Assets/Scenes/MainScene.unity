@@ -297,8 +297,10 @@ MonoBehaviour:
     upTrain: {x: -3612.8213, y: 533.8423, z: 14481.8125}
     downSafe: {x: -3611.9678, y: 120.86, z: 14491.826}
     downRandomReset: {x: -3659.8596, y: 121.86, z: 18541.518}
-  aircraftAgents: []
+  aircraftTakeOffAgents: []
+  aircraftLandingAgents: []
   trainingMode: 0
+  landingMode: 1
   showBezierGizmos: 1
   showTrainingGizmos: 1
   showObservationsGizmos: 1
@@ -309,16 +311,20 @@ MonoBehaviour:
   extraRandomWidth: 0
   trainLengthBounds: 0
   trainWidthBounds: 0
-  heightMultiplier: 0.1
+  heightMultiplier: 0.07
+  landingHeightMultiplier: 0.4
   zResetOffset: 45
   xRandomResetArea: 17
   zRandomResetArea: 25
   safeZoneWidth: 1
   safeZoneLength: 10
   numberOfBezierPoints: 100
-  bezierPoint1: 0.35
-  bezierPoint2: 0.37
-  bezierPoint3: 0.867
+  takeOffBezierPoint1: 0.35
+  takeOffBezierPoint2: 0.37
+  takeOffBezierPoint3: 0.867
+  landingBezierPoint1: 0.681
+  landingBezierPoint2: 0.811
+  landingBezierPoint3: 0.898
 --- !u!4 &18515005
 Transform:
   m_ObjectHideFlags: 0
@@ -413,6 +419,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78824743}
   m_CullTransparentMesh: 0
+--- !u!1001 &153989645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 743.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2983.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 395013856243356918, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838858924935534284, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: m_Name
+      value: Cessna 182 Skylane_Landing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: rewardCanvas
+      value: 
+      objectReference: {fileID: 1550059899}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: airportNormalizer
+      value: 
+      objectReference: {fileID: 18515004}
+    - target: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: observationCanvas
+      value: 
+      objectReference: {fileID: 1550059900}
+    - target: {fileID: 3942884791044980568, guid: 4076ecbe319d550489f1279819fa4970,
+        type: 3}
+      propertyPath: DecisionPeriod
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4076ecbe319d550489f1279819fa4970, type: 3}
+--- !u!114 &153989646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
+    type: 3}
+  m_PrefabInstance: {fileID: 153989645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f25bc08469480198b349c3f371d8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!21 &397281797
 Material:
   serializedVersion: 8
@@ -935,9 +1041,11 @@ MonoBehaviour:
     upTrain: {x: 3619.5854, y: 196.87933, z: -18388.266}
     downSafe: {x: 3628.632, y: 50.304188, z: -18383.889}
     downRandomReset: {x: 5649.7354, y: 51.304188, z: -17159.672}
-  aircraftAgents:
-  - {fileID: 869324147}
+  aircraftTakeOffAgents: []
+  aircraftLandingAgents:
+  - {fileID: 153989646}
   trainingMode: 0
+  landingMode: 0
   showBezierGizmos: 1
   showTrainingGizmos: 1
   showObservationsGizmos: 1
@@ -949,15 +1057,19 @@ MonoBehaviour:
   trainLengthBounds: 0
   trainWidthBounds: 0
   heightMultiplier: 0.06
+  landingHeightMultiplier: 0.7
   zResetOffset: 45
   xRandomResetArea: 15
   zRandomResetArea: 25
   safeZoneWidth: 1
   safeZoneLength: 10
   numberOfBezierPoints: 100
-  bezierPoint1: 0.283
-  bezierPoint2: 0.283
-  bezierPoint3: 0.723
+  takeOffBezierPoint1: 0.283
+  takeOffBezierPoint2: 0.283
+  takeOffBezierPoint3: 0.723
+  landingBezierPoint1: 0.35
+  landingBezierPoint2: 0.37
+  landingBezierPoint3: 0.7
 --- !u!1 &608748168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,30 +1443,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
---- !u!114 &844128718 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9217060184409094024, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 844128717}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &869324147 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 844128717}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278f21c3dfc59c54187e21238077da5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &962001492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,6 +1993,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4899c9cfe44949b1581f4f427ceadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1694023746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6472610605687219428, guid: 4076ecbe319d550489f1279819fa4970,
+    type: 3}
+  m_PrefabInstance: {fileID: 153989645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 921d8f47c9756754d8b44d8d4f116d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1764134948
@@ -2494,6 +2594,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 321204044967323230, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321204044967323230, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321204044967323230, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 457919892139729781, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2598,7 +2713,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_display.m_vehicle
       value: 
-      objectReference: {fileID: 844128718}
+      objectReference: {fileID: 1694023746}
     - target: {fileID: 3239463906863180046, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2617,6 +2732,36 @@ PrefabInstance:
     - target: {fileID: 3239463906863180046, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486687240100713137, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666026578747860794, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666026578747860794, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3702399307493335830, guid: 3b1a11913f378c44e91dbce25b0ceb0d,
@@ -25654,6 +25799,7 @@ MonoBehaviour:
     _yawInput: 0
     _yawTrimInput: 0
     _hatViewInput: {x: 0, y: 0}
+    _targetThrottleInput: 0
   m_originShift:
     m_sceneState: 0
     m_particleCollection: 1
@@ -49873,3 +50019,4 @@ SceneRoots:
   - {fileID: 1287982653032503083}
   - {fileID: 844128717}
   - {fileID: 836702210}
+  - {fileID: 153989645}
