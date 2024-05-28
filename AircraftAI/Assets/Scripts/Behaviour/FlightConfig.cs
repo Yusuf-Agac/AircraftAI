@@ -39,7 +39,7 @@ class FlightConfig : BehaviorConfig
         aircraftFlightAgent.aircraftController = aircraftController;
         aircraftFlightAgent.pitchSlider = pitchSlider;
         aircraftFlightAgent.rollSlider = rollSlider;
-        aircraftFlightAgent.throttleSlider = throttleSlider;
+        aircraftFlightAgent.yawSlider = throttleSlider;
         
         AddDecisionRequester(transform);
     }

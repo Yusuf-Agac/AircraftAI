@@ -33,15 +33,15 @@ class TakeOffConfig : BehaviorConfig
         aircraftTakeOffAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
         
         aircraftTakeOffAgent.airportNormalizer = airportNormalizer;
-        airportNormalizer.aircraftAgents.Clear();
-        airportNormalizer.aircraftAgents.Add(aircraftTakeOffAgent);
+        airportNormalizer.aircraftTakeOffAgents.Clear();
+        airportNormalizer.aircraftTakeOffAgents.Add(aircraftTakeOffAgent);
         
         aircraftTakeOffAgent.sensors = sensors;
         aircraftTakeOffAgent.observationCanvas = observationCanvas;
         aircraftTakeOffAgent.aircraftController = aircraftController;
         aircraftTakeOffAgent.pitchSlider = pitchSlider;
         aircraftTakeOffAgent.rollSlider = rollSlider;
-        aircraftTakeOffAgent.throttleSlider = throttleSlider;
+        aircraftTakeOffAgent.yawSlider = throttleSlider;
         
         AddDecisionRequester(transform);
     }

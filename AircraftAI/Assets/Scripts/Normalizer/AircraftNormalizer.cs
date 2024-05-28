@@ -57,4 +57,9 @@ public static class AircraftNormalizer
         var normalizedYawRate = NormalizerHelper.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / MaxAxesRate));
         return new Vector3(normalizedPitchRate, normalizedRollRate, normalizedYawRate);
     }
+    
+    public static float NormalizedCurrentThrottle(FixedController aircraftController)
+    {
+        return aircraftController.m_input._throttleInput;
+    }
 }
