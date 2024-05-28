@@ -69,9 +69,12 @@ namespace Oyedoyin.Common
         public Vector2 _hatViewInput;
 
         private float _manoeuvreSpeed = 5;
+        private float _throttleSpeed = 5;
+        
         private float _targetPitchInput;
         private float _targetRollInput;
         private float _targetYawInput;
+        [HideInInspector] public float _targetThrottleInput;
 
 
         /// <summary>
@@ -241,6 +244,7 @@ namespace Oyedoyin.Common
             _rawPitchInput = Mathf.Lerp(_pitchInput, _targetPitchInput, Time.deltaTime * _manoeuvreSpeed);
             _rawRollInput = Mathf.Lerp(_rollInput, _targetRollInput, Time.deltaTime * _manoeuvreSpeed);
             _rawYawInput = Mathf.Lerp(_yawInput, _targetYawInput, Time.deltaTime * _manoeuvreSpeed);
+            _throttleInput = Mathf.Lerp(_throttleInput, _targetThrottleInput, Time.deltaTime * _throttleSpeed);
         }
 
         /// <summary>
@@ -305,14 +309,16 @@ namespace Oyedoyin.Common
         /// <summary>
         /// 
         /// </summary>
-        public void SetAgentInputs(ActionBuffers actionBuffer, float speed)
+        public void SetAgentInputs(ActionBuffers actionBuffer, float manoeuvreSpeed, float throttleSpeed = 0, bool onGround = false)
         {
-            _throttleInput = 1;//(actionBuffer.ContinuousActions[0] + 1) / 2f;
             _targetPitchInput = actionBuffer.ContinuousActions[0];
             _targetRollInput = actionBuffer.ContinuousActions[1];
             _targetYawInput = actionBuffer.ContinuousActions[2];
+            _targetThrottleInput = actionBuffer.ContinuousActions.Length == 4 ? (actionBuffer.ContinuousActions[3] + 1) / 2f : 1;
+            if (onGround) _targetThrottleInput = 0;
             
-            _manoeuvreSpeed = speed;
+            _manoeuvreSpeed = manoeuvreSpeed;
+            _throttleSpeed = throttleSpeed;
         }
         
         #region Call Functions
