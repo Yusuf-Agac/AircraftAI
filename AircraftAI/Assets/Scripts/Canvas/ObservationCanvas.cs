@@ -16,6 +16,7 @@ public class ObservationCanvas : MonoBehaviour
     [Space(10)]
     [SerializeField] private TMP_Text velocityDirText;
     [SerializeField] private TMP_Text speedText;
+    [SerializeField] private TMP_Text speedDifferenceText;
     [SerializeField] private TMP_Text thrustText;
     
     [Space(10)]
@@ -35,6 +36,7 @@ public class ObservationCanvas : MonoBehaviour
     [SerializeField] private TMP_Text pitchInputText;
     [SerializeField] private TMP_Text rollInputText;
     [SerializeField] private TMP_Text yawInputText;
+    [SerializeField] private TMP_Text throttleInputText;
     
     [Space(10)]
     [SerializeField] private TMP_Text pitchRateText;
@@ -52,6 +54,9 @@ public class ObservationCanvas : MonoBehaviour
     [SerializeField] private TMP_Text yawCurrentText;
     
     [Space(10)]
+    [SerializeField] private TMP_Text throttleCurrentText;
+    
+    [Space(10)]
     [SerializeField] private RectTransform windArrow;
     [SerializeField] private TMP_Text windSpeedText;
     [SerializeField] private TMP_Text windSpeedNormalizedText;
@@ -65,6 +70,9 @@ public class ObservationCanvas : MonoBehaviour
     [Space(10)]
     [SerializeField] private TMP_Text[] collisionDistanceTexts;
     
+    [Space(10)]
+    [SerializeField] private TMP_Text groundedText;
+    
     public void ChangeMode(int mode)
     {
         posText.transform.parent.gameObject.SetActive(mode is 0 or 2);
@@ -74,6 +82,9 @@ public class ObservationCanvas : MonoBehaviour
         {
             collisionDistanceText.transform.parent.gameObject.SetActive(mode is 0 or 2);
         }
+        
+        speedDifferenceText.transform.parent.gameObject.SetActive(mode is 2);
+        throttleCurrentText.transform.parent.gameObject.SetActive(mode is 2);
     }
     
     public void DisplayNormalizedData(
@@ -82,7 +93,7 @@ public class ObservationCanvas : MonoBehaviour
         float optimalPositionDistance, Vector3[] optimalDirections,
         Vector3 fwdDirDifference, Vector3 velDirDifference,
         float dotVelRot, float dotVelOpt, float dotRotOpt,
-        float[] axesInputs,
+        float[] inputs,
         Vector3 axesTarget,
         Vector3 axesCurrent,
         Vector3 axesRate,
@@ -96,7 +107,7 @@ public class ObservationCanvas : MonoBehaviour
         DisplayOptimal(optimalPositionDistance, optimalDirections);
         DisplayDifference(fwdDirDifference, velDirDifference);
         DisplayDirectionDots(dotVelRot, dotVelOpt, dotRotOpt);
-        DisplayInputs(axesInputs);
+        DisplayInputs(inputs);
         DisplayAxesTargets(axesTarget);
         DisplayAxesCurrents(axesCurrent);
         DisplayAxesRates(axesRate);
@@ -111,7 +122,7 @@ public class ObservationCanvas : MonoBehaviour
         float optimalPositionDistance, Vector3[] optimalDirections,
         Vector3 fwdDirDifference, Vector3 velDirDifference,
         float dotVelRot, float dotVelOpt, float dotRotOpt,
-        float[] axesInputs,
+        float[] inputs,
         Vector3 axesTarget,
         Vector3 axesCurrent,
         Vector3 axesRate,
@@ -123,13 +134,51 @@ public class ObservationCanvas : MonoBehaviour
         DisplayOptimal(optimalPositionDistance, optimalDirections);
         DisplayDifference(fwdDirDifference, velDirDifference);
         DisplayDirectionDots(dotVelRot, dotVelOpt, dotRotOpt);
-        DisplayInputs(axesInputs);
+        DisplayInputs(inputs);
         DisplayAxesTargets(axesTarget);
         DisplayAxesCurrents(axesCurrent);
         DisplayAxesRates(axesRate);
         DisplayWind(windAngle, windSpeed, windSpeedNormalized, turbulence, turbulenceNormalized);
     }
     
+    public void DisplayNormalizedData(
+        Vector3 forward, Vector3 up, float upDot, float downDot,
+        Vector3 velocityDir, float speed, float thrust, float speedDifference,
+        float optimalPositionDistance, Vector3[] optimalDirections,
+        Vector3 fwdDirDifference, Vector3 velDirDifference,
+        float dotVelRot, float dotVelOpt, float dotRotOpt,
+        float[] inputs,
+        Vector3 axesTarget,
+        Vector3 axesCurrent,
+        Vector3 axesRate,
+        float throttleCurrent,
+        float windAngle, float windSpeed, float windSpeedNormalized, float turbulence, float turbulenceNormalized,
+        Vector3 relativePosition, Vector3 relativeRotation,
+        float[] collisionDistances,
+        float grounded)
+    {
+        DisplayBehaviourName("Landing");
+        DisplayGlobalDirections(forward, up, upDot, downDot);
+        DisplayMovement(velocityDir, speed, thrust, speedDifference);
+        DisplayOptimal(optimalPositionDistance, optimalDirections);
+        DisplayDifference(fwdDirDifference, velDirDifference);
+        DisplayDirectionDots(dotVelRot, dotVelOpt, dotRotOpt);
+        DisplayInputs(inputs);
+        DisplayAxesTargets(axesTarget);
+        DisplayAxesCurrents(axesCurrent);
+        DisplayAxesRates(axesRate);
+        DisplayThrottleCurrent(throttleCurrent);
+        DisplayWind(windAngle, windSpeed, windSpeedNormalized, turbulence, turbulenceNormalized);
+        DisplayRelativeTransform(relativePosition, relativeRotation);
+        DisplayCollisionDistances(collisionDistances);
+        DisplayGrounded(grounded);
+    }
+
+    private void DisplayGrounded(float grounded)
+    {
+        groundedText.text = $"{grounded:F2}";
+    }
+
     private void DisplayBehaviourName(string behaviourName)
     {
         behaviourNameText.text = behaviourName + " Behaviour";
@@ -153,8 +202,9 @@ public class ObservationCanvas : MonoBehaviour
         DisplayPitchInput(inputs[0]);
         DisplayRollInput(inputs[1]);
         DisplayYawInput(inputs[2]);
+        if(inputs.Length > 3) DisplayThrottleInput(inputs[3]);
     }
-    
+
     private void DisplayAxesTargets(Vector3 axesTarget)
     {
         DisplayPitchTarget(axesTarget[0]);
@@ -195,10 +245,11 @@ public class ObservationCanvas : MonoBehaviour
         DisplayVelDirDifference(velDirDifference);
     }
 
-    private void DisplayMovement(Vector3 velocityDir, float speed, float thrust)
+    private void DisplayMovement(Vector3 velocityDir, float speed, float thrust, float speedDifference = 0f)
     {
         DisplayVelocityDir(velocityDir);
         DisplaySpeed(speed);
+        DisplaySpeedDifference(speedDifference);
         DisplayThrust(thrust);
     }
 
@@ -217,6 +268,7 @@ public class ObservationCanvas : MonoBehaviour
     
     private void DisplayVelocityDir(Vector3 velocityDir) => velocityDirText.text = $"{velocityDir}";
     private void DisplaySpeed(float speed) => speedText.text = $"{speed:F2}";
+    private void DisplaySpeedDifference(float difference) => speedDifferenceText.text = $"{difference:F2}";
     private void DisplayThrust(float thrust) => thrustText.text = $"{thrust:F2}";
     
     private void DisplayOptimalPositionDistance(float distance) => optimalPointDistanceText.text = $"{distance:F2}";
@@ -243,6 +295,7 @@ public class ObservationCanvas : MonoBehaviour
     private void DisplayPitchInput(float pitch) => pitchInputText.text = $"{pitch:F2}";
     private void DisplayRollInput(float roll) => rollInputText.text = $"{roll:F2}";
     private void DisplayYawInput(float yaw) => yawInputText.text = $"{yaw:F2}";
+    private void DisplayThrottleInput(float throttle) => throttleInputText.text = $"{throttle:F2}";
     
     private void DisplayPitchRate(float pitch) => pitchRateText.text = $"{pitch:F2}";
     private void DisplayRollRate(float roll) => rollRateText.text = $"{roll:F2}";
@@ -255,6 +308,8 @@ public class ObservationCanvas : MonoBehaviour
     private void DisplayPitchCurrent(float pitch) => pitchCurrentText.text = $"{pitch:F2}";
     private void DisplayRollCurrent(float roll) => rollCurrentText.text = $"{roll:F2}";
     private void DisplayYawCurrent(float yaw) => yawCurrentText.text = $"{yaw:F2}";
+    
+    private void DisplayThrottleCurrent(float throttle) => throttleCurrentText.text = $"{throttle:F2}";
     
     private void RotateWindArrow(float angle, float normalizedSpeed)
     {
