@@ -283,33 +283,16 @@ public class AirportNormalizer : MonoBehaviour
     {
         if (airportStartLeft.pivotTransform == null || airportStartRight == null || airportEndLeft == null || airportEndRight == null) return;
         
-        if (!trainingMode || showTrainingGizmos)
-        {
-            GizmosDrawAirportDefaultBounds();
-        }
-        
+        if (!trainingMode || showTrainingGizmos) GizmosDrawAirportDefaultBounds();
         if (trainingMode)
         {
-            if (showTrainingGizmos)
-            {
-                GizmosDrawAirportDefaultTrainBounds();
-            }
+            if (showTrainingGizmos) GizmosDrawAirportDefaultTrainBounds();
             GizmosDrawAirportCurrentBounds();
         }
-
-        if (showZonesGizmos)
-        {
-            GizmosDrawAirportZones();
-        }
-        
+        if (showZonesGizmos) GizmosDrawAirportZones();
         GizmosDrawAirportStartExit();
-
         GizmosDrawAirportBezierCurve();
-
-        if (showObservationsGizmos)
-        {
-            GizmosDrawAgentsObservations();
-        }
+        if (showObservationsGizmos) GizmosDrawAgentsObservations();
     }
 
     private void GizmosDrawAgentsObservations()
@@ -318,7 +301,6 @@ public class AirportNormalizer : MonoBehaviour
         {
             if(agent == null) continue;
 
-            GizmosDrawAgentMovementTakeOff(agent);
             GizmosDrawAgentOptimalDirectionTakeOff(agent);
             GizmosDrawAgentOptimalPositionRewardTakeOff(agent);
         }
@@ -327,7 +309,6 @@ public class AirportNormalizer : MonoBehaviour
         {
             if(agent == null) continue;
 
-            GizmosDrawAgentMovementLanding(agent);
             GizmosDrawAgentOptimalDirectionLanding(agent);
             GizmosDrawAgentOptimalPositionRewardLanding(agent);
         }
@@ -345,7 +326,7 @@ public class AirportNormalizer : MonoBehaviour
 
     private void GizmosDrawAgentOptimalDirectionTakeOff(AircraftTakeOffAgent agent)
     {
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.green;
         agent.CalculateOptimalTransforms();
         var optimalDirections = agent.optimalDirections;
         foreach (var optimalDirection in optimalDirections)
@@ -358,15 +339,6 @@ public class AirportNormalizer : MonoBehaviour
             Gizmos.DrawSphere(optimalPosition, 0.3f);
             Gizmos.DrawLine(optimalPosition, agent.transform.position);
         }
-    }
-
-    private static void GizmosDrawAgentMovementTakeOff(AircraftTakeOffAgent agent)
-    {
-        var speed = AircraftNormalizer.MaxSpeed * agent.normalizedSpeed;
-        var velocityDir = agent.normalizedVelocity;
-            
-        Gizmos.color = new Color(1 - speed, speed, 0, 1);
-        Gizmos.DrawRay(agent.transform.position, velocityDir * 15f);
     }
     
     private void GizmosDrawAgentOptimalPositionRewardLanding(AircraftLandingAgent agent)
@@ -381,7 +353,7 @@ public class AirportNormalizer : MonoBehaviour
 
     private void GizmosDrawAgentOptimalDirectionLanding(AircraftLandingAgent agent)
     {
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.green;
         agent.CalculateOptimalTransforms();
         var optimalDirections = agent.optimalDirections;
         foreach (var optimalDirection in optimalDirections)
@@ -394,15 +366,6 @@ public class AirportNormalizer : MonoBehaviour
             Gizmos.DrawSphere(optimalPosition, 0.3f);
             Gizmos.DrawLine(optimalPosition, agent.transform.position);
         }
-    }
-
-    private static void GizmosDrawAgentMovementLanding(AircraftLandingAgent agent)
-    {
-        var speed = AircraftNormalizer.MaxSpeed * agent.normalizedSpeed;
-        var velocityDir = agent.normalizedVelocity;
-            
-        Gizmos.color = new Color(1 - speed, speed, 0, 1);
-        Gizmos.DrawRay(agent.transform.position, velocityDir * 15f);
     }
 
     private void GizmosDrawAirportStartExit()

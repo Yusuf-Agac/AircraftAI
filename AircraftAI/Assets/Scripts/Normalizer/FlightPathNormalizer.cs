@@ -127,9 +127,7 @@ public class FlightPathNormalizer : MonoBehaviour
         if(!departureAirport || !arrivalAirport) return;
         
         GizmosDrawFlightPath();
-
         GizmosDrawBezierControlPoints();
-        
         GizmosDrawAgentsObservations();
     }
 
@@ -138,24 +136,14 @@ public class FlightPathNormalizer : MonoBehaviour
         foreach (var agent in aircraftAgents)
         {
             if(agent == null) continue;
-            GizmosDrawAgentMovement(agent);
             GizmosDrawAgentOptimalPositionReward(agent);
             GizmosDrawAgentOptimalDirection(agent);
         }
     }
 
-    private static void GizmosDrawAgentMovement(AircraftFlightAgent agent)
-    {
-        var speed = AircraftNormalizer.MaxSpeed * agent.normalizedSpeed;
-        var velocityDir = agent.normalizedVelocity;
-            
-        Gizmos.color = new Color(1 - speed, speed, 0, 1);
-        Gizmos.DrawRay(agent.transform.position, velocityDir * 15f);
-    }
-
     private void GizmosDrawAgentOptimalDirection(AircraftFlightAgent agent)
     {
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.green;
         agent.CalculateOptimalTransforms();
         var optimalDirections = agent.optimalDirections;
         foreach (var optimalDirection in optimalDirections)

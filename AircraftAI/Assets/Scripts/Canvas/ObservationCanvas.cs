@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ObservationCanvas : MonoBehaviour
 {
@@ -57,6 +59,7 @@ public class ObservationCanvas : MonoBehaviour
     [SerializeField] private TMP_Text throttleCurrentText;
     
     [Space(10)]
+    [SerializeField] private float windArrowChangeSpeed = 0.2f;
     [SerializeField] private RectTransform windArrow;
     [SerializeField] private TMP_Text windSpeedText;
     [SerializeField] private TMP_Text windSpeedNormalizedText;
@@ -313,8 +316,10 @@ public class ObservationCanvas : MonoBehaviour
     
     private void RotateWindArrow(float angle, float normalizedSpeed)
     {
-        windArrow.transform.localScale = Vector3.one * Mathf.Clamp(normalizedSpeed, 0.3f, 1f);
-        windArrow.eulerAngles = new Vector3(0, 0, angle);
+        windArrow.transform.localScale = Vector3.Lerp(windArrow.transform.localScale, Vector3.one * Mathf.Clamp(normalizedSpeed, 0.3f, 1f) * 1.5f, windArrowChangeSpeed);
+        windArrow.eulerAngles = Mathf.Abs(windArrow.eulerAngles.z - (360-angle)) < 280 ?
+            Vector3.Lerp(windArrow.eulerAngles, new Vector3(0, 0, 360 - angle), windArrowChangeSpeed) :
+            windArrow.eulerAngles = new Vector3(0, 0, 360 - angle);
     }
 
     private void DisplayWindSpeed(float speed, float normalizedSpeed)
