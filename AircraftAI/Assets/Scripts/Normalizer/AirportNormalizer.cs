@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -63,15 +64,14 @@ public class AirportNormalizer : MonoBehaviour
     [Range(0f, 1f), SerializeField] private float landingBezierPoint1 = 0.35f;
     [Range(0f, 1f), SerializeField] private float landingBezierPoint2 = 0.37f;
     [Range(0f, 1f), SerializeField] private float landingBezierPoint3 = 0.7f;
-    
-#if UNITY_EDITOR
-    [InspectorButton("Update Airport Transforms")]
-#endif
-    public void RestoreAirport()
+
+    private void Awake()
     {
         UpdateAirportTransforms();
-        if(!trainingMode) return;
-        
+    }
+
+    public void ResetTrainingAirport()
+    {
         transform.rotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
         extraRandomWidth = Random.Range(0f, 1f);
         extraRandomLength = Random.Range(0f, 1f);
@@ -82,26 +82,23 @@ public class AirportNormalizer : MonoBehaviour
     {
         if (trainingMode)
         {
-            RandomResetAircraftPosition(aircraft);
-            return;
+            var randomX = Random.Range(-xRandomResetArea, xRandomResetArea);
+            var randomZ = Random.Range(-zRandomResetArea, zRandomResetArea);
+            var randomOffset = new Vector3(randomX, 0, randomZ);
+            aircraft.position = AirportPositions.Reset + Quaternion.LookRotation(AirportPositions.Direction) * randomOffset;
+            aircraft.rotation = Quaternion.LookRotation(AirportPositions.Direction);
         }
-        aircraft.position = AirportPositions.Reset;
-        aircraft.rotation = Quaternion.LookRotation(AirportPositions.Direction);
+        else
+        {
+            aircraft.position = AirportPositions.Reset;
+            aircraft.rotation = Quaternion.LookRotation(AirportPositions.Direction);
+        }
     }
     
     public void ResetAircraftTransformLanding(Transform aircraft)
     {
         aircraft.position = AirportPositions.Exit;
         aircraft.rotation = Quaternion.LookRotation(-AirportPositions.Direction);
-    }
-    
-    private void RandomResetAircraftPosition(Transform aircraft)
-    {
-        var randomX = Random.Range(-xRandomResetArea, xRandomResetArea);
-        var randomZ = Random.Range(-zRandomResetArea, zRandomResetArea);
-        var randomOffset = new Vector3(randomX, 0, randomZ);
-        aircraft.position = AirportPositions.Reset + Quaternion.LookRotation(AirportPositions.Direction) * randomOffset;
-        aircraft.rotation = Quaternion.LookRotation(AirportPositions.Direction);
     }
     
     public void UpdateAirportTransforms()
@@ -275,10 +272,7 @@ public class AirportNormalizer : MonoBehaviour
         }
         return positions;
     }
-
-    #region Gizmos
-
-    #if UNITY_EDITOR
+    
     private void OnDrawGizmos()
     {
         if (airportStartLeft.pivotTransform == null || airportStartRight == null || airportEndLeft == null || airportEndRight == null) return;
@@ -529,7 +523,4 @@ public class AirportNormalizer : MonoBehaviour
         Gizmos.DrawLine(airportEndLeft.down, airportEndLeft.up);
         Gizmos.DrawLine(airportEndRight.down, airportEndRight.up);
     }
-#endif
-
-    #endregion
 }

@@ -35,11 +35,14 @@ public class FlightPathNormalizer : MonoBehaviour
     public Vector3 offset;
 
     private Vector3[] _bezierPoints;
-    
-#if UNITY_EDITOR
+
+    private void Start()
+    {
+        ResetFlightTransform();
+    }
+
     [InspectorButton("Reset Flight")]
-#endif
-    public void ResetFlightAirportsTransform()
+    public void ResetFlightTransform()
     {
         departureAirport.UpdateAirportTransforms();
         arrivalAirport.UpdateAirportTransforms();
@@ -66,8 +69,8 @@ public class FlightPathNormalizer : MonoBehaviour
         departureAirport.transform.position = Vector3.Lerp(departureLerpFrom.position, departureLerpTo.position, Random.value);
         arrivalAirport.transform.position = Vector3.Lerp(arrivalLerpFrom.position, arrivalLerpTo.position, Random.value);
         
-        departureAirport.RestoreAirport();
-        arrivalAirport.RestoreAirport();
+        departureAirport.ResetTrainingAirport();
+        arrivalAirport.ResetTrainingAirport();
         
         points = new Vector3[5];
         dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
@@ -79,7 +82,7 @@ public class FlightPathNormalizer : MonoBehaviour
         _bezierPoints = points;
     }
     
-    public void ResetAircraftPosition(Transform aircraft)
+    public void ResetAircraftTransformFlight(Transform aircraft)
     {
         aircraft.position = departureAirport.AirportPositions.Exit;
         aircraft.rotation = Quaternion.LookRotation((departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized);

@@ -2,137 +2,83 @@ using System;
 using System.Collections;
 using System.Linq;
 using Oyedoyin.Common;
-using Oyedoyin.FixedWing;
-using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class AircraftLandingAgent : AircraftAgent
 {
-    public bool trainingMode;
-
-    [Space(10)] 
-    [SerializeField] private float sparseRewardMultiplier = 1;
-    [SerializeField] private float denseRewardMultiplier = 0.001f;
-
-    [Space(5)] 
+    [Space(25)] 
     [SerializeField] private float velocityDecreaseRewardMultiplier = 30f;
     [SerializeField] private float groundedRewardMultiplier = 30f;
-    [SerializeField] private float optimalDistanceRewardMultiplier = 8;
-    [SerializeField] private float optimalDistancePenaltyMultiplier = 4;
-    [SerializeField] private float actionDifferencePenaltyMultiplier = 4;
-    [SerializeField] private float forwardVelocityDifferencePenaltyMultiplier = 4;
-    [SerializeField] private float optimalVelocityDifferencePenaltyMultiplier = 1;
 
-    [Space(10)] 
-    public float windDirectionSpeed = 360;
-    public float trainingMaxWindSpeed = 15;
-    public float maxWindSpeed = 15;
-    public float trainingMaxTurbulence = 15;
-    public float maxTurbulence = 15;
-
-    [Space(10)] 
-    [Range(1, 3)] public int numOfOptimalDirections = 1;
-    [Range(1, 10)] public int gapBetweenOptimalDirections = 1;
-
-    [Space(10)] 
-    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
+    [Space(10)]
     [Range(0.1f, 25f)] public float throttleSpeed = 10f;
     [Range(0.1f, 5f)] public float brakeOpenTime = 3f;
 
-    [Space(10)] 
-    public ObservationCanvas observationCanvas;
-    public RewardCanvas rewardCanvas;
+    [Space(10)]
     public AirportNormalizer airportNormalizer;
     public AircraftCollisionSensors sensors;
 
-    [Space(10)] 
-    public Slider pitchSlider;
-    public Slider rollSlider;
-    [FormerlySerializedAs("throttleSlider")] public Slider yawSlider;
+    [Space(10)]
     public Slider throttleSlider;
-
-    private DecisionRequester _decisionRequester;
-    private BehaviorSelector _behaviorSelector;
-
-    private bool _episodeStarted;
-
-    private float _sparseRewards;
-    private float _denseRewards;
+    
     private float _speedDecreaseReward;
     private float _groundedReward;
-    private float _optimalDistanceRewards;
-    private float _actionDifferenceReward;
-    private float _forwardVelocityDifferenceReward;
-    private float _optimalVelocityDifferenceReward;
 
-    private Vector3 _aircraftForward;
-    private Vector3 _aircraftUp;
-    private float _dotForwardUp;
-    private float _dotUpDown;
-
-    [HideInInspector] public float normalizedSpeed;
     private float _normalizedPreviousSpeed = 0;
     private float _normalizedSpeedDifference;
-    private float _normalizedThrust;
     private Vector3 _relativeVelocityDir;
-    [HideInInspector] public Vector3 normalizedVelocity;
     private bool _aircraftIsOnGround;
-
-    private float _normalizedOptimalDistance;
-    [HideInInspector] public Vector3[] optimalDirections;
+    
     private Vector3[] _relativeOptimalDirections;
 
     private Vector3 _relativeAircraftPos;
     private Vector3 _relativeAircraftRot;
 
-    private float _dotVelRot;
-    private float _dotVelOpt;
-    private float _dotRotOpt;
-
-    private float[] _windData;
-    private float _windAngle;
-    private float _windSpeed;
-    private float _turbulence;
-
     private float[] _normalizedCollisionSensors;
 
-    private Vector3 _fwdOptDifference;
-    private Vector3 _velOptDifference;
-
-    private float[] _previousActions = { 0, 0, 0, 0 };
     private float _normalizedCurrentThrottle;
-    private Vector3 _normalizedTargetAxes;
-    private Vector3 _normalizedCurrentAxes;
-    private Vector3 _normalizedAxesRates;
 
     private Coroutine _openBrakeRoutine;
 
-    private void Start()
+    private void Awake()
     {
-        _behaviorSelector = GetComponent<BehaviorSelector>();
-        aircraftController = GetComponent<FixedController>();
-        _decisionRequester = GetComponent<DecisionRequester>();
+        PreviousActions = new float[]{0, 0, 0, 0};
     }
 
-    public override void OnEpisodeBegin()
+    protected override IEnumerator LazyEvaluation()
     {
-        StartCoroutine(AfterStart());
-        
-        if (!trainingMode) return;
-        
-        ResetAtmosphereBounds();
-        StartCoroutine(ResetPhysics());
+        for (var i = 0; i < PreviousActions.Length; i++) PreviousActions[i] = 0;
+        yield return null;
+        aircraftController.TurnOnEngines();
+        observationCanvas.ChangeMode(2);
+        rewardCanvas.ChangeMode(2);
+        aircraftController.m_wheels.EngageBrakes();
+
+        yield return null;
+        if (aircraftController.gearActuator != null) aircraftController.gearActuator.DisengageActuator();
+        else aircraftController.m_gearState = Controller.GearState.Up;
+
+        yield return new WaitForSeconds(0.5f);
+        EpisodeStarted = true;
     }
 
+    protected override IEnumerator LazyEvaluationTraining()
+    {
+        yield return null;
+        aircraftController.m_rigidbody.isKinematic = false;
+        airportNormalizer.ResetTrainingAirport();
+        airportNormalizer.ResetAircraftTransformLanding(transform);
+        
+        yield return null;
+        aircraftController.HotResetAircraft();
+    }
+    
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereHelper.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
-            _decisionRequester.DecisionPeriod, windDirectionSpeed);
+        AtmosphereHelper.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence, DecisionRequester.DecisionPeriod, windDirectionSpeed);
 
         CalculateGlobalDirections();
         CalculateMovementVariables();
@@ -146,34 +92,33 @@ public class AircraftLandingAgent : AircraftAgent
         CalculateAtmosphere();
         CalculateCollisionSensors();
 
-        sensor.AddObservation(_aircraftForward);
-        sensor.AddObservation(_aircraftUp);
+        sensor.AddObservation(AircraftForward);
+        sensor.AddObservation(AircraftUp);
 
-        sensor.AddObservation(_dotForwardUp);
-        sensor.AddObservation(_dotUpDown);
+        sensor.AddObservation(DotForwardUp);
+        sensor.AddObservation(DotUpDown);
 
         sensor.AddObservation(normalizedSpeed);
-        sensor.AddObservation(_normalizedThrust);
+        sensor.AddObservation(NormalizedThrust);
         sensor.AddObservation(_relativeVelocityDir);
 
-        sensor.AddObservation(_normalizedOptimalDistance);
-        foreach (var relativeOptimalDirection in _relativeOptimalDirections)
-            sensor.AddObservation(relativeOptimalDirection);
+        sensor.AddObservation(NormalizedOptimalDistance);
+        foreach (var relativeOptimalDirection in _relativeOptimalDirections) sensor.AddObservation(relativeOptimalDirection);
 
-        sensor.AddObservation(_fwdOptDifference);
-        sensor.AddObservation(_velOptDifference);
+        sensor.AddObservation(FwdOptDifference);
+        sensor.AddObservation(VelOptDifference);
 
-        sensor.AddObservation(_dotVelRot);
-        sensor.AddObservation(_dotVelOpt);
-        sensor.AddObservation(_dotRotOpt);
+        sensor.AddObservation(DotVelRot);
+        sensor.AddObservation(DotVelOpt);
+        sensor.AddObservation(DotRotOpt);
 
-        sensor.AddObservation(_previousActions);
-        sensor.AddObservation(_normalizedTargetAxes);
-        sensor.AddObservation(_normalizedCurrentAxes);
-        sensor.AddObservation(_normalizedAxesRates);
+        sensor.AddObservation(PreviousActions);
+        sensor.AddObservation(NormalizedTargetAxes);
+        sensor.AddObservation(NormalizedCurrentAxes);
+        sensor.AddObservation(NormalizedAxesRates);
         sensor.AddObservation(_normalizedCurrentThrottle);
 
-        sensor.AddObservation(_windData);
+        sensor.AddObservation(WindData);
 
         sensor.AddObservation(_relativeAircraftPos);
         sensor.AddObservation(_relativeAircraftRot);
@@ -184,17 +129,17 @@ public class AircraftLandingAgent : AircraftAgent
         sensor.AddObservation(_aircraftIsOnGround);
 
         observationCanvas.DisplayNormalizedData(
-            _aircraftForward, _aircraftUp, _dotForwardUp, _dotUpDown,
-            _relativeVelocityDir, normalizedSpeed, _normalizedThrust, _normalizedSpeedDifference,
-            _normalizedOptimalDistance, _relativeOptimalDirections,
-            _fwdOptDifference, _velOptDifference,
-            _dotVelRot, _dotVelOpt, _dotRotOpt,
-            _previousActions,
-            _normalizedTargetAxes,
-            _normalizedCurrentAxes,
-            _normalizedAxesRates,
+            AircraftForward, AircraftUp, DotForwardUp, DotUpDown,
+            _relativeVelocityDir, normalizedSpeed, NormalizedThrust, _normalizedSpeedDifference,
+            NormalizedOptimalDistance, _relativeOptimalDirections,
+            FwdOptDifference, VelOptDifference,
+            DotVelRot, DotVelOpt, DotRotOpt,
+            PreviousActions,
+            NormalizedTargetAxes,
+            NormalizedCurrentAxes,
+            NormalizedAxesRates,
             _normalizedCurrentThrottle,
-            _windAngle, _windSpeed, _windData[1], _turbulence, _windData[2],
+            WindAngle, WindSpeed, WindData[1], Turbulence, WindData[2],
             _relativeAircraftPos, _relativeAircraftRot,
             _normalizedCollisionSensors,
             _aircraftIsOnGround ? 1 : 0
@@ -209,7 +154,7 @@ public class AircraftLandingAgent : AircraftAgent
         CalculateAircraftIsOnGround();
         CalculateRelativeTransform();
 
-        if (_episodeStarted)
+        if (EpisodeStarted)
         {
             if (AircraftLanded())
             {
@@ -217,7 +162,7 @@ public class AircraftLandingAgent : AircraftAgent
                 LogRewardsOnEpisodeEnd(true);
                 aircraftController.TurnOffEngines();
                 if (trainingMode) EndEpisode();
-                else if (_behaviorSelector) ;
+                else if (BehaviorSelector) ; //TODO BehaviorSelector.SelectNextBehavior();
             }
             else if (IsEpisodeFailed())
             {
@@ -240,10 +185,10 @@ public class AircraftLandingAgent : AircraftAgent
             }
         }
         
-        rewardCanvas.DisplayReward(_sparseRewards, _denseRewards, _optimalDistanceRewards, _actionDifferenceReward,
-            _forwardVelocityDifferenceReward, _optimalVelocityDifferenceReward, _speedDecreaseReward, _groundedReward);
+        rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward,
+            ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward, _speedDecreaseReward, _groundedReward);
 
-        _previousActions = actionBuffers.ContinuousActions.ToArray();
+        PreviousActions = actionBuffers.ContinuousActions.ToArray();
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -260,21 +205,21 @@ public class AircraftLandingAgent : AircraftAgent
     {
         var speedDecreaseReward = -_normalizedSpeedDifference * denseRewardMultiplier * velocityDecreaseRewardMultiplier * (_normalizedSpeedDifference > 0 ? 0.5f : 1f);
         AddReward(speedDecreaseReward);
-        _denseRewards += speedDecreaseReward;
+        DenseRewards += speedDecreaseReward;
         _speedDecreaseReward += speedDecreaseReward;
         
         if (_aircraftIsOnGround && _normalizedSpeedDifference < 0)
         {
             var groundedReward = denseRewardMultiplier * groundedRewardMultiplier;
             AddReward(groundedReward);
-            _denseRewards += groundedReward;
+            DenseRewards += groundedReward;
             _groundedReward += groundedReward;
         }
         else
         {
             var groundedPenalty = -denseRewardMultiplier * groundedRewardMultiplier * 0.02f;
             AddReward(groundedPenalty);
-            _denseRewards += groundedPenalty;
+            DenseRewards += groundedPenalty;
             _groundedReward += groundedPenalty;
         }
     }
@@ -282,52 +227,52 @@ public class AircraftLandingAgent : AircraftAgent
     private void SetDirectionDifferenceReward()
     {
         if(Vector3.Distance(aircraftController.m_rigidbody.velocity, Vector3.zero) < 0.5f) return;
-        var forwardVelocityDifference = NormalizerHelper.ClampNP1((_dotVelRot - 0.995f) * 30f);
+        var forwardVelocityDifference = NormalizerHelper.ClampNP1((DotVelRot - 0.995f) * 30f);
         var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
                                         forwardVelocityDifferencePenaltyMultiplier;
         AddReward(velocityDifferencePenalty);
-        _denseRewards += velocityDifferencePenalty;
-        _forwardVelocityDifferenceReward += velocityDifferencePenalty;
+        DenseRewards += velocityDifferencePenalty;
+        ForwardVelocityDifferenceReward += velocityDifferencePenalty;
         
-        var optimalVelocityDifference = NormalizerHelper.ClampNP1((_dotVelOpt - 0.88f) * 10f);
+        var optimalVelocityDifference = NormalizerHelper.ClampNP1((DotVelOpt - 0.88f) * 10f);
         var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
                                                optimalVelocityDifferencePenaltyMultiplier;
         AddReward(optimalVelocityDifferencePenalty);
-        _denseRewards += optimalVelocityDifferencePenalty;
-        _optimalVelocityDifferenceReward += optimalVelocityDifferencePenalty;
+        DenseRewards += optimalVelocityDifferencePenalty;
+        OptimalVelocityDifferenceReward += optimalVelocityDifferencePenalty;
     }
 
     private void SetActionDifferenceReward(ActionBuffers actionBuffers)
     {
-        for (var i = 0; i < _previousActions.Length; i++)
+        for (var i = 0; i < PreviousActions.Length; i++)
         {
-            var actionChange = Mathf.Abs(_previousActions[i] - actionBuffers.ContinuousActions[i]);
+            var actionChange = Mathf.Abs(PreviousActions[i] - actionBuffers.ContinuousActions[i]);
             var actionChangePenalty = -actionChange * denseRewardMultiplier * actionDifferencePenaltyMultiplier;
             AddReward(actionChangePenalty);
-            _denseRewards += actionChangePenalty;
-            _actionDifferenceReward += actionChangePenalty;
+            DenseRewards += actionChangePenalty;
+            ActionDifferenceReward += actionChangePenalty;
         }
     }
 
     private void SetOptimalDistanceReward()
     {
-        var subtractedDistance = Mathf.Clamp01(1 - _normalizedOptimalDistance);
+        var subtractedDistance = Mathf.Clamp01(1 - NormalizedOptimalDistance);
         var distanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceRewardMultiplier;
         AddReward(distanceReward);
-        _denseRewards += distanceReward;
-        _optimalDistanceRewards += distanceReward;
+        DenseRewards += distanceReward;
+        OptimalDistanceRewards += distanceReward;
 
-        var distance = Mathf.Clamp01(_normalizedOptimalDistance);
+        var distance = Mathf.Clamp01(NormalizedOptimalDistance);
         var distancePenalty = -distance * denseRewardMultiplier * optimalDistancePenaltyMultiplier;
         AddReward(distancePenalty);
-        _denseRewards += distancePenalty;
-        _optimalDistanceRewards += distancePenalty;
+        DenseRewards += distancePenalty;
+        OptimalDistanceRewards += distancePenalty;
     }
 
     private void SetSparseReward(bool success)
     {
         SetReward(sparseRewardMultiplier * (success ? 5 : -1));
-        _sparseRewards += sparseRewardMultiplier * (success ? 5 : -1);
+        SparseRewards += sparseRewardMultiplier * (success ? 5 : -1);
     }
 
     private void LogRewardsOnEpisodeEnd(bool success)
@@ -335,18 +280,18 @@ public class AircraftLandingAgent : AircraftAgent
         if (success)
         {
             Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " +
-                      _optimalDistanceRewards + " / Action: " + _actionDifferenceReward + " / Forward: " +
-                      _forwardVelocityDifferenceReward + " / Optimal: " + _optimalVelocityDifferenceReward + 
+            Debug.Log("SUCCESSFUL / " + "Sparse: " + SparseRewards + " / Dense: " + DenseRewards + " / Optimal: " +
+                      OptimalDistanceRewards + " / Action: " + ActionDifferenceReward + " / Forward: " +
+                      ForwardVelocityDifferenceReward + " / Optimal: " + OptimalVelocityDifferenceReward + 
                       " / SpeedDecrease: " + _speedDecreaseReward + " / Grounded: " 
                       + _groundedReward + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
             Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
         else
         {
-            Debug.Log("SUCCESSFUL / " + "Sparse: " + _sparseRewards + " / Dense: " + _denseRewards + " / Optimal: " +
-                      _optimalDistanceRewards + " / Action: " + _actionDifferenceReward + " / Forward: " +
-                      _forwardVelocityDifferenceReward + " / Optimal: " + _optimalVelocityDifferenceReward + 
+            Debug.Log("SUCCESSFUL / " + "Sparse: " + SparseRewards + " / Dense: " + DenseRewards + " / Optimal: " +
+                      OptimalDistanceRewards + " / Action: " + ActionDifferenceReward + " / Forward: " +
+                      ForwardVelocityDifferenceReward + " / Optimal: " + OptimalVelocityDifferenceReward + 
                       " / SpeedDecrease: " + _speedDecreaseReward + " / Grounded: " 
                       + _groundedReward + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
         }
@@ -359,18 +304,18 @@ public class AircraftLandingAgent : AircraftAgent
 
     private void CalculateAtmosphere()
     {
-        _windData = AtmosphereHelper.NormalizedWind(aircraftController, trainingMaxWindSpeed,
+        WindData = AtmosphereHelper.NormalizedWind(aircraftController, trainingMaxWindSpeed,
             trainingMaxTurbulence);
-        _windAngle = _windData[0] * 360;
-        _windSpeed = _windData[1] * trainingMaxWindSpeed;
-        _turbulence = _windData[2] * trainingMaxTurbulence;
+        WindAngle = WindData[0] * 360;
+        WindSpeed = WindData[1] * trainingMaxWindSpeed;
+        Turbulence = WindData[2] * trainingMaxTurbulence;
     }
 
     private void CalculateAxesData()
     {
-        _normalizedTargetAxes = AircraftNormalizer.NormalizedTargetAxes(aircraftController);
-        _normalizedCurrentAxes = AircraftNormalizer.NormalizedCurrentAxes(aircraftController);
-        _normalizedAxesRates = AircraftNormalizer.NormalizeAxesRates(aircraftController);
+        NormalizedTargetAxes = AircraftNormalizer.NormalizedTargetAxes(aircraftController);
+        NormalizedCurrentAxes = AircraftNormalizer.NormalizedCurrentAxes(aircraftController);
+        NormalizedAxesRates = AircraftNormalizer.NormalizeAxesRates(aircraftController);
     }
     
     private void CalculateThrottleData()
@@ -380,20 +325,20 @@ public class AircraftLandingAgent : AircraftAgent
 
     private void CalculateDirectionSimilarities()
     {
-        _dotVelRot = Vector3.Dot(normalizedVelocity, _aircraftForward);
-        _dotVelOpt = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
-        _dotRotOpt = Vector3.Dot(_aircraftForward, optimalDirections[0]);
+        DotVelRot = Vector3.Dot(normalizedVelocity, AircraftForward);
+        DotVelOpt = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
+        DotRotOpt = Vector3.Dot(AircraftForward, optimalDirections[0]);
     }
 
     private void CalculateDirectionDifferences()
     {
-        _fwdOptDifference = (_relativeOptimalDirections[0] - _relativeAircraftRot) / 2f;
-        _velOptDifference = (_relativeOptimalDirections[0] - _relativeVelocityDir) / 2f;
+        FwdOptDifference = (_relativeOptimalDirections[0] - _relativeAircraftRot) / 2f;
+        VelOptDifference = (_relativeOptimalDirections[0] - _relativeVelocityDir) / 2f;
     }
 
     public void CalculateOptimalTransforms()
     {
-        _normalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistanceLanding(transform.position);
+        NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistanceLanding(transform.position);
         optimalDirections =
             airportNormalizer.OptimalDirectionsLanding(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
@@ -410,23 +355,17 @@ public class AircraftLandingAgent : AircraftAgent
         normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
         _normalizedSpeedDifference = normalizedSpeed - _normalizedPreviousSpeed;
         _normalizedPreviousSpeed = normalizedSpeed;
-        _normalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
+        NormalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
         normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
         _relativeVelocityDir = DirectionToNormalizedRotation(normalizedVelocity);
     }
 
     private void CalculateGlobalDirections()
     {
-        _aircraftForward = transform.forward;
-        _aircraftUp = transform.up;
-        _dotForwardUp = Vector3.Dot(_aircraftForward, Vector3.up);
-        _dotUpDown = Vector3.Dot(_aircraftUp, Vector3.down);
-    }
-
-    private void ResetAtmosphereBounds()
-    {
-        maxWindSpeed = Random.Range(0, trainingMaxWindSpeed);
-        maxTurbulence = Random.Range(0, trainingMaxTurbulence);
+        AircraftForward = transform.forward;
+        AircraftUp = transform.up;
+        DotForwardUp = Vector3.Dot(AircraftForward, Vector3.up);
+        DotUpDown = Vector3.Dot(AircraftUp, Vector3.down);
     }
 
     private bool IsEpisodeFailed()
@@ -437,7 +376,7 @@ public class AircraftLandingAgent : AircraftAgent
             _relativeAircraftPos.z <= 0.001f || _relativeAircraftPos.z > 0.999f;
 
         var illegalAircraftRotation =
-            _dotForwardUp is > 0.5f or < -0.5f || _dotUpDown > -0.5f;
+            DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
 
         return outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel;
     }
@@ -478,43 +417,6 @@ public class AircraftLandingAgent : AircraftAgent
     private Vector3[] DirectionsToNormalizedRotations(Vector3[] directions)
     {
         return directions.Select(DirectionToNormalizedRotation).ToArray();
-    }
-        
-    private IEnumerator AfterStart()
-    {
-        yield return null;
-        observationCanvas.ChangeMode(2);
-        rewardCanvas.ChangeMode(2);
-        aircraftController.m_wheels.EngageBrakes();
-    }
-    
-    private IEnumerator ResetPhysics()
-    {
-        _episodeStarted = false;
-        aircraftController.m_rigidbody.isKinematic = true;
-
-        yield return null;
-        aircraftController.TurnOnEngines();
-
-        yield return null;
-        airportNormalizer.RestoreAirport();
-        airportNormalizer.ResetAircraftTransformLanding(transform);
-
-        yield return null;
-        aircraftController.m_rigidbody.isKinematic = false;
-        aircraftController.HotResetAircraft();
-        if (aircraftController.gearActuator != null &&
-            aircraftController.gearActuator.actuatorState == SilantroActuator.ActuatorState.Engaged)
-        {
-            aircraftController.gearActuator.DisengageActuator();
-        }
-        else
-        {
-            aircraftController.m_gearState = Controller.GearState.Up;
-        }
-
-        yield return new WaitForSeconds(0.5f);
-        _episodeStarted = true;
     }
 
     private IEnumerator OpenSlowlyBrakeLever(float time)
