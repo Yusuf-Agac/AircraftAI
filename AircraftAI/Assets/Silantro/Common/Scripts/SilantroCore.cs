@@ -458,10 +458,24 @@ namespace Oyedoyin.Common
         /// </summary>
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.blue;
-            if (emptyCenterOfMass != null) { Gizmos.DrawSphere(emptyCenterOfMass.position, 0.2f); Gizmos.DrawLine(emptyCenterOfMass.position, (emptyCenterOfMass.transform.up * 3f + emptyCenterOfMass.position)); }
-            if (emptyCenterOfMass == null && currentCOM == null) { Gizmos.DrawSphere(this.transform.position, 0.2f); Gizmos.DrawLine(this.transform.position, (this.transform.transform.up * 3f + this.transform.position)); }
-            Gizmos.color = Color.red; if (currentCOM != null) { Gizmos.DrawSphere(currentCOM.position, 0.2f); Gizmos.DrawLine(currentCOM.position, (currentCOM.transform.up * 3f + currentCOM.position)); }
+            // Gizmos.color = Color.blue;
+            // if (emptyCenterOfMass != null)
+            // {
+            //     Gizmos.DrawSphere(emptyCenterOfMass.position, 0.2f); 
+            //     Gizmos.DrawLine(emptyCenterOfMass.position, (emptyCenterOfMass.transform.up * 3f + emptyCenterOfMass.position));
+            // }
+            // if (emptyCenterOfMass == null && currentCOM == null)
+            // {
+            //     Gizmos.DrawSphere(this.transform.position, 0.2f); 
+            //     Gizmos.DrawLine(this.transform.position, (this.transform.transform.up * 3f + this.transform.position));
+            // }
+            //
+            // Gizmos.color = Color.red;
+            // if (currentCOM != null)
+            // {
+            //     Gizmos.DrawSphere(currentCOM.position, 0.2f); 
+            //     Gizmos.DrawLine(currentCOM.position, (currentCOM.transform.up * 3f + currentCOM.position));
+            // }
         }
     }
     #endregion

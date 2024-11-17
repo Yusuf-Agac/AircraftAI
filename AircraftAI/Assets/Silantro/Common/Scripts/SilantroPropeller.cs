@@ -1180,32 +1180,32 @@ namespace Oyedoyin.Common
 #if UNITY_EDITOR
         private void OnDrawGizmos() 
         {
-            Handles.color = Color.red; Handles.ArrowHandleCap(0, transform.position, transform.rotation * Quaternion.LookRotation(Vector3.forward), 2f, EventType.Repaint);
-
-            // -------------------------------------------- Draw Propeller
-            if (m_axle != null)
-            {
-                float propRadius = (float)m_diameter / 2f;
-                float hub = ((float)m_diameter * 0.2f) / 2f;
-                if (m_axle != null)
-                {
-                    Handles.color = Color.red; Handles.DrawWireDisc(m_axle.position, this.transform.forward, propRadius);
-                    Handles.color = Color.cyan; Handles.DrawWireDisc(m_axle.position, this.transform.forward, hub);
-                }
-
-                // -------------------------------------------- Draw Disc and Blades
-                int Nb = _blades.Count;
-                if (Nb < 2) { Nb = 2; }
-                float sectorAngle = 360 / Nb;
-                for (int i = 0; i < Nb; i++)
-                {
-                    float currentSector = sectorAngle * (i + 1);
-                    Quaternion sectorRotation = Quaternion.AngleAxis(currentSector, this.transform.forward);
-                    Vector3 sectorTipPosition = m_axle.position + (sectorRotation * (this.transform.right * propRadius));
-                    Debug.DrawLine(m_axle.position, sectorTipPosition, Color.yellow);
-                    Handles.color = Color.yellow; Handles.ArrowHandleCap(0, sectorTipPosition, transform.rotation * Quaternion.LookRotation(-Vector3.forward), 0.3f, EventType.Repaint);
-                }
-            }
+            // Handles.color = Color.red; Handles.ArrowHandleCap(0, transform.position, transform.rotation * Quaternion.LookRotation(Vector3.forward), 2f, EventType.Repaint);
+            //
+            // // -------------------------------------------- Draw Propeller
+            // if (m_axle != null)
+            // {
+            //     float propRadius = (float)m_diameter / 2f;
+            //     float hub = ((float)m_diameter * 0.2f) / 2f;
+            //     if (m_axle != null)
+            //     {
+            //         Handles.color = Color.red; Handles.DrawWireDisc(m_axle.position, this.transform.forward, propRadius);
+            //         Handles.color = Color.cyan; Handles.DrawWireDisc(m_axle.position, this.transform.forward, hub);
+            //     }
+            //
+            //     // -------------------------------------------- Draw Disc and Blades
+            //     int Nb = _blades.Count;
+            //     if (Nb < 2) { Nb = 2; }
+            //     float sectorAngle = 360 / Nb;
+            //     for (int i = 0; i < Nb; i++)
+            //     {
+            //         float currentSector = sectorAngle * (i + 1);
+            //         Quaternion sectorRotation = Quaternion.AngleAxis(currentSector, this.transform.forward);
+            //         Vector3 sectorTipPosition = m_axle.position + (sectorRotation * (this.transform.right * propRadius));
+            //         Debug.DrawLine(m_axle.position, sectorTipPosition, Color.yellow);
+            //         Handles.color = Color.yellow; Handles.ArrowHandleCap(0, sectorTipPosition, transform.rotation * Quaternion.LookRotation(-Vector3.forward), 0.3f, EventType.Repaint);
+            //     }
+            // }
 
         }
 #endif
