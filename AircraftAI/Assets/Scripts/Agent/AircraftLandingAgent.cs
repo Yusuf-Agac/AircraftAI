@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class AircraftLandingAgent : Agent
+public class AircraftLandingAgent : AircraftAgent
 {
     public bool trainingMode;
 
@@ -48,7 +48,6 @@ public class AircraftLandingAgent : Agent
     public ObservationCanvas observationCanvas;
     public RewardCanvas rewardCanvas;
     public AirportNormalizer airportNormalizer;
-    public FixedController aircraftController;
     public AircraftCollisionSensors sensors;
 
     [Space(10)] 

@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class AircraftFlightAgent : Agent
+public class AircraftFlightAgent : AircraftAgent
 {
     public bool trainingMode;
 
@@ -44,7 +44,6 @@ public class AircraftFlightAgent : Agent
     public ObservationCanvas observationCanvas;
     public RewardCanvas rewardCanvas;
     public FlightPathNormalizer flightPathNormalizer;
-    public FixedController aircraftController;
 
     [Space(10)] 
     public Slider pitchSlider;
