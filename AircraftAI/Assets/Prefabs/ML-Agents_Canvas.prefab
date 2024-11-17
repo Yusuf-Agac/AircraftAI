@@ -7399,6 +7399,7 @@ MonoBehaviour:
   rollCurrentText: {fileID: 6428873774467467909}
   yawCurrentText: {fileID: 414865556138242344}
   throttleCurrentText: {fileID: 4447466337679528086}
+  windArrowChangeSpeed: 0.28
   windArrow: {fileID: 8368671867377595490}
   windSpeedText: {fileID: 2279421221056645135}
   windSpeedNormalizedText: {fileID: 193515541407267432}
@@ -7433,7 +7434,6 @@ MonoBehaviour:
   optimalDistanceRewardText: {fileID: 4740236968394537056}
   actionDifferenceRewardText: {fileID: 6548117219570898868}
   forwardVelocityDifferenceRewardText: {fileID: 8952833063692253558}
-  optimalVelocityDifferenceRewardLabel: {fileID: 6520394366552423701}
   optimalVelocityDifferenceRewardText: {fileID: 702423975212696077}
 --- !u!1 &4765296649633268135
 GameObject:
