@@ -10,7 +10,7 @@ public static class AircraftNormalizer
     
     public static float NormalizedSpeed(Controller aircraftController)
     {
-        return NormalizerHelper.ClampNP1(Speed(aircraftController) / MaxSpeed);
+        return NormalizeHelper.ClampNP1(Speed(aircraftController) / MaxSpeed);
     }
     
     private static float Speed(Controller aircraftController)
@@ -22,7 +22,7 @@ public static class AircraftNormalizer
         
     public static float NormalizedThrust(Controller aircraftController)
     {
-        return NormalizerHelper.ClampNP1(aircraftController.m_wowForce / 6500);
+        return NormalizeHelper.ClampNP1(aircraftController.m_wowForce / 6500);
     }
     
     public static Vector3 NormalizedCurrentAxes(FixedController aircraftController)
@@ -35,9 +35,9 @@ public static class AircraftNormalizer
         var aileronLimit = aircraftController.m_wings[3].c_positiveLimit;
         var rudderLimit = aircraftController.m_wings[2].c_positiveLimit;
         
-        var aileronNormalized = NormalizerHelper.ClampNP1(aileron / aileronLimit);
-        var elevatorNormalized = NormalizerHelper.ClampNP1(elevator / elevatorLimit);
-        var rudderNormalized = NormalizerHelper.ClampNP1(rudder / rudderLimit);
+        var aileronNormalized = NormalizeHelper.ClampNP1(aileron / aileronLimit);
+        var elevatorNormalized = NormalizeHelper.ClampNP1(elevator / elevatorLimit);
+        var rudderNormalized = NormalizeHelper.ClampNP1(rudder / rudderLimit);
         return new Vector3(aileronNormalized, elevatorNormalized, rudderNormalized);
     }
 
@@ -52,9 +52,9 @@ public static class AircraftNormalizer
 
     public static Vector3 NormalizeAxesRates(FixedController aircraftController)
     {
-        var normalizedPitchRate = NormalizerHelper.ClampNP1((float)(aircraftController.m_core.q * Mathf.Rad2Deg / MaxAxesRate));
-        var normalizedRollRate = NormalizerHelper.ClampNP1((float)(aircraftController.m_core.p * Mathf.Rad2Deg / MaxAxesRate));
-        var normalizedYawRate = NormalizerHelper.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / MaxAxesRate));
+        var normalizedPitchRate = NormalizeHelper.ClampNP1((float)(aircraftController.m_core.q * Mathf.Rad2Deg / MaxAxesRate));
+        var normalizedRollRate = NormalizeHelper.ClampNP1((float)(aircraftController.m_core.p * Mathf.Rad2Deg / MaxAxesRate));
+        var normalizedYawRate = NormalizeHelper.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / MaxAxesRate));
         return new Vector3(normalizedPitchRate, normalizedRollRate, normalizedYawRate);
     }
     

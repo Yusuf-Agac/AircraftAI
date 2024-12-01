@@ -216,7 +216,7 @@ public class AirportNormalizer : MonoBehaviour
         var z = (rotation.z - airportRotation.z - transform.rotation.eulerAngles.z);
         while (z < 0) z += 360;
         
-        return NormalizerHelper.NormalizeRotation(new Vector3(x, y, z));
+        return NormalizeHelper.NormalizeRotation(new Vector3(x, y, z));
     }
     
     public float NormalizedOptimalPositionDistanceTakeOff(Vector3 aircraftPos)

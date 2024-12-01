@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-public static class NormalizerHelper
+public static class NormalizeHelper
 {
     public static Vector3 NormalizeRotation(Vector3 rotation)
     {
-        // TODO GC OPTIMIZE
         return new Vector3(NormalizeAngle(rotation.x), NormalizeAngle(rotation.y), NormalizeAngle(rotation.z));
     }
 
