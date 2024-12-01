@@ -176,6 +176,37 @@ public abstract class AircraftAgent : Agent
         OptimalVelocityDifferenceReward += optimalVelocityDifferencePenalty;
     }
     
+    protected void CalculateAtmosphere()
+    {
+        WindData = AtmosphereHelper.NormalizedWind(aircraftController, trainingMaxWindSpeed,
+            trainingMaxTurbulence);
+        WindAngle = WindData[0] * 360;
+        WindSpeed = WindData[1] * trainingMaxWindSpeed;
+        Turbulence = WindData[2] * trainingMaxTurbulence;
+    }
+    
+    protected void CalculateAxesData()
+    {
+        NormalizedTargetAxes = AircraftNormalizer.NormalizedTargetAxes(aircraftController);
+        NormalizedCurrentAxes = AircraftNormalizer.NormalizedCurrentAxes(aircraftController);
+        NormalizedAxesRates = AircraftNormalizer.NormalizeAxesRates(aircraftController);
+    }
+    
+    protected void CalculateDirectionSimilarities()
+    {
+        DotVelRot = Vector3.Dot(normalizedVelocity, AircraftForward);
+        DotVelOpt = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
+        DotRotOpt = Vector3.Dot(AircraftForward, optimalDirections[0]);
+    }
+    
+    protected void CalculateGlobalDirections()
+    {
+        AircraftForward = transform.forward;
+        AircraftUp = transform.up;
+        DotForwardUp = Vector3.Dot(AircraftForward, Vector3.up);
+        DotUpDown = Vector3.Dot(AircraftUp, Vector3.down);
+    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

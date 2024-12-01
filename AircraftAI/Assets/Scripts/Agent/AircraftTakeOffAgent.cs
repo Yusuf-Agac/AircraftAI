@@ -167,29 +167,6 @@ public class AircraftTakeOffAgent : AircraftAgent
         _normalizedCollisionSensors = sensors.CollisionSensorsNormalizedLevels();
     }
 
-    private void CalculateAtmosphere()
-    {
-        WindData = AtmosphereHelper.NormalizedWind(aircraftController, trainingMaxWindSpeed,
-            trainingMaxTurbulence);
-        WindAngle = WindData[0] * 360;
-        WindSpeed = WindData[1] * trainingMaxWindSpeed;
-        Turbulence = WindData[2] * trainingMaxTurbulence;
-    }
-
-    private void CalculateAxesData()
-    {
-        NormalizedTargetAxes = AircraftNormalizer.NormalizedTargetAxes(aircraftController);
-        NormalizedCurrentAxes = AircraftNormalizer.NormalizedCurrentAxes(aircraftController);
-        NormalizedAxesRates = AircraftNormalizer.NormalizeAxesRates(aircraftController);
-    }
-
-    private void CalculateDirectionSimilarities()
-    {
-        DotVelRot = Vector3.Dot(normalizedVelocity, AircraftForward);
-        DotVelOpt = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
-        DotRotOpt = Vector3.Dot(AircraftForward, optimalDirections[0]);
-    }
-
     private void CalculateDirectionDifferences()
     {
         FwdOptDifference = (_relativeOptimalDirections[0] - _relativeAircraftRot) / 2f;
@@ -218,14 +195,6 @@ public class AircraftTakeOffAgent : AircraftAgent
         _relativeVelocityDir = DirectionToNormalizedRotation(normalizedVelocity);
     }
 
-    private void CalculateGlobalDirections()
-    {
-        AircraftForward = transform.forward;
-        AircraftUp = transform.up;
-        DotForwardUp = Vector3.Dot(AircraftForward, Vector3.up);
-        DotUpDown = Vector3.Dot(AircraftUp, Vector3.down);
-    }
-
     private bool IsEpisodeFailed()
     {
         var outBoundsOfAirport =
@@ -233,8 +202,7 @@ public class AircraftTakeOffAgent : AircraftAgent
             _relativeAircraftPos.y <= -0.1f || _relativeAircraftPos.y > 0.999f ||
             _relativeAircraftPos.z <= 0.001f || _relativeAircraftPos.z > 0.999f;
 
-        var illegalAircraftRotation =
-            DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
+        var illegalAircraftRotation = DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
 
         return outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel;
     }

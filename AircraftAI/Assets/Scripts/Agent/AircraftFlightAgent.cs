@@ -152,29 +152,6 @@ public class AircraftFlightAgent : AircraftAgent
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
 
-    private void CalculateAtmosphere()
-    {
-        WindData = AtmosphereHelper.NormalizedWind(aircraftController, trainingMaxWindSpeed,
-            trainingMaxTurbulence);
-        WindAngle = WindData[0] * 360;
-        WindSpeed = WindData[1] * trainingMaxWindSpeed;
-        Turbulence = WindData[2] * trainingMaxTurbulence;
-    }
-
-    private void CalculateAxesData()
-    {
-        NormalizedTargetAxes = AircraftNormalizer.NormalizedTargetAxes(aircraftController);
-        NormalizedCurrentAxes = AircraftNormalizer.NormalizedCurrentAxes(aircraftController);
-        NormalizedAxesRates = AircraftNormalizer.NormalizeAxesRates(aircraftController);
-    }
-
-    private void CalculateDirectionSimilarities()
-    {
-        DotVelRot = Vector3.Dot(normalizedVelocity, AircraftForward);
-        DotVelOpt = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
-        DotRotOpt = Vector3.Dot(AircraftForward, optimalDirections[0]);
-    }
-
     private void CalculateDirectionDifferences()
     {
         FwdOptDifference = (optimalDirections[0] - AircraftForward) / 2f;
@@ -193,14 +170,6 @@ public class AircraftFlightAgent : AircraftAgent
         normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
         NormalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
         normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
-    }
-
-    private void CalculateGlobalDirections()
-    {
-        AircraftForward = transform.forward;
-        AircraftUp = transform.up;
-        DotForwardUp = Vector3.Dot(AircraftForward, Vector3.up);
-        DotUpDown = Vector3.Dot(AircraftUp, Vector3.down);
     }
 
     private static bool AircraftArrivedExit(float distanceToTarget)
