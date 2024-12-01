@@ -159,21 +159,18 @@ public class AircraftLandingAgent : AircraftAgent
             if (AircraftLanded())
             {
                 SetSparseReward(true);
-                LogRewardsOnEpisodeEnd(true);
                 aircraftController.TurnOffEngines();
                 if (trainingMode) EndEpisode();
-                else if (BehaviorSelector) ; //TODO BehaviorSelector.SelectNextBehavior();
+                else if (BehaviorSelector) BehaviorSelector.SelectNextBehavior();
             }
             else if (IsEpisodeFailed())
             {
                 SetSparseReward(false);
-                LogRewardsOnEpisodeEnd(false);
                 EndEpisode();
             }
             else
             {
                 SetOptimalDistanceReward();
-
                 SetActionDifferenceReward(actionBuffers);
 
                 CalculateMovementVariables();
@@ -185,8 +182,7 @@ public class AircraftLandingAgent : AircraftAgent
             }
         }
         
-        rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward,
-            ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward, _speedDecreaseReward, _groundedReward);
+        rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward, ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward, _speedDecreaseReward, _groundedReward);
 
         PreviousActions = actionBuffers.ContinuousActions.ToArray();
     }
@@ -221,79 +217,6 @@ public class AircraftLandingAgent : AircraftAgent
             AddReward(groundedPenalty);
             DenseRewards += groundedPenalty;
             _groundedReward += groundedPenalty;
-        }
-    }
-    
-    private void SetDirectionDifferenceReward()
-    {
-        if(Vector3.Distance(aircraftController.m_rigidbody.velocity, Vector3.zero) < 0.5f) return;
-        var forwardVelocityDifference = NormalizerHelper.ClampNP1((DotVelRot - 0.995f) * 30f);
-        var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
-                                        forwardVelocityDifferencePenaltyMultiplier;
-        AddReward(velocityDifferencePenalty);
-        DenseRewards += velocityDifferencePenalty;
-        ForwardVelocityDifferenceReward += velocityDifferencePenalty;
-        
-        var optimalVelocityDifference = NormalizerHelper.ClampNP1((DotVelOpt - 0.88f) * 10f);
-        var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
-                                               optimalVelocityDifferencePenaltyMultiplier;
-        AddReward(optimalVelocityDifferencePenalty);
-        DenseRewards += optimalVelocityDifferencePenalty;
-        OptimalVelocityDifferenceReward += optimalVelocityDifferencePenalty;
-    }
-
-    private void SetActionDifferenceReward(ActionBuffers actionBuffers)
-    {
-        for (var i = 0; i < PreviousActions.Length; i++)
-        {
-            var actionChange = Mathf.Abs(PreviousActions[i] - actionBuffers.ContinuousActions[i]);
-            var actionChangePenalty = -actionChange * denseRewardMultiplier * actionDifferencePenaltyMultiplier;
-            AddReward(actionChangePenalty);
-            DenseRewards += actionChangePenalty;
-            ActionDifferenceReward += actionChangePenalty;
-        }
-    }
-
-    private void SetOptimalDistanceReward()
-    {
-        var subtractedDistance = Mathf.Clamp01(1 - NormalizedOptimalDistance);
-        var distanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceRewardMultiplier;
-        AddReward(distanceReward);
-        DenseRewards += distanceReward;
-        OptimalDistanceRewards += distanceReward;
-
-        var distance = Mathf.Clamp01(NormalizedOptimalDistance);
-        var distancePenalty = -distance * denseRewardMultiplier * optimalDistancePenaltyMultiplier;
-        AddReward(distancePenalty);
-        DenseRewards += distancePenalty;
-        OptimalDistanceRewards += distancePenalty;
-    }
-
-    private void SetSparseReward(bool success)
-    {
-        SetReward(sparseRewardMultiplier * (success ? 5 : -1));
-        SparseRewards += sparseRewardMultiplier * (success ? 5 : -1);
-    }
-
-    private void LogRewardsOnEpisodeEnd(bool success)
-    {
-        if (success)
-        {
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Debug.Log("SUCCESSFUL / " + "Sparse: " + SparseRewards + " / Dense: " + DenseRewards + " / Optimal: " +
-                      OptimalDistanceRewards + " / Action: " + ActionDifferenceReward + " / Forward: " +
-                      ForwardVelocityDifferenceReward + " / Optimal: " + OptimalVelocityDifferenceReward + 
-                      " / SpeedDecrease: " + _speedDecreaseReward + " / Grounded: " 
-                      + _groundedReward + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        }
-        else
-        {
-            Debug.Log("SUCCESSFUL / " + "Sparse: " + SparseRewards + " / Dense: " + DenseRewards + " / Optimal: " +
-                      OptimalDistanceRewards + " / Action: " + ActionDifferenceReward + " / Forward: " +
-                      ForwardVelocityDifferenceReward + " / Optimal: " + OptimalVelocityDifferenceReward + 
-                      " / SpeedDecrease: " + _speedDecreaseReward + " / Grounded: " 
-                      + _groundedReward + " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
         }
     }
     
@@ -411,7 +334,7 @@ public class AircraftLandingAgent : AircraftAgent
 
     private Vector3 DirectionToNormalizedRotation(Vector3 direction)
     {
-        return airportNormalizer.GetNormalizedRotation(NormalizerHelper.DirectionToRotation(direction));
+        return airportNormalizer.GetNormalizedRotation(NormalizeHelper.DirectionToRotation(direction));
     }
     
     private Vector3[] DirectionsToNormalizedRotations(Vector3[] directions)

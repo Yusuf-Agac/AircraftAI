@@ -103,7 +103,7 @@ public class AircraftFlightAgent : AircraftAgent
         CalculateGlobalDirections();
 
         var illegalAircraftRotation = DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
-        var distanceToRoute = flightPathNormalizer.NormalizedOptimalPositionDistance(transform.position);
+        NormalizedOptimalDistance = flightPathNormalizer.NormalizedOptimalPositionDistance(transform.position);
         var arriveDistance = flightPathNormalizer.ArriveDistance(transform.position);
 
         if (EpisodeStarted)
@@ -113,23 +113,21 @@ public class AircraftFlightAgent : AircraftAgent
                 if (trainingMode)
                 {
                     SetSparseReward(true);
-                    LogRewardsOnEpisodeEnd(true);
                     EndEpisode();
                 }
                 else if (BehaviorSelector) BehaviorSelector.SelectNextBehavior();
             }
-            else if (IsEpisodeFailed(distanceToRoute, illegalAircraftRotation))
+            else if (IsEpisodeFailed(NormalizedOptimalDistance, illegalAircraftRotation))
             {
                 if (trainingMode)
                 {
                     SetSparseReward(false);
-                    LogRewardsOnEpisodeEnd(false);
                     EndEpisode();   
                 }
             }
             else
             {
-                SetOptimalDistanceReward(distanceToRoute);
+                SetOptimalDistanceReward();
                 SetActionDifferenceReward(actionBuffers);
 
                 CalculateMovementVariables();
@@ -140,84 +138,11 @@ public class AircraftFlightAgent : AircraftAgent
             }
         }
 
-        rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward,
-            ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward);
+        rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward, ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward);
 
         PreviousActions = actionBuffers.ContinuousActions.ToArray();
     }
-
-    private void SetDirectionDifferenceReward()
-    {
-        if(Vector3.Distance(aircraftController.m_rigidbody.velocity, Vector3.zero) < 0.5f) return;
-        var forwardVelocityDifference = NormalizerHelper.ClampNP1((DotVelRot - 0.995f) * 30f);
-        var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
-                                        forwardVelocityDifferencePenaltyMultiplier;
-        AddReward(velocityDifferencePenalty);
-        DenseRewards += velocityDifferencePenalty;
-        ForwardVelocityDifferenceReward += velocityDifferencePenalty;
-
-        var optimalVelocityDifference = NormalizerHelper.ClampNP1((DotVelOpt - 0.95f) * 20f);
-        var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
-                                               optimalVelocityDifferencePenaltyMultiplier;
-        AddReward(optimalVelocityDifferencePenalty);
-        DenseRewards += optimalVelocityDifferencePenalty;
-        OptimalVelocityDifferenceReward += optimalVelocityDifferencePenalty;
-    }
-
-    private void SetActionDifferenceReward(ActionBuffers actionBuffers)
-    {
-        for (var i = 0; i < PreviousActions.Length; i++)
-        {
-            var actionChange = Mathf.Abs(PreviousActions[i] - actionBuffers.ContinuousActions[i]);
-            var actionDifferencePenalty =
-                -actionChange * denseRewardMultiplier * actionDifferencePenaltyMultiplier;
-            AddReward(actionDifferencePenalty);
-            DenseRewards += actionDifferencePenalty;
-            ActionDifferenceReward += actionDifferencePenalty;
-        }
-    }
-
-    private void SetOptimalDistanceReward(float distanceToRoute)
-    {
-        var subtractedDistance = Mathf.Clamp01(1 - distanceToRoute);
-        var distanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceRewardMultiplier;
-        AddReward(distanceReward);
-        DenseRewards += distanceReward;
-        OptimalDistanceRewards += distanceReward;
-
-        var distance = Mathf.Clamp01(distanceToRoute);
-        var distancePenalty = -distance * denseRewardMultiplier * optimalDistancePenaltyMultiplier;
-        AddReward(distancePenalty);
-        DenseRewards += distancePenalty;
-        OptimalDistanceRewards += distancePenalty;
-    }
-
-    private void SetSparseReward(bool success)
-    {
-        SetReward(sparseRewardMultiplier * (success ? 1 : -1));
-        SparseRewards += sparseRewardMultiplier * (success ? 1 : -1);
-    }
-
-    private void LogRewardsOnEpisodeEnd(bool success)
-    {
-        if (success)
-        {
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Debug.Log("SUCCESSFUL / " + "Sparse: " + SparseRewards + " / Dense: " + DenseRewards + " / Optimal: " +
-                      OptimalDistanceRewards + " / Action: " + ActionDifferenceReward + " / Forward: " +
-                      ForwardVelocityDifferenceReward + " / Optimal: " + OptimalVelocityDifferenceReward +
-                      " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        }
-        else
-        {
-            Debug.Log("Sparse: " + SparseRewards + " / Dense: " + DenseRewards + " / Optimal: " +
-                      OptimalDistanceRewards + " / Action: " + ActionDifferenceReward + " / Forward: " +
-                      ForwardVelocityDifferenceReward + " / Optimal: " + OptimalVelocityDifferenceReward +
-                      " /// Time: " + DateTime.UtcNow.ToString("HH:mm"));
-        }
-    }
-
+    
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;

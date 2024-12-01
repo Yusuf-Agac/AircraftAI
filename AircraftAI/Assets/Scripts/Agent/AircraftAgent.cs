@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using Oyedoyin.FixedWing;
 using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -85,7 +87,15 @@ public abstract class AircraftAgent : Agent
     
     protected float NormalizedOptimalDistance;
     [HideInInspector] public Vector3[] optimalDirections;
-    
+
+    [SerializeField, Range(0, 5)] private int sparseWinReward = 1;
+    [SerializeField, Range(0, -5)] private int sparseLoseReward = -1;
+    [SerializeField, Range(0, 0.25f)] private float forwardVelocityDifferenceTolerance = 0.005f;
+    [SerializeField, Range(0, 50f)] private float forwardVelocityDifferenceSensitivity = 30f;
+    [SerializeField, Range(0, 0.25f)] private float optimalVelocityDifferenceTolerance = 0.12f;
+    [SerializeField, Range(0, 50f)] private float optimalVelocityDifferenceSensitivity = 10f;
+    [SerializeField, Range(0, 1f)]private float directionalDifferenceThreshold = 0.5f;
+
     protected abstract IEnumerator LazyEvaluation();
     protected abstract IEnumerator LazyEvaluationTraining();
     
@@ -112,6 +122,58 @@ public abstract class AircraftAgent : Agent
     {
         maxWindSpeed = Random.Range(0, trainingMaxWindSpeed);
         maxTurbulence = Random.Range(0, trainingMaxTurbulence);
+    }
+    
+    protected void SetSparseReward(bool success)
+    {
+        sparseWinReward = 1;
+        SetReward(sparseRewardMultiplier * (success ? sparseWinReward : sparseLoseReward));
+        SparseRewards += sparseRewardMultiplier * (success ? sparseWinReward : sparseLoseReward);
+    }
+    
+    protected void SetOptimalDistanceReward()
+    {
+        var subtractedDistance = Mathf.Clamp01(1 - NormalizedOptimalDistance);
+        var distanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceRewardMultiplier;
+        AddReward(distanceReward);
+        DenseRewards += distanceReward;
+        OptimalDistanceRewards += distanceReward;
+
+        var distance = Mathf.Clamp01(NormalizedOptimalDistance);
+        var distancePenalty = -distance * denseRewardMultiplier * optimalDistancePenaltyMultiplier;
+        AddReward(distancePenalty);
+        DenseRewards += distancePenalty;
+        OptimalDistanceRewards += distancePenalty;
+    }
+    
+    protected void SetActionDifferenceReward(ActionBuffers actionBuffers)
+    {
+        for (var i = 0; i < PreviousActions.Length; i++)
+        {
+            var actionChange = Mathf.Abs(PreviousActions[i] - actionBuffers.ContinuousActions[i]);
+            var actionChangePenalty = -actionChange * denseRewardMultiplier * actionDifferencePenaltyMultiplier;
+            AddReward(actionChangePenalty);
+            DenseRewards += actionChangePenalty;
+            ActionDifferenceReward += actionChangePenalty;
+        }
+    }
+    
+    protected void SetDirectionDifferenceReward()
+    {
+        if(aircraftController.m_rigidbody.velocity.magnitude < directionalDifferenceThreshold) return;
+        var forwardVelocityDifference = NormalizeHelper.ClampNP1((DotVelRot - (1 - forwardVelocityDifferenceTolerance)) * forwardVelocityDifferenceSensitivity);
+        var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
+                                        forwardVelocityDifferencePenaltyMultiplier;
+        AddReward(velocityDifferencePenalty);
+        DenseRewards += velocityDifferencePenalty;
+        ForwardVelocityDifferenceReward += velocityDifferencePenalty;
+
+        var optimalVelocityDifference = NormalizeHelper.ClampNP1((DotVelOpt - (1 - optimalVelocityDifferenceTolerance)) * optimalVelocityDifferenceSensitivity);
+        var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
+                                               optimalVelocityDifferencePenaltyMultiplier;
+        AddReward(optimalVelocityDifferencePenalty);
+        DenseRewards += optimalVelocityDifferencePenalty;
+        OptimalVelocityDifferenceReward += optimalVelocityDifferencePenalty;
     }
     
     private void OnDrawGizmos()
