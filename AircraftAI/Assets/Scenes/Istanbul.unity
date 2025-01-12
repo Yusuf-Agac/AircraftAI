@@ -257,6 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfPoints: 100
+  radius: 55
+  mode: 1
   airportStartLeft:
     pivotTransform: {fileID: 1958469618}
     down: {x: -3614.4475, y: 120.86, z: 18612.193}
@@ -994,6 +997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfPoints: 100
+  radius: 55
+  mode: 0
   airportStartLeft:
     pivotTransform: {fileID: 552825618}
     down: {x: 5732.6416, y: 50.304188, z: -17160.945}
@@ -1091,6 +1097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37bc0e1c7f8b9449b7a6309ce45059b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfPoints: 220
+  radius: 55
   trainingMode: 0
   boundsRotator: {fileID: 0}
   departureAirport: {fileID: 606254926}
@@ -1102,8 +1110,6 @@ MonoBehaviour:
   arrivalLerpFrom: {fileID: 0}
   arrivalLerpTo: {fileID: 0}
   aircraftAgents: []
-  penaltyRadius: 55
-  numberOfPoints: 220
   curvePower: 8000
   offset: {x: 0, y: 90, z: 0}
 --- !u!4 &608748170
