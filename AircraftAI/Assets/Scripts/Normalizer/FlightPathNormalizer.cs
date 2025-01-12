@@ -27,12 +27,16 @@ public partial class FlightPathNormalizer : PathNormalizer
     
     [Space(10)]
     [SerializeField] private float curvePower = 1000;
+    [SerializeField] protected float radius = 55f;
 
     public Vector3 offset;
     
     protected override Vector3 ArrivePosition => arrivalAirport.AirportPositions.Exit;
     protected override Vector3 AircraftResetPosition => departureAirport.AirportPositions.Exit;
     protected override Vector3 AircraftResetForward => (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized;
+    protected override float ArriveRadius => radius;
+    protected override float OptimalPositionRadius => radius;
+    protected override bool IsBezierDirectionForward => true;
 
     [InspectorButton("Reset Flight")]
     public override void ResetPath()

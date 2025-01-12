@@ -44,33 +44,33 @@ public partial class FlightPathNormalizer
         var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
-        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, _bezierPoints, numberOfPoints);
+        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, bezierPoints, numberOfBezierPoints);
         Gizmos.DrawSphere(closestPointReward, 0.3f);
         Gizmos.DrawLine(closestPointReward, agent.transform.position);
     }
 
     private void GizmosDrawFlightPath()
     {
-        var previousPoint = BezierCurveHelper.CalculateBezierPoint(0, _bezierPoints);
-        for (var i = 1; i < numberOfPoints + 1; i++)
+        var previousPoint = BezierCurveHelper.CalculateBezierPoint(0, bezierPoints);
+        for (var i = 1; i < numberOfBezierPoints + 1; i++)
         {
             Gizmos.color = Color.blue;
-            var point = BezierCurveHelper.CalculateBezierPoint(i / (float)numberOfPoints, _bezierPoints);
+            var point = BezierCurveHelper.CalculateBezierPoint(i / (float)numberOfBezierPoints, bezierPoints);
             Gizmos.DrawLine(previousPoint, point);
             Gizmos.color = Color.red;
-            if (i != numberOfPoints) DrawCircle(point, (point - previousPoint).normalized, radius);
+            if (i != numberOfBezierPoints) DrawCircle(point, (point - previousPoint).normalized, radius);
             previousPoint = point;
         }
     }
 
     private void GizmosDrawBezierControlPoints()
     {
-        if (_bezierPoints != null)
+        if (bezierPoints != null)
         {
-            for (var i = 1; i < _bezierPoints.Length - 1; i++)
+            for (var i = 1; i < bezierPoints.Length - 1; i++)
             {
                 Gizmos.color = Color.blue;
-                Gizmos.DrawSphere(_bezierPoints[i], 30);
+                Gizmos.DrawSphere(bezierPoints[i], 30);
             }
         }
     }
