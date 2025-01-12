@@ -1,17 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class PathNormalizer : MonoBehaviour
 {
-    protected Vector3[] _bezierPoints;
-    [SerializeField] protected int numberOfPoints = 100;
-    [SerializeField] protected float radius = 55f;
+    [HideInInspector] public Vector3[] bezierPoints;
+    
+    [SerializeField] protected int numberOfBezierPoints = 100;
 
     protected abstract Vector3 ArrivePosition { get; }
     protected abstract Vector3 AircraftResetPosition { get; }
     protected abstract Vector3 AircraftResetForward { get; }
+    
+    protected abstract float ArriveRadius { get; }
+    protected abstract float OptimalPositionRadius { get; }
+    
     protected abstract bool IsBezierDirectionForward { get; }
 
     public abstract void ResetPath();
+    public abstract void ResetTrainingPath();
     
     private void Awake() => ResetPath();
 
@@ -37,18 +43,18 @@ public abstract class PathNormalizer : MonoBehaviour
 
     public float NormalizedOptimalPositionDistance(Vector3 aircraftPos)
     {
-        return Mathf.Clamp01(ClosestOptimumPositionDistance(aircraftPos) / radius);
+        return Mathf.Clamp01(ClosestOptimumPositionDistance(aircraftPos) / OptimalPositionRadius);
     }
 
     private float ClosestOptimumPositionDistance(Vector3 aircraftPos)
     {
-        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, _bezierPoints, numberOfPoints);
+        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, bezierPoints, numberOfBezierPoints);
         return Vector3.Distance(closestPoint, aircraftPos);
     }
 
     public float GetNormalizedArriveDistance(Vector3 aircraftPosition)
     {
-        return Vector3.Distance(ArrivePosition, aircraftPosition) / radius;
+        return Vector3.Distance(ArrivePosition, aircraftPosition) / ArriveRadius;
     }
 
     public void ResetAircraftTransform(Transform aircraft)
