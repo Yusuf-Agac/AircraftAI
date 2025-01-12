@@ -69,8 +69,8 @@ public class AircraftLandingAgent : AircraftAgent
     {
         yield return null;
         aircraftController.m_rigidbody.isKinematic = false;
-        airportNormalizer.ResetTrainingAirport();
-        airportNormalizer.ResetAircraftTransformLanding(transform);
+        airportNormalizer.ResetTrainingPath();
+        airportNormalizer.ResetAircraftTransform(transform);
         
         yield return null;
         aircraftController.HotResetAircraft();
@@ -232,9 +232,9 @@ public class AircraftLandingAgent : AircraftAgent
 
     public void CalculateOptimalTransforms()
     {
-        NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistanceLanding(transform.position);
+        NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
         optimalDirections =
-            airportNormalizer.OptimalDirectionsLanding(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+            airportNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
         
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
