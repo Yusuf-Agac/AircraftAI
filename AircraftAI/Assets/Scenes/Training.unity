@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 138806883}
   - component: {fileID: 138806884}
   m_Layer: 0
-  m_Name: AtaturkAirport
+  m_Name: AtaturkAirportTraining
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 542193891}
   - component: {fileID: 542193892}
   m_Layer: 0
-  m_Name: FlightPath
+  m_Name: FlightPathTraining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,6 +623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37bc0e1c7f8b9449b7a6309ce45059b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfPoints: 220
+  radius: 55
   trainingMode: 1
   boundsRotator: {fileID: 158152968}
   departureAirport: {fileID: 1753789257}
@@ -635,8 +637,6 @@ MonoBehaviour:
   arrivalLerpTo: {fileID: 94234819}
   aircraftAgents:
   - {fileID: 246778820}
-  penaltyRadius: 55
-  numberOfPoints: 220
   curvePower: 3000
   offset: {x: 0, y: 90, z: 0}
 --- !u!1 &552825617
@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 606254925}
   - component: {fileID: 606254926}
   m_Layer: 0
-  m_Name: AtaturkAirport
+  m_Name: AtaturkAirportTraining
   m_TagString: Aircraft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
