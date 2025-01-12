@@ -40,7 +40,7 @@ public partial class AirportNormalizer
 
     private void GizmosDrawAgentOptimalPositionRewardTakeOff(AircraftTakeOffAgent agent)
     {
-        var optimalDistance = NormalizedOptimalPositionDistanceTakeOff(agent.transform.position);
+        var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
         var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, AirportPositions.TakeOffBezierPoints, numberOfBezierPoints);
@@ -58,7 +58,7 @@ public partial class AirportNormalizer
             Gizmos.DrawRay(agent.transform.position, optimalDirection * 10f);
         }
 
-        var optimalPositions = OptimalDirectionPositionsTakeOff(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
+        var optimalPositions = OptimalDirectionPositions(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
         foreach (var optimalPosition in optimalPositions)
         {
             Gizmos.DrawSphere(optimalPosition, 0.3f);
@@ -86,7 +86,7 @@ public partial class AirportNormalizer
             Gizmos.DrawRay(agent.transform.position, optimalDirection * 10f);
         }
 
-        var optimalPositions = OptimalDirectionPositionsLanding(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
+        var optimalPositions = OptimalDirectionPositions(agent.transform, agent.numOfOptimalDirections, agent.gapBetweenOptimalDirections);
         foreach (var optimalPosition in optimalPositions)
         {
             Gizmos.DrawSphere(optimalPosition, 0.3f);

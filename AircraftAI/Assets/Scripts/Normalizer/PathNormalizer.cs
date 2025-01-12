@@ -9,6 +9,7 @@ public abstract class PathNormalizer : MonoBehaviour
     protected abstract Vector3 ArrivePosition { get; }
     protected abstract Vector3 AircraftResetPosition { get; }
     protected abstract Vector3 AircraftResetForward { get; }
+    protected abstract bool IsBezierDirectionForward { get; }
 
     public abstract void ResetPath();
     
@@ -19,7 +20,7 @@ public abstract class PathNormalizer : MonoBehaviour
         var positions = new Vector3[numOfOptimalPositions];
         for (var i = 0; i < numOfOptimalPositions; i++)
         {
-            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, _bezierPoints, numberOfPoints, (i + 1) * gapBetweenOptimalPositions);
+            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, bezierPoints, numberOfBezierPoints, (i + 1) * gapBetweenOptimalPositions, IsBezierDirectionForward);
         }
         return positions;
     }
