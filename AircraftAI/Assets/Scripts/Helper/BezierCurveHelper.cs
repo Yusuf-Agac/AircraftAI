@@ -42,62 +42,64 @@ public static class BezierCurveHelper
         return ClosestPointOnLine(closestLine[0], closestLine[1], positionToCheck);
     }
 
-    public static Vector3 FindClosestPositionsNext(Vector3 positionToCheck, Vector3[] points, int numberOfPoints, int gap)
+    public static Vector3 FindClosestPositionsNext(Vector3 positionToCheck, Vector3[] points, int numberOfPoints, int gap, bool bezierDirectionForward)
     {
-        if(points == null) return Vector3.zero;
-        
-        var minDistance = Mathf.Infinity;
-        var closestNextLine = new Vector3[2];
-        var closestPosition01 = 0f;
-
-        for (var i = 0; i <= numberOfPoints; i++)
+        if (bezierDirectionForward)
         {
-            var t = i / (float)numberOfPoints;
-            var lineStart = CalculateBezierPoint(t, points);
-            var lineEnd = CalculateBezierPoint(t + (1f / numberOfPoints), points);
+            if(points == null) return Vector3.zero;
+        
+            var minDistance = Mathf.Infinity;
+            var closestNextLine = new Vector3[2];
+            var closestPosition01 = 0f;
 
-            var closestPosition = ClosestPointOnLine(lineStart, lineEnd, positionToCheck);
-
-            var distance = Vector3.Distance(closestPosition, positionToCheck);
-            if (distance < minDistance)
+            for (var i = 0; i <= numberOfPoints; i++)
             {
-                minDistance = distance;
-                closestPosition01 = PositionOnLine01(lineStart, lineEnd, closestPosition);
-                closestNextLine[0] = CalculateBezierPoint(t + (gap / (float)numberOfPoints), points);
-                closestNextLine[1] = CalculateBezierPoint(t + ((1 + gap) / (float)numberOfPoints), points);
-            }
-        }
-        
-        return GetPositionOnLine(closestNextLine[0], closestNextLine[1], closestPosition01);
-    }
-    
-    public static Vector3 FindClosestPositionsPrevious(Vector3 positionToCheck, Vector3[] points, int numberOfPoints, int gap)
-    {
-        if(points == null) return Vector3.zero;
-        
-        var minDistance = Mathf.Infinity;
-        var closestPreviousLine = new Vector3[2];
-        var closestPosition01 = 0f;
+                var t = i / (float)numberOfPoints;
+                var lineStart = CalculateBezierPoint(t, points);
+                var lineEnd = CalculateBezierPoint(t + (1f / numberOfPoints), points);
 
-        for (var i = 0; i <= numberOfPoints; i++)
+                var closestPosition = ClosestPointOnLine(lineStart, lineEnd, positionToCheck);
+
+                var distance = Vector3.Distance(closestPosition, positionToCheck);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestPosition01 = PositionOnLine01(lineStart, lineEnd, closestPosition);
+                    closestNextLine[0] = CalculateBezierPoint(t + (gap / (float)numberOfPoints), points);
+                    closestNextLine[1] = CalculateBezierPoint(t + ((1 + gap) / (float)numberOfPoints), points);
+                }
+            }
+        
+            return GetPositionOnLine(closestNextLine[0], closestNextLine[1], closestPosition01);
+        }
+        else
         {
-            var t = i / (float)numberOfPoints;
-            var lineStart = CalculateBezierPoint(t, points);
-            var lineEnd = CalculateBezierPoint(t + (1f / numberOfPoints), points);
-
-            var closestPosition = ClosestPointOnLine(lineStart, lineEnd, positionToCheck);
-
-            var distance = Vector3.Distance(closestPosition, positionToCheck);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                closestPosition01 = PositionOnLine01(lineEnd, lineStart, closestPosition);
-                closestPreviousLine[0] = CalculateBezierPoint(t - (gap / (float)numberOfPoints), points);
-                closestPreviousLine[1] = CalculateBezierPoint(t - ((1 + gap) / (float)numberOfPoints), points);
-            }
-        }
+            if(points == null) return Vector3.zero;
         
-        return GetPositionOnLine(closestPreviousLine[0], closestPreviousLine[1], closestPosition01);
+            var minDistance = Mathf.Infinity;
+            var closestPreviousLine = new Vector3[2];
+            var closestPosition01 = 0f;
+
+            for (var i = 0; i <= numberOfPoints; i++)
+            {
+                var t = i / (float)numberOfPoints;
+                var lineStart = CalculateBezierPoint(t, points);
+                var lineEnd = CalculateBezierPoint(t + (1f / numberOfPoints), points);
+
+                var closestPosition = ClosestPointOnLine(lineStart, lineEnd, positionToCheck);
+
+                var distance = Vector3.Distance(closestPosition, positionToCheck);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestPosition01 = PositionOnLine01(lineEnd, lineStart, closestPosition);
+                    closestPreviousLine[0] = CalculateBezierPoint(t - (gap / (float)numberOfPoints), points);
+                    closestPreviousLine[1] = CalculateBezierPoint(t - ((1 + gap) / (float)numberOfPoints), points);
+                }
+            }
+        
+            return GetPositionOnLine(closestPreviousLine[0], closestPreviousLine[1], closestPosition01);
+        }
     }
     
     private static Vector3 ClosestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 point)
