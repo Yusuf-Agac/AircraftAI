@@ -29,7 +29,7 @@ public class AircraftTakeOffAgent : AircraftAgent
     {
         for (var i = 0; i < PreviousActions.Length; i++) PreviousActions[i] = 0;
         aircraftController.RestoreAircraft();
-        airportNormalizer.ResetAircraftTransformTakeOff(transform);
+        airportNormalizer.ResetAircraftTransform(transform);
         yield return null;
         rewardCanvas.ChangeMode(0);
         observationCanvas.ChangeMode(0);
@@ -44,7 +44,7 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     protected override IEnumerator LazyEvaluationTraining()
     {
-        airportNormalizer.ResetTrainingAirport();
+        airportNormalizer.ResetTrainingPath();
         return null;
     }
 
@@ -172,9 +172,9 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     public void CalculateOptimalTransforms()
     {
-        NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistanceTakeOff(transform.position);
+        NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
         optimalDirections =
-            airportNormalizer.OptimalDirectionsTakeOff(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+            airportNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
         
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
@@ -205,7 +205,7 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     protected override bool IsEpisodeSucceed()
     {
-        return airportNormalizer.GetNormalizedExitDistance(transform.position) < 0.02f;
+        return airportNormalizer.GetNormalizedArriveDistance(transform.position) < 0.02f;
     }
 
     private Vector3 NormalizedAircraftPos()
