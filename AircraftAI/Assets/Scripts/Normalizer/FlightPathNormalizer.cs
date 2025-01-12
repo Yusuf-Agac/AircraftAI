@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
-using Oyedoyin.FixedWing;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class FlightPathNormalizer : MonoBehaviour
+public class FlightPathNormalizer : PathNormalizer
 {
     [Space(10)]
     [SerializeField] private bool trainingMode = true;
@@ -28,21 +26,16 @@ public class FlightPathNormalizer : MonoBehaviour
     [SerializeField] internal List<AircraftFlightAgent> aircraftAgents;
     
     [Space(10)]
-    public float penaltyRadius = 10;
-    [SerializeField] private int numberOfPoints = 100;
     [SerializeField] private float curvePower = 1000;
 
     public Vector3 offset;
-
-    private Vector3[] _bezierPoints;
-
-    private void Start()
-    {
-        ResetFlightTransform();
-    }
+    
+    protected override Vector3 ArrivePosition => arrivalAirport.AirportPositions.Exit;
+    protected override Vector3 AircraftResetPosition => departureAirport.AirportPositions.Exit;
+    protected override Vector3 AircraftResetForward => (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized;
 
     [InspectorButton("Reset Flight")]
-    public void ResetFlightTransform()
+    public override void ResetPath()
     {
         departureAirport.UpdateAirportTransforms();
         arrivalAirport.UpdateAirportTransforms();
@@ -81,50 +74,7 @@ public class FlightPathNormalizer : MonoBehaviour
         points[4] = arrivalAirport.AirportPositions.Exit;
         _bezierPoints = points;
     }
-    
-    public void ResetAircraftTransformFlight(Transform aircraft)
-    {
-        aircraft.position = departureAirport.AirportPositions.Exit;
-        aircraft.rotation = Quaternion.LookRotation((departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized);
-    }
-    
-    public float ArriveDistance(Vector3 aircraftPos)
-    {
-        return Vector3.Distance(arrivalAirport.AirportPositions.Exit, aircraftPos);
-    }
 
-    private float ClosestOptimumPositionDistance(Vector3 aircraftPos)
-    {
-        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, _bezierPoints, numberOfPoints);
-        return Vector3.Distance(closestPoint, aircraftPos);
-    }
-    
-    public float NormalizedOptimalPositionDistance(Vector3 aircraftPos)
-    {
-        return Mathf.Clamp01(ClosestOptimumPositionDistance(aircraftPos) / penaltyRadius);
-    }
-    
-    public Vector3[] OptimalDirections(Transform aircraftTransform, int numOfOptimumDirections, int gapBetweenOptimumDirections)
-    {
-        var directions = OptimalDirectionPositions(aircraftTransform, numOfOptimumDirections, gapBetweenOptimumDirections);
-        for (var i = 0; i < numOfOptimumDirections; i++)
-        {
-            directions[i] = (directions[i] - aircraftTransform.position).normalized;
-        }
-        return directions;
-    }
-
-    private Vector3[] OptimalDirectionPositions(Transform aircraftTransform, int numOfOptimalPositions, int gapBetweenOptimalPositions)
-    {
-        var positions = new Vector3[numOfOptimalPositions];
-        for (var i = 0; i < numOfOptimalPositions; i++)
-        {
-            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, _bezierPoints, numberOfPoints, (i + 1) * gapBetweenOptimalPositions);
-        }
-        return positions;
-    }
-
-#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if(!departureAirport || !arrivalAirport) return;
@@ -180,7 +130,7 @@ public class FlightPathNormalizer : MonoBehaviour
             var point = BezierCurveHelper.CalculateBezierPoint(i / (float)numberOfPoints, _bezierPoints);
             Gizmos.DrawLine(previousPoint, point);
             Gizmos.color = Color.red;
-            if(i != numberOfPoints) DrawCircle(point, (point - previousPoint).normalized, penaltyRadius);
+            if(i != numberOfPoints) DrawCircle(point, (point - previousPoint).normalized, radius);
             previousPoint = point;
         }
     }
@@ -197,17 +147,16 @@ public class FlightPathNormalizer : MonoBehaviour
         }
     }
 
-    private void DrawCircle(Vector3 position, Vector3 direction, float radius)
+    private void DrawCircle(Vector3 position, Vector3 direction, float circleRadius)
     {
         var rotation = Quaternion.LookRotation(direction + offset);
         var step = 360 / 30;
-        var previousPoint = position + rotation * Vector3.forward * radius;
+        var previousPoint = position + rotation * Vector3.forward * circleRadius;
         for (var i = 0; i < 30 + 1; i++)
         {
-            var point = position + rotation * Quaternion.Euler(0, step * i, 0) * Vector3.forward * radius;
+            var point = position + rotation * Quaternion.Euler(0, step * i, 0) * Vector3.forward * circleRadius;
             Gizmos.DrawLine(previousPoint, point);
             previousPoint = point;
         }
     }
-#endif
 }

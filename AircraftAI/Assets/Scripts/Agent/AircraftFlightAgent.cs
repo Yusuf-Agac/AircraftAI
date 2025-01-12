@@ -36,8 +36,8 @@ public class AircraftFlightAgent : AircraftAgent
     {
         yield return null;
         aircraftController.m_rigidbody.isKinematic = false;
-        flightPathNormalizer.ResetFlightTransform();
-        flightPathNormalizer.ResetAircraftTransformFlight(transform);
+        flightPathNormalizer.ResetPath();
+        flightPathNormalizer.ResetAircraftTransform(transform);
 
         yield return null;
         aircraftController.HotResetAircraft();
@@ -164,6 +164,6 @@ public class AircraftFlightAgent : AircraftAgent
 
     protected override bool IsEpisodeSucceed()
     {
-        return flightPathNormalizer.ArriveDistance(transform.position) < 55f;
+        return flightPathNormalizer.GetNormalizedArriveDistance(transform.position) < 1;
     }
 }
