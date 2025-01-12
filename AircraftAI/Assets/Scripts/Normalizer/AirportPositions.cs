@@ -11,7 +11,6 @@ public class AirportPositions
     public float MaxHeight;
     public float MinHeight;
     public Vector3 Direction;
-    public float MaxDistance;
     
     public Vector3 Reset;
     public Vector3 Exit;
@@ -23,7 +22,4 @@ public class AirportPositions
     public Vector3 LandingBezierControlPoint1;
     public Vector3 LandingBezierControlPoint2;
     public Vector3 LandingBezierControlPoint3;
-    
-    public Vector3[] TakeOffBezierPoints;
-    public Vector3[] LandingBezierPoints;
 }

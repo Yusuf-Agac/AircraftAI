@@ -43,7 +43,7 @@ public partial class AirportNormalizer
         var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
-        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, AirportPositions.TakeOffBezierPoints, numberOfBezierPoints);
+        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, bezierPoints, numberOfBezierPoints);
         Gizmos.DrawSphere(closestPointReward, 0.3f);
         Gizmos.DrawLine(closestPointReward, agent.transform.position);
     }
@@ -68,10 +68,10 @@ public partial class AirportNormalizer
 
     private void GizmosDrawAgentOptimalPositionRewardLanding(AircraftLandingAgent agent)
     {
-        var optimalDistance = NormalizedOptimalPositionDistanceTakeOff(agent.transform.position);
+        var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
-        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, AirportPositions.LandingBezierPoints, numberOfBezierPoints);
+        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, bezierPoints, numberOfBezierPoints);
         Gizmos.DrawSphere(closestPointReward, 0.3f);
         Gizmos.DrawLine(closestPointReward, agent.transform.position);
     }
@@ -99,14 +99,14 @@ public partial class AirportNormalizer
         Gizmos.color = new Color(0, 1, 0, 0.4f);
 
         Gizmos.DrawSphere(AirportPositions.Reset, 2f);
-        Gizmos.DrawSphere(AirportPositions.Exit, 0.02f * AirportPositions.MaxDistance);
+        Gizmos.DrawSphere(AirportPositions.Exit, 0.02f * ArriveRadius);
     }
 
     private void GizmosDrawAirportBezierCurve()
     {
         if (!showBezierGizmos) return;
 
-        switch (landingMode)
+        switch (mode == AirportMode.Landing)
         {
             case false:
             {
@@ -118,10 +118,10 @@ public partial class AirportNormalizer
                 for (var i = 0; i <= numberOfBezierPoints; i++)
                 {
                     var t = i / (float)numberOfBezierPoints;
-                    var pointTakeOff = BezierCurveHelper.CalculateBezierPoint(t, AirportPositions.TakeOffBezierPoints);
+                    var pointTakeOff = BezierCurveHelper.CalculateBezierPoint(t, bezierPoints);
                     if (i > 0)
                     {
-                        var previousTakeOffPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, AirportPositions.TakeOffBezierPoints);
+                        var previousTakeOffPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, bezierPoints);
                         Gizmos.DrawLine(previousTakeOffPoint, pointTakeOff);
                     }
                 }
@@ -138,10 +138,10 @@ public partial class AirportNormalizer
                 for (var i = 0; i <= numberOfBezierPoints; i++)
                 {
                     var t = i / (float)numberOfBezierPoints;
-                    var pointLanding = BezierCurveHelper.CalculateBezierPoint(t, AirportPositions.LandingBezierPoints);
+                    var pointLanding = BezierCurveHelper.CalculateBezierPoint(t, bezierPoints);
                     if (i > 0)
                     {
-                        var previousLandingPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, AirportPositions.LandingBezierPoints);
+                        var previousLandingPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, bezierPoints);
                         Gizmos.DrawLine(previousLandingPoint, pointLanding);
                     }
                 }
