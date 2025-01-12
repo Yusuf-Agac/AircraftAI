@@ -13,6 +13,7 @@ public abstract class AircraftAgent : Agent
     
     public bool trainingMode;
     
+    
     [Space(10)] 
     public float windDirectionSpeed = 360;
     public float trainingMaxWindSpeed = 15;
@@ -214,4 +215,20 @@ public abstract class AircraftAgent : Agent
         Gizmos.color = Color.yellow;
         if(aircraftController.m_rigidbody) Gizmos.DrawLine(transform.position, transform.position + aircraftController.m_rigidbody.velocity.normalized * 40);
     }
+
+    protected void CalculateDirectionDifferences(Vector3 optimal, Vector3 forward, Vector3 velocity)
+    {
+        FwdOptDifference = (optimal - forward) / 2f;
+        VelOptDifference = (optimal - velocity) / 2f;
+    }
+
+    protected virtual void CalculateMovementVariables()
+    {
+        normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
+        NormalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
+        normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
+    }
+
+    protected abstract bool IsEpisodeFailed();
+    protected abstract bool IsEpisodeSucceed();
 }

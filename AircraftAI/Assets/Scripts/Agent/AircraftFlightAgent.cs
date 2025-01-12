@@ -51,7 +51,7 @@ public class AircraftFlightAgent : AircraftAgent
         CalculateGlobalDirections();
         CalculateMovementVariables();
         CalculateOptimalTransforms();
-        CalculateDirectionDifferences();
+        CalculateDirectionDifferences(optimalDirections[0], AircraftForward, normalizedVelocity);
         CalculateDirectionSimilarities();
         CalculateAxesData();
         CalculateAtmosphere();
@@ -101,14 +101,12 @@ public class AircraftFlightAgent : AircraftAgent
         aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
 
         CalculateGlobalDirections();
-
-        var illegalAircraftRotation = DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
+        
         NormalizedOptimalDistance = flightPathNormalizer.NormalizedOptimalPositionDistance(transform.position);
-        var arriveDistance = flightPathNormalizer.ArriveDistance(transform.position);
 
         if (EpisodeStarted)
         {
-            if (AircraftArrivedExit(arriveDistance))
+            if (IsEpisodeSucceed())
             {
                 if (trainingMode)
                 {
@@ -117,7 +115,7 @@ public class AircraftFlightAgent : AircraftAgent
                 }
                 else if (BehaviorSelector) BehaviorSelector.SelectNextBehavior();
             }
-            else if (IsEpisodeFailed(NormalizedOptimalDistance, illegalAircraftRotation))
+            else if (IsEpisodeFailed())
             {
                 if (trainingMode)
                 {
@@ -152,33 +150,20 @@ public class AircraftFlightAgent : AircraftAgent
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
     }
 
-    private void CalculateDirectionDifferences()
-    {
-        FwdOptDifference = (optimalDirections[0] - AircraftForward) / 2f;
-        VelOptDifference = (optimalDirections[0] - normalizedVelocity) / 2f;
-    }
-
     public void CalculateOptimalTransforms()
     {
         NormalizedOptimalDistance = flightPathNormalizer.NormalizedOptimalPositionDistance(transform.position);
-        optimalDirections =
-            flightPathNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        optimalDirections = flightPathNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
     }
 
-    private void CalculateMovementVariables()
+    protected override bool IsEpisodeFailed()
     {
-        normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
-        NormalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
-        normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
+        var illegalAircraftRotation = DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
+        return (NormalizedOptimalDistance > 0.99f || illegalAircraftRotation) && trainingMode && EpisodeStarted;
     }
 
-    private static bool AircraftArrivedExit(float distanceToTarget)
+    protected override bool IsEpisodeSucceed()
     {
-        return distanceToTarget < 55f;
-    }
-
-    private bool IsEpisodeFailed(float distanceToRoute, bool illegalAircraftRotation)
-    {
-        return (distanceToRoute > 0.99f || illegalAircraftRotation) && trainingMode && EpisodeStarted;
+        return flightPathNormalizer.ArriveDistance(transform.position) < 55f;
     }
 }

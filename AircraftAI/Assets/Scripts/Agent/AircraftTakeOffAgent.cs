@@ -57,7 +57,7 @@ public class AircraftTakeOffAgent : AircraftAgent
         CalculateMovementVariables();
         CalculateRelativeTransform();
         CalculateOptimalTransforms();
-        CalculateDirectionDifferences();
+        CalculateDirectionDifferences(_relativeOptimalDirections[0], _relativeAircraftRot, _relativeVelocityDir);
         CalculateDirectionSimilarities();
         CalculateAxesData();
         CalculateAtmosphere();
@@ -121,7 +121,7 @@ public class AircraftTakeOffAgent : AircraftAgent
 
         if (EpisodeStarted)
         {
-            if (AircraftArrivedExit())
+            if (IsEpisodeSucceed())
             {
                 if (trainingMode)
                 {
@@ -130,10 +130,13 @@ public class AircraftTakeOffAgent : AircraftAgent
                 }
                 else if (BehaviorSelector) BehaviorSelector.SelectNextBehavior();
             }
-            else if (IsEpisodeFailed() && trainingMode)
+            else if (IsEpisodeFailed())
             {
-                SetSparseReward(false);
-                EndEpisode();
+                if (trainingMode)
+                {
+                    SetSparseReward(false);
+                    EndEpisode();
+                }
             }
             else
             {
@@ -167,17 +170,12 @@ public class AircraftTakeOffAgent : AircraftAgent
         _normalizedCollisionSensors = sensors.CollisionSensorsNormalizedLevels();
     }
 
-    private void CalculateDirectionDifferences()
-    {
-        FwdOptDifference = (_relativeOptimalDirections[0] - _relativeAircraftRot) / 2f;
-        VelOptDifference = (_relativeOptimalDirections[0] - _relativeVelocityDir) / 2f;
-    }
-
     public void CalculateOptimalTransforms()
     {
         NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistanceTakeOff(transform.position);
         optimalDirections =
             airportNormalizer.OptimalDirectionsTakeOff(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
 
@@ -187,15 +185,13 @@ public class AircraftTakeOffAgent : AircraftAgent
         _relativeAircraftRot = NormalizedAircraftRot();
     }
 
-    private void CalculateMovementVariables()
+    protected override void CalculateMovementVariables()
     {
-        normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
-        NormalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
-        normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
+        base.CalculateMovementVariables();
         _relativeVelocityDir = DirectionToNormalizedRotation(normalizedVelocity);
     }
 
-    private bool IsEpisodeFailed()
+    protected override bool IsEpisodeFailed()
     {
         var outBoundsOfAirport =
             _relativeAircraftPos.x <= 0.001f || _relativeAircraftPos.x > 0.999f ||
@@ -207,7 +203,7 @@ public class AircraftTakeOffAgent : AircraftAgent
         return outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel;
     }
 
-    private bool AircraftArrivedExit()
+    protected override bool IsEpisodeSucceed()
     {
         return airportNormalizer.GetNormalizedExitDistance(transform.position) < 0.02f;
     }

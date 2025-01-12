@@ -85,7 +85,7 @@ public class AircraftLandingAgent : AircraftAgent
         CalculateAircraftIsOnGround();
         CalculateRelativeTransform();
         CalculateOptimalTransforms();
-        CalculateDirectionDifferences();
+        CalculateDirectionDifferences(_relativeOptimalDirections[0], _relativeAircraftRot, _relativeVelocityDir);
         CalculateDirectionSimilarities();
         CalculateAxesData();
         CalculateThrottleData();
@@ -156,7 +156,7 @@ public class AircraftLandingAgent : AircraftAgent
 
         if (EpisodeStarted)
         {
-            if (AircraftLanded())
+            if (IsEpisodeSucceed())
             {
                 SetSparseReward(true);
                 aircraftController.TurnOffEngines();
@@ -230,17 +230,12 @@ public class AircraftLandingAgent : AircraftAgent
         _normalizedCurrentThrottle = AircraftNormalizer.NormalizedCurrentThrottle(aircraftController);
     }
 
-    private void CalculateDirectionDifferences()
-    {
-        FwdOptDifference = (_relativeOptimalDirections[0] - _relativeAircraftRot) / 2f;
-        VelOptDifference = (_relativeOptimalDirections[0] - _relativeVelocityDir) / 2f;
-    }
-
     public void CalculateOptimalTransforms()
     {
         NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistanceLanding(transform.position);
         optimalDirections =
             airportNormalizer.OptimalDirectionsLanding(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
 
@@ -250,17 +245,15 @@ public class AircraftLandingAgent : AircraftAgent
         _relativeAircraftRot = NormalizedAircraftRot();
     }
 
-    private void CalculateMovementVariables()
+    protected override void CalculateMovementVariables()
     {
-        normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
+        base.CalculateMovementVariables();
+        _relativeVelocityDir = DirectionToNormalizedRotation(normalizedVelocity);
         _normalizedSpeedDifference = normalizedSpeed - _normalizedPreviousSpeed;
         _normalizedPreviousSpeed = normalizedSpeed;
-        NormalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
-        normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
-        _relativeVelocityDir = DirectionToNormalizedRotation(normalizedVelocity);
     }
 
-    private bool IsEpisodeFailed()
+    protected override bool IsEpisodeFailed()
     {
         var outBoundsOfAirport =
             _relativeAircraftPos.x <= 0.001f || _relativeAircraftPos.x > 0.999f ||
@@ -272,7 +265,7 @@ public class AircraftLandingAgent : AircraftAgent
         return outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel;
     }
 
-    private bool AircraftLanded()
+    protected override bool IsEpisodeSucceed()
     {
         return normalizedSpeed < 0.08f && _aircraftIsOnGround;
     }
