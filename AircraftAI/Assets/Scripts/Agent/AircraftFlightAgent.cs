@@ -36,7 +36,7 @@ public class AircraftFlightAgent : AircraftAgent
     {
         yield return null;
         aircraftController.m_rigidbody.isKinematic = false;
-        flightPathNormalizer.ResetPath();
+        flightPathNormalizer.ResetTrainingPath();
         flightPathNormalizer.ResetAircraftTransform(transform);
 
         yield return null;

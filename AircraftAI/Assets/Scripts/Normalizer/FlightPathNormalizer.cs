@@ -37,20 +37,14 @@ public partial class FlightPathNormalizer : PathNormalizer
     [InspectorButton("Reset Flight")]
     public override void ResetPath()
     {
-        departureAirport.UpdateAirportTransforms();
-        arrivalAirport.UpdateAirportTransforms();
+        departureAirport.ResetPath();
+        arrivalAirport.ResetPath();
         
-        var points = new Vector3[5];
-        var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
-        points[0] = departureAirport.AirportPositions.Exit;
-        points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-        points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
-        points[3] = arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-        points[4] = arrivalAirport.AirportPositions.Exit;
-        _bezierPoints = points;
-        
-        if(!trainingMode) return;
-        
+        ResetBezierCurve();
+    }
+
+    public override void ResetTrainingPath()
+    {
         var departureEulerAnglesY = Random.Range(departureRandomRotationRange.x, departureRandomRotationRange.y);
         departureAirport.transform.localRotation = Quaternion.Euler(0, departureEulerAnglesY, 0);
         
@@ -62,16 +56,21 @@ public partial class FlightPathNormalizer : PathNormalizer
         departureAirport.transform.position = Vector3.Lerp(departureLerpFrom.position, departureLerpTo.position, Random.value);
         arrivalAirport.transform.position = Vector3.Lerp(arrivalLerpFrom.position, arrivalLerpTo.position, Random.value);
         
-        departureAirport.ResetTrainingAirport();
-        arrivalAirport.ResetTrainingAirport();
+        departureAirport.ResetTrainingPath();
+        arrivalAirport.ResetTrainingPath();
         
-        points = new Vector3[5];
-        dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
+        ResetBezierCurve();
+    }
+    
+    private void ResetBezierCurve()
+    {
+        var points = new Vector3[5];
+        var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
         points[0] = departureAirport.AirportPositions.Exit;
         points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
         points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
         points[3] = arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
         points[4] = arrivalAirport.AirportPositions.Exit;
-        _bezierPoints = points;
+        bezierPoints = points;
     }
 }
