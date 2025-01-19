@@ -26,7 +26,7 @@ public abstract class PathNormalizer : MonoBehaviour
         var positions = new Vector3[numOfOptimalPositions];
         for (var i = 0; i < numOfOptimalPositions; i++)
         {
-            positions[i] = BezierCurveHelper.FindClosestPositionsNext(aircraftTransform.position, bezierPoints, numberOfBezierPoints, (i + 1) * gapBetweenOptimalPositions, IsBezierDirectionForward);
+            positions[i] = BezierCurveUtility.FindClosestPositionsNext(aircraftTransform.position, bezierPoints, numberOfBezierPoints, (i + 1) * gapBetweenOptimalPositions, IsBezierDirectionForward);
         }
         return positions;
     }
@@ -48,7 +48,7 @@ public abstract class PathNormalizer : MonoBehaviour
 
     private float ClosestOptimumPositionDistance(Vector3 aircraftPos)
     {
-        var closestPoint = BezierCurveHelper.FindClosestPosition(aircraftPos, bezierPoints, numberOfBezierPoints);
+        var closestPoint = BezierCurveUtility.FindClosestPosition(aircraftPos, bezierPoints, numberOfBezierPoints);
         return Vector3.Distance(closestPoint, aircraftPos);
     }
 

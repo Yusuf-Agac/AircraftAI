@@ -78,7 +78,7 @@ public class AircraftLandingAgent : AircraftAgent
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereHelper.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence, DecisionRequester.DecisionPeriod, windDirectionSpeed);
+        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence, DecisionRequester.DecisionPeriod, windDirectionSpeed);
 
         CalculateGlobalDirections();
         CalculateMovementVariables();
@@ -227,7 +227,7 @@ public class AircraftLandingAgent : AircraftAgent
     
     private void CalculateThrottleData()
     {
-        _normalizedCurrentThrottle = AircraftNormalizer.NormalizedCurrentThrottle(aircraftController);
+        _normalizedCurrentThrottle = AircraftNormalizeUtility.NormalizedCurrentThrottle(aircraftController);
     }
 
     public void CalculateOptimalTransforms()
@@ -295,7 +295,7 @@ public class AircraftLandingAgent : AircraftAgent
 
     private Vector3 DirectionToNormalizedRotation(Vector3 direction)
     {
-        return airportNormalizer.GetNormalizedRotation(NormalizeHelper.DirectionToRotation(direction));
+        return airportNormalizer.GetNormalizedRotation(NormalizeUtility.DirectionToRotation(direction));
     }
     
     private Vector3[] DirectionsToNormalizedRotations(Vector3[] directions)

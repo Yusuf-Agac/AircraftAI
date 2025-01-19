@@ -165,7 +165,7 @@ public partial class AirportNormalizer : PathNormalizer
         var z = (rotation.z - airportRotation.z - transform.rotation.eulerAngles.z);
         while (z < 0) z += 360;
         
-        return NormalizeHelper.NormalizeRotation(new Vector3(x, y, z));
+        return NormalizeUtility.NormalizeRotation(new Vector3(x, y, z));
     }
     
     private void UpdateAirportDownPositions()

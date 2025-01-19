@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class BezierCurveHelper
+public static class BezierCurveUtility
 {
     public static Vector3 CalculateBezierPoint(float t, Vector3[] points)
     {

@@ -3,14 +3,14 @@ using Oyedoyin.Common;
 using Oyedoyin.FixedWing;
 using UnityEngine;
 
-public static class AircraftNormalizer
+public static class AircraftNormalizeUtility
 {
     private const float MaxAxesRate = 40f;
-    internal const float MaxSpeed = 150f;
+    private const float MaxSpeed = 150f;
     
     public static float NormalizedSpeed(Controller aircraftController)
     {
-        return NormalizeHelper.ClampNP1(Speed(aircraftController) / MaxSpeed);
+        return NormalizeUtility.ClampNP1(Speed(aircraftController) / MaxSpeed);
     }
     
     private static float Speed(Controller aircraftController)
@@ -22,7 +22,7 @@ public static class AircraftNormalizer
         
     public static float NormalizedThrust(Controller aircraftController)
     {
-        return NormalizeHelper.ClampNP1(aircraftController.m_wowForce / 6500);
+        return NormalizeUtility.ClampNP1(aircraftController.m_wowForce / 6500);
     }
     
     public static Vector3 NormalizedCurrentAxes(FixedController aircraftController)
@@ -35,9 +35,9 @@ public static class AircraftNormalizer
         var aileronLimit = aircraftController.m_wings[3].c_positiveLimit;
         var rudderLimit = aircraftController.m_wings[2].c_positiveLimit;
         
-        var aileronNormalized = NormalizeHelper.ClampNP1(aileron / aileronLimit);
-        var elevatorNormalized = NormalizeHelper.ClampNP1(elevator / elevatorLimit);
-        var rudderNormalized = NormalizeHelper.ClampNP1(rudder / rudderLimit);
+        var aileronNormalized = NormalizeUtility.ClampNP1(aileron / aileronLimit);
+        var elevatorNormalized = NormalizeUtility.ClampNP1(elevator / elevatorLimit);
+        var rudderNormalized = NormalizeUtility.ClampNP1(rudder / rudderLimit);
         return new Vector3(aileronNormalized, elevatorNormalized, rudderNormalized);
     }
 
@@ -52,9 +52,9 @@ public static class AircraftNormalizer
 
     public static Vector3 NormalizeAxesRates(FixedController aircraftController)
     {
-        var normalizedPitchRate = NormalizeHelper.ClampNP1((float)(aircraftController.m_core.q * Mathf.Rad2Deg / MaxAxesRate));
-        var normalizedRollRate = NormalizeHelper.ClampNP1((float)(aircraftController.m_core.p * Mathf.Rad2Deg / MaxAxesRate));
-        var normalizedYawRate = NormalizeHelper.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / MaxAxesRate));
+        var normalizedPitchRate = NormalizeUtility.ClampNP1((float)(aircraftController.m_core.q * Mathf.Rad2Deg / MaxAxesRate));
+        var normalizedRollRate = NormalizeUtility.ClampNP1((float)(aircraftController.m_core.p * Mathf.Rad2Deg / MaxAxesRate));
+        var normalizedYawRate = NormalizeUtility.ClampNP1((float)(aircraftController.m_core.r * Mathf.Rad2Deg / MaxAxesRate));
         return new Vector3(normalizedPitchRate, normalizedRollRate, normalizedYawRate);
     }
     

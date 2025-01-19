@@ -1,7 +1,7 @@
 ﻿using Oyedoyin.FixedWing;
 using UnityEngine;
 
-public static class AtmosphereHelper
+public static class AtmosphereUtility
 {
     public static void SmoothlyChangeWindAndTurbulence(FixedController fixedController, float maxWindSpeed, float maxTurbulence, int decisionPeriod, float windDirectionSpeed)
     {

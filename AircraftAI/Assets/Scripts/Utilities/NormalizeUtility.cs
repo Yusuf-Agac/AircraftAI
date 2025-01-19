@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class NormalizeHelper
+public static class NormalizeUtility
 {
     public static Vector3 NormalizeRotation(Vector3 rotation)
     {

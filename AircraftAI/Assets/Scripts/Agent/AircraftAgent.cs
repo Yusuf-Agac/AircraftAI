@@ -13,7 +13,6 @@ public abstract class AircraftAgent : Agent
     
     public bool trainingMode;
     
-    
     [Space(10)] 
     public float windDirectionSpeed = 360;
     public float trainingMaxWindSpeed = 15;
@@ -21,7 +20,7 @@ public abstract class AircraftAgent : Agent
     public float trainingMaxTurbulence = 15;
     public float maxTurbulence = 15;
     
-    [Space(10)] 
+    [Space(10)]
     [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
     
     [Space(10)] 
@@ -162,14 +161,14 @@ public abstract class AircraftAgent : Agent
     protected void SetDirectionDifferenceReward()
     {
         if(aircraftController.m_rigidbody.velocity.magnitude < directionalDifferenceThreshold) return;
-        var forwardVelocityDifference = NormalizeHelper.ClampNP1((DotVelRot - (1 - forwardVelocityDifferenceTolerance)) * forwardVelocityDifferenceSensitivity);
+        var forwardVelocityDifference = NormalizeUtility.ClampNP1((DotVelRot - (1 - forwardVelocityDifferenceTolerance)) * forwardVelocityDifferenceSensitivity);
         var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
                                         forwardVelocityDifferencePenaltyMultiplier;
         AddReward(velocityDifferencePenalty);
         DenseRewards += velocityDifferencePenalty;
         ForwardVelocityDifferenceReward += velocityDifferencePenalty;
 
-        var optimalVelocityDifference = NormalizeHelper.ClampNP1((DotVelOpt - (1 - optimalVelocityDifferenceTolerance)) * optimalVelocityDifferenceSensitivity);
+        var optimalVelocityDifference = NormalizeUtility.ClampNP1((DotVelOpt - (1 - optimalVelocityDifferenceTolerance)) * optimalVelocityDifferenceSensitivity);
         var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
                                                optimalVelocityDifferencePenaltyMultiplier;
         AddReward(optimalVelocityDifferencePenalty);
@@ -179,7 +178,7 @@ public abstract class AircraftAgent : Agent
     
     protected void CalculateAtmosphere()
     {
-        WindData = AtmosphereHelper.NormalizedWind(aircraftController, trainingMaxWindSpeed,
+        WindData = AtmosphereUtility.NormalizedWind(aircraftController, trainingMaxWindSpeed,
             trainingMaxTurbulence);
         WindAngle = WindData[0] * 360;
         WindSpeed = WindData[1] * trainingMaxWindSpeed;
@@ -188,9 +187,9 @@ public abstract class AircraftAgent : Agent
     
     protected void CalculateAxesData()
     {
-        NormalizedTargetAxes = AircraftNormalizer.NormalizedTargetAxes(aircraftController);
-        NormalizedCurrentAxes = AircraftNormalizer.NormalizedCurrentAxes(aircraftController);
-        NormalizedAxesRates = AircraftNormalizer.NormalizeAxesRates(aircraftController);
+        NormalizedTargetAxes = AircraftNormalizeUtility.NormalizedTargetAxes(aircraftController);
+        NormalizedCurrentAxes = AircraftNormalizeUtility.NormalizedCurrentAxes(aircraftController);
+        NormalizedAxesRates = AircraftNormalizeUtility.NormalizeAxesRates(aircraftController);
     }
     
     protected void CalculateDirectionSimilarities()
@@ -224,8 +223,8 @@ public abstract class AircraftAgent : Agent
 
     protected virtual void CalculateMovementVariables()
     {
-        normalizedSpeed = AircraftNormalizer.NormalizedSpeed(aircraftController);
-        NormalizedThrust = AircraftNormalizer.NormalizedThrust(aircraftController);
+        normalizedSpeed = AircraftNormalizeUtility.NormalizedSpeed(aircraftController);
+        NormalizedThrust = AircraftNormalizeUtility.NormalizedThrust(aircraftController);
         normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
     }
 

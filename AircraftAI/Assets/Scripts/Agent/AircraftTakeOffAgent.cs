@@ -50,7 +50,7 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereHelper.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
+        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
             DecisionRequester.DecisionPeriod, windDirectionSpeed);
 
         CalculateGlobalDirections();
@@ -222,7 +222,7 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     private Vector3 DirectionToNormalizedRotation(Vector3 direction)
     {
-        return airportNormalizer.GetNormalizedRotation(NormalizeHelper.DirectionToRotation(direction));
+        return airportNormalizer.GetNormalizedRotation(NormalizeUtility.DirectionToRotation(direction));
     }
     
     private Vector3[] DirectionsToNormalizedRotations(Vector3[] directions)

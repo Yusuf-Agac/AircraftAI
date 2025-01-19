@@ -45,7 +45,7 @@ public class AircraftFlightAgent : AircraftAgent
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereHelper.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
+        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
             DecisionRequester.DecisionPeriod, windDirectionSpeed);
 
         CalculateGlobalDirections();

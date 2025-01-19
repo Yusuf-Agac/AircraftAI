@@ -43,7 +43,7 @@ public partial class AirportNormalizer
         var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
-        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, bezierPoints, numberOfBezierPoints);
+        var closestPointReward = BezierCurveUtility.FindClosestPosition(agent.transform.position, bezierPoints, numberOfBezierPoints);
         Gizmos.DrawSphere(closestPointReward, 0.3f);
         Gizmos.DrawLine(closestPointReward, agent.transform.position);
     }
@@ -71,7 +71,7 @@ public partial class AirportNormalizer
         var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
         Gizmos.color = new Color(1 - reward, reward, 0, 1);
-        var closestPointReward = BezierCurveHelper.FindClosestPosition(agent.transform.position, bezierPoints, numberOfBezierPoints);
+        var closestPointReward = BezierCurveUtility.FindClosestPosition(agent.transform.position, bezierPoints, numberOfBezierPoints);
         Gizmos.DrawSphere(closestPointReward, 0.3f);
         Gizmos.DrawLine(closestPointReward, agent.transform.position);
     }
@@ -118,10 +118,10 @@ public partial class AirportNormalizer
                 for (var i = 0; i <= numberOfBezierPoints; i++)
                 {
                     var t = i / (float)numberOfBezierPoints;
-                    var pointTakeOff = BezierCurveHelper.CalculateBezierPoint(t, bezierPoints);
+                    var pointTakeOff = BezierCurveUtility.CalculateBezierPoint(t, bezierPoints);
                     if (i > 0)
                     {
-                        var previousTakeOffPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, bezierPoints);
+                        var previousTakeOffPoint = BezierCurveUtility.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, bezierPoints);
                         Gizmos.DrawLine(previousTakeOffPoint, pointTakeOff);
                     }
                 }
@@ -138,10 +138,10 @@ public partial class AirportNormalizer
                 for (var i = 0; i <= numberOfBezierPoints; i++)
                 {
                     var t = i / (float)numberOfBezierPoints;
-                    var pointLanding = BezierCurveHelper.CalculateBezierPoint(t, bezierPoints);
+                    var pointLanding = BezierCurveUtility.CalculateBezierPoint(t, bezierPoints);
                     if (i > 0)
                     {
-                        var previousLandingPoint = BezierCurveHelper.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, bezierPoints);
+                        var previousLandingPoint = BezierCurveUtility.CalculateBezierPoint((i - 1) / (float)numberOfBezierPoints, bezierPoints);
                         Gizmos.DrawLine(previousLandingPoint, pointLanding);
                     }
                 }
