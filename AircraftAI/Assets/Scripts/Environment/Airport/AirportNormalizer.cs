@@ -12,10 +12,6 @@ public partial class AirportNormalizer : PathNormalizer
     [SerializeField] private AirportEdgePositions airportEndRight;
 
     public readonly AirportPositions AirportPositions = new();
-    
-    [FormerlySerializedAs("aircraftAgents")] [Space(10)] 
-    public List<AircraftTakeOffAgent> aircraftTakeOffAgents;
-    public List<AircraftLandingAgent> aircraftLandingAgents;
 
     [Header("Configurations")]
     public bool trainingMode;

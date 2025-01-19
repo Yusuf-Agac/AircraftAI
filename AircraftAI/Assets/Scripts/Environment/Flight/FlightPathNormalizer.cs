@@ -21,10 +21,7 @@ public partial class FlightPathNormalizer : PathNormalizer
     [SerializeField] private Vector2 arrivalRandomRotationRange;
     [SerializeField] private Transform arrivalLerpFrom;
     [SerializeField] private Transform arrivalLerpTo;
-    
-    [Space(10)]
-    [SerializeField] internal List<AircraftFlightAgent> aircraftAgents;
-    
+
     [Space(10)]
     [SerializeField] private float curvePower = 1000;
     [SerializeField] protected float radius = 55f;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 public abstract class PathNormalizer : MonoBehaviour
@@ -6,6 +7,9 @@ public abstract class PathNormalizer : MonoBehaviour
     [HideInInspector] public Vector3[] bezierPoints;
     
     [SerializeField] protected int numberOfBezierPoints = 100;
+
+    [Space(10)]
+    [SerializeField] internal List<AircraftAgent> aircraftAgents;
 
     protected abstract Vector3 ArrivePosition { get; }
     protected abstract Vector3 AircraftResetPosition { get; }

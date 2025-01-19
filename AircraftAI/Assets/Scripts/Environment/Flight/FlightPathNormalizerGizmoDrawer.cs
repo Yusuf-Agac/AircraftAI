@@ -21,7 +21,7 @@ public partial class FlightPathNormalizer
         }
     }
 
-    private void GizmosDrawAgentOptimalDirection(AircraftFlightAgent agent)
+    private void GizmosDrawAgentOptimalDirection(AircraftAgent agent)
     {
         Gizmos.color = Color.green;
         agent.CalculateOptimalTransforms();
@@ -39,7 +39,7 @@ public partial class FlightPathNormalizer
         }
     }
 
-    private void GizmosDrawAgentOptimalPositionReward(AircraftFlightAgent agent)
+    private void GizmosDrawAgentOptimalPositionReward(AircraftAgent agent)
     {
         var optimalDistance = NormalizedOptimalPositionDistance(agent.transform.position);
         var reward = Mathf.Clamp01(1 - optimalDistance) - Mathf.Clamp01(optimalDistance);
