@@ -29,13 +29,14 @@ class TakeOffConfig : BehaviorConfig
         aircraftTakeOffAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
         
         aircraftTakeOffAgent.airportNormalizer = airportNormalizer;
-        airportNormalizer.aircraftTakeOffAgents.Clear();
-        airportNormalizer.aircraftTakeOffAgents.Add(aircraftTakeOffAgent);
+        airportNormalizer.aircraftAgents.Clear();
+        airportNormalizer.aircraftAgents.Add(aircraftTakeOffAgent);
         
         aircraftTakeOffAgent.sensors = sensors;
         aircraftTakeOffAgent.observationCanvas = observationCanvas;
         aircraftTakeOffAgent.rewardCanvas = rewardCanvas;
         aircraftTakeOffAgent.aircraftController = aircraftController;
+        aircraftTakeOffAgent.windArrows = windArrows;
         
         AddDecisionRequester(transform);
     }

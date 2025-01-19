@@ -29,6 +29,7 @@ abstract class BehaviorConfig
     [SerializeField] protected ObservationCanvas observationCanvas;
     [SerializeField] protected RewardCanvas rewardCanvas;
     [SerializeField] protected FixedController aircraftController;
+    [SerializeField] protected MeshRenderer[] windArrows;
     
     [Space(10)]
     protected Agent Agent;

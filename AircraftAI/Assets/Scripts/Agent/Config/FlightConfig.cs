@@ -1,8 +1,6 @@
 ﻿using System;
-using Oyedoyin.FixedWing;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 class FlightConfig : BehaviorConfig
@@ -34,6 +32,7 @@ class FlightConfig : BehaviorConfig
         aircraftFlightAgent.observationCanvas = observationCanvas;
         aircraftFlightAgent.rewardCanvas = rewardCanvas;
         aircraftFlightAgent.aircraftController = aircraftController;
+        aircraftFlightAgent.windArrows = windArrows;
         
         AddDecisionRequester(transform);
     }

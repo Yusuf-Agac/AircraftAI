@@ -10,6 +10,9 @@ using Random = UnityEngine.Random;
 public abstract class AircraftAgent : Agent
 {
     public FixedController aircraftController;
+
+    [Space(10)] 
+    public MeshRenderer[] windArrows;
     
     public bool trainingMode;
     
@@ -183,6 +186,15 @@ public abstract class AircraftAgent : Agent
         WindAngle = WindData[0] * 360;
         WindSpeed = WindData[1] * trainingMaxWindSpeed;
         Turbulence = WindData[2] * trainingMaxTurbulence;
+        
+        windArrows[0].transform.localEulerAngles = Vector3.Lerp(windArrows[0].transform.localEulerAngles, new Vector3(0, WindAngle, 0), 0.1f);
+        windArrows[5].transform.localEulerAngles = Vector3.Lerp(windArrows[5].transform.localEulerAngles, new Vector3(0, WindAngle, 0), 0.1f);
+        foreach (var windArrow in windArrows)
+        {
+            var material = windArrow.material;
+            material.color = Color.Lerp(Color.green, Color.red, WindData[1]);
+            windArrow.material = material;
+        }
     }
     
     protected void CalculateAxesData()

@@ -2,6 +2,7 @@
 using Oyedoyin.FixedWing;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [Serializable]
@@ -15,27 +16,28 @@ class LandingConfig : BehaviorConfig
     {
         AddBehaviorComponent(transform);
         
-        var aircraftTakeOffAgent = transform.AddComponent<AircraftLandingAgent>();
-        Agent = aircraftTakeOffAgent;
+        var aircraftLandingAgent = transform.AddComponent<AircraftLandingAgent>();
+        Agent = aircraftLandingAgent;
         
-        aircraftTakeOffAgent.MaxStep = maxStep;
+        aircraftLandingAgent.MaxStep = maxStep;
 
-        aircraftTakeOffAgent.trainingMode = false;
-        aircraftTakeOffAgent.manoeuvreSpeed = manoeuvreSpeed;
-        aircraftTakeOffAgent.windDirectionSpeed = windDirectionSpeed;
-        aircraftTakeOffAgent.maxWindSpeed = maxWindSpeed;
-        aircraftTakeOffAgent.maxTurbulence = maxTurbulence;
-        aircraftTakeOffAgent.numOfOptimalDirections = numOfOptimumDirections;
-        aircraftTakeOffAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
+        aircraftLandingAgent.trainingMode = false;
+        aircraftLandingAgent.manoeuvreSpeed = manoeuvreSpeed;
+        aircraftLandingAgent.windDirectionSpeed = windDirectionSpeed;
+        aircraftLandingAgent.maxWindSpeed = maxWindSpeed;
+        aircraftLandingAgent.maxTurbulence = maxTurbulence;
+        aircraftLandingAgent.numOfOptimalDirections = numOfOptimumDirections;
+        aircraftLandingAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
         
-        aircraftTakeOffAgent.airportNormalizer = airportNormalizer;
-        airportNormalizer.aircraftLandingAgents.Clear();
-        airportNormalizer.aircraftLandingAgents.Add(aircraftTakeOffAgent);
+        aircraftLandingAgent.airportNormalizer = airportNormalizer;
+        airportNormalizer.aircraftAgents.Clear();
+        airportNormalizer.aircraftAgents.Add(aircraftLandingAgent);
         
-        aircraftTakeOffAgent.sensors = sensors;
-        aircraftTakeOffAgent.observationCanvas = observationCanvas;
-        aircraftTakeOffAgent.rewardCanvas = rewardCanvas;
-        aircraftTakeOffAgent.aircraftController = aircraftController;
+        aircraftLandingAgent.sensors = sensors;
+        aircraftLandingAgent.observationCanvas = observationCanvas;
+        aircraftLandingAgent.rewardCanvas = rewardCanvas;
+        aircraftLandingAgent.aircraftController = aircraftController;
+        aircraftLandingAgent.windArrows = windArrows;
         
         AddDecisionRequester(transform);
     }
