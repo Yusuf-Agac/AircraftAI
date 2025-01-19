@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using Oyedoyin.FixedWing;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
@@ -26,7 +27,7 @@ public abstract class AircraftAgent : Agent
     [Space(10)]
     [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
     
-    [Space(10)] 
+    [Space(10)]
     [Range(1, 3)] public int numOfOptimalDirections = 1;
     [Range(1, 10)] public int gapBetweenOptimalDirections = 1;
 
@@ -97,7 +98,9 @@ public abstract class AircraftAgent : Agent
     [SerializeField, Range(0, 50f)] private float forwardVelocityDifferenceSensitivity = 30f;
     [SerializeField, Range(0, 0.25f)] private float optimalVelocityDifferenceTolerance = 0.12f;
     [SerializeField, Range(0, 50f)] private float optimalVelocityDifferenceSensitivity = 10f;
-    [SerializeField, Range(0, 1f)]private float directionalDifferenceThreshold = 0.5f;
+    [SerializeField, Range(0, 1f)] private float directionalDifferenceThreshold = 0.5f;
+    
+    protected abstract PathNormalizer PathNormalizer { get; }
 
     protected abstract IEnumerator LazyEvaluation();
     protected abstract IEnumerator LazyEvaluationTraining();
@@ -129,7 +132,6 @@ public abstract class AircraftAgent : Agent
     
     protected void SetSparseReward(bool success)
     {
-        sparseWinReward = 1;
         SetReward(sparseRewardMultiplier * (success ? sparseWinReward : sparseLoseReward));
         SparseRewards += sparseRewardMultiplier * (success ? sparseWinReward : sparseLoseReward);
     }
@@ -164,14 +166,16 @@ public abstract class AircraftAgent : Agent
     protected void SetDirectionDifferenceReward()
     {
         if(aircraftController.m_rigidbody.velocity.magnitude < directionalDifferenceThreshold) return;
-        var forwardVelocityDifference = NormalizeUtility.ClampNP1((DotVelRot - (1 - forwardVelocityDifferenceTolerance)) * forwardVelocityDifferenceSensitivity);
+        var forwardDifferenceExpectation = (1 - forwardVelocityDifferenceTolerance);
+        var forwardVelocityDifference = NormalizeUtility.ClampNP1((DotVelRot - forwardDifferenceExpectation) * forwardVelocityDifferenceSensitivity);
         var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
                                         forwardVelocityDifferencePenaltyMultiplier;
         AddReward(velocityDifferencePenalty);
         DenseRewards += velocityDifferencePenalty;
         ForwardVelocityDifferenceReward += velocityDifferencePenalty;
 
-        var optimalVelocityDifference = NormalizeUtility.ClampNP1((DotVelOpt - (1 - optimalVelocityDifferenceTolerance)) * optimalVelocityDifferenceSensitivity);
+        var optimalDifferenceExpectation = (1 - optimalVelocityDifferenceTolerance);
+        var optimalVelocityDifference = NormalizeUtility.ClampNP1((DotVelOpt - optimalDifferenceExpectation) * optimalVelocityDifferenceSensitivity);
         var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
                                                optimalVelocityDifferencePenaltyMultiplier;
         AddReward(optimalVelocityDifferencePenalty);
@@ -211,7 +215,7 @@ public abstract class AircraftAgent : Agent
         DotRotOpt = Vector3.Dot(AircraftForward, optimalDirections[0]);
     }
     
-    protected void CalculateGlobalDirections()
+    protected void CalculateGlobalDirectionsSimilarities()
     {
         AircraftForward = transform.forward;
         AircraftUp = transform.up;
@@ -221,10 +225,13 @@ public abstract class AircraftAgent : Agent
     
     private void OnDrawGizmos()
     {
+        if(!aircraftController.IsEngineWorks) return;
+        
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward.normalized * 40);
+        const int rayLength = 40;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward.normalized * rayLength);
         Gizmos.color = Color.yellow;
-        if(aircraftController.m_rigidbody) Gizmos.DrawLine(transform.position, transform.position + aircraftController.m_rigidbody.velocity.normalized * 40);
+        if(aircraftController.m_rigidbody) Gizmos.DrawLine(transform.position, transform.position + aircraftController.m_rigidbody.velocity.normalized * rayLength);
     }
 
     protected void CalculateDirectionDifferences(Vector3 optimal, Vector3 forward, Vector3 velocity)
@@ -242,4 +249,10 @@ public abstract class AircraftAgent : Agent
 
     protected abstract bool IsEpisodeFailed();
     protected abstract bool IsEpisodeSucceed();
+
+    public virtual void CalculateOptimalTransforms()
+    {
+        NormalizedOptimalDistance = PathNormalizer.NormalizedOptimalPositionDistance(transform.position);
+        optimalDirections = PathNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+    }
 }

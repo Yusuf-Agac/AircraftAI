@@ -48,6 +48,8 @@ public class AircraftLandingAgent : AircraftAgent
         PreviousActions = new float[]{0, 0, 0, 0};
     }
 
+    protected override PathNormalizer PathNormalizer => airportNormalizer;
+
     protected override IEnumerator LazyEvaluation()
     {
         for (var i = 0; i < PreviousActions.Length; i++) PreviousActions[i] = 0;
@@ -80,7 +82,7 @@ public class AircraftLandingAgent : AircraftAgent
     {
         AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence, DecisionRequester.DecisionPeriod, windDirectionSpeed);
 
-        CalculateGlobalDirections();
+        CalculateGlobalDirectionsSimilarities();
         CalculateMovementVariables();
         CalculateAircraftIsOnGround();
         CalculateRelativeTransform();
@@ -148,9 +150,7 @@ public class AircraftLandingAgent : AircraftAgent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed, throttleSpeed, _aircraftIsOnGround);
-
-        CalculateGlobalDirections();
+        CalculateGlobalDirectionsSimilarities();
         CalculateAircraftIsOnGround();
         CalculateRelativeTransform();
 
@@ -161,7 +161,6 @@ public class AircraftLandingAgent : AircraftAgent
                 SetSparseReward(true);
                 aircraftController.TurnOffEngines();
                 if (trainingMode) EndEpisode();
-                else if (BehaviorSelector) BehaviorSelector.SelectNextBehavior();
             }
             else if (IsEpisodeFailed())
             {
@@ -184,6 +183,9 @@ public class AircraftLandingAgent : AircraftAgent
         
         rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward, ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward, _speedDecreaseReward, _groundedReward);
 
+        if(aircraftController.IsEngineWorks) aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed, throttleSpeed, _aircraftIsOnGround);
+        else aircraftController.m_input.SetAgentInputs();
+        
         PreviousActions = actionBuffers.ContinuousActions.ToArray();
     }
 
@@ -230,12 +232,9 @@ public class AircraftLandingAgent : AircraftAgent
         _normalizedCurrentThrottle = AircraftNormalizeUtility.NormalizedCurrentThrottle(aircraftController);
     }
 
-    public void CalculateOptimalTransforms()
+    public override void CalculateOptimalTransforms()
     {
-        NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
-        optimalDirections =
-            airportNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
-        
+        base.CalculateOptimalTransforms();
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
 

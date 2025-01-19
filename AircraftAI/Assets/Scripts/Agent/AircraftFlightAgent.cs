@@ -8,13 +8,14 @@ using UnityEngine;
 
 public class AircraftFlightAgent : AircraftAgent
 {
-    [Space(25)]
     public FlightPathNormalizer flightPathNormalizer;
 
     private void Awake()
     {
         PreviousActions = new float[]{0, 0, 0};
     }
+
+    protected override PathNormalizer PathNormalizer => flightPathNormalizer;
 
     protected override IEnumerator LazyEvaluation()
     {
@@ -48,7 +49,7 @@ public class AircraftFlightAgent : AircraftAgent
         AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
             DecisionRequester.DecisionPeriod, windDirectionSpeed);
 
-        CalculateGlobalDirections();
+        CalculateGlobalDirectionsSimilarities();
         CalculateMovementVariables();
         CalculateOptimalTransforms();
         CalculateDirectionDifferences(optimalDirections[0], AircraftForward, normalizedVelocity);
@@ -100,12 +101,17 @@ public class AircraftFlightAgent : AircraftAgent
     {
         aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
 
-        CalculateGlobalDirections();
-        
-        NormalizedOptimalDistance = flightPathNormalizer.NormalizedOptimalPositionDistance(transform.position);
+        CalculateGlobalDirectionsSimilarities();
 
         if (EpisodeStarted)
         {
+            SetOptimalDistanceReward();
+            SetActionDifferenceReward(actionBuffers);
+            CalculateMovementVariables();
+            CalculateOptimalTransforms();
+            CalculateDirectionSimilarities();
+            SetDirectionDifferenceReward();
+            
             if (IsEpisodeSucceed())
             {
                 if (trainingMode)
@@ -123,17 +129,6 @@ public class AircraftFlightAgent : AircraftAgent
                     EndEpisode();   
                 }
             }
-            else
-            {
-                SetOptimalDistanceReward();
-                SetActionDifferenceReward(actionBuffers);
-
-                CalculateMovementVariables();
-                CalculateOptimalTransforms();
-                CalculateDirectionSimilarities();
-
-                SetDirectionDifferenceReward();
-            }
         }
 
         rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward, ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward);
@@ -148,12 +143,6 @@ public class AircraftFlightAgent : AircraftAgent
         continuousActionsOut[1] = rollSlider.value;
         continuousActionsOut[2] = yawSlider.value;
         aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
-    }
-
-    public void CalculateOptimalTransforms()
-    {
-        NormalizedOptimalDistance = flightPathNormalizer.NormalizedOptimalPositionDistance(transform.position);
-        optimalDirections = flightPathNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
     }
 
     protected override bool IsEpisodeFailed()

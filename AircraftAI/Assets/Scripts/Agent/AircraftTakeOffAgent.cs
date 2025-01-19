@@ -25,6 +25,8 @@ public class AircraftTakeOffAgent : AircraftAgent
         PreviousActions = new float[]{0, 0, 0};
     }
 
+    protected override PathNormalizer PathNormalizer => airportNormalizer;
+
     protected override IEnumerator LazyEvaluation()
     {
         for (var i = 0; i < PreviousActions.Length; i++) PreviousActions[i] = 0;
@@ -53,7 +55,7 @@ public class AircraftTakeOffAgent : AircraftAgent
         AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
             DecisionRequester.DecisionPeriod, windDirectionSpeed);
 
-        CalculateGlobalDirections();
+        CalculateGlobalDirectionsSimilarities();
         CalculateMovementVariables();
         CalculateRelativeTransform();
         CalculateOptimalTransforms();
@@ -116,7 +118,7 @@ public class AircraftTakeOffAgent : AircraftAgent
     {
         aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
 
-        CalculateGlobalDirections();
+        CalculateGlobalDirectionsSimilarities();
         CalculateRelativeTransform();
 
         if (EpisodeStarted)
@@ -170,11 +172,9 @@ public class AircraftTakeOffAgent : AircraftAgent
         _normalizedCollisionSensors = sensors.CollisionSensorsNormalizedLevels();
     }
 
-    public void CalculateOptimalTransforms()
+    public override void CalculateOptimalTransforms()
     {
-        NormalizedOptimalDistance = airportNormalizer.NormalizedOptimalPositionDistance(transform.position);
-        optimalDirections =
-            airportNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        base.CalculateOptimalTransforms();
         
         _relativeOptimalDirections = DirectionsToNormalizedRotations(optimalDirections);
     }
