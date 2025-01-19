@@ -460,6 +460,17 @@ namespace Oyedoyin.Common
         }
 
         #endregion
+
+        public void SetAgentInputs()
+        {
+            _targetPitchInput = 0;
+            _targetRollInput = 0;
+            _targetYawInput = 0;
+            _targetThrottleInput = 0;
+            
+            _manoeuvreSpeed = 1;
+            _throttleSpeed = 1;
+        }
     }
     #endregion
 }

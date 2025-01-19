@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using Oyedoyin.Common;
 using Oyedoyin.Analysis;
@@ -311,6 +312,25 @@ namespace Oyedoyin.FixedWing
                 Handles.color = Color.red;
                 //Handles.DrawWireDisc(aircraft.position, aircraft.forward, d * 0.5f);
 #endif
+            }
+        }
+
+        public bool IsEngineWorks  
+        {
+            get
+            {
+                return m_engineType switch
+                {
+                    EngineType.Piston => m_pistons.All(engine => engine.core.active),
+                    EngineType.Jet => jetType switch
+                    {
+                        JetType.Turbojet => m_jets.All(engine => engine.core.active),
+                        JetType.Turbofan => m_fans.All(engine => engine.core.active),
+                        JetType.Turboprop => m_props.All(engine => engine.core.active),
+                        _ => throw new ArgumentOutOfRangeException()
+                    },
+                    _ => throw new ArgumentOutOfRangeException()
+                };
             }
         }
 
