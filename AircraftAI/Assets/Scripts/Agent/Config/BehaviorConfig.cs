@@ -30,6 +30,7 @@ abstract class BehaviorConfig
     [SerializeField] protected RewardCanvas rewardCanvas;
     [SerializeField] protected FixedController aircraftController;
     [SerializeField] protected MeshRenderer[] windArrows;
+    [SerializeField] protected AudioSource windAudioSource;
     
     [Space(10)]
     protected Agent Agent;

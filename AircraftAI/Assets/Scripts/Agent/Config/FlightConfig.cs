@@ -33,6 +33,7 @@ class FlightConfig : BehaviorConfig
         aircraftFlightAgent.rewardCanvas = rewardCanvas;
         aircraftFlightAgent.aircraftController = aircraftController;
         aircraftFlightAgent.windArrows = windArrows;
+        aircraftFlightAgent.windAudioSource = windAudioSource;
         
         AddDecisionRequester(transform);
     }

@@ -713,13 +713,13 @@ namespace Oyedoyin.Common.Components
 
 
             //-------------------SET VOLUMES
-            backSource.volume = overideExteriorVolume * backVolume;
+            backSource.volume = overideExteriorVolume * backVolume * 0.1f;
             if (soundMode == SoundMode.Advanced)
             {
                 frontSource.volume = overideExteriorVolume * frontVolume;
                 sideSource.volume = overideExteriorVolume * sideVolume;
             }
-            exteriorSource.volume = exteriorVolume;
+            exteriorSource.volume = exteriorVolume * 0.1f;
             if (interiorMode == InteriorMode.Active && interiorBase != null && interiorSource != null)
             {
                 interiorSource.volume = interiorVolume;

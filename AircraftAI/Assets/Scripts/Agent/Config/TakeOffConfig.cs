@@ -37,6 +37,8 @@ class TakeOffConfig : BehaviorConfig
         aircraftTakeOffAgent.rewardCanvas = rewardCanvas;
         aircraftTakeOffAgent.aircraftController = aircraftController;
         aircraftTakeOffAgent.windArrows = windArrows;
+        aircraftTakeOffAgent.windAudioSource = windAudioSource;
+
         
         AddDecisionRequester(transform);
     }

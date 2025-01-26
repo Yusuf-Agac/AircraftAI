@@ -38,6 +38,7 @@ class LandingConfig : BehaviorConfig
         aircraftLandingAgent.rewardCanvas = rewardCanvas;
         aircraftLandingAgent.aircraftController = aircraftController;
         aircraftLandingAgent.windArrows = windArrows;
+        aircraftLandingAgent.windAudioSource = windAudioSource;
         
         AddDecisionRequester(transform);
     }
