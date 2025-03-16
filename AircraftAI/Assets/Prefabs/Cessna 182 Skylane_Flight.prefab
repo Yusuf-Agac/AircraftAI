@@ -30757,6 +30757,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 200000
   aircraftController: {fileID: 9217060184409094024}
+  windArrows: []
+  windAudioSource: {fileID: 0}
   trainingMode: 1
   windDirectionSpeed: 360
   trainingMaxWindSpeed: 10
@@ -30778,10 +30780,6 @@ MonoBehaviour:
   actionDifferencePenaltyMultiplier: 1
   forwardVelocityDifferencePenaltyMultiplier: 8
   optimalVelocityDifferencePenaltyMultiplier: 4
-  normalizedSpeed: 0
-  normalizedVelocity: {x: 0, y: 0, z: 0}
-  optimalDirections:
-  - {x: 0.89091, y: -0.22053751, z: -0.39704207}
   sparseWinReward: 1
   sparseLoseReward: -1
   forwardVelocityDifferenceTolerance: 0.005
@@ -30789,6 +30787,10 @@ MonoBehaviour:
   optimalVelocityDifferenceTolerance: 0.05
   optimalVelocityDifferenceSensitivity: 20
   directionalDifferenceThreshold: 0.5
+  normalizedSpeed: 0
+  normalizedVelocity: {x: 0, y: 0, z: 0}
+  optimalDirections:
+  - {x: 0.89091, y: -0.22053751, z: -0.39704207}
   flightPathNormalizer: {fileID: 0}
 --- !u!114 &8678492145494361013
 MonoBehaviour:
