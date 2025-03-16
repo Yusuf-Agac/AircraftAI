@@ -1,18 +1,16 @@
 ﻿using System;
-using Oyedoyin.FixedWing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 [Serializable]
 class LandingConfig : BehaviorConfig
 {
-    [Space(10)]
+    [Header("Configurations    Landing----------------------------------------------------------------------------------------------"), Space(10)] 
     [SerializeField] private AirportNormalizer airportNormalizer;
-    [SerializeField] private AircraftCollisionSensors sensors;
+    [SerializeField] private AircraftCollisionDetector detector;
     
-    public override void SetBehaviorComponent(Transform transform)
+    public override void SetBehaviorComponent(Transform transform, BehaviourDependencies dependencies)
     {
         AddBehaviorComponent(transform);
         
@@ -22,23 +20,17 @@ class LandingConfig : BehaviorConfig
         aircraftLandingAgent.MaxStep = maxStep;
 
         aircraftLandingAgent.trainingMode = false;
-        aircraftLandingAgent.manoeuvreSpeed = manoeuvreSpeed;
-        aircraftLandingAgent.windDirectionSpeed = windDirectionSpeed;
-        aircraftLandingAgent.maxWindSpeed = maxWindSpeed;
-        aircraftLandingAgent.maxTurbulence = maxTurbulence;
-        aircraftLandingAgent.numOfOptimalDirections = numOfOptimumDirections;
-        aircraftLandingAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
+        aircraftLandingAgent.aircraftBehaviourConfig = aircraftBehaviourConfig;
+        aircraftLandingAgent.evaluateAtmosphereData = atmosphereData;
         
         aircraftLandingAgent.airportNormalizer = airportNormalizer;
         airportNormalizer.aircraftAgents.Clear();
         airportNormalizer.aircraftAgents.Add(aircraftLandingAgent);
         
-        aircraftLandingAgent.sensors = sensors;
-        aircraftLandingAgent.observationCanvas = observationCanvas;
-        aircraftLandingAgent.rewardCanvas = rewardCanvas;
-        aircraftLandingAgent.aircraftController = aircraftController;
-        aircraftLandingAgent.windArrows = windArrows;
-        aircraftLandingAgent.windAudioSource = windAudioSource;
+        aircraftLandingAgent.detector = detector;
+        aircraftLandingAgent.observationCanvas = dependencies.observationCanvas;
+        aircraftLandingAgent.rewardCanvas = dependencies.rewardCanvas;
+        aircraftLandingAgent.evaluateAtmosphereData = atmosphereData;
         
         AddDecisionRequester(transform);
     }

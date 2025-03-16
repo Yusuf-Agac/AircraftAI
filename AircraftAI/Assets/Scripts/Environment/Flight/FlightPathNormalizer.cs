@@ -1,38 +1,38 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public partial class FlightPathNormalizer : PathNormalizer
 {
-    [Space(10)]
+    [Header("Configurations    General----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private bool trainingMode = true;
     
-    [Space(10)]
-    [SerializeField] private Transform boundsRotator;
+    [Space(5)]
+    [SerializeField] protected float penaltyRadius = 55f;
+    [SerializeField] private float bezierPointsWeight = 1000;
     
-    [Space(10)]
+    [ShowIfHeader("trainingMode", "Configurations    Training----------------------------------------------------------------------------------------------"), Space(10)]
+    [SerializeField, ShowIf("trainingMode")] private Transform boundsRotator;
+    
+    [Header("Configurations    Departure----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private AirportNormalizer departureAirport;
-    [SerializeField] private Vector2 departureRandomRotationRange;
-    [SerializeField] private Transform departureLerpFrom;
-    [SerializeField] private Transform departureLerpTo;
+    [SerializeField, ShowIf("trainingMode")] private Vector2 departureRandomRotationRange;
+    [SerializeField, ShowIf("trainingMode")] private Transform departureLerpFrom;
+    [SerializeField, ShowIf("trainingMode")] private Transform departureLerpTo;
     
-    [Space(10)]
+    [Header("Configurations    Arrival----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private AirportNormalizer arrivalAirport;
-    [SerializeField] private Vector2 arrivalRandomRotationRange;
-    [SerializeField] private Transform arrivalLerpFrom;
-    [SerializeField] private Transform arrivalLerpTo;
+    [SerializeField, ShowIf("trainingMode")] private Vector2 arrivalRandomRotationRange;
+    [SerializeField, ShowIf("trainingMode")] private Transform arrivalLerpFrom;
+    [SerializeField, ShowIf("trainingMode")] private Transform arrivalLerpTo;
 
-    [Space(10)]
-    [SerializeField] private float curvePower = 1000;
-    [SerializeField] protected float radius = 55f;
-
-    public Vector3 offset;
+    private readonly Vector3[] _bezierPoints = new Vector3[5];
     
-    protected override Vector3 ArrivePosition => arrivalAirport.AirportPositions.Exit;
-    protected override Vector3 AircraftResetPosition => departureAirport.AirportPositions.Exit;
-    protected override Vector3 AircraftResetForward => (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized;
-    protected override float ArriveRadius => radius;
-    protected override float OptimalPositionRadius => radius;
+    protected override Vector3 ArrivePosition => arrivalAirport.AirportPositionData.Exit;
+    protected override Vector3 SpawnPosition => departureAirport.AirportPositionData.Exit;
+    protected override Vector3 SpawnForward => (departureAirport.AirportPositionData.Exit - departureAirport.AirportPositionData.Spawn).normalized;
+    protected override float ArriveDistance => penaltyRadius;
+    protected override float OptimalPathPenaltyRadius => penaltyRadius;
     protected override bool IsBezierDirectionForward => true;
 
     [InspectorButton("Reset Flight")]
@@ -65,13 +65,13 @@ public partial class FlightPathNormalizer : PathNormalizer
     
     private void ResetBezierCurve()
     {
-        var points = new Vector3[5];
-        var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositions.Exit, arrivalAirport.AirportPositions.Exit) / 4f;
-        points[0] = departureAirport.AirportPositions.Exit;
-        points[1] = departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-        points[2] = ((departureAirport.AirportPositions.Exit + (departureAirport.AirportPositions.Exit - departureAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower)) + (arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower))) / 2;
-        points[3] = arrivalAirport.AirportPositions.Exit + (arrivalAirport.AirportPositions.Exit - arrivalAirport.AirportPositions.Reset).normalized * (trainingMode ? dynamicCurvePower : curvePower);
-        points[4] = arrivalAirport.AirportPositions.Exit;
-        bezierPoints = points;
+        Array.Clear(_bezierPoints, 0, _bezierPoints.Length);
+        var dynamicCurvePower = Vector3.Distance(departureAirport.AirportPositionData.Exit, arrivalAirport.AirportPositionData.Exit) / 4f;
+        _bezierPoints[0] = departureAirport.AirportPositionData.Exit;
+        _bezierPoints[1] = departureAirport.AirportPositionData.Exit + (departureAirport.AirportPositionData.Exit - departureAirport.AirportPositionData.Spawn).normalized * (trainingMode ? dynamicCurvePower : bezierPointsWeight);
+        _bezierPoints[2] = ((departureAirport.AirportPositionData.Exit + (departureAirport.AirportPositionData.Exit - departureAirport.AirportPositionData.Spawn).normalized * (trainingMode ? dynamicCurvePower : bezierPointsWeight)) + (arrivalAirport.AirportPositionData.Exit + (arrivalAirport.AirportPositionData.Exit - arrivalAirport.AirportPositionData.Spawn).normalized * (trainingMode ? dynamicCurvePower : bezierPointsWeight))) / 2;
+        _bezierPoints[3] = arrivalAirport.AirportPositionData.Exit + (arrivalAirport.AirportPositionData.Exit - arrivalAirport.AirportPositionData.Spawn).normalized * (trainingMode ? dynamicCurvePower : bezierPointsWeight);
+        _bezierPoints[4] = arrivalAirport.AirportPositionData.Exit;
+        bezierPoints = _bezierPoints;
     }
 }

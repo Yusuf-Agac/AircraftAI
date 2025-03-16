@@ -9,35 +9,23 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 
 [Serializable]
-abstract class BehaviorConfig
+public abstract class BehaviorConfig
 {
     public string behaviorName;
     public int spaceSize;
-    public int continuousActions;
+    public ActionSpec actionSpecs;
     public NNModel model;
     [Range(1, 25)] public int decisionPeriod = 1;
-    
-    [Space(10)]
-    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
-    [SerializeField] protected float windDirectionSpeed = 360;
-    [SerializeField] protected float maxWindSpeed = 5;
-    [SerializeField] protected float maxTurbulence = 5;
-    [SerializeField] protected int numOfOptimumDirections = 2;
-    [SerializeField] protected int gapBetweenOptimumDirections = 2;
-    [SerializeField] protected int maxStep = 2500000;
-    [Space(10)]
-    [SerializeField] protected ObservationCanvas observationCanvas;
-    [SerializeField] protected RewardCanvas rewardCanvas;
-    [SerializeField] protected FixedController aircraftController;
-    [SerializeField] protected MeshRenderer[] windArrows;
-    [SerializeField] protected AudioSource windAudioSource;
-    
-    [Space(10)]
+    public int maxStep = 2500000;
+
+    [SerializeField, Space(10)] protected AircraftBehaviourConfig aircraftBehaviourConfig;
+    [SerializeField, Space(10)] protected AtmosphereData atmosphereData;
+
     protected Agent Agent;
-    private BehaviorParameters _behaviorParameters;
     protected DecisionRequester DecisionRequester;
+    private BehaviorParameters _behaviorParameters;
     
-    public virtual void SetBehaviorComponent(Transform transform) { }
+    public abstract void SetBehaviorComponent(Transform transform, BehaviourDependencies dependencies);
     
     protected void AddDecisionRequester(Transform transform)
     {
@@ -51,14 +39,23 @@ abstract class BehaviorConfig
         
         _behaviorParameters.BehaviorName = behaviorName;
         _behaviorParameters.BrainParameters.VectorObservationSize = spaceSize;
-        _behaviorParameters.BrainParameters.ActionSpec = ActionSpec.MakeContinuous(continuousActions);
+        _behaviorParameters.BrainParameters.ActionSpec = actionSpecs;
         _behaviorParameters.Model = model;
     }
     
     public void RemoveBehaviorComponent()
     {
-        if(DecisionRequester != null) Object.Destroy(DecisionRequester);
-        if(Agent != null) Object.Destroy(Agent);
-        if(_behaviorParameters != null) Object.Destroy(_behaviorParameters);
+        if(DecisionRequester) Object.Destroy(DecisionRequester);
+        if(Agent) Object.Destroy(Agent);
+        if(_behaviorParameters) Object.Destroy(_behaviorParameters);
     }
+}
+
+[Serializable]
+public class BehaviourDependencies
+{
+    public MeshRenderer[] windArrows;
+    public ObservationCanvas observationCanvas;
+    public RewardCanvas rewardCanvas;
+    public AudioSource windAudioSource;
 }

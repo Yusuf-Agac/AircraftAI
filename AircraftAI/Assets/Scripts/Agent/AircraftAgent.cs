@@ -1,56 +1,58 @@
 ﻿using System.Collections;
-using System.Linq;
 using Oyedoyin.FixedWing;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public abstract class AircraftAgent : Agent
+public abstract partial class AircraftAgent : Agent
 {
+    [SerializeField, Header("Configurations    Dependencies----------------------------------------------------------------------------------------------"), Space(10)] 
+    public MeshRenderer[] windArrowRenderers;
+    [Space(5)] 
     public FixedController aircraftController;
-
-    [Space(10)] 
-    public MeshRenderer[] windArrows;
+    [Space(5)]
     public AudioSource windAudioSource;
-    
-    public bool trainingMode;
-    
-    [Space(10)] 
-    public float windDirectionSpeed = 360;
-    public float trainingMaxWindSpeed = 15;
-    public float maxWindSpeed = 15;
-    public float trainingMaxTurbulence = 15;
-    public float maxTurbulence = 15;
-    
-    [Space(10)]
-    [Range(0.1f, 25f)] public float manoeuvreSpeed = 10f;
-    
-    [Space(10)]
-    [Range(1, 3)] public int numOfOptimalDirections = 1;
-    [Range(1, 10)] public int gapBetweenOptimalDirections = 1;
-
-    [Space(10)] 
+    [Space(5)] 
     public ObservationCanvas observationCanvas;
     public RewardCanvas rewardCanvas;
-    
-    [Space(10)] 
+    [Space(5)] 
     public Slider pitchSlider;
     public Slider rollSlider;
     public Slider yawSlider;
     
-    [Space(10)] 
+    [SerializeField, Header("Configurations    General----------------------------------------------------------------------------------------------"), Space(10)] 
+    public bool trainingMode;
+    
+    [SerializeField, Header("Configurations    Atmosphere----------------------------------------------------------------------------------------------"), Space(10)] 
+    public AtmosphereData evaluateAtmosphereData;
+    [ShowIf("trainingMode")] public AtmosphereData trainingAtmosphereData;
+    
+    [SerializeField, Header("Configurations    Aircraft----------------------------------------------------------------------------------------------"), Space(10)] 
+    public AircraftBehaviourConfig aircraftBehaviourConfig;
+    
+    [Header("Configurations    Reward----------------------------------------------------------------------------------------------"), Space(10)] 
     [SerializeField] protected float sparseRewardMultiplier = 1f;
     [SerializeField] protected float denseRewardMultiplier = 0.001f;
 
-    [Space(5)] 
-    [SerializeField] protected float optimalDistanceRewardMultiplier = 8f;
-    [SerializeField] protected float optimalDistancePenaltyMultiplier = 4f;
-    [SerializeField] protected float actionDifferencePenaltyMultiplier = 4f;
-    [SerializeField] protected float forwardVelocityDifferencePenaltyMultiplier = 4;
-    [SerializeField] protected float optimalVelocityDifferencePenaltyMultiplier = 4;
+    [Space(10)] 
+    [SerializeField, Range(0, 5)] private int sparseWinReward = 1;
+    [SerializeField, Range(0, -5)] private int sparseLoseReward = -1;
+    
+    [Space(10)] 
+    [SerializeField] protected float optimalDistanceReward = 8f;
+    [SerializeField] protected float optimalDistancePenalty = 4f;
+    [SerializeField] protected float actionDifferencePenalty = 4f;
+    [SerializeField] protected float forwardVelocityDifferencePenalty = 4;
+    [SerializeField] protected float optimalVelocityDifferencePenalty = 4;
+    
+    [Space(10)] 
+    [SerializeField, Range(0, 0.25f)] private float forwardVelocityDifferenceTolerance = 0.005f;
+    [SerializeField, Range(0, 50f)] private float forwardVelocityDifferenceSensitivity = 30f;
+    [SerializeField, Range(0, 0.25f)] private float optimalVelocityDifferenceTolerance = 0.12f;
+    [SerializeField, Range(0, 50f)] private float optimalVelocityDifferenceSensitivity = 10f;
+    [SerializeField, Range(0, 1f)] private float directionalDifferenceThreshold = 0.5f;
     
     protected DecisionRequester DecisionRequester;
     protected BehaviorSelector BehaviorSelector;
@@ -66,8 +68,8 @@ public abstract class AircraftAgent : Agent
     
     protected Vector3 AircraftForward;
     protected Vector3 AircraftUp;
-    protected float DotForwardUp;
-    protected float DotUpDown;
+    protected float DotLocalForwardGlobalUp;
+    protected float DotLocalUpGlobalDown;
     
     protected float NormalizedThrust;
     [HideInInspector] public float normalizedSpeed;
@@ -78,28 +80,20 @@ public abstract class AircraftAgent : Agent
     protected Vector3 NormalizedCurrentAxes;
     protected Vector3 NormalizedAxesRates;
     
-    protected Vector3 FwdOptDifference;
-    protected Vector3 VelOptDifference;
+    protected Vector3 ForwardOptimalDifference;
+    protected Vector3 VelocityOptimalDifference;
     
-    protected float DotVelRot;
-    protected float DotVelOpt;
-    protected float DotRotOpt;
+    protected float DotVelocityRotation;
+    protected float DotVelocityOptimal;
+    protected float DotRotationOptimal;
 
-    protected float[] WindData;
+    protected float[] NormalizedWind;
     protected float WindAngle;
     protected float WindSpeed;
     protected float Turbulence;
     
     protected float NormalizedOptimalDistance;
     [HideInInspector] public Vector3[] optimalDirections;
-
-    [SerializeField, Range(0, 5)] private int sparseWinReward = 1;
-    [SerializeField, Range(0, -5)] private int sparseLoseReward = -1;
-    [SerializeField, Range(0, 0.25f)] private float forwardVelocityDifferenceTolerance = 0.005f;
-    [SerializeField, Range(0, 50f)] private float forwardVelocityDifferenceSensitivity = 30f;
-    [SerializeField, Range(0, 0.25f)] private float optimalVelocityDifferenceTolerance = 0.12f;
-    [SerializeField, Range(0, 50f)] private float optimalVelocityDifferenceSensitivity = 10f;
-    [SerializeField, Range(0, 1f)] private float directionalDifferenceThreshold = 0.5f;
     
     protected abstract PathNormalizer PathNormalizer { get; }
 
@@ -120,15 +114,16 @@ public abstract class AircraftAgent : Agent
         if (trainingMode)
         {
             aircraftController.m_rigidbody.isKinematic = true;
-            ResetAtmosphereBounds();
+            ResetAtmosphereBoundsForTraining();
             StartCoroutine(LazyEvaluationTraining());
         }
     }
     
-    private void ResetAtmosphereBounds()
+    private void ResetAtmosphereBoundsForTraining()
     {
-        maxWindSpeed = Random.Range(0, trainingMaxWindSpeed);
-        maxTurbulence = Random.Range(0, trainingMaxTurbulence);
+        evaluateAtmosphereData.maxWindSpeed = Random.Range(0, trainingAtmosphereData.maxWindSpeed);
+        evaluateAtmosphereData.maxTurbulence = Random.Range(0, trainingAtmosphereData.maxTurbulence);
+        evaluateAtmosphereData.maxWindDirectionChangeSpeed = Random.Range(0, trainingAtmosphereData.maxWindDirectionChangeSpeed);
     }
     
     protected void SetSparseReward(bool success)
@@ -140,13 +135,13 @@ public abstract class AircraftAgent : Agent
     protected void SetOptimalDistanceReward()
     {
         var subtractedDistance = Mathf.Clamp01(1 - NormalizedOptimalDistance);
-        var distanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceRewardMultiplier;
+        var distanceReward = subtractedDistance * denseRewardMultiplier * optimalDistanceReward;
         AddReward(distanceReward);
         DenseRewards += distanceReward;
         OptimalDistanceRewards += distanceReward;
 
         var distance = Mathf.Clamp01(NormalizedOptimalDistance);
-        var distancePenalty = -distance * denseRewardMultiplier * optimalDistancePenaltyMultiplier;
+        var distancePenalty = -distance * denseRewardMultiplier * optimalDistancePenalty;
         AddReward(distancePenalty);
         DenseRewards += distancePenalty;
         OptimalDistanceRewards += distancePenalty;
@@ -157,7 +152,7 @@ public abstract class AircraftAgent : Agent
         for (var i = 0; i < PreviousActions.Length; i++)
         {
             var actionChange = Mathf.Abs(PreviousActions[i] - actionBuffers.ContinuousActions[i]);
-            var actionChangePenalty = -actionChange * denseRewardMultiplier * actionDifferencePenaltyMultiplier;
+            var actionChangePenalty = -actionChange * denseRewardMultiplier * actionDifferencePenalty;
             AddReward(actionChangePenalty);
             DenseRewards += actionChangePenalty;
             ActionDifferenceReward += actionChangePenalty;
@@ -168,43 +163,52 @@ public abstract class AircraftAgent : Agent
     {
         if(aircraftController.m_rigidbody.velocity.magnitude < directionalDifferenceThreshold) return;
         var forwardDifferenceExpectation = (1 - forwardVelocityDifferenceTolerance);
-        var forwardVelocityDifference = NormalizeUtility.ClampNP1((DotVelRot - forwardDifferenceExpectation) * forwardVelocityDifferenceSensitivity);
+        var forwardVelocityDifference = NormalizeUtility.ClampNP1((DotVelocityRotation - forwardDifferenceExpectation) * forwardVelocityDifferenceSensitivity);
         var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
-                                        forwardVelocityDifferencePenaltyMultiplier;
+                                        forwardVelocityDifferencePenalty;
         AddReward(velocityDifferencePenalty);
         DenseRewards += velocityDifferencePenalty;
         ForwardVelocityDifferenceReward += velocityDifferencePenalty;
 
         var optimalDifferenceExpectation = (1 - optimalVelocityDifferenceTolerance);
-        var optimalVelocityDifference = NormalizeUtility.ClampNP1((DotVelOpt - optimalDifferenceExpectation) * optimalVelocityDifferenceSensitivity);
-        var optimalVelocityDifferencePenalty = optimalVelocityDifference * denseRewardMultiplier *
-                                               optimalVelocityDifferencePenaltyMultiplier;
-        AddReward(optimalVelocityDifferencePenalty);
-        DenseRewards += optimalVelocityDifferencePenalty;
-        OptimalVelocityDifferenceReward += optimalVelocityDifferencePenalty;
+        var optimalVelocityDifference = NormalizeUtility.ClampNP1((DotVelocityOptimal - optimalDifferenceExpectation) * optimalVelocityDifferenceSensitivity);
+        var result = optimalVelocityDifference * denseRewardMultiplier * optimalVelocityDifferencePenalty;
+        AddReward(result);
+        DenseRewards += result;
+        OptimalVelocityDifferenceReward += result;
     }
     
     protected void CalculateAtmosphere()
     {
-        WindData = AtmosphereUtility.NormalizedWind(aircraftController, trainingMaxWindSpeed,
-            trainingMaxTurbulence);
-        WindAngle = WindData[0] * 360;
-        WindSpeed = WindData[1] * trainingMaxWindSpeed;
-        Turbulence = WindData[2] * trainingMaxTurbulence;
+        NormalizedWind = AtmosphereUtility.NormalizedWind(aircraftController, trainingAtmosphereData);
+        WindAngle = NormalizedWind[0] * 360;
+        WindSpeed = NormalizedWind[1] * trainingAtmosphereData.maxWindSpeed;
+        Turbulence = NormalizedWind[2] * trainingAtmosphereData.maxTurbulence;
 
-        windArrows[0].transform.localEulerAngles = new Vector3(0, WindAngle, 0);
-        windArrows[5].transform.localEulerAngles = new Vector3(0, WindAngle, 0);
-        foreach (var windArrow in windArrows)
+        UpdateWindObjects();
+    }
+
+    private void UpdateWindObjects()
+    {
+        if (windArrowRenderers != null)
         {
-            var material = windArrow.material;
-            material.color = Color.Lerp(Color.green, Color.red, WindData[1]);
-            windArrow.material = material;
+            windArrowRenderers[0].transform.localEulerAngles = new Vector3(0, WindAngle, 0);
+            windArrowRenderers[1].transform.localEulerAngles = new Vector3(0, WindAngle, 0);
+            foreach (var windArrow in windArrowRenderers)
+            {
+                var material = windArrow.material;
+                material.color = Color.Lerp(Color.green, Color.red, NormalizedWind[1]);
+                windArrow.material = material;
+            }
         }
 
-        windAudioSource.volume = Mathf.Lerp(0.1f, 1f, WindData[1]);
-        windAudioSource.pitch = Mathf.Lerp(1f, 1.4f, WindData[1]);
+        if (windAudioSource)
+        {
+            windAudioSource.volume = Mathf.Lerp(0.1f, 1f, NormalizedWind[1]);
+            windAudioSource.pitch = Mathf.Lerp(1f, 1.7f, NormalizedWind[1]);
+        }
     }
-    
+
     protected void CalculateAxesData()
     {
         NormalizedTargetAxes = AircraftNormalizeUtility.NormalizedTargetAxes(aircraftController);
@@ -214,34 +218,23 @@ public abstract class AircraftAgent : Agent
     
     protected void CalculateDirectionSimilarities()
     {
-        DotVelRot = Vector3.Dot(normalizedVelocity, AircraftForward);
-        DotVelOpt = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
-        DotRotOpt = Vector3.Dot(AircraftForward, optimalDirections[0]);
+        DotVelocityRotation = Vector3.Dot(normalizedVelocity, AircraftForward);
+        DotVelocityOptimal = Vector3.Dot(normalizedVelocity, optimalDirections[0]);
+        DotRotationOptimal = Vector3.Dot(AircraftForward, optimalDirections[0]);
     }
     
-    protected void CalculateGlobalDirectionsSimilarities()
+    protected void CalculateDirectionsSimilarities()
     {
         AircraftForward = transform.forward;
         AircraftUp = transform.up;
-        DotForwardUp = Vector3.Dot(AircraftForward, Vector3.up);
-        DotUpDown = Vector3.Dot(AircraftUp, Vector3.down);
-    }
-    
-    private void OnDrawGizmos()
-    {
-        if(!aircraftController.IsEngineWorks) return;
-        
-        Gizmos.color = Color.red;
-        const int rayLength = 40;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward.normalized * rayLength);
-        Gizmos.color = Color.yellow;
-        if(aircraftController.m_rigidbody) Gizmos.DrawLine(transform.position, transform.position + aircraftController.m_rigidbody.velocity.normalized * rayLength);
+        DotLocalForwardGlobalUp = Vector3.Dot(AircraftForward, Vector3.up);
+        DotLocalUpGlobalDown = Vector3.Dot(AircraftUp, Vector3.down);
     }
 
     protected void CalculateDirectionDifferences(Vector3 optimal, Vector3 forward, Vector3 velocity)
     {
-        FwdOptDifference = (optimal - forward) / 2f;
-        VelOptDifference = (optimal - velocity) / 2f;
+        ForwardOptimalDifference = (optimal - forward) / 2f;
+        VelocityOptimalDifference = (optimal - velocity) / 2f;
     }
 
     protected virtual void CalculateMovementVariables()
@@ -257,6 +250,6 @@ public abstract class AircraftAgent : Agent
     public virtual void CalculateOptimalTransforms()
     {
         NormalizedOptimalDistance = PathNormalizer.NormalizedOptimalPositionDistance(transform.position);
-        optimalDirections = PathNormalizer.OptimalDirections(transform, numOfOptimalDirections, gapBetweenOptimalDirections);
+        optimalDirections = PathNormalizer.OptimalDirections(transform, aircraftBehaviourConfig.numOfOptimalDirections, aircraftBehaviourConfig.gapBetweenOptimalDirections);
     }
 }

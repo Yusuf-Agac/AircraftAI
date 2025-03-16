@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Linq;
 using Oyedoyin.Common;
@@ -8,12 +7,10 @@ using UnityEngine;
 
 public class AircraftFlightAgent : AircraftAgent
 {
+    [SerializeField, Header("Configurations    Flight Agent----------------------------------------------------------------------------------------------"), Space(10)] 
     public FlightPathNormalizer flightPathNormalizer;
 
-    private void Awake()
-    {
-        PreviousActions = new float[]{0, 0, 0};
-    }
+    private void Awake() => PreviousActions = new float[]{0, 0, 0};
 
     protected override PathNormalizer PathNormalizer => flightPathNormalizer;
 
@@ -26,7 +23,7 @@ public class AircraftFlightAgent : AircraftAgent
         aircraftController.TurnOnEngines();
 
         yield return null;
-        if (aircraftController.gearActuator != null && aircraftController.gearActuator.actuatorState == SilantroActuator.ActuatorState.Engaged) aircraftController.gearActuator.DisengageActuator();
+        if (aircraftController.gearActuator && aircraftController.gearActuator.actuatorState == SilantroActuator.ActuatorState.Engaged) aircraftController.gearActuator.DisengageActuator();
         else aircraftController.m_gearState = Controller.GearState.Up;
 
         yield return new WaitForSeconds(0.5f);
@@ -46,10 +43,9 @@ public class AircraftFlightAgent : AircraftAgent
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
-            DecisionRequester.DecisionPeriod, windDirectionSpeed);
+        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, evaluateAtmosphereData, DecisionRequester.DecisionPeriod);
 
-        CalculateGlobalDirectionsSimilarities();
+        CalculateDirectionsSimilarities();
         CalculateMovementVariables();
         CalculateOptimalTransforms();
         CalculateDirectionDifferences(optimalDirections[0], AircraftForward, normalizedVelocity);
@@ -59,8 +55,8 @@ public class AircraftFlightAgent : AircraftAgent
 
         sensor.AddObservation(AircraftForward);
         sensor.AddObservation(AircraftUp);
-        sensor.AddObservation(DotForwardUp);
-        sensor.AddObservation(DotUpDown);
+        sensor.AddObservation(DotLocalForwardGlobalUp);
+        sensor.AddObservation(DotLocalUpGlobalDown);
 
         sensor.AddObservation(normalizedSpeed);
         sensor.AddObservation(NormalizedThrust);
@@ -69,39 +65,39 @@ public class AircraftFlightAgent : AircraftAgent
         sensor.AddObservation(NormalizedOptimalDistance);
         foreach (var optimalDirection in optimalDirections) sensor.AddObservation(optimalDirection);
 
-        sensor.AddObservation(FwdOptDifference);
-        sensor.AddObservation(VelOptDifference);
+        sensor.AddObservation(ForwardOptimalDifference);
+        sensor.AddObservation(VelocityOptimalDifference);
 
-        sensor.AddObservation(DotVelRot);
-        sensor.AddObservation(DotVelOpt);
-        sensor.AddObservation(DotRotOpt);
+        sensor.AddObservation(DotVelocityRotation);
+        sensor.AddObservation(DotVelocityOptimal);
+        sensor.AddObservation(DotRotationOptimal);
 
         sensor.AddObservation(PreviousActions);
         sensor.AddObservation(NormalizedTargetAxes);
         sensor.AddObservation(NormalizedCurrentAxes);
         sensor.AddObservation(NormalizedAxesRates);
 
-        sensor.AddObservation(WindData);
+        sensor.AddObservation(NormalizedWind);
 
         observationCanvas.DisplayNormalizedData(
-            AircraftForward, AircraftUp, DotForwardUp, DotUpDown,
+            AircraftForward, AircraftUp, DotLocalForwardGlobalUp, DotLocalUpGlobalDown,
             normalizedVelocity, normalizedSpeed, NormalizedThrust,
             NormalizedOptimalDistance, optimalDirections,
-            FwdOptDifference, VelOptDifference,
-            DotVelRot, DotVelOpt, DotRotOpt,
+            ForwardOptimalDifference, VelocityOptimalDifference,
+            DotVelocityRotation, DotVelocityOptimal, DotRotationOptimal,
             PreviousActions,
             NormalizedTargetAxes,
             NormalizedCurrentAxes,
             NormalizedAxesRates,
-            WindAngle, WindSpeed, WindData[1], Turbulence, WindData[2]
+            WindAngle, WindSpeed, NormalizedWind[1], Turbulence, NormalizedWind[2]
         );
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
+        aircraftController.m_input.SetAgentInputs(actionBuffers, aircraftBehaviourConfig.manoeuvreSpeed);
 
-        CalculateGlobalDirectionsSimilarities();
+        CalculateDirectionsSimilarities();
 
         if (EpisodeStarted)
         {
@@ -142,17 +138,17 @@ public class AircraftFlightAgent : AircraftAgent
         continuousActionsOut[0] = pitchSlider.value;
         continuousActionsOut[1] = rollSlider.value;
         continuousActionsOut[2] = yawSlider.value;
-        aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
+        aircraftController.m_input.SetAgentInputs(actionsOut, aircraftBehaviourConfig.manoeuvreSpeed);
     }
 
     protected override bool IsEpisodeFailed()
     {
-        var illegalAircraftRotation = DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
+        var illegalAircraftRotation = DotLocalForwardGlobalUp is > 0.5f or < -0.5f || DotLocalUpGlobalDown > -0.5f;
         return (NormalizedOptimalDistance > 0.99f || illegalAircraftRotation) && trainingMode && EpisodeStarted;
     }
 
     protected override bool IsEpisodeSucceed()
     {
-        return flightPathNormalizer.GetNormalizedArriveDistance(transform.position) < 1;
+        return flightPathNormalizer.NormalizedArriveDistance(transform.position) < 1;
     }
 }

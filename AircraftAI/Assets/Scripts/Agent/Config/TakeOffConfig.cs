@@ -1,17 +1,15 @@
 ﻿using System;
-using Oyedoyin.FixedWing;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 class TakeOffConfig : BehaviorConfig
 {
-    [Space(10)]
+    [Header("Configurations    Takeoff----------------------------------------------------------------------------------------------"), Space(10)] 
     [SerializeField] private AirportNormalizer airportNormalizer;
-    [SerializeField] private AircraftCollisionSensors sensors;
+    [SerializeField] private AircraftCollisionDetector detector;
     
-    public override void SetBehaviorComponent(Transform transform)
+    public override void SetBehaviorComponent(Transform transform, BehaviourDependencies dependencies)
     {
         AddBehaviorComponent(transform);
         
@@ -21,23 +19,18 @@ class TakeOffConfig : BehaviorConfig
         aircraftTakeOffAgent.MaxStep = maxStep;
 
         aircraftTakeOffAgent.trainingMode = false;
-        aircraftTakeOffAgent.manoeuvreSpeed = manoeuvreSpeed;
-        aircraftTakeOffAgent.windDirectionSpeed = windDirectionSpeed;
-        aircraftTakeOffAgent.maxWindSpeed = maxWindSpeed;
-        aircraftTakeOffAgent.maxTurbulence = maxTurbulence;
-        aircraftTakeOffAgent.numOfOptimalDirections = numOfOptimumDirections;
-        aircraftTakeOffAgent.gapBetweenOptimalDirections = gapBetweenOptimumDirections;
+        aircraftTakeOffAgent.aircraftBehaviourConfig = aircraftBehaviourConfig;
+        aircraftTakeOffAgent.evaluateAtmosphereData = atmosphereData;
         
         aircraftTakeOffAgent.airportNormalizer = airportNormalizer;
         airportNormalizer.aircraftAgents.Clear();
         airportNormalizer.aircraftAgents.Add(aircraftTakeOffAgent);
         
-        aircraftTakeOffAgent.sensors = sensors;
-        aircraftTakeOffAgent.observationCanvas = observationCanvas;
-        aircraftTakeOffAgent.rewardCanvas = rewardCanvas;
-        aircraftTakeOffAgent.aircraftController = aircraftController;
-        aircraftTakeOffAgent.windArrows = windArrows;
-        aircraftTakeOffAgent.windAudioSource = windAudioSource;
+        aircraftTakeOffAgent.detector = detector;
+        aircraftTakeOffAgent.observationCanvas = dependencies.observationCanvas;
+        aircraftTakeOffAgent.rewardCanvas = dependencies.rewardCanvas;
+        aircraftTakeOffAgent.windArrowRenderers = dependencies.windArrows;
+        aircraftTakeOffAgent.windAudioSource = dependencies.windAudioSource;
 
         
         AddDecisionRequester(transform);

@@ -1,15 +1,15 @@
-using System;
 using System.Collections;
 using System.Linq;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AircraftTakeOffAgent : AircraftAgent
 {
-    [Space(25)]
+    [Header("Configurations    Takeoff Agent----------------------------------------------------------------------------------------------"), Space(10)] 
     public AirportNormalizer airportNormalizer;
-    public AircraftCollisionSensors sensors;
+    [FormerlySerializedAs("sensors")] public AircraftCollisionDetector detector;
 
     private Vector3 _relativeVelocityDir;
 
@@ -20,10 +20,7 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     private float[] _normalizedCollisionSensors;
 
-    private void Awake()
-    {
-        PreviousActions = new float[]{0, 0, 0};
-    }
+    private void Awake() => PreviousActions = new float[]{0, 0, 0};
 
     protected override PathNormalizer PathNormalizer => airportNormalizer;
 
@@ -52,10 +49,9 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, maxWindSpeed, maxTurbulence,
-            DecisionRequester.DecisionPeriod, windDirectionSpeed);
+        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, evaluateAtmosphereData, DecisionRequester.DecisionPeriod);
 
-        CalculateGlobalDirectionsSimilarities();
+        CalculateDirectionsSimilarities();
         CalculateMovementVariables();
         CalculateRelativeTransform();
         CalculateOptimalTransforms();
@@ -68,30 +64,29 @@ public class AircraftTakeOffAgent : AircraftAgent
         sensor.AddObservation(AircraftForward);
         sensor.AddObservation(AircraftUp);
 
-        sensor.AddObservation(DotForwardUp);
-        sensor.AddObservation(DotUpDown);
+        sensor.AddObservation(DotLocalForwardGlobalUp);
+        sensor.AddObservation(DotLocalUpGlobalDown);
 
         sensor.AddObservation(normalizedSpeed);
         sensor.AddObservation(NormalizedThrust);
         sensor.AddObservation(_relativeVelocityDir);
 
         sensor.AddObservation(NormalizedOptimalDistance);
-        foreach (var relativeOptimalDirection in _relativeOptimalDirections)
-            sensor.AddObservation(relativeOptimalDirection);
+        foreach (var relativeOptimalDirection in _relativeOptimalDirections) sensor.AddObservation(relativeOptimalDirection);
 
-        sensor.AddObservation(FwdOptDifference);
-        sensor.AddObservation(VelOptDifference);
+        sensor.AddObservation(ForwardOptimalDifference);
+        sensor.AddObservation(VelocityOptimalDifference);
 
-        sensor.AddObservation(DotVelRot);
-        sensor.AddObservation(DotVelOpt);
-        sensor.AddObservation(DotRotOpt);
+        sensor.AddObservation(DotVelocityRotation);
+        sensor.AddObservation(DotVelocityOptimal);
+        sensor.AddObservation(DotRotationOptimal);
 
         sensor.AddObservation(PreviousActions);
         sensor.AddObservation(NormalizedTargetAxes);
         sensor.AddObservation(NormalizedCurrentAxes);
         sensor.AddObservation(NormalizedAxesRates);
 
-        sensor.AddObservation(WindData);
+        sensor.AddObservation(NormalizedWind);
 
         sensor.AddObservation(_relativeAircraftPos);
         sensor.AddObservation(_relativeAircraftRot);
@@ -99,16 +94,16 @@ public class AircraftTakeOffAgent : AircraftAgent
         sensor.AddObservation(_normalizedCollisionSensors);
 
         observationCanvas.DisplayNormalizedData(
-            AircraftForward, AircraftUp, DotForwardUp, DotUpDown,
+            AircraftForward, AircraftUp, DotLocalForwardGlobalUp, DotLocalUpGlobalDown,
             _relativeVelocityDir, normalizedSpeed, NormalizedThrust,
             NormalizedOptimalDistance, _relativeOptimalDirections,
-            FwdOptDifference, VelOptDifference,
-            DotVelRot, DotVelOpt, DotRotOpt,
+            ForwardOptimalDifference, VelocityOptimalDifference,
+            DotVelocityRotation, DotVelocityOptimal, DotRotationOptimal,
             PreviousActions,
             NormalizedTargetAxes,
             NormalizedCurrentAxes,
             NormalizedAxesRates,
-            WindAngle, WindSpeed, WindData[1], Turbulence, WindData[2],
+            WindAngle, WindSpeed, NormalizedWind[1], Turbulence, NormalizedWind[2],
             _relativeAircraftPos, _relativeAircraftRot,
             _normalizedCollisionSensors
         );
@@ -116,9 +111,9 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        aircraftController.m_input.SetAgentInputs(actionBuffers, manoeuvreSpeed);
+        aircraftController.m_input.SetAgentInputs(actionBuffers, aircraftBehaviourConfig.manoeuvreSpeed);
 
-        CalculateGlobalDirectionsSimilarities();
+        CalculateDirectionsSimilarities();
         CalculateRelativeTransform();
 
         if (EpisodeStarted)
@@ -164,13 +159,10 @@ public class AircraftTakeOffAgent : AircraftAgent
         continuousActionsOut[0] = pitchSlider.value;
         continuousActionsOut[1] = rollSlider.value;
         continuousActionsOut[2] = yawSlider.value;
-        aircraftController.m_input.SetAgentInputs(actionsOut, manoeuvreSpeed);
+        aircraftController.m_input.SetAgentInputs(actionsOut, aircraftBehaviourConfig.manoeuvreSpeed);
     }
     
-    private void CalculateCollisionSensors()
-    {
-        _normalizedCollisionSensors = sensors.CollisionSensorsNormalizedLevels();
-    }
+    private void CalculateCollisionSensors() => _normalizedCollisionSensors = detector.GetSensorData();
 
     public override void CalculateOptimalTransforms()
     {
@@ -181,8 +173,8 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     private void CalculateRelativeTransform()
     {
-        _relativeAircraftPos = NormalizedAircraftPos();
-        _relativeAircraftRot = NormalizedAircraftRot();
+        _relativeAircraftPos = NormalizedAircraftPosition();
+        _relativeAircraftRot = NormalizedAircraftRotation();
     }
 
     protected override void CalculateMovementVariables()
@@ -198,35 +190,23 @@ public class AircraftTakeOffAgent : AircraftAgent
             _relativeAircraftPos.y <= -0.1f || _relativeAircraftPos.y > 0.999f ||
             _relativeAircraftPos.z <= 0.001f || _relativeAircraftPos.z > 0.999f;
 
-        var illegalAircraftRotation = DotForwardUp is > 0.5f or < -0.5f || DotUpDown > -0.5f;
+        var illegalAircraftRotation = DotLocalForwardGlobalUp is > 0.5f or < -0.5f || DotLocalUpGlobalDown > -0.5f;
 
-        return outBoundsOfAirport || illegalAircraftRotation || sensors.CollisionSensorCriticLevel;
+        return outBoundsOfAirport || illegalAircraftRotation || detector.IsThereBadSensorData();
     }
 
-    protected override bool IsEpisodeSucceed()
-    {
-        return airportNormalizer.GetNormalizedArriveDistance(transform.position) < 0.02f;
-    }
+    protected override bool IsEpisodeSucceed() => airportNormalizer.NormalizedArriveDistance(transform.position) < 0.02f;
 
-    private Vector3 NormalizedAircraftPos()
+    private Vector3 NormalizedAircraftPosition()
     {
         return aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded)
             ? airportNormalizer.GetNormalizedPosition(transform.position, true)
             : airportNormalizer.GetNormalizedPosition(transform.position);
     }
 
-    private Vector3 NormalizedAircraftRot()
-    {
-        return airportNormalizer.GetNormalizedRotation(transform.rotation.eulerAngles);
-    }
+    private Vector3 NormalizedAircraftRotation() => airportNormalizer.GetNormalizedRotation(transform.rotation.eulerAngles);
 
-    private Vector3 DirectionToNormalizedRotation(Vector3 direction)
-    {
-        return airportNormalizer.GetNormalizedRotation(NormalizeUtility.DirectionToRotation(direction));
-    }
-    
-    private Vector3[] DirectionsToNormalizedRotations(Vector3[] directions)
-    {
-        return directions.Select(DirectionToNormalizedRotation).ToArray();
-    }
+    private Vector3 DirectionToNormalizedRotation(Vector3 direction) => airportNormalizer.GetNormalizedRotation(NormalizeUtility.DirectionToRotation(direction));
+
+    private Vector3[] DirectionsToNormalizedRotations(Vector3[] directions) => directions.Select(DirectionToNormalizedRotation).ToArray();
 }

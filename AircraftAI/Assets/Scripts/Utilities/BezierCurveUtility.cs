@@ -70,7 +70,7 @@ public static class BezierCurveUtility
                 }
             }
         
-            return GetPositionOnLine(closestNextLine[0], closestNextLine[1], closestPosition01);
+            return PositionOnLine(closestNextLine[0], closestNextLine[1], closestPosition01);
         }
         else
         {
@@ -98,7 +98,7 @@ public static class BezierCurveUtility
                 }
             }
         
-            return GetPositionOnLine(closestPreviousLine[0], closestPreviousLine[1], closestPosition01);
+            return PositionOnLine(closestPreviousLine[0], closestPreviousLine[1], closestPosition01);
         }
     }
     
@@ -118,7 +118,7 @@ public static class BezierCurveUtility
         return Mathf.Clamp(distance, 0, Vector3.Distance(lineStart, lineEnd)) / Vector3.Distance(lineStart, lineEnd);
     }
     
-    private static Vector3 GetPositionOnLine(Vector3 lineStart, Vector3 lineEnd, float t)
+    private static Vector3 PositionOnLine(Vector3 lineStart, Vector3 lineEnd, float t)
     {
         return lineStart + (lineEnd - lineStart) * t;
     }

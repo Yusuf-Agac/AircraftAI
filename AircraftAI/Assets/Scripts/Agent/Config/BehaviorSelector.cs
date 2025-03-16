@@ -1,23 +1,17 @@
 ﻿using System.Collections;
-using Unity.MLAgents.Policies;
 using UnityEngine;
 
 
 public class BehaviorSelector : MonoBehaviour
 {
-#if UNITY_EDITOR
-    [SerializeReference, SubclassPicker] 
-#endif
+    [SerializeField] private BehaviourDependencies dependencies;
+    
+    [SerializeReference, SubclassPicker]
     private BehaviorConfig[] behaviors;
     
     private int _behaviorIndex;
-
-    private BehaviorParameters _behaviorParameters;
     
-    private void Start()
-    {
-        SelectBehavior(_behaviorIndex);
-    }
+    private void Start() => SelectBehavior(_behaviorIndex);
 
     internal void SelectNextBehavior()
     {
@@ -25,16 +19,14 @@ public class BehaviorSelector : MonoBehaviour
         SelectBehavior(_behaviorIndex);
     }
     
-    private void SelectBehavior(int index)
-    {
-        StartCoroutine(SelectBehaviorCoroutine(index));
-    }
-    
+    private void SelectBehavior(int index) => StartCoroutine(SelectBehaviorCoroutine(index));
+
     private IEnumerator SelectBehaviorCoroutine(int index)
     {
-        if(index != 0) behaviors[index-1].RemoveBehaviorComponent();
+        var previousIndex = ((_behaviorIndex - 1) >= 0 ? _behaviorIndex - 1 : _behaviorIndex + behaviors.Length) % behaviors.Length;
+        behaviors[previousIndex].RemoveBehaviorComponent();
         yield return null;
-        behaviors[index].SetBehaviorComponent(transform);
+        behaviors[index].SetBehaviorComponent(transform, dependencies);
         _behaviorIndex = index;
     }
 }
