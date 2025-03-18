@@ -36,11 +36,11 @@ public partial class AirportNormalizer : PathNormalizer
     [SerializeField] private float safeContactZoneWidth = 1f;
     [SerializeField] private float safeContactZoneLength = 10f;
     
-    [ShowIfHeader("trainingOn", "Configurations    Training Physical----------------------------------------------------------------------------------------------"), Space(10)]
+    [Header("Configurations    Training Physical----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private float trainLengthBound = 1500f;
-    [SerializeField, ShowIf("trainingOn")] private float trainWidthBound = 35;
-    [SerializeField, ShowIf("trainingOn")] private float trainRandomSpawnWidth = 15f;
-    [SerializeField, ShowIf("trainingOn")] private float trainRandomSpawnLength = 25f;
+    [SerializeField] private float trainWidthBound = 35;
+    [SerializeField] private float trainRandomSpawnWidth = 15f;
+    [SerializeField] private float trainRandomSpawnLength = 25f;
     
     private float _trainMaxHeight;
     private float _trainMinHeight;

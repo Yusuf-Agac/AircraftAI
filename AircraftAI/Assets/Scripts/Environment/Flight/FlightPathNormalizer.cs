@@ -11,20 +11,20 @@ public partial class FlightPathNormalizer : PathNormalizer
     [SerializeField] protected float penaltyRadius = 55f;
     [SerializeField] private float bezierPointsWeight = 1000;
     
-    [ShowIfHeader("trainingMode", "Configurations    Training----------------------------------------------------------------------------------------------"), Space(10)]
-    [SerializeField, ShowIf("trainingMode")] private Transform boundsRotator;
+    [Header("Configurations    Training----------------------------------------------------------------------------------------------"), Space(10)]
+    [SerializeField] private Transform boundsRotator;
     
     [Header("Configurations    Departure----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private AirportNormalizer departureAirport;
-    [SerializeField, ShowIf("trainingMode")] private Vector2 departureRandomRotationRange;
-    [SerializeField, ShowIf("trainingMode")] private Transform departureLerpFrom;
-    [SerializeField, ShowIf("trainingMode")] private Transform departureLerpTo;
+    [SerializeField] private Vector2 departureRandomRotationRange;
+    [SerializeField] private Transform departureLerpFrom;
+    [SerializeField] private Transform departureLerpTo;
     
     [Header("Configurations    Arrival----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private AirportNormalizer arrivalAirport;
-    [SerializeField, ShowIf("trainingMode")] private Vector2 arrivalRandomRotationRange;
-    [SerializeField, ShowIf("trainingMode")] private Transform arrivalLerpFrom;
-    [SerializeField, ShowIf("trainingMode")] private Transform arrivalLerpTo;
+    [SerializeField] private Vector2 arrivalRandomRotationRange;
+    [SerializeField] private Transform arrivalLerpFrom;
+    [SerializeField] private Transform arrivalLerpTo;
 
     private readonly Vector3[] _bezierPoints = new Vector3[5];
     

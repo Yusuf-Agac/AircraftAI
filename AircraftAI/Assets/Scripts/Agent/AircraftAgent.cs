@@ -27,7 +27,7 @@ public abstract partial class AircraftAgent : Agent
     
     [SerializeField, Header("Configurations    Atmosphere----------------------------------------------------------------------------------------------"), Space(10)] 
     public AtmosphereData evaluateAtmosphereData;
-    [ShowIf("trainingMode")] public AtmosphereData trainingAtmosphereData;
+    public AtmosphereData trainingAtmosphereData;
     
     [SerializeField, Header("Configurations    Aircraft----------------------------------------------------------------------------------------------"), Space(10)] 
     public AircraftBehaviourConfig aircraftBehaviourConfig;
