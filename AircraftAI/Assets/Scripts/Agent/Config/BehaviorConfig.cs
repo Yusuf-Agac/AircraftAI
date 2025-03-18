@@ -6,6 +6,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 [Serializable]
@@ -19,7 +20,8 @@ public abstract class BehaviorConfig
     public int maxStep = 2500000;
 
     [SerializeField, Space(10)] protected AircraftBehaviourConfig aircraftBehaviourConfig;
-    [SerializeField, Space(10)] protected AtmosphereData atmosphereData;
+    [SerializeField, Space(10)] protected AtmosphereData atmosphereMaxData;
+    [SerializeField, Space(10)] protected AtmosphereData atmosphereTrainData;
 
     protected Agent Agent;
     protected DecisionRequester DecisionRequester;

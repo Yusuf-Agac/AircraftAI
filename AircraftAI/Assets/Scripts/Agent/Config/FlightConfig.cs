@@ -19,7 +19,8 @@ class FlightConfig : BehaviorConfig
         
         aircraftFlightAgent.trainingMode = false;
         aircraftFlightAgent.aircraftBehaviourConfig = aircraftBehaviourConfig;
-        aircraftFlightAgent.evaluateAtmosphereData = atmosphereData;
+        aircraftFlightAgent.evaluateAtmosphereData = atmosphereMaxData;
+        aircraftFlightAgent.trainingAtmosphereData = atmosphereTrainData;
         
         aircraftFlightAgent.flightPathNormalizer = flightPathNormalizer;
         flightPathNormalizer.aircraftAgents.Clear();
@@ -27,7 +28,8 @@ class FlightConfig : BehaviorConfig
         
         aircraftFlightAgent.observationCanvas = dependencies.observationCanvas;
         aircraftFlightAgent.rewardCanvas = dependencies.rewardCanvas;
-        aircraftFlightAgent.evaluateAtmosphereData = atmosphereData;
+        aircraftFlightAgent.windArrowRenderers = dependencies.windArrows;
+        aircraftFlightAgent.windAudioSource = dependencies.windAudioSource;
         
         AddDecisionRequester(transform);
     }

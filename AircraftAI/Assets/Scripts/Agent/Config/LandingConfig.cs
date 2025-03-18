@@ -21,7 +21,8 @@ class LandingConfig : BehaviorConfig
 
         aircraftLandingAgent.trainingMode = false;
         aircraftLandingAgent.aircraftBehaviourConfig = aircraftBehaviourConfig;
-        aircraftLandingAgent.evaluateAtmosphereData = atmosphereData;
+        aircraftLandingAgent.evaluateAtmosphereData = atmosphereMaxData;
+        aircraftLandingAgent.trainingAtmosphereData = atmosphereTrainData;
         
         aircraftLandingAgent.airportNormalizer = airportNormalizer;
         airportNormalizer.aircraftAgents.Clear();
@@ -30,7 +31,8 @@ class LandingConfig : BehaviorConfig
         aircraftLandingAgent.detector = detector;
         aircraftLandingAgent.observationCanvas = dependencies.observationCanvas;
         aircraftLandingAgent.rewardCanvas = dependencies.rewardCanvas;
-        aircraftLandingAgent.evaluateAtmosphereData = atmosphereData;
+        aircraftLandingAgent.windArrowRenderers = dependencies.windArrows;
+        aircraftLandingAgent.windAudioSource = dependencies.windAudioSource;
         
         AddDecisionRequester(transform);
     }

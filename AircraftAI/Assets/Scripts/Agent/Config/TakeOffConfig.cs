@@ -20,7 +20,8 @@ class TakeOffConfig : BehaviorConfig
 
         aircraftTakeOffAgent.trainingMode = false;
         aircraftTakeOffAgent.aircraftBehaviourConfig = aircraftBehaviourConfig;
-        aircraftTakeOffAgent.evaluateAtmosphereData = atmosphereData;
+        aircraftTakeOffAgent.evaluateAtmosphereData = atmosphereMaxData;
+        aircraftTakeOffAgent.trainingAtmosphereData = atmosphereTrainData;
         
         aircraftTakeOffAgent.airportNormalizer = airportNormalizer;
         airportNormalizer.aircraftAgents.Clear();
@@ -31,7 +32,6 @@ class TakeOffConfig : BehaviorConfig
         aircraftTakeOffAgent.rewardCanvas = dependencies.rewardCanvas;
         aircraftTakeOffAgent.windArrowRenderers = dependencies.windArrows;
         aircraftTakeOffAgent.windAudioSource = dependencies.windAudioSource;
-
         
         AddDecisionRequester(transform);
     }
