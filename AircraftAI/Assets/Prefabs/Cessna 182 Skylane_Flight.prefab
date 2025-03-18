@@ -30756,32 +30756,36 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 200000
+  windArrowRenderers: []
   aircraftController: {fileID: 9217060184409094024}
-  windArrows: []
   windAudioSource: {fileID: 0}
-  trainingMode: 1
-  windDirectionSpeed: 360
-  trainingMaxWindSpeed: 10
-  maxWindSpeed: 10
-  trainingMaxTurbulence: 10
-  maxTurbulence: 10
-  manoeuvreSpeed: 25
-  numOfOptimalDirections: 1
-  gapBetweenOptimalDirections: 1
   observationCanvas: {fileID: 0}
   rewardCanvas: {fileID: 0}
   pitchSlider: {fileID: 0}
   rollSlider: {fileID: 0}
   yawSlider: {fileID: 0}
+  trainingMode: 1
+  evaluateAtmosphereData:
+    maxWindDirectionChangeSpeed: 170
+    maxWindSpeed: 15
+    maxTurbulence: 15
+  trainingAtmosphereData:
+    maxWindDirectionChangeSpeed: 360
+    maxWindSpeed: 25
+    maxTurbulence: 25
+  aircraftBehaviourConfig:
+    numOfOptimalDirections: 1
+    gapBetweenOptimalDirections: 2
+    manoeuvreSpeed: 10
   sparseRewardMultiplier: 1
   denseRewardMultiplier: 0.0007
-  optimalDistanceRewardMultiplier: 5
-  optimalDistancePenaltyMultiplier: 5
-  actionDifferencePenaltyMultiplier: 1
-  forwardVelocityDifferencePenaltyMultiplier: 8
-  optimalVelocityDifferencePenaltyMultiplier: 4
   sparseWinReward: 1
   sparseLoseReward: -1
+  optimalDistanceReward: 5
+  optimalDistancePenalty: 5
+  actionDifferencePenalty: 1
+  forwardVelocityDifferencePenalty: 8
+  optimalVelocityDifferencePenalty: 4
   forwardVelocityDifferenceTolerance: 0.005
   forwardVelocityDifferenceSensitivity: 30
   optimalVelocityDifferenceTolerance: 0.05

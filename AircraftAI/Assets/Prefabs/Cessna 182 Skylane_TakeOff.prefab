@@ -30756,34 +30756,47 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 25000
-  trainingMode: 1
-  sparseRewardMultiplier: 1
-  denseRewardMultiplier: 0.0007
-  optimalDistanceRewardMultiplier: 5
-  optimalDistancePenaltyMultiplier: 5
-  actionDifferencePenaltyMultiplier: 0.5
-  forwardVelocityDifferencePenaltyMultiplier: 4
-  optimalVelocityDifferencePenaltyMultiplier: 4
-  windDirectionSpeed: 360
-  trainingMaxWindSpeed: 10
-  maxWindSpeed: 10
-  trainingMaxTurbulence: 10
-  maxTurbulence: 10
-  numOfOptimalDirections: 1
-  gapBetweenOptimalDirections: 3
-  manoeuvreSpeed: 25
+  windArrowRenderers: []
+  aircraftController: {fileID: 9217060184409094024}
+  windAudioSource: {fileID: 0}
   observationCanvas: {fileID: 0}
   rewardCanvas: {fileID: 0}
-  airportNormalizer: {fileID: 0}
-  aircraftController: {fileID: 9217060184409094024}
-  sensors: {fileID: 7459721040457557504}
   pitchSlider: {fileID: 0}
   rollSlider: {fileID: 0}
-  throttleSlider: {fileID: 0}
+  yawSlider: {fileID: 0}
+  trainingMode: 1
+  evaluateAtmosphereData:
+    maxWindDirectionChangeSpeed: 170
+    maxWindSpeed: 15
+    maxTurbulence: 15
+  trainingAtmosphereData:
+    maxWindDirectionChangeSpeed: 360
+    maxWindSpeed: 25
+    maxTurbulence: 25
+  aircraftBehaviourConfig:
+    numOfOptimalDirections: 1
+    gapBetweenOptimalDirections: 2
+    manoeuvreSpeed: 10
+  sparseRewardMultiplier: 1
+  denseRewardMultiplier: 0.0007
+  sparseWinReward: 1
+  sparseLoseReward: -1
+  optimalDistanceReward: 5
+  optimalDistancePenalty: 5
+  actionDifferencePenalty: 0.5
+  forwardVelocityDifferencePenalty: 4
+  optimalVelocityDifferencePenalty: 4
+  forwardVelocityDifferenceTolerance: 0.005
+  forwardVelocityDifferenceSensitivity: 30
+  optimalVelocityDifferenceTolerance: 0.12
+  optimalVelocityDifferenceSensitivity: 10
+  directionalDifferenceThreshold: 0.5
   normalizedSpeed: 0
   normalizedVelocity: {x: 0, y: 0, z: 0}
   optimalDirections:
   - {x: -0.24189267, y: -0.0006407537, z: -0.97030276}
+  airportNormalizer: {fileID: 0}
+  detector: {fileID: 7459721040457557504}
 --- !u!114 &8678492145494361013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31477,6 +31490,7 @@ MonoBehaviour:
     _yawInput: 0
     _yawTrimInput: 0
     _hatViewInput: {x: 0, y: 0}
+    _targetThrottleInput: 0
   m_originShift:
     m_sceneState: 0
     m_particleCollection: 1

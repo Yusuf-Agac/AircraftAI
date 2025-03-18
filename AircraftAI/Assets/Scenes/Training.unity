@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 76026615}
   m_Layer: 0
-  m_Name: '!!!!!!!!!!!!!!!Flight!!!!!!!!!!!!!!!'
+  m_Name: Flight----------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,9 +183,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 158152968}
-  - {fileID: 542193891}
   - {fileID: 246778819}
+  - {fileID: 542193891}
+  - {fileID: 158152968}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &94234818
@@ -267,75 +267,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airportStartLeft:
-    pivotTransform: {fileID: 1410798511}
-    down: {x: 734.8208, y: 0.1599983, z: 2939.4805}
-    up: {x: 734.8208, y: 54.518753, z: 2939.4805}
-    downCurrent: {x: 806.2308, y: 0.1599983, z: 2164.293}
-    upCurrent: {x: 806.2308, y: 130.78607, z: 2164.293}
-    downTrain: {x: 874.06213, y: 0.1599983, z: 1445.5471}
-    upTrain: {x: 874.06213, y: 201.51878, z: 1445.5471}
-    downSafe: {x: 812.3715, y: 0.1599983, z: 2172.0576}
-    downRandomReset: {x: 834.8342, y: 1.1599983, z: 2177.876}
-  airportStartRight:
-    pivotTransform: {fileID: 1812981021}
-    down: {x: 780.44464, y: 0.1599983, z: 2945.1577}
-    up: {x: 780.44464, y: 54.518753, z: 2945.1577}
-    downCurrent: {x: 889.5912, y: 0.1599983, z: 2174.3774}
-    upCurrent: {x: 889.5912, y: 130.78607, z: 2174.3774}
-    downTrain: {x: 989.2135, y: 0.1599983, z: 1459.3445}
-    upTrain: {x: 989.2135, y: 201.51878, z: 1459.3445}
-    downSafe: {x: 881.8264, y: 0.1599983, z: 2180.518}
-    downRandomReset: {x: 858.67224, y: 1.1599983, z: 2180.6602}
-  airportEndLeft:
-    pivotTransform: {fileID: 657781716}
-    down: {x: 606.2816, y: 0.1599983, z: 4041.3708}
-    up: {x: 606.2816, y: 54.518753, z: 4041.3708}
-    downCurrent: {x: 497.13507, y: 0.1599983, z: 4812.1514}
-    upCurrent: {x: 497.13507, y: 130.78607, z: 4812.1514}
-    downTrain: {x: 397.5128, y: 0.1599983, z: 5527.184}
-    upTrain: {x: 397.5128, y: 201.51878, z: 5527.184}
-    downSafe: {x: 504.8998, y: 0.1599983, z: 4806.0107}
-    downRandomReset: {x: 827.874, y: 1.1599983, z: 2237.4707}
-  airportEndRight:
-    pivotTransform: {fileID: 656368205}
-    down: {x: 651.9055, y: 0.1599983, z: 4047.0483}
-    up: {x: 651.9055, y: 54.518753, z: 4047.0483}
-    downCurrent: {x: 580.49554, y: 0.1599983, z: 4822.236}
-    upCurrent: {x: 580.49554, y: 130.78607, z: 4822.236}
-    downTrain: {x: 512.6642, y: 0.1599983, z: 5540.9814}
-    upTrain: {x: 512.6642, y: 201.51878, z: 5540.9814}
-    downSafe: {x: 574.3548, y: 0.1599983, z: 4814.471}
-    downRandomReset: {x: 851.71204, y: 1.1599983, z: 2240.255}
-  aircraftTakeOffAgents: []
-  aircraftLandingAgents:
-  - {fileID: 8148915049682574520}
-  trainingMode: 1
-  landingMode: 1
+  bezierPoints:
+  - {x: 752.41864, y: 1.1599983, z: 2987.016}
+  - {x: 712.644, y: 0.1599983, z: 3327.9807}
+  - {x: 710.07324, y: 0.1599983, z: 3350.0186}
+  - {x: 667.65533, y: 57.81536, z: 3713.6423}
+  - {x: 631.41364, y: 57.81536, z: 4024.3445}
+  numberOfBezierPoints: 100
+  aircraftAgents: []
+  trainingOn: 0
+  mode: 0
   showBezierGizmos: 1
   showTrainingGizmos: 1
   showObservationsGizmos: 1
   showZonesGizmos: 1
-  zExitOffsets: 30
-  yExitOffsets: 30
-  extraRandomLength: 0.51882535
-  extraRandomWidth: 0.54275733
-  trainLengthBounds: 1500
-  trainWidthBounds: 35
+  airportStartLeft:
+    pivotTransform: {fileID: 1410798511}
+    down: {x: 734.8208, y: 0.1599983, z: 2939.4805}
+    downCurrent: {x: 734.8208, y: 0.1599983, z: 2939.4805}
+    downTrainSpawnBound: {x: 874.06213, y: 0.1599983, z: 1445.5471}
+    downSafeWheelContactBound: {x: 734.654, y: 0.1599983, z: 2949.5288}
+    up: {x: 734.8208, y: 77.81536, z: 2939.4805}
+    upCurrent: {x: 734.8208, y: 77.81536, z: 2939.4805}
+    upTrainTrainSpawnBound: {x: 874.06213, y: 287.8154, z: 1445.5471}
+  airportStartRight:
+    pivotTransform: {fileID: 1812981021}
+    down: {x: 780.44464, y: 0.1599983, z: 2945.1577}
+    downCurrent: {x: 780.44464, y: 0.1599983, z: 2945.1577}
+    downTrainSpawnBound: {x: 989.2135, y: 0.1599983, z: 1459.3445}
+    downSafeWheelContactBound: {x: 778.2914, y: 0.1599983, z: 2954.974}
+    up: {x: 780.44464, y: 77.81536, z: 2945.1577}
+    upCurrent: {x: 780.44464, y: 77.81536, z: 2945.1577}
+    upTrainTrainSpawnBound: {x: 989.2135, y: 287.8154, z: 1459.3445}
+  airportEndLeft:
+    pivotTransform: {fileID: 657781716}
+    down: {x: 606.2816, y: 0.1599983, z: 4041.3708}
+    downCurrent: {x: 606.2816, y: 0.1599983, z: 4041.3708}
+    downTrainSpawnBound: {x: 397.5128, y: 0.1599983, z: 5527.184}
+    downSafeWheelContactBound: {x: 608.4349, y: 0.1599983, z: 4031.5544}
+    up: {x: 606.2816, y: 77.81536, z: 4041.3708}
+    upCurrent: {x: 606.2816, y: 77.81536, z: 4041.3708}
+    upTrainTrainSpawnBound: {x: 397.5128, y: 287.8154, z: 5527.184}
+  airportEndRight:
+    pivotTransform: {fileID: 656368205}
+    down: {x: 651.9055, y: 0.1599983, z: 4047.0483}
+    downCurrent: {x: 651.9055, y: 0.1599983, z: 4047.0483}
+    downTrainSpawnBound: {x: 512.6642, y: 0.1599983, z: 5540.9814}
+    downSafeWheelContactBound: {x: 652.0723, y: 0.1599983, z: 4037}
+    up: {x: 651.9055, y: 77.81536, z: 4047.0483}
+    upCurrent: {x: 651.9055, y: 77.81536, z: 4047.0483}
+    upTrainTrainSpawnBound: {x: 512.6642, y: 287.8154, z: 5540.9814}
+  spawnForwardOffset: 45
+  exitBackwardOffset: 20
+  exitVerticalOffset: 20
   heightMultiplier: 0.07
-  landingHeightMultiplier: 0.7
-  zResetOffset: 40
-  xRandomResetArea: 12
-  zRandomResetArea: 30
-  safeZoneWidth: 7
-  safeZoneLength: 7
-  numberOfBezierPoints: 100
-  takeOffBezierPoint1: 0.283
-  takeOffBezierPoint2: 0.283
-  takeOffBezierPoint3: 0.723
-  landingBezierPoint1: 0.782
-  landingBezierPoint2: 0.86
-  landingBezierPoint3: 0.907
+  safeContactZoneWidth: 1
+  safeContactZoneLength: 10
+  trainLengthBound: 1500
+  trainWidthBound: 35
+  trainRandomSpawnWidth: 15
+  trainRandomSpawnLength: 25
 --- !u!1 &158152967
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 230758789}
   m_Layer: 0
-  m_Name: '!!!!!!!!!!!!!!!TakeOff!!!!!!!!!!!!!!!'
+  m_Name: TakeOff---------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,8 +393,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 606254925}
   - {fileID: 4608920154714674735}
+  - {fileID: 606254925}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &246778818
@@ -623,9 +614,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37bc0e1c7f8b9449b7a6309ce45059b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfPoints: 220
-  radius: 55
+  bezierPoints:
+  - {x: -22364.965, y: 71.62999, z: -13732.706}
+  - {x: -12781.099, y: 724.70624, z: -7371.993}
+  - {x: -5948.0312, y: 724.7062, z: 3451.498}
+  - {x: 885.03613, y: 724.7061, z: 14274.989}
+  - {x: 12090.926, y: 71.630066, z: 16870.6}
+  numberOfBezierPoints: 100
+  aircraftAgents:
+  - {fileID: 246778820}
   trainingMode: 1
+  penaltyRadius: 55
+  bezierPointsWeight: 1000
   boundsRotator: {fileID: 158152968}
   departureAirport: {fileID: 1753789257}
   departureRandomRotationRange: {x: 270, y: 90}
@@ -635,10 +635,6 @@ MonoBehaviour:
   arrivalRandomRotationRange: {x: 90, y: -90}
   arrivalLerpFrom: {fileID: 355412096}
   arrivalLerpTo: {fileID: 94234819}
-  aircraftAgents:
-  - {fileID: 246778820}
-  curvePower: 3000
-  offset: {x: 0, y: 90, z: 0}
 --- !u!1 &552825617
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,75 +714,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airportStartLeft:
-    pivotTransform: {fileID: 552825618}
-    down: {x: 792.77625, y: 0.1599983, z: 2982.003}
-    up: {x: 792.77625, y: 77.81534, z: 2982.003}
-    downCurrent: {x: 1068.1611, y: 0.1599983, z: 3033.9263}
-    upCurrent: {x: 1068.1611, y: 116.82523, z: 3033.9263}
-    downTrain: {x: 2238.9163, y: 0.1599983, z: 3381.8826}
-    upTrain: {x: 2238.9163, y: 287.81537, z: 3381.8826}
-    downSafe: {x: 1059.4373, y: 0.1599983, z: 3038.6052}
-    downRandomReset: {x: 1046.6199, y: 1.1599983, z: 3070.0923}
-  airportStartRight:
-    pivotTransform: {fileID: 1369214079}
-    down: {x: 779.1614, y: 0.1599983, z: 3025.9165}
-    up: {x: 779.1614, y: 77.81534, z: 3025.9165}
-    downCurrent: {x: 1037.2936, y: 0.1599983, z: 3135.0063}
-    upCurrent: {x: 1037.2936, y: 116.82523, z: 3135.0063}
-    downTrain: {x: 2205.0767, y: 0.1599983, z: 3492.8108}
-    upTrain: {x: 2205.0767, y: 287.81537, z: 3492.8108}
-    downSafe: {x: 1032.6146, y: 0.1599983, z: 3126.2825}
-    downRandomReset: {x: 1039.6857, y: 1.1599983, z: 3093.0688}
-  airportEndLeft:
-    pivotTransform: {fileID: 1230260408}
-    down: {x: -269.31726, y: 0.1599983, z: 2661.626}
-    up: {x: -269.31726, y: 77.81534, z: 2661.626}
-    downCurrent: {x: -527.44946, y: 0.1599983, z: 2552.5361}
-    upCurrent: {x: -527.44946, y: 116.82523, z: 2552.5361}
-    downTrain: {x: -1695.2327, y: 0.1599983, z: 2194.7317}
-    upTrain: {x: -1695.2327, y: 287.81537, z: 2194.7317}
-    downSafe: {x: -522.77045, y: 0.1599983, z: 2561.26}
-    downRandomReset: {x: 989.1787, y: 1.1599983, z: 3052.7568}
-  airportEndRight:
-    pivotTransform: {fileID: 1316546270}
-    down: {x: -282.93237, y: 0.1599983, z: 2705.5396}
-    up: {x: -282.93237, y: 77.81534, z: 2705.5396}
-    downCurrent: {x: -558.31726, y: 0.1599983, z: 2653.6162}
-    upCurrent: {x: -558.31726, y: 116.82523, z: 2653.6162}
-    downTrain: {x: -1729.0725, y: 0.1599983, z: 2305.66}
-    upTrain: {x: -1729.0725, y: 287.81537, z: 2305.66}
-    downSafe: {x: -549.5933, y: 0.1599983, z: 2648.9373}
-    downRandomReset: {x: 982.2445, y: 1.1599983, z: 3075.7334}
-  aircraftTakeOffAgents:
-  - {fileID: 4608920154714674734}
-  aircraftLandingAgents: []
-  trainingMode: 1
-  landingMode: 0
+  bezierPoints:
+  - {x: 742.8862, y: 1.1599983, z: 2990.964}
+  - {x: 414.23605, y: 0.1599983, z: 2891.828}
+  - {x: 392.99417, y: 0.1599983, z: 2885.4202}
+  - {x: 42.503284, y: 57.81534, z: 2779.6958}
+  - {x: -256.97778, y: 57.81534, z: 2689.3613}
+  numberOfBezierPoints: 100
+  aircraftAgents: []
+  trainingOn: 0
+  mode: 0
   showBezierGizmos: 0
   showTrainingGizmos: 1
   showObservationsGizmos: 1
   showZonesGizmos: 1
-  zExitOffsets: 30
-  yExitOffsets: 30
-  extraRandomLength: 0.18576145
-  extraRandomWidth: 0.85304785
-  trainLengthBounds: 1500
-  trainWidthBounds: 35
+  airportStartLeft:
+    pivotTransform: {fileID: 552825618}
+    down: {x: 792.77625, y: 0.1599983, z: 2982.003}
+    downCurrent: {x: 792.77625, y: 0.1599983, z: 2982.003}
+    downTrainSpawnBound: {x: 2238.9163, y: 0.1599983, z: 3381.8826}
+    downSafeWheelContactBound: {x: 782.91376, y: 0.1599983, z: 2980.071}
+    up: {x: 792.77625, y: 77.81534, z: 2982.003}
+    upCurrent: {x: 792.77625, y: 77.81534, z: 2982.003}
+    upTrainTrainSpawnBound: {x: 2238.9163, y: 287.81537, z: 3381.8826}
+  airportStartRight:
+    pivotTransform: {fileID: 1369214079}
+    down: {x: 779.1614, y: 0.1599983, z: 3025.9165}
+    downCurrent: {x: 779.1614, y: 0.1599983, z: 3025.9165}
+    downTrainSpawnBound: {x: 2205.0767, y: 0.1599983, z: 3492.8108}
+    downSafeWheelContactBound: {x: 769.8768, y: 0.1599983, z: 3022.07}
+    up: {x: 779.1614, y: 77.81534, z: 3025.9165}
+    upCurrent: {x: 779.1614, y: 77.81534, z: 3025.9165}
+    upTrainTrainSpawnBound: {x: 2205.0767, y: 287.81537, z: 3492.8108}
+  airportEndLeft:
+    pivotTransform: {fileID: 1230260408}
+    down: {x: -269.31726, y: 0.1599983, z: 2661.626}
+    downCurrent: {x: -269.31726, y: 0.1599983, z: 2661.626}
+    downTrainSpawnBound: {x: -1695.2327, y: 0.1599983, z: 2194.7317}
+    downSafeWheelContactBound: {x: -260.03265, y: 0.1599983, z: 2665.4724}
+    up: {x: -269.31726, y: 77.81534, z: 2661.626}
+    upCurrent: {x: -269.31726, y: 77.81534, z: 2661.626}
+    upTrainTrainSpawnBound: {x: -1695.2327, y: 287.81537, z: 2194.7317}
+  airportEndRight:
+    pivotTransform: {fileID: 1316546270}
+    down: {x: -282.93237, y: 0.1599983, z: 2705.5396}
+    downCurrent: {x: -282.93237, y: 0.1599983, z: 2705.5396}
+    downTrainSpawnBound: {x: -1729.0725, y: 0.1599983, z: 2305.66}
+    downSafeWheelContactBound: {x: -273.06995, y: 0.1599983, z: 2707.4714}
+    up: {x: -282.93237, y: 77.81534, z: 2705.5396}
+    upCurrent: {x: -282.93237, y: 77.81534, z: 2705.5396}
+    upTrainTrainSpawnBound: {x: -1729.0725, y: 287.81537, z: 2305.66}
+  spawnForwardOffset: 45
+  exitBackwardOffset: 20
+  exitVerticalOffset: 20
   heightMultiplier: 0.07
-  landingHeightMultiplier: 0.7
-  zResetOffset: 40
-  xRandomResetArea: 12
-  zRandomResetArea: 30
-  safeZoneWidth: 7
-  safeZoneLength: 7
-  numberOfBezierPoints: 100
-  takeOffBezierPoint1: 0.283
-  takeOffBezierPoint2: 0.283
-  takeOffBezierPoint3: 0.723
-  landingBezierPoint1: 0.35
-  landingBezierPoint2: 0.37
-  landingBezierPoint3: 0.7
+  safeContactZoneWidth: 1
+  safeContactZoneLength: 10
+  trainLengthBound: 1500
+  trainWidthBound: 35
+  trainRandomSpawnWidth: 15
+  trainRandomSpawnLength: 25
 --- !u!1 &656368204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,74 +1421,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airportStartLeft:
-    pivotTransform: {fileID: 1206125819}
-    down: {x: -23461.07, y: 0, z: -14412.172}
-    up: {x: -23461.07, y: 91.62999, z: -14412.172}
-    downCurrent: {x: -23461.07, y: 0, z: -14412.172}
-    upCurrent: {x: -23461.07, y: 91.62999, z: -14412.172}
-    downTrain: {x: -23461.07, y: 0, z: -14412.172}
-    upTrain: {x: -23461.07, y: 91.62999, z: -14412.172}
-    downSafe: {x: -23451.367, y: 0, z: -14414.133}
-    downRandomReset: {x: -23436.424, y: 1, z: -14429.418}
-  airportStartRight:
-    pivotTransform: {fileID: 387398298}
-    down: {x: -23416.832, y: 0, z: -14478.826}
-    up: {x: -23416.832, y: 91.62999, z: -14478.826}
-    downCurrent: {x: -23416.832, y: 0, z: -14478.826}
-    upCurrent: {x: -23416.832, y: 91.62999, z: -14478.826}
-    downTrain: {x: -23416.832, y: 0, z: -14478.826}
-    upTrain: {x: -23416.832, y: 91.62999, z: -14478.826}
-    downSafe: {x: -23414.871, y: 0, z: -14469.123}
-    downRandomReset: {x: -23423.15, y: 1, z: -14449.414}
-  airportEndLeft:
-    pivotTransform: {fileID: 934735564}
-    down: {x: -22370.418, y: 0, z: -13688.318}
-    up: {x: -22370.418, y: 91.62999, z: -13688.318}
-    downCurrent: {x: -22370.418, y: 0, z: -13688.318}
-    upCurrent: {x: -22370.418, y: 91.62999, z: -13688.318}
-    downTrain: {x: -22370.418, y: 0, z: -13688.318}
-    upTrain: {x: -22370.418, y: 91.62999, z: -13688.318}
-    downSafe: {x: -22372.379, y: 0, z: -13698.021}
-    downRandomReset: {x: -23394.764, y: 1, z: -14401.77}
-  airportEndRight:
-    pivotTransform: {fileID: 1586376746}
-    down: {x: -22326.182, y: 0, z: -13754.975}
-    up: {x: -22326.182, y: 91.62999, z: -13754.975}
-    downCurrent: {x: -22326.182, y: 0, z: -13754.975}
-    upCurrent: {x: -22326.182, y: 91.62999, z: -13754.975}
-    downTrain: {x: -22326.182, y: 0, z: -13754.975}
-    upTrain: {x: -22326.182, y: 91.62999, z: -13754.975}
-    downSafe: {x: -22335.885, y: 0, z: -13753.014}
-    downRandomReset: {x: -23381.49, y: 1, z: -14421.766}
-  aircraftTakeOffAgents: []
-  aircraftLandingAgents: []
-  trainingMode: 0
-  landingMode: 0
+  bezierPoints:
+  - {x: -23401.457, y: 1, z: -14420.615}
+  - {x: -23057.223, y: 0, z: -14192.15}
+  - {x: -23035.41, y: 0, z: -14177.674}
+  - {x: -22675.496, y: 71.62999, z: -13938.803}
+  - {x: -22364.965, y: 71.62999, z: -13732.706}
+  numberOfBezierPoints: 100
+  aircraftAgents: []
+  trainingOn: 0
+  mode: 0
   showBezierGizmos: 0
   showTrainingGizmos: 0
   showObservationsGizmos: 0
   showZonesGizmos: 1
-  zExitOffsets: 20
-  yExitOffsets: 20
-  extraRandomLength: 0.24878728
-  extraRandomWidth: 0.5383454
-  trainLengthBounds: 0
-  trainWidthBounds: 0
+  airportStartLeft:
+    pivotTransform: {fileID: 1206125819}
+    down: {x: -23461.07, y: 0, z: -14412.172}
+    downCurrent: {x: -23461.07, y: 0, z: -14412.172}
+    downTrainSpawnBound: {x: -24730.215, y: 0, z: -15212.48}
+    downSafeWheelContactBound: {x: -23452.186, y: 0, z: -14407.475}
+    up: {x: -23461.07, y: 91.62999, z: -14412.172}
+    upCurrent: {x: -23461.07, y: 91.62999, z: -14412.172}
+    upTrainTrainSpawnBound: {x: -24730.215, y: 301.63007, z: -15212.48}
+  airportStartRight:
+    pivotTransform: {fileID: 387398298}
+    down: {x: -23416.832, y: 0, z: -14478.826}
+    downCurrent: {x: -23416.832, y: 0, z: -14478.826}
+    downTrainSpawnBound: {x: -24647.27, y: 0, z: -15337.459}
+    downSafeWheelContactBound: {x: -23409.053, y: 0, z: -14472.463}
+    up: {x: -23416.832, y: 91.62999, z: -14478.826}
+    upCurrent: {x: -23416.832, y: 91.62999, z: -14478.826}
+    upTrainTrainSpawnBound: {x: -24647.27, y: 301.63007, z: -15337.459}
+  airportEndLeft:
+    pivotTransform: {fileID: 934735564}
+    down: {x: -22370.418, y: 0, z: -13688.318}
+    downCurrent: {x: -22370.418, y: 0, z: -13688.318}
+    downTrainSpawnBound: {x: -21139.98, y: 0, z: -12829.686}
+    downSafeWheelContactBound: {x: -22378.197, y: 0, z: -13694.682}
+    up: {x: -22370.418, y: 91.62999, z: -13688.318}
+    upCurrent: {x: -22370.418, y: 91.62999, z: -13688.318}
+    upTrainTrainSpawnBound: {x: -21139.98, y: 301.63007, z: -12829.686}
+  airportEndRight:
+    pivotTransform: {fileID: 1586376746}
+    down: {x: -22326.182, y: 0, z: -13754.975}
+    downCurrent: {x: -22326.182, y: 0, z: -13754.975}
+    downTrainSpawnBound: {x: -21057.037, y: 0, z: -12954.666}
+    downSafeWheelContactBound: {x: -22335.066, y: 0, z: -13759.672}
+    up: {x: -22326.182, y: 91.62999, z: -13754.975}
+    upCurrent: {x: -22326.182, y: 91.62999, z: -13754.975}
+    upTrainTrainSpawnBound: {x: -21057.037, y: 301.63007, z: -12954.666}
+  spawnForwardOffset: 45
+  exitBackwardOffset: 20
+  exitVerticalOffset: 20
   heightMultiplier: 0.07
-  landingHeightMultiplier: 0.7
-  zResetOffset: 36
-  xRandomResetArea: 12
-  zRandomResetArea: 25
-  safeZoneWidth: 7
-  safeZoneLength: 7
-  numberOfBezierPoints: 100
-  takeOffBezierPoint1: 0.283
-  takeOffBezierPoint2: 0.283
-  takeOffBezierPoint3: 0.723
-  landingBezierPoint1: 0.35
-  landingBezierPoint2: 0.37
-  landingBezierPoint3: 0.7
+  safeContactZoneWidth: 1
+  safeContactZoneLength: 10
+  trainLengthBound: 1500
+  trainWidthBound: 35
+  trainRandomSpawnWidth: 15
+  trainRandomSpawnLength: 25
 --- !u!4 &1753789258
 Transform:
   m_ObjectHideFlags: 0
@@ -1531,7 +1510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1771710451}
   m_Layer: 0
-  m_Name: '!!!!!!!!!!!!!!!Landing!!!!!!!!!!!!!!!'
+  m_Name: Landing---------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1645,74 +1624,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f04af982a77d0f48ba52ff5fdd6b8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airportStartLeft:
-    pivotTransform: {fileID: 1935305592}
-    down: {x: 13355.706, y: 0, z: 17122.5}
-    up: {x: 13355.706, y: 91.630066, z: 17122.5}
-    downCurrent: {x: 13355.706, y: 0, z: 17122.5}
-    upCurrent: {x: 13355.706, y: 91.630066, z: 17122.5}
-    downTrain: {x: 13355.706, y: 0, z: 17122.5}
-    upTrain: {x: 13355.706, y: 91.630066, z: 17122.5}
-    downSafe: {x: 13347.308, y: 0, z: 17127.74}
-    downRandomReset: {x: 13338.672, y: 1, z: 17147.295}
-  airportStartRight:
-    pivotTransform: {fileID: 1219771576}
-    down: {x: 13337.652, y: 0, z: 17200.436}
-    up: {x: 13337.652, y: 91.630066, z: 17200.436}
-    downCurrent: {x: 13337.652, y: 0, z: 17200.436}
-    upCurrent: {x: 13337.652, y: 91.630066, z: 17200.436}
-    downTrain: {x: 13337.652, y: 0, z: 17200.436}
-    upTrain: {x: 13337.652, y: 91.630066, z: 17200.436}
-    downSafe: {x: 13332.412, y: 0, z: 17192.035}
-    downRandomReset: {x: 13333.256, y: 1, z: 17170.678}
-  airportEndLeft:
-    pivotTransform: {fileID: 931385143}
-    down: {x: 12080.468, y: 0, z: 16827.117}
-    up: {x: 12080.468, y: 91.630066, z: 16827.117}
-    downCurrent: {x: 12080.468, y: 0, z: 16827.117}
-    upCurrent: {x: 12080.468, y: 91.630066, z: 16827.117}
-    downTrain: {x: 12080.468, y: 0, z: 16827.117}
-    upTrain: {x: 12080.468, y: 91.630066, z: 16827.117}
-    downSafe: {x: 12085.708, y: 0, z: 16835.518}
-    downRandomReset: {x: 13289.961, y: 1, z: 17136.014}
-  airportEndRight:
-    pivotTransform: {fileID: 1223269707}
-    down: {x: 12062.416, y: 0, z: 16905.055}
-    up: {x: 12062.416, y: 91.630066, z: 16905.055}
-    downCurrent: {x: 12062.416, y: 0, z: 16905.055}
-    upCurrent: {x: 12062.416, y: 91.630066, z: 16905.055}
-    downTrain: {x: 12062.416, y: 0, z: 16905.055}
-    upTrain: {x: 12062.416, y: 91.630066, z: 16905.055}
-    downSafe: {x: 12070.814, y: 0, z: 16899.814}
-    downRandomReset: {x: 13284.545, y: 1, z: 17159.396}
-  aircraftTakeOffAgents: []
-  aircraftLandingAgents: []
-  trainingMode: 0
-  landingMode: 0
+  bezierPoints:
+  - {x: 13302.841, y: 1, z: 17151.314}
+  - {x: 12900.347, y: 0, z: 17058.084}
+  - {x: 12874.842, y: 0, z: 17052.178}
+  - {x: 12454.013, y: 71.630066, z: 16954.701}
+  - {x: 12090.926, y: 71.630066, z: 16870.6}
+  numberOfBezierPoints: 100
+  aircraftAgents: []
+  trainingOn: 0
+  mode: 0
   showBezierGizmos: 0
   showTrainingGizmos: 0
   showObservationsGizmos: 0
   showZonesGizmos: 1
-  zExitOffsets: 20
-  yExitOffsets: 20
-  extraRandomLength: 0.24878728
-  extraRandomWidth: 0.5383454
-  trainLengthBounds: 0
-  trainWidthBounds: 0
+  airportStartLeft:
+    pivotTransform: {fileID: 1935305592}
+    down: {x: 13355.706, y: 0, z: 17122.5}
+    downCurrent: {x: 13355.706, y: 0, z: 17122.5}
+    downTrainSpawnBound: {x: 14824.914, y: 0, z: 17426.887}
+    downSafeWheelContactBound: {x: 13345.738, y: 0, z: 17121.219}
+    up: {x: 13355.706, y: 91.630066, z: 17122.5}
+    upCurrent: {x: 13355.706, y: 91.630066, z: 17122.5}
+    upTrainTrainSpawnBound: {x: 14824.914, y: 301.63007, z: 17426.887}
+  airportStartRight:
+    pivotTransform: {fileID: 1219771576}
+    down: {x: 13337.652, y: 0, z: 17200.436}
+    downCurrent: {x: 13337.652, y: 0, z: 17200.436}
+    downTrainSpawnBound: {x: 14791.065, y: 0, z: 17573.018}
+    downSafeWheelContactBound: {x: 13328.136, y: 0, z: 17197.205}
+    up: {x: 13337.652, y: 91.630066, z: 17200.436}
+    upCurrent: {x: 13337.652, y: 91.630066, z: 17200.436}
+    upTrainTrainSpawnBound: {x: 14791.065, y: 301.63007, z: 17573.018}
+  airportEndLeft:
+    pivotTransform: {fileID: 931385143}
+    down: {x: 12080.468, y: 0, z: 16827.117}
+    downCurrent: {x: 12080.468, y: 0, z: 16827.117}
+    downTrainSpawnBound: {x: 10627.055, y: 0, z: 16454.535}
+    downSafeWheelContactBound: {x: 12089.984, y: 0, z: 16830.348}
+    up: {x: 12080.468, y: 91.630066, z: 16827.117}
+    upCurrent: {x: 12080.468, y: 91.630066, z: 16827.117}
+    upTrainTrainSpawnBound: {x: 10627.055, y: 301.63007, z: 16454.535}
+  airportEndRight:
+    pivotTransform: {fileID: 1223269707}
+    down: {x: 12062.416, y: 0, z: 16905.055}
+    downCurrent: {x: 12062.416, y: 0, z: 16905.055}
+    downTrainSpawnBound: {x: 10593.208, y: 0, z: 16600.668}
+    downSafeWheelContactBound: {x: 12072.384, y: 0, z: 16906.336}
+    up: {x: 12062.416, y: 91.630066, z: 16905.055}
+    upCurrent: {x: 12062.416, y: 91.630066, z: 16905.055}
+    upTrainTrainSpawnBound: {x: 10593.208, y: 301.63007, z: 16600.668}
+  spawnForwardOffset: 45
+  exitBackwardOffset: 20
+  exitVerticalOffset: 20
   heightMultiplier: 0.07
-  landingHeightMultiplier: 0.7
-  zResetOffset: 36
-  xRandomResetArea: 12
-  zRandomResetArea: 25
-  safeZoneWidth: 7
-  safeZoneLength: 7
-  numberOfBezierPoints: 100
-  takeOffBezierPoint1: 0.283
-  takeOffBezierPoint2: 0.283
-  takeOffBezierPoint3: 0.723
-  landingBezierPoint1: 0.35
-  landingBezierPoint2: 0.37
-  landingBezierPoint3: 0.7
+  safeContactZoneWidth: 1
+  safeContactZoneLength: 10
+  trainLengthBound: 1500
+  trainWidthBound: 35
+  trainRandomSpawnWidth: 15
+  trainRandomSpawnLength: 25
 --- !u!4 &2011016093
 Transform:
   m_ObjectHideFlags: 0
@@ -2618,18 +2589,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca, type: 3}
---- !u!114 &4608920154714674734 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4388675968447146467, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 4608920154714674733}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278f21c3dfc59c54187e21238077da5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4608920154714674735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7509382747687662, guid: 3cd6c9cc14bfe7b4bbc65a3ab46360ca,
@@ -3872,18 +3831,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2488604955541196070}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8148915049682574520 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1191755987953106305, guid: 4076ecbe319d550489f1279819fa4970,
-    type: 3}
-  m_PrefabInstance: {fileID: 2488604955541196070}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f25bc08469480198b349c3f371d8c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8148915049682574521 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6472610605687219428, guid: 4076ecbe319d550489f1279819fa4970,

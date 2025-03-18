@@ -8976,40 +8976,51 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 25000
+  windArrowRenderers: []
   aircraftController: {fileID: 6472610605687219428}
-  trainingMode: 1
-  windDirectionSpeed: 360
-  trainingMaxWindSpeed: 10
-  maxWindSpeed: 10
-  trainingMaxTurbulence: 10
-  maxTurbulence: 10
-  manoeuvreSpeed: 25
-  numOfOptimalDirections: 1
-  gapBetweenOptimalDirections: 2
+  windAudioSource: {fileID: 0}
   observationCanvas: {fileID: 0}
   rewardCanvas: {fileID: 0}
   pitchSlider: {fileID: 0}
   rollSlider: {fileID: 0}
   yawSlider: {fileID: 0}
+  trainingMode: 1
+  evaluateAtmosphereData:
+    maxWindDirectionChangeSpeed: 170
+    maxWindSpeed: 15
+    maxTurbulence: 15
+  trainingAtmosphereData:
+    maxWindDirectionChangeSpeed: 360
+    maxWindSpeed: 25
+    maxTurbulence: 25
+  aircraftBehaviourConfig:
+    numOfOptimalDirections: 1
+    gapBetweenOptimalDirections: 2
+    manoeuvreSpeed: 10
   sparseRewardMultiplier: 1
   denseRewardMultiplier: 0.001
-  optimalDistanceRewardMultiplier: 2
-  optimalDistancePenaltyMultiplier: 2
-  actionDifferencePenaltyMultiplier: 2
-  forwardVelocityDifferencePenaltyMultiplier: 4
-  optimalVelocityDifferencePenaltyMultiplier: 0.7
+  sparseWinReward: 5
+  sparseLoseReward: -1
+  optimalDistanceReward: 2
+  optimalDistancePenalty: 2
+  actionDifferencePenalty: 2
+  forwardVelocityDifferencePenalty: 4
+  optimalVelocityDifferencePenalty: 0.7
+  forwardVelocityDifferenceTolerance: 0.005
+  forwardVelocityDifferenceSensitivity: 30
+  optimalVelocityDifferenceTolerance: 0.12
+  optimalVelocityDifferenceSensitivity: 10
+  directionalDifferenceThreshold: 0.5
   normalizedSpeed: 0
   normalizedVelocity: {x: 0, y: 0, z: 0}
   optimalDirections:
   - {x: -0.23942418, y: -0.0059448536, z: -0.97089684}
-  sparseWinReward: 5
-  sparseLoseReward: -1
-  velocityDecreaseRewardMultiplier: 750
-  groundedRewardMultiplier: 8
+  velocityDecreaseReward: 750
+  groundedReward: 8
   throttleSpeed: 25
-  brakeOpenTime: 3
+  brakeOpenDuration: 3
   airportNormalizer: {fileID: 0}
-  sensors: {fileID: 6190778680147421867}
+  detector: {fileID: 6190778680147421867}
   throttleSlider: {fileID: 0}
 --- !u!114 &7421904129386590395
 MonoBehaviour:

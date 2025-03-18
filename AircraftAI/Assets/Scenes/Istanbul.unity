@@ -40087,7 +40087,6 @@ MonoBehaviour:
     - {fileID: 1235046234}
     observationCanvas: {fileID: 1550059900}
     rewardCanvas: {fileID: 1550059899}
-    aircraftController: {fileID: 4620621824570532261}
     windAudioSource: {fileID: 1917186764}
   behaviors:
   - rid: 2305832271958769665
@@ -40109,13 +40108,17 @@ MonoBehaviour:
         decisionPeriod: 1
         maxStep: 2500000
         aircraftBehaviourConfig:
-          numOfOptimalDirections: 2
-          gapBetweenOptimalDirections: 2
+          numOfOptimalDirections: 1
+          gapBetweenOptimalDirections: 3
           manoeuvreSpeed: 10
-        atmosphereData:
-          maxWindDirectionChangeSpeed: 360
-          maxWindSpeed: 5
-          maxTurbulence: 5
+        atmosphereMaxData:
+          maxWindDirectionChangeSpeed: 170
+          maxWindSpeed: 15
+          maxTurbulence: 15
+        atmosphereTrainData:
+          maxWindDirectionChangeSpeed: 170
+          maxWindSpeed: 15
+          maxTurbulence: 15
         airportNormalizer: {fileID: 606254926}
         detector: {fileID: 6372712999388639277}
     - rid: 2305832271958769667
@@ -40131,13 +40134,17 @@ MonoBehaviour:
         decisionPeriod: 1
         maxStep: 2500000
         aircraftBehaviourConfig:
-          numOfOptimalDirections: 2
-          gapBetweenOptimalDirections: 2
+          numOfOptimalDirections: 1
+          gapBetweenOptimalDirections: 3
           manoeuvreSpeed: 10
-        atmosphereData:
-          maxWindDirectionChangeSpeed: 360
-          maxWindSpeed: 5
-          maxTurbulence: 5
+        atmosphereMaxData:
+          maxWindDirectionChangeSpeed: 170
+          maxWindSpeed: 15
+          maxTurbulence: 15
+        atmosphereTrainData:
+          maxWindDirectionChangeSpeed: 170
+          maxWindSpeed: 15
+          maxTurbulence: 15
         flightPathNormalizer: {fileID: 608748169}
     - rid: 2305832667923873792
       type: {class: LandingConfig, ns: , asm: Assembly-CSharp}
@@ -40152,13 +40159,17 @@ MonoBehaviour:
         decisionPeriod: 1
         maxStep: 2500000
         aircraftBehaviourConfig:
-          numOfOptimalDirections: 2
-          gapBetweenOptimalDirections: 2
+          numOfOptimalDirections: 1
+          gapBetweenOptimalDirections: 3
           manoeuvreSpeed: 10
-        atmosphereData:
-          maxWindDirectionChangeSpeed: 360
-          maxWindSpeed: 5
-          maxTurbulence: 5
+        atmosphereMaxData:
+          maxWindDirectionChangeSpeed: 170
+          maxWindSpeed: 15
+          maxTurbulence: 15
+        atmosphereTrainData:
+          maxWindDirectionChangeSpeed: 170
+          maxWindSpeed: 15
+          maxTurbulence: 15
         airportNormalizer: {fileID: 18515004}
         detector: {fileID: 6372712999388639277}
 --- !u!4 &6939533606337299888
