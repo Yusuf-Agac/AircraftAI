@@ -161,7 +161,7 @@ public abstract partial class AircraftAgent : Agent
     
     protected void SetDirectionDifferenceReward()
     {
-        if(aircraftController.m_rigidbody.velocity.magnitude < directionalDifferenceThreshold) return;
+        if(aircraftController.m_rigidbody.linearVelocity.magnitude < directionalDifferenceThreshold) return;
         var forwardDifferenceExpectation = (1 - forwardVelocityDifferenceTolerance);
         var forwardVelocityDifference = NormalizeUtility.ClampNP1((DotVelocityRotation - forwardDifferenceExpectation) * forwardVelocityDifferenceSensitivity);
         var velocityDifferencePenalty = forwardVelocityDifference * denseRewardMultiplier *
@@ -241,7 +241,7 @@ public abstract partial class AircraftAgent : Agent
     {
         normalizedSpeed = AircraftNormalizeUtility.NormalizedSpeed(aircraftController);
         NormalizedThrust = AircraftNormalizeUtility.NormalizedThrust(aircraftController);
-        normalizedVelocity = aircraftController.m_rigidbody.velocity.normalized;
+        normalizedVelocity = aircraftController.m_rigidbody.linearVelocity.normalized;
     }
 
     protected abstract bool IsEpisodeFailed();

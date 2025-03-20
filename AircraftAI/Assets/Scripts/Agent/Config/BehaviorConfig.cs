@@ -1,12 +1,10 @@
 ﻿using System;
-using Oyedoyin.FixedWing;
-using Unity.Barracuda;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
+using Unity.Sentis;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 [Serializable]
@@ -15,7 +13,7 @@ public abstract class BehaviorConfig
     public string behaviorName;
     public int spaceSize;
     public ActionSpec actionSpecs;
-    public NNModel model;
+    public ModelAsset model;
     [Range(1, 25)] public int decisionPeriod = 1;
     public int maxStep = 2500000;
 

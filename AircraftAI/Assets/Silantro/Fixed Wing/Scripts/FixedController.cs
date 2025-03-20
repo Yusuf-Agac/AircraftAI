@@ -289,7 +289,7 @@ namespace Oyedoyin.FixedWing
                     m_moment = new Vector(MX, MY, MZ);
 
                     // Apply Forces
-                    Vector3 mcxf = _aircraft.m_rigidbody.velocity.normalized * (float)Fx;
+                    Vector3 mcxf = _aircraft.m_rigidbody.linearVelocity.normalized * (float)Fx;
                     Vector3 mczf = _aircraft.transform.up * (float)-Fz;
                     _aircraft.m_rigidbody.AddForceAtPosition(mcxf + mczf, _aircraft.m_rigidbody.worldCenterOfMass, ForceMode.Force);
                 }

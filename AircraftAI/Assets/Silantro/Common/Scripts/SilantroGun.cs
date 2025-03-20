@@ -266,7 +266,7 @@ namespace Oyedoyin.Common
                 if (ejectShells && bulletCase != null)
                 {
                     GameObject shellGO = Instantiate(bulletCase, shellEjectPoint.position, shellEjectPoint.rotation);
-                    shellGO.GetComponent<Rigidbody>().velocity = m_velocity;
+                    shellGO.GetComponent<Rigidbody>().linearVelocity = m_velocity;
                     shellGO.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(shellSpitForce + Random.Range(0, shellForceRandom), 0, 0), ForceMode.Impulse);
                     shellGO.GetComponent<Rigidbody>().AddRelativeTorque(new Vector3(shellSpitTorqueX + Random.Range(-shellTorqueRandom, shellTorqueRandom), shellSpitTorqueY + Random.Range(-shellTorqueRandom, shellTorqueRandom), 0), ForceMode.Impulse);
                 }

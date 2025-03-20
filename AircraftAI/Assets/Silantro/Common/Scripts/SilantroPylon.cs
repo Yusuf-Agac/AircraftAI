@@ -183,30 +183,30 @@ namespace Oyedoyin.Common
             //1. TUBE LAUNCH
             if (launcherType == LauncherType.Tube)
             {
-                missile.FireMunition(target, m_controller.m_rigidbody.velocity, 2);
+                missile.FireMunition(target, m_controller.m_rigidbody.linearVelocity, 2);
             }
             //2. DROP LAUNCH
             if (launcherType == LauncherType.Drop)
             {
-                missile.FireMunition(target, m_controller.m_rigidbody.velocity, 1);
+                missile.FireMunition(target, m_controller.m_rigidbody.linearVelocity, 1);
             }
 
             //3. TRAPEZE LAUNCH RIGHT
             if (launcherType == LauncherType.Trapeze && trapezePosition == TrapezePosition.Right)
             {
-                missile.FireMunition(target, m_controller.m_rigidbody.velocity, 3);
+                missile.FireMunition(target, m_controller.m_rigidbody.linearVelocity, 3);
             }
 
             //4. TRAPEZE LAUNCH LEFT
             if (launcherType == LauncherType.Trapeze && trapezePosition == TrapezePosition.Left)
             {
-                missile.FireMunition(target, m_controller.m_rigidbody.velocity, 4);
+                missile.FireMunition(target, m_controller.m_rigidbody.linearVelocity, 4);
             }
 
             //5. TRAPEZE LAUNCH MIDDLE
             if (launcherType == LauncherType.Trapeze && trapezePosition == TrapezePosition.Central)
             {
-                missile.FireMunition(target, m_controller.m_rigidbody.velocity, 5);
+                missile.FireMunition(target, m_controller.m_rigidbody.linearVelocity, 5);
             }
 
             //CLOSE BAY DOOR
@@ -230,7 +230,7 @@ namespace Oyedoyin.Common
             {
                 if (bombs[0] != null)
                 {
-                    bombs[0].ReleaseMunition(m_controller.m_rigidbody.velocity);
+                    bombs[0].ReleaseMunition(m_controller.m_rigidbody.linearVelocity);
                     m_controller.CountOrdnance();
                     CountBombs();
                 }

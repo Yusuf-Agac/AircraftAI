@@ -10,6 +10,6 @@ public abstract partial class AircraftAgent
         const int rayLength = 40;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward.normalized * rayLength);
         Gizmos.color = Color.yellow;
-        if (aircraftController.m_rigidbody) Gizmos.DrawLine(transform.position, transform.position + aircraftController.m_rigidbody.velocity.normalized * rayLength);
+        if (aircraftController.m_rigidbody) Gizmos.DrawLine(transform.position, transform.position + aircraftController.m_rigidbody.linearVelocity.normalized * rayLength);
     }
 }

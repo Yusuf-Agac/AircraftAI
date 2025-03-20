@@ -184,13 +184,13 @@ namespace Oyedoyin.Common
 
 
                 if (invertAxleRotation) { currentSteerAngle *= -1f; }
-                if (aircraft != null) { aircraftSpeed = aircraft.velocity.magnitude; }
+                if (aircraft != null) { aircraftSpeed = aircraft.linearVelocity.magnitude; }
 
 
                 //--------------------- Brake Force
                 if (controller.m_rigidbody != null)
                 {
-                    Vector3 brakeForce = -controller.m_rigidbody.velocity * brakeInput * brakeTorque;
+                    Vector3 brakeForce = -controller.m_rigidbody.linearVelocity * brakeInput * brakeTorque;
                     controller.m_rigidbody.AddForce(brakeForce, ForceMode.Force);
                 }
 

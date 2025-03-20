@@ -97,7 +97,7 @@ namespace Oyedoyin.Common
             {
                 m_rigidbody.transform.parent = null;
                 m_rigidbody.isKinematic = false;
-                m_rigidbody.velocity = m_velocity;
+                m_rigidbody.linearVelocity = m_velocity;
                 //FIRE
                 StartCoroutine(WaitForDrop(markedTarget));
             }
@@ -107,7 +107,7 @@ namespace Oyedoyin.Common
                 //FIRE
                 m_rigidbody.transform.parent = null;
                 m_rigidbody.isKinematic = false;
-                m_rigidbody.velocity = m_velocity;
+                m_rigidbody.linearVelocity = m_velocity;
                 m_rigidbody.useGravity = false;
 
                 m_target = markedTarget;
@@ -122,7 +122,7 @@ namespace Oyedoyin.Common
             {
                 m_rigidbody.transform.parent = null;
                 m_rigidbody.isKinematic = false;
-                m_rigidbody.velocity = m_velocity;
+                m_rigidbody.linearVelocity = m_velocity;
 
                 //PUSH OUT
                 float pushForce = m_rigidbody.mass * 500f;
@@ -137,7 +137,7 @@ namespace Oyedoyin.Common
             {
                 m_rigidbody.transform.parent = null;
                 m_rigidbody.isKinematic = false;
-                m_rigidbody.velocity = m_velocity;
+                m_rigidbody.linearVelocity = m_velocity;
                 //PUSH OUT
                 float pushForce = m_rigidbody.mass * 500f;
                 Vector3 force = m_rigidbody.transform.right * -pushForce;
@@ -151,7 +151,7 @@ namespace Oyedoyin.Common
             {
                 m_rigidbody.transform.parent = null;
                 m_rigidbody.isKinematic = false;
-                m_rigidbody.velocity = m_velocity;
+                m_rigidbody.linearVelocity = m_velocity;
                 //PUSH OUT
                 float pushForce = m_rigidbody.mass * 800f;
                 Vector3 force = m_rigidbody.transform.up * -pushForce;
@@ -201,7 +201,7 @@ namespace Oyedoyin.Common
 
             //RELEASE BULLET
             m_rigidbody.isKinematic = false;
-            m_rigidbody.velocity = resultantVelocity;
+            m_rigidbody.linearVelocity = resultantVelocity;
         }
         /// <summary>
         /// 
@@ -211,7 +211,7 @@ namespace Oyedoyin.Common
         {
             m_rigidbody.transform.parent = null;
             m_rigidbody.isKinematic = false;
-            m_rigidbody.velocity = m_velocity;
+            m_rigidbody.linearVelocity = m_velocity;
             m_motor.Fire();
             m_active = true;
         }
@@ -223,7 +223,7 @@ namespace Oyedoyin.Common
         {
             m_rigidbody.transform.parent = null;
             m_rigidbody.isKinematic = false;
-            m_rigidbody.velocity = m_velocity;
+            m_rigidbody.linearVelocity = m_velocity;
             m_active = true;
         }
 
@@ -293,7 +293,7 @@ namespace Oyedoyin.Common
                 if (m_active)
                 {
                     //----------------------------------- Data
-                    float munitionSpeed = m_rigidbody.velocity.magnitude;
+                    float munitionSpeed = m_rigidbody.linearVelocity.magnitude;
                     float airDensity = 0;
                     float soundSpeed = 0;
 
@@ -322,7 +322,7 @@ namespace Oyedoyin.Common
                     float dragCoefficient = m_motor.m_thrust / dynamicForce;
                     if (float.IsNaN(dragCoefficient) || float.IsInfinity(dragCoefficient)) { dragCoefficient = 0.01f; }
                     float drag = 0.5f * airDensity * dragCoefficient * munitionSpeed * munitionSpeed * surfaceArea;
-                    Vector3 dragForce = m_rigidbody.velocity.normalized * -drag;
+                    Vector3 dragForce = m_rigidbody.linearVelocity.normalized * -drag;
                     if (!float.IsNaN(drag) && !float.IsInfinity(drag)) { m_rigidbody.AddForce(dragForce, ForceMode.Force); }
 
                     // Check For Contact

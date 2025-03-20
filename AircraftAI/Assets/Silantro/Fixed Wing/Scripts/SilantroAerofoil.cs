@@ -915,7 +915,7 @@ namespace Oyedoyin.FixedWing
         {
             // ----------------------------------------- Collect Vectors
             Vector m_wind = _aircraft.m_core.m_atmosphere.m_wind;
-            m_world = _aircraft.m_rigidbody.velocity + new Vector3((float)m_wind.y, 0, (float)m_wind.x);
+            m_world = _aircraft.m_rigidbody.linearVelocity + new Vector3((float)m_wind.y, 0, (float)m_wind.x);
             m_wcog = _aircraft.m_rigidbody.worldCenterOfMass;
             m_omega = _aircraft.m_rigidbody.angularVelocity;
 

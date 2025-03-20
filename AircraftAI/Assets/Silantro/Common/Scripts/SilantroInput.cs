@@ -435,7 +435,7 @@ namespace Oyedoyin.Common
             {
                 if (_controller.m_guns != null && _controller.m_guns.Length > 0)
                 {
-                    foreach (SilantroGun gun in _controller.m_guns) { gun.FireGun(_controller.m_rigidbody.velocity); }
+                    foreach (SilantroGun gun in _controller.m_guns) { gun.FireGun(_controller.m_rigidbody.linearVelocity); }
                 }
                 else { Debug.Log("Gun System Offline"); }
             }

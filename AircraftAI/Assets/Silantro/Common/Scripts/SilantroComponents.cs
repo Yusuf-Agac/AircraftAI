@@ -702,7 +702,7 @@ namespace Oyedoyin.Common.Components
             else { backVolume = sideVolume = frontVolume = 0f; interiorVolume = 1f; exteriorVolume = 0f; }
 
             //-------------------PITCH
-            float speedFactor = ((coreRPM + (controller.m_rigidbody.velocity.magnitude * 1.943f) + 10f) - functionalRPM * (idlePercentage / 100f)) / (functionalRPM - functionalRPM * (idlePercentage / 100f));
+            float speedFactor = ((coreRPM + (controller.m_rigidbody.linearVelocity.magnitude * 1.943f) + 10f) - functionalRPM * (idlePercentage / 100f)) / (functionalRPM - functionalRPM * (idlePercentage / 100f));
 
             basePitch = 0.25f + (0.7f * speedFactor);
             if (afterburnerOperative && canUseAfterburner) { pitchTarget = 0.5f + (1.35f * speedFactor); } else { pitchTarget = basePitch; }
@@ -923,7 +923,7 @@ namespace Oyedoyin.Common.Components
         {
             if (rigidbody != null && controller != null)
             {
-                rigidbody.velocity = Vector3.zero;
+                rigidbody.linearVelocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
                 rigidbody.transform.position = controller.basePosition;
                 rigidbody.transform.rotation = controller.baseRotation;
@@ -954,7 +954,7 @@ namespace Oyedoyin.Common.Components
         {
             if (rigidbody != null && controller != null)
             {
-                rigidbody.velocity = Vector3.zero;
+                rigidbody.linearVelocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
                 controller.m_fuelSystem.ActivateTankRefill();
                 if (chancePosition)
@@ -962,7 +962,7 @@ namespace Oyedoyin.Common.Components
                     Vector3 initialPosition = rigidbody.transform.position;
                     rigidbody.transform.position = new Vector3(initialPosition.x, controller.m_startAltitude, initialPosition.z);
                 }
-                rigidbody.velocity = rigidbody.transform.forward * controller.m_startSpeed;
+                rigidbody.linearVelocity = rigidbody.transform.forward * controller.m_startSpeed;
             }
         }
         /// <summary>
@@ -1413,7 +1413,7 @@ namespace Oyedoyin.Common.Components
                         int index = UnityEngine.Random.Range(0, m_controller.rockets.Count);
                         if (m_controller.rockets[index] != null)
                         {
-                            m_controller.rockets[index].FireRocket(m_controller.m_rigidbody.velocity);
+                            m_controller.rockets[index].FireRocket(m_controller.m_rigidbody.linearVelocity);
 
                             //PLAY SOUND
                             if (launcherSound != null && fireSound != null && !launcherSound.isPlaying) { launcherSound.PlayOneShot(fireSound); }

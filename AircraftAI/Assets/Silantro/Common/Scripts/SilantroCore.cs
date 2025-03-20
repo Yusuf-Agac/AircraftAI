@@ -255,10 +255,10 @@ namespace Oyedoyin.Common
             ф = m_localOrientation.x;
             θ = m_localOrientation.y;
             ψ = m_localOrientation.z;
-            δV = (controller.m_rigidbody.velocity - _vels).magnitude / _timestep;
+            δV = (controller.m_rigidbody.linearVelocity - _vels).magnitude / _timestep;
 
             Vector m_Φ = controller.m_rigidbody.angularVelocity;
-            Vector m_earthVelocity = Transformation.UnityToVector(controller.m_rigidbody.velocity);
+            Vector m_earthVelocity = Transformation.UnityToVector(controller.m_rigidbody.linearVelocity);
             Vector m_eulerRates = new Vector(-m_Φ.z, -m_Φ.x, m_Φ.y);
             Vector m_earthGust = m_atmosphere.m_gust;
             Vector m_earthWind = m_atmosphere.m_wind;
@@ -312,7 +312,7 @@ namespace Oyedoyin.Common
             else { Rф = 0; }
             if (ωф < 0.08) { Rф = 0; }
 
-            Vector3 localVelocity = controller.m_rigidbody.transform.InverseTransformDirection(controller.m_rigidbody.velocity);
+            Vector3 localVelocity = controller.m_rigidbody.transform.InverseTransformDirection(controller.m_rigidbody.linearVelocity);
             Vector3 localAngularVelocity = transform.InverseTransformDirection(controller.m_rigidbody.angularVelocity);
             float turnRadius = (Mathf.Approximately(localAngularVelocity.x, 0.0f)) ? float.MaxValue : localVelocity.z / localAngularVelocity.x;
             float turnForce = (Mathf.Approximately(turnRadius, 0.0f)) ? 0.0f : (localVelocity.z * localVelocity.z) / turnRadius;
@@ -340,7 +340,7 @@ namespace Oyedoyin.Common
                     if (!breathingActive && breathingLoopSound != null && breathingLoopSource.isPlaying && !breathingEndSource.isPlaying) { ResetSound(); breathingEndSource.Play(); }
                 }
             }
-            _vels = controller.m_rigidbody.velocity;
+            _vels = controller.m_rigidbody.linearVelocity;
         }
         /// <summary>
         /// 
