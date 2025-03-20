@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 6f1e3124a238cb1419aea1d3205d6baf
 ModelImporter:
-  serializedVersion: 19300
+  serializedVersion: 24002
   internalIDToNameTable:
   - first:
       1: 100000
@@ -2457,7 +2457,47 @@ ModelImporter:
   - first:
       95: 9500000
     second: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cessna_Set_1
+    second: {fileID: 2100000, guid: 2c83f02a55e6e424bba441884307a09a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cessna_Set_2
+    second: {fileID: 2100000, guid: 7f3aabe944457064c995cdcac1017fa4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cessna_Set_3
+    second: {fileID: 2100000, guid: c56532798ea46284ba7f6b326526786e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cessna_Set_4
+    second: {fileID: 2100000, guid: 54f820c710835b34382d40c9dc88eef7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #104
+    second: {fileID: 2100000, guid: 4d93fd9b33ed42845b8cb29f739f6b44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #105
+    second: {fileID: 2100000, guid: 564491eb2ed25b641adf492d642b4f00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #90
+    second: {fileID: 2100000, guid: 0e020a26570a649428298eb2f6899ce1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_dark
+    second: {fileID: 2100000, guid: 561762de40202ed4098e37001e0cd5e3, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -2468,9 +2508,8 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -2493,26 +2532,35 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -2544,6 +2592,9 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

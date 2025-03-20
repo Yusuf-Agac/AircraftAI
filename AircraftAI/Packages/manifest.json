@@ -8,6 +8,7 @@
     "com.unity.ml-agents": "3.0.0",
     "com.unity.multiplayer.center": "1.0.0",
     "com.unity.perception": "1.0.0-preview.1",
+    "com.unity.render-pipelines.high-definition": "17.2.0",
     "com.unity.render-pipelines.universal": "17.2.0",
     "com.unity.test-framework": "1.4.6",
     "com.unity.timeline": "1.8.8",

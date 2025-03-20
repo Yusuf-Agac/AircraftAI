@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 13
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,29 +24,27 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cessna Glass
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _ALPHAPREMULTIPLY_ON
-  - _RECEIVE_SHADOWS_OFF
-  - _SPECULAR_SETUP
-  - _SURFACE_TYPE_TRANSPARENT
-  m_InvalidKeywords:
-  - _ALPHABLEND_ON
-  - _BLENDMODE_ALPHA
+  - _DISABLE_SSR_TRANSPARENT
+  - _DOUBLESIDED_ON
   - _ENABLE_FOG_ON_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
+  - _REFRACTION_THIN
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
   - DistortionVectors
   - TransparentDepthPostpass
-  - TransparentBackface
+  - RayTracingPrepass
   - MOTIONVECTORS
   - DepthOnly
   - SHADOWCASTER
@@ -170,6 +172,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TransmissionMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TransmittanceColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -200,6 +206,8 @@ Material:
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
     - _AlphaDstBlend: 10
+    - _AlphaRemapMax: 1
+    - _AlphaRemapMin: 0
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _Anisotropy: 0
@@ -211,9 +219,9 @@ Material:
     - _ClearCoatSmoothness: 0
     - _CoatMask: 0
     - _Cull: 2
-    - _CullMode: 2
+    - _CullMode: 0
     - _CullModeForward: 2
-    - _Cutoff: 1
+    - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailAlbedoMapScale: 1
     - _DetailAlbedoScale: 1
@@ -239,9 +247,11 @@ Material:
     - _DistortionSrcBlend: 1
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
-    - _DoubleSidedEnable: 0
+    - _DoubleSidedEnable: 1
+    - _DoubleSidedGIMode: 1
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 10
+    - _DstBlend2: 10
     - _DstBlendAlpha: 10
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
@@ -266,26 +276,34 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _InvTilingScale: 1
-    - _Ior: 1.5
+    - _Ior: 2.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
-    - _Metallic: 1
+    - _Metallic: 0
+    - _MetallicRemapMax: 1
+    - _MetallicRemapMin: 0
     - _Mode: 2
     - _NormalMapSpace: 0
     - _NormalScale: 1
+    - _ObjectSpaceUVMapping: 0
+    - _ObjectSpaceUVMappingEmissive: 0
     - _OcclusionStrength: 1
+    - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
+    - _PerPixelSorting: 0
     - _QueueOffset: 0
+    - _RayTracing: 0
     - _ReceiveShadows: 0
     - _ReceivesSSR: 1
-    - _RefractionModel: 0
+    - _ReceivesSSRTransparent: 0
+    - _RefractionModel: 3
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 1
     - _SmoothnessRemapMax: 0.83
@@ -297,16 +315,16 @@ Material:
     - _SpecularOcclusionMode: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _StencilRef: 2
-    - _StencilRefDepth: 0
+    - _StencilRef: 0
+    - _StencilRefDepth: 16
     - _StencilRefDistortionVec: 64
     - _StencilRefGBuffer: 2
-    - _StencilRefMV: 128
-    - _StencilWriteMask: 3
-    - _StencilWriteMaskDepth: 48
+    - _StencilRefMV: 32
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 25
     - _StencilWriteMaskDistortionVec: 64
-    - _StencilWriteMaskGBuffer: 51
-    - _StencilWriteMaskMV: 176
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _Surface: 1
@@ -315,12 +333,14 @@ Material:
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
     - _TransmissionEnable: 1
-    - _TransparentBackfaceEnable: 0
+    - _TransmissionMask: 1
+    - _TransparentBackfaceEnable: 1
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
     - _TransparentDepthPrepassEnable: 1
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 1
     - _UVBase: 0
     - _UVDetail: 0
     - _UVEmissive: 0
@@ -328,15 +348,16 @@ Material:
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
     - _WorkflowMode: 0
+    - _XRMotionVectorsPass: 1
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestModeDistortion: 4
     - _ZTestTransparent: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 0, b: 0, a: 0.48235294}
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 0.7372549}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 0.48235294}
+    - _Color: {r: 0, g: 0, b: 0, a: 0.7372549}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -347,7 +368,7 @@ Material:
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TransmittanceColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
