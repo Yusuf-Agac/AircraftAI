@@ -362,7 +362,7 @@ MonoBehaviour:
     m_Value: 0
   perceptualBlending:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   shadows:
     m_OverrideState: 1
     m_Value: 1
@@ -694,7 +694,7 @@ MonoBehaviour:
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.74875396, g: 0.86931986, b: 0.8867924, a: 1}
+    m_Value: {r: 3.031433, g: 3.031433, b: 3.031433, a: 1}
   maxFogDistance:
     m_OverrideState: 1
     m_Value: 50000
@@ -712,16 +712,16 @@ MonoBehaviour:
     m_Value: 0
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 400
+    m_Value: 2500
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 400
+    m_Value: 5000
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 0.7737629, g: 0.86119866, b: 0.8679245, a: 1}
+    m_Value: {r: 0.40610537, g: 0.5726426, b: 0.735849, a: 1}
   globalLightProbeDimmer:
     m_OverrideState: 1
     m_Value: 1
