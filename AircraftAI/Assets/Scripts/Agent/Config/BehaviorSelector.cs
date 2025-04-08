@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 
@@ -19,13 +19,13 @@ public class BehaviorSelector : MonoBehaviour
         SelectBehavior(_behaviorIndex);
     }
     
-    private void SelectBehavior(int index) => StartCoroutine(SelectBehaviorCoroutine(index));
+    private void SelectBehavior(int index) => SelectBehaviorCoroutine(index).Forget();
 
-    private IEnumerator SelectBehaviorCoroutine(int index)
+    private async UniTask SelectBehaviorCoroutine(int index)
     {
         var previousIndex = ((_behaviorIndex - 1) >= 0 ? _behaviorIndex - 1 : _behaviorIndex + behaviors.Length) % behaviors.Length;
         behaviors[previousIndex].RemoveBehaviorComponent();
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
         behaviors[index].SetBehaviorComponent(transform, dependencies);
         _behaviorIndex = index;
     }

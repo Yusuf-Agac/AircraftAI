@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Cysharp.Threading.Tasks;
 using Oyedoyin.FixedWing;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
@@ -97,9 +97,9 @@ public abstract partial class AircraftAgent : Agent
     
     protected abstract PathNormalizer PathNormalizer { get; }
 
-    protected abstract IEnumerator LazyEvaluation();
-    protected abstract IEnumerator LazyEvaluationTraining();
-    
+    protected abstract UniTask LazyEvaluation();
+    protected abstract UniTask LazyEvaluationTraining();
+
     private void Start()
     {
         BehaviorSelector = GetComponent<BehaviorSelector>();
@@ -110,12 +110,12 @@ public abstract partial class AircraftAgent : Agent
     public override void OnEpisodeBegin()
     {
         EpisodeStarted = false;
-        StartCoroutine(LazyEvaluation());
+        LazyEvaluation().Forget();
         if (trainingMode)
         {
             aircraftController.m_rigidbody.isKinematic = true;
             ResetAtmosphereBoundsForTraining();
-            StartCoroutine(LazyEvaluationTraining());
+            LazyEvaluationTraining().Forget();
         }
     }
     

@@ -1,5 +1,6 @@
-using System.Collections;
+using System;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
@@ -20,31 +21,40 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     private float[] _normalizedCollisionSensors;
 
-    private void Awake() => PreviousActions = new float[]{0, 0, 0};
+    protected override void Awake()
+    {
+        base.Awake();
+        PreviousActions = new float[] { 0, 0, 0 };
+    }
 
     protected override PathNormalizer PathNormalizer => airportNormalizer;
 
-    protected override IEnumerator LazyEvaluation()
+    protected override async UniTask LazyEvaluation()
     {
         for (var i = 0; i < PreviousActions.Length; i++) PreviousActions[i] = 0;
         aircraftController.RestoreAircraft();
         airportNormalizer.ResetAircraftTransform(transform);
-        yield return null;
+
+        await UniTask.Yield(PlayerLoopTiming.Update);
+        
         rewardCanvas.ChangeMode(0);
         observationCanvas.ChangeMode(0);
         aircraftController.TurnOnEngines();
 
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
+        
         aircraftController.m_rigidbody.isKinematic = false;
 
-        yield return new WaitForSeconds(1f);
+        await UniTask.Delay(TimeSpan.FromSeconds(1));
+        
         EpisodeStarted = true;
     }
 
-    protected override IEnumerator LazyEvaluationTraining()
+    protected override async UniTask LazyEvaluationTraining()
     {
+        await UniTask.Yield(PlayerLoopTiming.Update);
+        
         airportNormalizer.ResetTrainingPath();
-        return null;
     }
 
     public override void CollectObservations(VectorSensor sensor)

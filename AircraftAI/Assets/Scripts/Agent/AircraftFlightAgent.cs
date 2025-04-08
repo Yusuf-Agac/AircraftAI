@@ -1,5 +1,6 @@
-using System.Collections;
+using System;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Oyedoyin.Common;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -10,34 +11,40 @@ public class AircraftFlightAgent : AircraftAgent
     [SerializeField, Header("Configurations    Flight Agent----------------------------------------------------------------------------------------------"), Space(10)] 
     public FlightPathNormalizer flightPathNormalizer;
 
-    private void Awake() => PreviousActions = new float[]{0, 0, 0};
+    protected override void Awake()
+    {
+        base.Awake();
+        PreviousActions = new float[] { 0, 0, 0 };
+    }
 
     protected override PathNormalizer PathNormalizer => flightPathNormalizer;
 
-    protected override IEnumerator LazyEvaluation()
+    protected override async UniTask LazyEvaluation()
     {
         for (var i = 0; i < PreviousActions.Length; i++) PreviousActions[i] = 0;
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
         observationCanvas.ChangeMode(1);
         rewardCanvas.ChangeMode(1);
         aircraftController.TurnOnEngines();
 
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
         if (aircraftController.gearActuator && aircraftController.gearActuator.actuatorState == SilantroActuator.ActuatorState.Engaged) aircraftController.gearActuator.DisengageActuator();
         else aircraftController.m_gearState = Controller.GearState.Up;
 
-        yield return new WaitForSeconds(0.5f);
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
         EpisodeStarted = true;
     }
 
-    protected override IEnumerator LazyEvaluationTraining()
+    protected override async UniTask LazyEvaluationTraining()
     {
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
+        
         aircraftController.m_rigidbody.isKinematic = false;
         flightPathNormalizer.ResetTrainingPath();
         flightPathNormalizer.ResetAircraftTransform(transform);
 
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
+        
         aircraftController.HotResetAircraft();
     }
     

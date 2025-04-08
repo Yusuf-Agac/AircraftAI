@@ -1,10 +1,11 @@
-using System.Collections;
+using System;
 using System.Linq;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Oyedoyin.Common;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class AircraftLandingAgent : AircraftAgent
@@ -15,7 +16,6 @@ public class AircraftLandingAgent : AircraftAgent
 
     [Space(10)]
     [Range(0.1f, 25f)] public float throttleSpeed = 10f;
-    [Range(0.1f, 5f)] public float brakeOpenDuration = 3f;
 
     [Space(10)]
     public AirportNormalizer airportNormalizer;
@@ -41,37 +41,45 @@ public class AircraftLandingAgent : AircraftAgent
 
     private float _normalizedCurrentThrottle;
 
-    private Coroutine _openBrakeRoutine;
-
-    private void Awake() => PreviousActions = new float[]{0, 0, 0, 0};
+    protected override void Awake()
+    {
+        base.Awake();
+        PreviousActions = new float[] { 0, 0, 0, 0 };
+    }
 
     protected override PathNormalizer PathNormalizer => airportNormalizer;
 
-    protected override IEnumerator LazyEvaluation()
+    protected override async UniTask LazyEvaluation()
     {
         for (var i = 0; i < PreviousActions.Length; i++) PreviousActions[i] = 0;
-        yield return null;
+        
+        await UniTask.Yield(PlayerLoopTiming.Update);
+        
         aircraftController.TurnOnEngines();
         observationCanvas.ChangeMode(2);
         rewardCanvas.ChangeMode(2);
         aircraftController.m_wheels.EngageBrakes();
 
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
+        
         if (aircraftController.gearActuator != null) aircraftController.gearActuator.DisengageActuator();
         else aircraftController.m_gearState = Controller.GearState.Up;
 
-        yield return new WaitForSeconds(0.5f);
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        
         EpisodeStarted = true;
     }
 
-    protected override IEnumerator LazyEvaluationTraining()
+    protected override async UniTask LazyEvaluationTraining()
     {
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
+
         aircraftController.m_rigidbody.isKinematic = false;
         airportNormalizer.ResetTrainingPath();
         airportNormalizer.ResetAircraftTransform(transform);
         
-        yield return null;
+        await UniTask.Yield(PlayerLoopTiming.Update);
+
         aircraftController.HotResetAircraft();
     }
     
@@ -238,15 +246,8 @@ public class AircraftLandingAgent : AircraftAgent
     private void CalculateIsAircraftOnGround()
     {
         _aircraftIsOnGround = aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded);
-        if (_aircraftIsOnGround && _openBrakeRoutine == null)
-        {
-            _openBrakeRoutine = StartCoroutine(OpenSlowlyBrakeLever(brakeOpenDuration));
-        }
-        else if (!_aircraftIsOnGround)
-        {
-            if (_openBrakeRoutine != null) StopCoroutine(_openBrakeRoutine);
-            aircraftController.m_wheels.brakeInput = 0;
-        }
+        var targetBrakeInput = _aircraftIsOnGround ? 1 : 0;
+        aircraftController.m_wheels.brakeInput = Mathf.Lerp(aircraftController.m_wheels.brakeInput, targetBrakeInput, Time.deltaTime);
     }
 
     protected override void CalculateMovementVariables()
@@ -269,11 +270,8 @@ public class AircraftLandingAgent : AircraftAgent
         return outBoundsOfAirport || illegalAircraftRotation || detector.IsThereBadSensorData();
     }
 
-    protected override bool IsEpisodeSucceed()
-    {
-        return normalizedSpeed < 0.08f && _aircraftIsOnGround;
-    }
-    
+    protected override bool IsEpisodeSucceed() => normalizedSpeed < 0.08f && _aircraftIsOnGround;
+
     private Vector3 NormalizedAircraftPosition()
     {
         return _aircraftIsOnGround
@@ -281,26 +279,9 @@ public class AircraftLandingAgent : AircraftAgent
             : airportNormalizer.GetNormalizedPosition(transform.position);
     }
 
-    private Vector3 NormalizedAircraftRotation()
-    {
-        return airportNormalizer.GetNormalizedRotation(transform.rotation.eulerAngles);
-    }
+    private Vector3 NormalizedAircraftRotation() => airportNormalizer.GetNormalizedRotation(transform.rotation.eulerAngles);
 
     private Vector3 DirectionToNormalizedRotation(Vector3 direction) => airportNormalizer.GetNormalizedRotation(NormalizeUtility.DirectionToRotation(direction));
 
     private Vector3[] DirectionsToNormalizedRotations(Vector3[] directions) => directions.Select(DirectionToNormalizedRotation).ToArray();
-
-    private IEnumerator OpenSlowlyBrakeLever(float time)
-    {
-        var timer = time;
-        while (timer <= 0)
-        {
-            timer -= Time.deltaTime;
-            var wheels = aircraftController.m_wheels;
-            wheels.brakeInput = Mathf.Lerp(1, wheels.brakeInput, timer / time);
-            yield return null;
-        }
-
-        _openBrakeRoutine = null;
-    }
 }
