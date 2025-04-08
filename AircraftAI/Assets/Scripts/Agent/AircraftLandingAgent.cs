@@ -58,7 +58,6 @@ public class AircraftLandingAgent : AircraftAgent
         aircraftController.TurnOnEngines();
         observationCanvas.ChangeMode(2);
         rewardCanvas.ChangeMode(2);
-        aircraftController.m_wheels.EngageBrakes();
 
         await UniTask.Yield(PlayerLoopTiming.Update);
         
@@ -246,8 +245,12 @@ public class AircraftLandingAgent : AircraftAgent
     private void CalculateIsAircraftOnGround()
     {
         _aircraftIsOnGround = aircraftController.m_wheels.wheelColliders.Any(wheel => wheel.isGrounded);
+        
         var targetBrakeInput = _aircraftIsOnGround ? 1 : 0;
         aircraftController.m_wheels.brakeInput = Mathf.Lerp(aircraftController.m_wheels.brakeInput, targetBrakeInput, Time.deltaTime);
+        
+        if(_aircraftIsOnGround) aircraftController.m_wheels.EngageBrakes();
+        else aircraftController.m_wheels.ReleaseBrakes();
     }
 
     protected override void CalculateMovementVariables()
