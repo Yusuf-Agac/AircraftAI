@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.ide.rider": "3.0.35",
@@ -10,7 +11,7 @@
     "com.unity.perception": "1.0.0-preview.1",
     "com.unity.render-pipelines.high-definition": "17.2.0",
     "com.unity.render-pipelines.universal": "17.2.0",
-    "com.unity.test-framework": "1.4.6",
+    "com.unity.test-framework": "1.5.1",
     "com.unity.timeline": "1.8.8",
     "com.unity.ugui": "2.0.0",
     "com.unity.visualscripting": "1.9.6",
