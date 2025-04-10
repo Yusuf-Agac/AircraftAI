@@ -26,7 +26,7 @@ MonoBehaviour:
     noiseSpeed: 0
     shapeCutOffSpeed: 0
     shapeCutOffRadius: 10
-    m_LocalIntensity: 1.84
+    m_LocalIntensity: 4.18
     lensFlareTexture: {fileID: 0}
     uniformScale: 15
     sizeXY: {x: 1, y: 1}
@@ -35,7 +35,7 @@ MonoBehaviour:
     preserveAspectRatio: 0
     rotation: 0
     tintColorType: 0
-    tint: {r: 1, g: 0.6824279, b: 0.4009434, a: 0.5}
+    tint: {r: 1, g: 0.6824279, b: 0.4009434, a: 1}
     tintGradient:
       <textureSize>k__BackingField: 4
       m_Gradient:
@@ -887,7 +887,7 @@ MonoBehaviour:
     noiseSpeed: 0
     shapeCutOffSpeed: 0
     shapeCutOffRadius: 10
-    m_LocalIntensity: 0.03
+    m_LocalIntensity: 0
     lensFlareTexture: {fileID: 2800000, guid: da47326d6c6190a4e8793de9a26bf176, type: 3}
     uniformScale: 1.5
     sizeXY: {x: 1, y: 1}
