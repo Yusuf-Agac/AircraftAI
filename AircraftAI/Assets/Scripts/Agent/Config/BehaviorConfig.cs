@@ -55,7 +55,7 @@ public abstract class BehaviorConfig
 public class BehaviourDependencies
 {
     public MeshRenderer[] windArrows;
+    public AudioSource windAudioSource;
     public ObservationCanvas observationCanvas;
     public RewardCanvas rewardCanvas;
-    public AudioSource windAudioSource;
 }

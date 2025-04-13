@@ -40732,9 +40732,9 @@ MonoBehaviour:
     windArrows:
     - {fileID: 1579039823}
     - {fileID: 1235046234}
+    windAudioSource: {fileID: 1917186764}
     observationCanvas: {fileID: 1550059900}
     rewardCanvas: {fileID: 1550059899}
-    windAudioSource: {fileID: 1917186764}
   behaviors:
   - rid: 2305832271958769665
   - rid: 2305832271958769667
@@ -51482,10 +51482,10 @@ SceneRoots:
   - {fileID: 2141196111}
   - {fileID: 343738100}
   - {fileID: 1075585675}
-  - {fileID: 4606199215972981955}
-  - {fileID: 1832352024}
-  - {fileID: 1874905360}
   - {fileID: 1910894754}
   - {fileID: 126432417}
   - {fileID: 863982592}
+  - {fileID: 1874905360}
+  - {fileID: 1832352024}
+  - {fileID: 4606199215972981955}
   - {fileID: 790771961}

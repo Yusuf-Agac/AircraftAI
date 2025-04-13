@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
-class TakeOffConfig : BehaviorConfig
+public class TakeOffConfig : BehaviorConfig
 {
     [Header("Configurations    Takeoff----------------------------------------------------------------------------------------------"), Space(10)] 
     [SerializeField] private AirportNormalizer airportNormalizer;

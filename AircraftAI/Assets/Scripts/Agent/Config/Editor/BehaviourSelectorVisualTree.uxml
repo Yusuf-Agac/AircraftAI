@@ -1,0 +1,27 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="TakeOffConfigVisualTree" src="project://database/Assets/Scripts/Agent/Config/Editor/TakeOffConfigVisualTree.uxml?fileID=9197481963319205126&amp;guid=bbdd9c46b70552d44ab2542a99bd7bf1&amp;type=3#TakeOffConfigVisualTree" />
+    <Style src="project://database/Assets/Scripts/USS/Header.uss?fileID=7433441132597879392&amp;guid=09031e3fd9287c14ab05bce11c4f6441&amp;type=3#Header" />
+    <Style src="project://database/Assets/Scripts/USS/Border.uss?fileID=7433441132597879392&amp;guid=34b53a4231ed06c4180d6f1e82f1d1f0&amp;type=3#Border" />
+    <Style src="project://database/Assets/Scripts/USS/Property.uss?fileID=7433441132597879392&amp;guid=bf7138d6e8d1079478a1f751a67b188f&amp;type=3#Property" />
+    <ui:VisualElement name="Dependency" class="main-box" style="flex-grow: 1;">
+        <ui:Label text="DEPENDENCY" name="Label_Dependency" class="big-header" />
+        <ui:Label text="Wind" name="Label_Wind" class="normal-header" style="padding-right: 0; padding-left: 0;" />
+        <ui:VisualElement name="Wind" class="sub-box" style="flex-grow: 1;">
+            <uie:PropertyField name="WindArrow" binding-path="dependencies.windArrows" class="normal-property" />
+            <uie:PropertyField name="WindSFX" binding-path="dependencies.windAudioSource" class="normal-property" />
+        </ui:VisualElement>
+        <ui:Label text="Canvas" name="Label_Canvas" class="normal-header" style="padding-right: 0; padding-left: 0;" />
+        <ui:VisualElement name="Canvas" class="sub-box" style="flex-grow: 1;">
+            <uie:PropertyField name="CanvasObservation" binding-path="dependencies.observationCanvas" class="normal-property" />
+            <uie:PropertyField name="CanvasReward" binding-path="dependencies.rewardCanvas" class="normal-property" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Settings" class="main-box" style="flex-grow: 1;">
+        <ui:Label text="SETTINGS" name="Label_Settings" class="big-header" />
+        <ui:Label text="Behaviour" name="Label_Behaviour" class="normal-header" />
+        <ui:VisualElement name="Behaviour" class="sub-box" style="flex-grow: 1;">
+            <uie:PropertyField binding-path="behaviors" name="Behaviours" class="normal-property" />
+            <ui:Instance template="TakeOffConfigVisualTree" binding-path="TakeOffConfig" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
