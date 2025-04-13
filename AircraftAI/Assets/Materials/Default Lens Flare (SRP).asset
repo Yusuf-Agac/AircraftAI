@@ -26,7 +26,7 @@ MonoBehaviour:
     noiseSpeed: 0
     shapeCutOffSpeed: 0
     shapeCutOffRadius: 10
-    m_LocalIntensity: 4.18
+    m_LocalIntensity: 90
     lensFlareTexture: {fileID: 0}
     uniformScale: 15
     sizeXY: {x: 1, y: 1}
@@ -35,7 +35,7 @@ MonoBehaviour:
     preserveAspectRatio: 0
     rotation: 0
     tintColorType: 0
-    tint: {r: 1, g: 0.6824279, b: 0.4009434, a: 1}
+    tint: {r: 1, g: 0.4406384, b: 0, a: 1}
     tintGradient:
       <textureSize>k__BackingField: 4
       m_Gradient:
@@ -74,7 +74,7 @@ MonoBehaviour:
     autoRotate: 0
     flareType: 1
     modulateByLightColor: 1
-    isFoldOpened: 0
+    isFoldOpened: 1
     distribution: 0
     lengthSpread: 1
     positionCurve:
@@ -218,7 +218,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - lensFlareDataSRP: {fileID: 0}
-    visible: 1
+    visible: 0
     position: 0.25
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
@@ -454,9 +454,9 @@ MonoBehaviour:
     shapeCutOffRadius: 10
     m_LocalIntensity: 0.1
     lensFlareTexture: {fileID: 2800000, guid: da47326d6c6190a4e8793de9a26bf176, type: 3}
-    uniformScale: 0.35
+    uniformScale: 0
     sizeXY: {x: 1, y: 1}
-    allowMultipleElement: 1
+    allowMultipleElement: 0
     m_Count: 4
     preserveAspectRatio: 0
     rotation: 0
@@ -613,7 +613,7 @@ MonoBehaviour:
     positionVariation: {x: 1, y: 0}
     scaleVariation: 0.5
     rotationVariation: 0
-    enableRadialDistortion: 1
+    enableRadialDistortion: 0
     targetSizeDistortion: {x: 1, y: 1.5}
     distortionCurve:
       serializedVersion: 2
@@ -640,8 +640,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     distortionRelativeToCenter: 1
-    m_FallOff: 0.8
-    m_EdgeOffset: 0.6
+    m_FallOff: 1
+    m_EdgeOffset: 0.448
     m_SideCount: 6
     m_SdfRoundness: 0
     inverseSDF: 0
@@ -671,7 +671,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - lensFlareDataSRP: {fileID: 0}
-    visible: 1
+    visible: 0
     position: -0.25
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - lensFlareDataSRP: {fileID: 0}
-    visible: 1
+    visible: 0
     position: 0.5
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
@@ -1079,7 +1079,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - lensFlareDataSRP: {fileID: 0}
-    visible: 1
+    visible: 0
     position: 0.5
     positionOffset: {x: 0, y: 0}
     angularOffset: 2
@@ -1283,7 +1283,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   - lensFlareDataSRP: {fileID: 0}
-    visible: 1
+    visible: 0
     position: 0.5
     positionOffset: {x: 0, y: 0}
     angularOffset: 0
