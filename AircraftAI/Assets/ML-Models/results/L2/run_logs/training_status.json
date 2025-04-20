@@ -1,0 +1,92 @@
+{
+    "AircraftLanding": {
+        "checkpoints": [
+            {
+                "steps": 4999951,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-4999951.onnx",
+                "reward": 20.952497173758115,
+                "creation_time": 1716864055.6029072,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-4999951.pt"
+                ]
+            },
+            {
+                "steps": 5499994,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-5499994.onnx",
+                "reward": 20.64526373467275,
+                "creation_time": 1716866354.346235,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-5499994.pt"
+                ]
+            },
+            {
+                "steps": 5999987,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-5999987.onnx",
+                "reward": 23.91033045016229,
+                "creation_time": 1716868648.5456953,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-5999987.pt"
+                ]
+            },
+            {
+                "steps": 6499957,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-6499957.onnx",
+                "reward": 21.724791702628135,
+                "creation_time": 1716870940.8245947,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-6499957.pt"
+                ]
+            },
+            {
+                "steps": 6999946,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-6999946.onnx",
+                "reward": 15.995264985412359,
+                "creation_time": 1716873239.4289744,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-6999946.pt"
+                ]
+            },
+            {
+                "steps": 7499965,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-7499965.onnx",
+                "reward": 22.45820772364026,
+                "creation_time": 1716875542.0587592,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-7499965.pt"
+                ]
+            },
+            {
+                "steps": 7999973,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-7999973.onnx",
+                "reward": 17.417096042633055,
+                "creation_time": 1716877870.5125008,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-7999973.pt"
+                ]
+            },
+            {
+                "steps": 8000037,
+                "file_path": "results\\L2\\AircraftLanding\\AircraftLanding-8000037.onnx",
+                "reward": 17.417096042633055,
+                "creation_time": 1716877870.5940855,
+                "auxillary_file_paths": [
+                    "results\\L2\\AircraftLanding\\AircraftLanding-8000037.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 8000037,
+            "file_path": "results\\L2\\AircraftLanding.onnx",
+            "reward": 17.417096042633055,
+            "creation_time": 1716877870.5940855,
+            "auxillary_file_paths": [
+                "results\\L2\\AircraftLanding\\AircraftLanding-8000037.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}

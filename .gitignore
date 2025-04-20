@@ -77,3 +77,5 @@ AircraftAI/[Aa]ssets/[Tt]errain/[Tt]errains/[Tt]extures/
 AircraftAI/[Aa]ssets/results/
 # Build Files
 AircraftAI/[Bb]uildsForTraining/
+#Plugins
+AircraftAI/[Aa]ssets/Plugins/

@@ -1,0 +1,29 @@
+{
+    "AircraftFlight": {
+        "checkpoints": [
+            {
+                "steps": 11226,
+                "file_path": "results\\F1\\AircraftFlight\\AircraftFlight-11226.onnx",
+                "reward": -0.642588158370927,
+                "creation_time": 1716117898.973888,
+                "auxillary_file_paths": [
+                    "results\\F1\\AircraftFlight\\AircraftFlight-11226.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 11226,
+            "file_path": "results\\F1\\AircraftFlight.onnx",
+            "reward": -0.642588158370927,
+            "creation_time": 1716117898.973888,
+            "auxillary_file_paths": [
+                "results\\F1\\AircraftFlight\\AircraftFlight-11226.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}

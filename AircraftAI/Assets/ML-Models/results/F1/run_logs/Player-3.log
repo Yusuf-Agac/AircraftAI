@@ -1,0 +1,971 @@
+Mono path[0] = 'C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI/BuildsForTraining/18/AircraftAI_Data/Managed'
+Mono config path = 'C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI/BuildsForTraining/18/MonoBleedingEdge/etc'
+Failed to load 'NVUnityPlugin', expected x64 architecture, but was Unknown architecture. You must recompile your plugin for x64 architecture.
+[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
+Initialize engine version: 2022.3.14f1 (eff2de9070d8)
+[Subsystems] Discovering subsystems at path C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI/BuildsForTraining/18/AircraftAI_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0; jobified=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.252 seconds
+- Finished resetting the current domain, in  0.003 seconds
+ERROR: Shader Hidden/Universal Render Pipeline/Blit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/CopyDepth shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Sampling shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderLdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LutBuilderHdr shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/UberPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Debug/DebugReplacement shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/FallbackError shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/FallbackError' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Universal Render Pipeline/StencilDeferred' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Hidden/Universal Render Pipeline/CameraMotionVectors shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/ObjectMotionVectors shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/ScreenSpaceAmbientOcclusion shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Stop NaN shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/SubpixelMorphologicalAntialiasing shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Bloom shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/TemporalAA shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/LensFlareDataDriven shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Scaling Setup shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal Render Pipeline/FinalPost shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Hidden/Universal/HDRDebugView shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader FX/Glass/Stained BumpDistort shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Legacy Shaders/Particles/Alpha Blended shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader TextMeshPro/Mobile/Distance Field shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader GUI/Text Shader shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Universal Render Pipeline/Lit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Universal Render Pipeline/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+UnloadTime: 5.549700 ms
+Flight computer on Cessna 182 Skylane_Flight is starting in Manual mode
+ERROR: Shader TextMeshPro/Sprite shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader UI/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+Sparse: -1 / Dense: 1.247711 / Optimal: 0.638569 / Action: -0.02798403 / Forward: 0.1537112 / Optimal: 0.4834188 /// Time: 08:38
+Sparse: -2 / Dense: 1.906103 / Optimal: 1.123968 / Action: -0.05448917 / Forward: 0.1238554 / Optimal: 0.7127728 /// Time: 08:38
+Sparse: -3 / Dense: 2.5036 / Optimal: 1.582573 / Action: -0.07231709 / Forward: 0.2101099 / Optimal: 0.7832401 /// Time: 08:38
+Sparse: -4 / Dense: 3.163764 / Optimal: 2.13588 / Action: -0.0978613 / Forward: 0.1055927 / Optimal: 1.020157 /// Time: 08:38
+Sparse: -5 / Dense: 3.673574 / Optimal: 2.681209 / Action: -0.124726 / Forward: -0.1467922 / Optimal: 1.263884 /// Time: 08:38
+Sparse: -6 / Dense: 4.076762 / Optimal: 3.023265 / Action: -0.1446071 / Forward: -0.04020709 / Optimal: 1.238315 /// Time: 08:38
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -5 / Dense: 200.4338 / Optimal: 96.69267 / Action: -1.904632 / Forward: 10.56939 / Optimal: 95.07735 /// Time: 08:39
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -4 / Dense: 409.3634 / Optimal: 203.7909 / Action: -4.029948 / Forward: 10.31771 / Optimal: 199.2786 /// Time: 08:41
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -3 / Dense: 666.0304 / Optimal: 328.3189 / Action: -6.246746 / Forward: 28.5802 / Optimal: 315.276 /// Time: 08:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -4 / Dense: 671.0462 / Optimal: 330.1685 / Action: -6.333126 / Forward: 29.03143 / Optimal: 318.0776 /// Time: 08:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -3 / Dense: 864.5639 / Optimal: 429.0717 / Action: -8.422183 / Forward: 25.14935 / Optimal: 418.6453 /// Time: 08:44
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -4 / Dense: 1066.146 / Optimal: 526.9672 / Action: -10.33208 / Forward: 36.41654 / Optimal: 512.8874 /// Time: 08:46
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -3 / Dense: 1279.333 / Optimal: 634.6586 / Action: -12.40912 / Forward: 43.04499 / Optimal: 613.5208 /// Time: 08:47
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -2 / Dense: 1484.685 / Optimal: 734.6323 / Action: -14.13889 / Forward: 56.58453 / Optimal: 706.7875 /// Time: 08:49
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -1 / Dense: 1728.531 / Optimal: 855.4971 / Action: -16.45446 / Forward: 67.78342 / Optimal: 820.4657 /// Time: 08:50
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -2 / Dense: 1729.119 / Optimal: 855.8493 / Action: -16.47003 / Forward: 67.88139 / Optimal: 820.6207 /// Time: 08:50
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -1 / Dense: 1993.755 / Optimal: 984.7786 / Action: -18.8732 / Forward: 85.13044 / Optimal: 941.1017 /// Time: 08:52
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -2 / Dense: 2004.89 / Optimal: 990.3271 / Action: -19.04567 / Forward: 85.38192 / Optimal: 946.6169 /// Time: 08:52
+Sparse: -3 / Dense: 2005.632 / Optimal: 990.7246 / Action: -19.06399 / Forward: 85.48232 / Optimal: 946.8798 /// Time: 08:52
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -2 / Dense: 2269.735 / Optimal: 1123.067 / Action: -21.61526 / Forward: 96.17151 / Optimal: 1072.814 /// Time: 08:54
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -1 / Dense: 2511.971 / Optimal: 1232.347 / Action: -23.82443 / Forward: 114.1864 / Optimal: 1192.203 /// Time: 08:56
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -2 / Dense: 2522.725 / Optimal: 1237.83 / Action: -23.97208 / Forward: 113.4188 / Optimal: 1198.422 /// Time: 08:56
+Sparse: -3 / Dense: 2523.722 / Optimal: 1238.301 / Action: -23.99292 / Forward: 113.5483 / Optimal: 1198.838 /// Time: 08:56
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -2 / Dense: 2744.614 / Optimal: 1346.965 / Action: -25.97538 / Forward: 127.4089 / Optimal: 1301.185 /// Time: 08:57
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -1 / Dense: 2956.442 / Optimal: 1452.716 / Action: -27.84491 / Forward: 142.4525 / Optimal: 1396.71 /// Time: 08:59
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 0 / Dense: 3188.891 / Optimal: 1570.36 / Action: -30.07023 / Forward: 152.2816 / Optimal: 1506.355 /// Time: 09:00
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 1 / Dense: 3375.168 / Optimal: 1661.145 / Action: -31.99767 / Forward: 155.2185 / Optimal: 1602.023 /// Time: 09:02
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 3575.339 / Optimal: 1757.037 / Action: -33.82833 / Forward: 169.824 / Optimal: 1695.448 /// Time: 09:03
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 3 / Dense: 3768.111 / Optimal: 1858.43 / Action: -35.81727 / Forward: 169.2087 / Optimal: 1791.325 /// Time: 09:05
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 2 / Dense: 3769.016 / Optimal: 1858.858 / Action: -35.83585 / Forward: 169.3528 / Optimal: 1791.658 /// Time: 09:05
+Sparse: 1 / Dense: 3992.323 / Optimal: 1965.933 / Action: -37.98949 / Forward: 183.4756 / Optimal: 1898.441 /// Time: 09:06
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 4233.492 / Optimal: 2084.775 / Action: -40.11483 / Forward: 196.5213 / Optimal: 2007.076 /// Time: 09:08
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 3 / Dense: 4471.002 / Optimal: 2198.241 / Action: -42.21831 / Forward: 210.8731 / Optimal: 2110.924 /// Time: 09:09
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 2 / Dense: 4492.852 / Optimal: 2207.309 / Action: -42.56636 / Forward: 209.3698 / Optimal: 2125.158 /// Time: 09:10
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 3 / Dense: 4742.033 / Optimal: 2324.739 / Action: -44.79312 / Forward: 225.4617 / Optimal: 2235.107 /// Time: 09:11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 4 / Dense: 4947.479 / Optimal: 2417.645 / Action: -46.62101 / Forward: 237.3936 / Optimal: 2333.754 /// Time: 09:13
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 3 / Dense: 4948.754 / Optimal: 2418.264 / Action: -46.63994 / Forward: 237.5689 / Optimal: 2334.256 /// Time: 09:13
+Sparse: 2 / Dense: 4950.212 / Optimal: 2418.88 / Action: -46.66016 / Forward: 237.7433 / Optimal: 2334.979 /// Time: 09:13
+Sparse: 1 / Dense: 4953.376 / Optimal: 2419.917 / Action: -46.73353 / Forward: 238.2173 / Optimal: 2336.691 /// Time: 09:13
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 5167.812 / Optimal: 2524.217 / Action: -48.5434 / Forward: 251.5549 / Optimal: 2425.082 /// Time: 09:14
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 1 / Dense: 5169.577 / Optimal: 2525.027 / Action: -48.57093 / Forward: 251.6478 / Optimal: 2425.907 /// Time: 09:14
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 5405.098 / Optimal: 2634.439 / Action: -50.53458 / Forward: 268.1492 / Optimal: 2532.054 /// Time: 09:16
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 3 / Dense: 5625.656 / Optimal: 2740.513 / Action: -52.38148 / Forward: 281.7484 / Optimal: 2625.969 /// Time: 09:18
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 4 / Dense: 5839.404 / Optimal: 2829.016 / Action: -54.54118 / Forward: 295.0447 / Optimal: 2737.346 /// Time: 09:19
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 3 / Dense: 5843.718 / Optimal: 2831.011 / Action: -54.5855 / Forward: 295.4938 / Optimal: 2739.072 /// Time: 09:19
+Sparse: 2 / Dense: 6059.109 / Optimal: 2935.334 / Action: -56.52377 / Forward: 304.1317 / Optimal: 2835.646 /// Time: 09:21
+Sparse: 1 / Dense: 6151.94 / Optimal: 2979.059 / Action: -57.5781 / Forward: 302.7825 / Optimal: 2886.066 /// Time: 09:22
+Sparse: 0 / Dense: 6156.813 / Optimal: 2980.724 / Action: -57.68847 / Forward: 302.472 / Optimal: 2889.692 /// Time: 09:22
+Sparse: -1 / Dense: 6157.435 / Optimal: 2981.204 / Action: -57.70461 / Forward: 302.2924 / Optimal: 2890.036 /// Time: 09:22
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 0 / Dense: 6381.57 / Optimal: 3088.227 / Action: -59.48835 / Forward: 317.3759 / Optimal: 2984.605 /// Time: 09:23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -1 / Dense: 6382.153 / Optimal: 3088.555 / Action: -59.5075 / Forward: 317.4962 / Optimal: 2984.797 /// Time: 09:23
+Sparse: -2 / Dense: 6383.564 / Optimal: 3089.579 / Action: -59.5354 / Forward: 317.1435 / Optimal: 2985.539 /// Time: 09:23
+Sparse: -3 / Dense: 6387.297 / Optimal: 3091.264 / Action: -59.58249 / Forward: 317.5494 / Optimal: 2987.132 /// Time: 09:23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -2 / Dense: 6625.047 / Optimal: 3205.702 / Action: -61.63375 / Forward: 332.4051 / Optimal: 3086.63 /// Time: 09:25
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -3 / Dense: 6752.447 / Optimal: 3262.088 / Action: -63.08928 / Forward: 332.7001 / Optimal: 3157.009 /// Time: 09:26
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -2 / Dense: 6981.442 / Optimal: 3377.559 / Action: -65.36443 / Forward: 333.4421 / Optimal: 3264.294 /// Time: 09:28
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -1 / Dense: 7200.648 / Optimal: 3486.294 / Action: -67.41024 / Forward: 339.8857 / Optimal: 3361.846 /// Time: 09:29
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -2 / Dense: 7203.845 / Optimal: 3487.583 / Action: -67.46534 / Forward: 340.0415 / Optimal: 3363.64 /// Time: 09:29
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: -1 / Dense: 7406.765 / Optimal: 3591.268 / Action: -69.45856 / Forward: 340.8704 / Optimal: 3457.326 /// Time: 09:31
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 0 / Dense: 7621.884 / Optimal: 3694.718 / Action: -71.24567 / Forward: 354.9984 / Optimal: 3547.246 /// Time: 09:32
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -1 / Dense: 7878.031 / Optimal: 3822.501 / Action: -73.94737 / Forward: 351.1804 / Optimal: 3674.965 /// Time: 09:34
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 0 / Dense: 8108.568 / Optimal: 3931.283 / Action: -76.01261 / Forward: 366.7365 / Optimal: 3775.226 /// Time: 09:36
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 1 / Dense: 8326.781 / Optimal: 4032.481 / Action: -77.78698 / Forward: 381.3782 / Optimal: 3869.201 /// Time: 09:37
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 8551.938 / Optimal: 4134.591 / Action: -79.71876 / Forward: 396.6889 / Optimal: 3969.275 /// Time: 09:39
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 3 / Dense: 8802.656 / Optimal: 4260.254 / Action: -81.87796 / Forward: 413.9068 / Optimal: 4073.49 /// Time: 09:40
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 2 / Dense: 9024.501 / Optimal: 4365.332 / Action: -83.79398 / Forward: 429.9006 / Optimal: 4172.026 /// Time: 09:42
+Sparse: 1 / Dense: 9025.055 / Optimal: 4365.698 / Action: -83.81101 / Forward: 429.9443 / Optimal: 4172.18 /// Time: 09:42
+Sparse: 0 / Dense: 9026.437 / Optimal: 4366.346 / Action: -83.83119 / Forward: 430.1268 / Optimal: 4172.668 /// Time: 09:42
+Sparse: -1 / Dense: 9046.191 / Optimal: 4375.769 / Action: -84.08315 / Forward: 430.7396 / Optimal: 4181.246 /// Time: 09:42
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 0 / Dense: 9283.73 / Optimal: 4491.661 / Action: -86.06145 / Forward: 445.0346 / Optimal: 4289.5 /// Time: 09:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: -1 / Dense: 9483.677 / Optimal: 4586.517 / Action: -87.94376 / Forward: 453.5497 / Optimal: 4384.982 /// Time: 09:45
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 0 / Dense: 9720.554 / Optimal: 4708.352 / Action: -90.20802 / Forward: 452.3807 / Optimal: 4500.715 /// Time: 09:47
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 1 / Dense: 9971.114 / Optimal: 4824.726 / Action: -92.21394 / Forward: 470.0464 / Optimal: 4617.197 /// Time: 09:48
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 10229.96 / Optimal: 4957.566 / Action: -94.48935 / Forward: 478.4933 / Optimal: 4738.264 /// Time: 09:50
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 1 / Dense: 10232.93 / Optimal: 4958.997 / Action: -94.5228 / Forward: 478.7827 / Optimal: 4739.508 /// Time: 09:50
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 10446.73 / Optimal: 5060.662 / Action: -96.2437 / Forward: 493.539 / Optimal: 4836.664 /// Time: 09:52
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 1 / Dense: 10502.42 / Optimal: 5084.29 / Action: -96.83607 / Forward: 494.9207 / Optimal: 4865.76 /// Time: 09:52
+Sparse: 0 / Dense: 10707.67 / Optimal: 5184.634 / Action: -98.79095 / Forward: 499.4647 / Optimal: 4965.321 /// Time: 09:53
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 1 / Dense: 10965.15 / Optimal: 5313.815 / Action: -100.8784 / Forward: 517.015 / Optimal: 5080.808 /// Time: 09:55
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 2 / Dense: 11215.06 / Optimal: 5439.25 / Action: -102.8989 / Forward: 534.2505 / Optimal: 5193.091 /// Time: 09:57
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 3 / Dense: 11438.08 / Optimal: 5553.803 / Action: -104.9183 / Forward: 534.9525 / Optimal: 5300.489 /// Time: 09:58
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 4 / Dense: 11723.57 / Optimal: 5689.548 / Action: -107.4016 / Forward: 552.5255 / Optimal: 5432.699 /// Time: 10:00
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 3 / Dense: 11758.41 / Optimal: 5704.536 / Action: -107.7975 / Forward: 553.2851 / Optimal: 5450.318 /// Time: 10:01
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 4 / Dense: 11995.1 / Optimal: 5819.279 / Action: -109.7871 / Forward: 569.6898 / Optimal: 5557.151 /// Time: 10:02
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 5 / Dense: 12246.26 / Optimal: 5942.516 / Action: -111.8826 / Forward: 583.8181 / Optimal: 5672.564 /// Time: 10:04
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 4 / Dense: 12259.06 / Optimal: 5947.57 / Action: -112.0321 / Forward: 584.5591 / Optimal: 5678.998 /// Time: 10:04
+Sparse: 3 / Dense: 12262.43 / Optimal: 5948.395 / Action: -112.0901 / Forward: 585.0981 / Optimal: 5680.862 /// Time: 10:04
+Sparse: 2 / Dense: 12287.41 / Optimal: 5958.458 / Action: -112.3253 / Forward: 587.3433 / Optimal: 5692.559 /// Time: 10:04
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 3 / Dense: 12545.76 / Optimal: 6083.542 / Action: -114.5708 / Forward: 599.9537 / Optimal: 5813.088 /// Time: 10:06
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 4 / Dense: 12758.11 / Optimal: 6192.248 / Action: -116.5659 / Forward: 595.2734 / Optimal: 5919.207 /// Time: 10:07
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 5 / Dense: 12988.06 / Optimal: 6304.776 / Action: -118.5322 / Forward: 608.4996 / Optimal: 6024.764 /// Time: 10:09
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 4 / Dense: 12988.32 / Optimal: 6305.045 / Action: -118.5506 / Forward: 608.3635 / Optimal: 6024.904 /// Time: 10:09
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 5 / Dense: 13230.94 / Optimal: 6423.445 / Action: -120.9282 / Forward: 609.4966 / Optimal: 6144.792 /// Time: 10:11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 4 / Dense: 13231.51 / Optimal: 6423.828 / Action: -120.9465 / Forward: 609.4329 / Optimal: 6145.012 /// Time: 10:11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 5 / Dense: 13459.8 / Optimal: 6535.782 / Action: -122.7963 / Forward: 620.0319 / Optimal: 6251.624 /// Time: 10:12
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 6 / Dense: 13719.15 / Optimal: 6662.096 / Action: -124.8798 / Forward: 637.4945 / Optimal: 6370.037 /// Time: 10:14
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 13932.22 / Optimal: 6769.582 / Action: -126.7459 / Forward: 645.5545 / Optimal: 6469.518 /// Time: 10:15
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 6 / Dense: 13938.12 / Optimal: 6771.809 / Action: -126.8289 / Forward: 645.7322 / Optimal: 6472.824 /// Time: 10:15
+Sparse: 5 / Dense: 13939.14 / Optimal: 6772.199 / Action: -126.8489 / Forward: 645.9288 / Optimal: 6473.263 /// Time: 10:15
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 6 / Dense: 14165.96 / Optimal: 6878.554 / Action: -128.7733 / Forward: 658.5944 / Optimal: 6578.835 /// Time: 10:17
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 5 / Dense: 14372.59 / Optimal: 6979.214 / Action: -130.7947 / Forward: 655.0887 / Optimal: 6683.938 /// Time: 10:18
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 6 / Dense: 14620.27 / Optimal: 7098.22 / Action: -132.9982 / Forward: 670.3748 / Optimal: 6797.896 /// Time: 10:20
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 14868.62 / Optimal: 7214.794 / Action: -135.0075 / Forward: 688.1038 / Optimal: 6911.003 /// Time: 10:22
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 8 / Dense: 15088.22 / Optimal: 7324.88 / Action: -136.8777 / Forward: 691.5746 / Optimal: 7016.854 /// Time: 10:23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 15326.96 / Optimal: 7441.967 / Action: -138.8995 / Forward: 705.8282 / Optimal: 7126.368 /// Time: 10:25
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 15327.73 / Optimal: 7442.255 / Action: -138.9224 / Forward: 705.8358 / Optimal: 7126.772 /// Time: 10:25
+Sparse: 7 / Dense: 15328.66 / Optimal: 7442.756 / Action: -138.9384 / Forward: 705.9495 / Optimal: 7127.046 /// Time: 10:25
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 8 / Dense: 15552.43 / Optimal: 7543.164 / Action: -140.7077 / Forward: 721.9335 / Optimal: 7230.52 /// Time: 10:26
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 15750.99 / Optimal: 7632.928 / Action: -142.2805 / Forward: 735.8412 / Optimal: 7322.316 /// Time: 10:28
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 15928.51 / Optimal: 7705.946 / Action: -144.0121 / Forward: 748.6962 / Optimal: 7411.241 /// Time: 10:29
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 16149.9 / Optimal: 7816.015 / Action: -146.0197 / Forward: 757.2809 / Optimal: 7514.916 /// Time: 10:31
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 16380.81 / Optimal: 7926.814 / Action: -148.1058 / Forward: 766.6601 / Optimal: 7623.614 /// Time: 10:32
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 16643.23 / Optimal: 8062.64 / Action: -150.3919 / Forward: 786.5043 / Optimal: 7754.257 /// Time: 10:34
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 16825.99 / Optimal: 8157.047 / Action: -152.0927 / Forward: 799.4219 / Optimal: 7847.004 /// Time: 10:35
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 13 / Dense: 17035.15 / Optimal: 8262.772 / Action: -154.0096 / Forward: 815.6338 / Optimal: 7951.145 /// Time: 10:37
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 12 / Dense: 17043.75 / Optimal: 8266.922 / Action: -154.1442 / Forward: 816.1273 / Optimal: 7956.682 /// Time: 10:37
+Sparse: 11 / Dense: 17067.02 / Optimal: 8277.095 / Action: -154.4467 / Forward: 818.8677 / Optimal: 7970.699 /// Time: 10:37
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 17280.78 / Optimal: 8385.821 / Action: -156.4709 / Forward: 824.2259 / Optimal: 8079.396 /// Time: 10:39
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 11 / Dense: 17346.87 / Optimal: 8415.533 / Action: -157.1954 / Forward: 830.1353 / Optimal: 8117.119 /// Time: 10:39
+Sparse: 10 / Dense: 17347.37 / Optimal: 8415.851 / Action: -157.2099 / Forward: 830.1897 / Optimal: 8117.241 /// Time: 10:39
+Sparse: 9 / Dense: 17349.6 / Optimal: 8417.078 / Action: -157.2644 / Forward: 830.2175 / Optimal: 8118.926 /// Time: 10:39
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 17533.91 / Optimal: 8509.349 / Action: -159.1179 / Forward: 833.4792 / Optimal: 8214.706 /// Time: 10:41
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 9 / Dense: 17534.99 / Optimal: 8509.817 / Action: -159.1382 / Forward: 833.6215 / Optimal: 8215.322 /// Time: 10:41
+Sparse: 8 / Dense: 17536.24 / Optimal: 8510.443 / Action: -159.1611 / Forward: 833.8751 / Optimal: 8215.957 /// Time: 10:41
+Sparse: 7 / Dense: 17536.96 / Optimal: 8510.855 / Action: -159.1793 / Forward: 833.9688 / Optimal: 8216.313 /// Time: 10:41
+Sparse: 6 / Dense: 17601.89 / Optimal: 8539.16 / Action: -159.9812 / Forward: 840.337 / Optimal: 8259.041 /// Time: 10:41
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 17847.18 / Optimal: 8658.047 / Action: -162.4762 / Forward: 853.7598 / Optimal: 8396.759 /// Time: 10:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 6 / Dense: 17848.73 / Optimal: 8658.857 / Action: -162.5037 / Forward: 853.951 / Optimal: 8397.457 /// Time: 10:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 18135.1 / Optimal: 8801.845 / Action: -165.2344 / Forward: 863.1364 / Optimal: 8549.595 /// Time: 10:45
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 6 / Dense: 18149.05 / Optimal: 8809.417 / Action: -165.383 / Forward: 864.4042 / Optimal: 8557.795 /// Time: 10:45
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 18349.87 / Optimal: 8912.736 / Action: -167.1281 / Forward: 876.5221 / Optimal: 8658.338 /// Time: 10:47
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 6 / Dense: 18350.31 / Optimal: 8913.013 / Action: -167.1459 / Forward: 876.4974 / Optimal: 8658.621 /// Time: 10:47
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 18554.36 / Optimal: 9015.762 / Action: -169.071 / Forward: 884.1829 / Optimal: 8764.582 /// Time: 10:48
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 8 / Dense: 18784.56 / Optimal: 9131.815 / Action: -171.0457 / Forward: 897.8601 / Optimal: 8882.025 /// Time: 10:50
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 7 / Dense: 18829.73 / Optimal: 9156.748 / Action: -171.5211 / Forward: 895.7512 / Optimal: 8907.064 /// Time: 10:50
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 8 / Dense: 19067.32 / Optimal: 9276.63 / Action: -173.7029 / Forward: 907.2002 / Optimal: 9028.206 /// Time: 10:52
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 19293.13 / Optimal: 9395.227 / Action: -176.3863 / Forward: 900.3108 / Optimal: 9172.643 /// Time: 10:54
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 19293.99 / Optimal: 9395.729 / Action: -176.406 / Forward: 900.43 / Optimal: 9172.975 /// Time: 10:54
+Sparse: 7 / Dense: 19394.27 / Optimal: 9444.685 / Action: -177.3996 / Forward: 910.5144 / Optimal: 9230.122 /// Time: 10:55
+Sparse: 6 / Dense: 19616.16 / Optimal: 9558.99 / Action: -179.3977 / Forward: 927.9521 / Optimal: 9341.474 /// Time: 10:56
+Sparse: 5 / Dense: 19617.84 / Optimal: 9559.966 / Action: -179.4251 / Forward: 928.1265 / Optimal: 9342.2 /// Time: 10:57
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 6 / Dense: 19813.29 / Optimal: 9661.308 / Action: -181.3889 / Forward: 931.7246 / Optimal: 9444.349 /// Time: 10:58
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 20052.2 / Optimal: 9784.86 / Action: -183.5391 / Forward: 950.2528 / Optimal: 9564.766 /// Time: 11:00
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 6 / Dense: 20053.64 / Optimal: 9785.583 / Action: -183.5645 / Forward: 950.4634 / Optimal: 9565.418 /// Time: 11:00
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 20319.13 / Optimal: 9920.966 / Action: -185.8969 / Forward: 971.0579 / Optimal: 9699.25 /// Time: 11:02
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 6 / Dense: 20338.88 / Optimal: 9930.71 / Action: -186.1827 / Forward: 971.0177 / Optimal: 9712.197 /// Time: 11:02
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 20557.54 / Optimal: 10044.23 / Action: -188.1374 / Forward: 982.0891 / Optimal: 9822.095 /// Time: 11:04
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 8 / Dense: 20769.9 / Optimal: 10152.69 / Action: -190.0365 / Forward: 996.1154 / Optimal: 9928.839 /// Time: 11:05
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 20985.14 / Optimal: 10266.48 / Action: -191.8745 / Forward: 1010.498 / Optimal: 10036.47 /// Time: 11:07
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 20985.76 / Optimal: 10266.81 / Action: -191.8926 / Forward: 1010.674 / Optimal: 10036.75 /// Time: 11:07
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 21184.84 / Optimal: 10367.29 / Action: -193.5939 / Forward: 1025.61 / Optimal: 10139.84 /// Time: 11:08
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 21233.1 / Optimal: 10390.57 / Action: -194.0935 / Forward: 1030.479 / Optimal: 10166.96 /// Time: 11:09
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 21448.55 / Optimal: 10499.73 / Action: -196.0558 / Forward: 1045.902 / Optimal: 10275.24 /// Time: 11:10
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 21450.94 / Optimal: 10500.94 / Action: -196.0975 / Forward: 1046.192 / Optimal: 10276.58 /// Time: 11:10
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 21673.31 / Optimal: 10613.65 / Action: -198.137 / Forward: 1057.628 / Optimal: 10389.43 /// Time: 11:12
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 21681.64 / Optimal: 10616.66 / Action: -198.2565 / Forward: 1058.999 / Optimal: 10394.67 /// Time: 11:12
+Sparse: 7 / Dense: 21690.01 / Optimal: 10620.59 / Action: -198.3823 / Forward: 1060.253 / Optimal: 10400.26 /// Time: 11:12
+Sparse: 6 / Dense: 21699.59 / Optimal: 10624.13 / Action: -198.5959 / Forward: 1061.263 / Optimal: 10408.59 /// Time: 11:12
+Sparse: 5 / Dense: 21700.89 / Optimal: 10624.72 / Action: -198.6271 / Forward: 1061.292 / Optimal: 10409.51 /// Time: 11:12
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 6 / Dense: 21960.29 / Optimal: 10758.45 / Action: -200.8864 / Forward: 1081.822 / Optimal: 10539.68 /// Time: 11:14
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 7 / Dense: 22154.81 / Optimal: 10860.41 / Action: -202.7886 / Forward: 1085.17 / Optimal: 10640.74 /// Time: 11:15
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 8 / Dense: 22370.07 / Optimal: 10967.67 / Action: -204.7685 / Forward: 1102.124 / Optimal: 10752.17 /// Time: 11:17
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 22594.38 / Optimal: 11079.57 / Action: -206.8297 / Forward: 1114.896 / Optimal: 10876.91 /// Time: 11:19
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 8 / Dense: 22600.15 / Optimal: 11082.66 / Action: -206.893 / Forward: 1115.172 / Optimal: 10879.87 /// Time: 11:19
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 22819.99 / Optimal: 11197.49 / Action: -208.9316 / Forward: 1127.946 / Optimal: 10990.13 /// Time: 11:20
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 23032.59 / Optimal: 11306.82 / Action: -210.9538 / Forward: 1141.039 / Optimal: 11097.96 /// Time: 11:22
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 23283.13 / Optimal: 11437.23 / Action: -213.1496 / Forward: 1155.191 / Optimal: 11223.76 /// Time: 11:24
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 10 / Dense: 23398.61 / Optimal: 11488.97 / Action: -214.6003 / Forward: 1167.208 / Optimal: 11301.31 /// Time: 11:25
+Sparse: 9 / Dense: 23583.72 / Optimal: 11579.61 / Action: -216.3181 / Forward: 1180.456 / Optimal: 11399.69 /// Time: 11:26
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 23788.41 / Optimal: 11686.56 / Action: -218.1832 / Forward: 1192.984 / Optimal: 11502.31 /// Time: 11:28
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 24010.25 / Optimal: 11800.77 / Action: -220.1987 / Forward: 1205.852 / Optimal: 11614.07 /// Time: 11:29
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 10 / Dense: 24012.41 / Optimal: 11801.77 / Action: -220.228 / Forward: 1206.189 / Optimal: 11615.21 /// Time: 11:29
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 24206.66 / Optimal: 11902.77 / Action: -222.0249 / Forward: 1213.627 / Optimal: 11713.82 /// Time: 11:31
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 10 / Dense: 24223.04 / Optimal: 11909.42 / Action: -222.3326 / Forward: 1214.453 / Optimal: 11727.01 /// Time: 11:31
+Sparse: 9 / Dense: 24255.41 / Optimal: 11926.46 / Action: -222.7095 / Forward: 1214.038 / Optimal: 11746.75 /// Time: 11:31
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 24498.96 / Optimal: 12045.8 / Action: -224.8816 / Forward: 1232.785 / Optimal: 11869.99 /// Time: 11:33
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 24733.76 / Optimal: 12167.23 / Action: -227.4953 / Forward: 1232.279 / Optimal: 12018.86 /// Time: 11:35
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 10 / Dense: 24743.81 / Optimal: 12171.98 / Action: -227.6102 / Forward: 1233.432 / Optimal: 12025.29 /// Time: 11:35
+Sparse: 9 / Dense: 24816.68 / Optimal: 12206.36 / Action: -228.312 / Forward: 1240.703 / Optimal: 12066.52 /// Time: 11:36
+Sparse: 8 / Dense: 24840 / Optimal: 12217.76 / Action: -228.5318 / Forward: 1243.179 / Optimal: 12078.84 /// Time: 11:36
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 25108.9 / Optimal: 12354.2 / Action: -230.8083 / Forward: 1263.671 / Optimal: 12215.31 /// Time: 11:38
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 25319.37 / Optimal: 12463.44 / Action: -232.6031 / Forward: 1279.833 / Optimal: 12320.52 /// Time: 11:39
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 9 / Dense: 25331.6 / Optimal: 12469.34 / Action: -232.7552 / Forward: 1281.391 / Optimal: 12326.93 /// Time: 11:39
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 25521.58 / Optimal: 12556.22 / Action: -234.7034 / Forward: 1298.746 / Optimal: 12435.35 /// Time: 11:41
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 25729.86 / Optimal: 12662.48 / Action: -236.5256 / Forward: 1314.148 / Optimal: 12539.88 /// Time: 11:42
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 25932.9 / Optimal: 12764.82 / Action: -238.3243 / Forward: 1326.621 / Optimal: 12642.01 /// Time: 11:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 13 / Dense: 26139.93 / Optimal: 12870.96 / Action: -240.1463 / Forward: 1342.54 / Optimal: 12746.14 /// Time: 11:45
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 12 / Dense: 26140.84 / Optimal: 12871.25 / Action: -240.1712 / Forward: 1342.786 / Optimal: 12746.62 /// Time: 11:45
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 13 / Dense: 26344.49 / Optimal: 12976.01 / Action: -241.9987 / Forward: 1357.347 / Optimal: 12848.96 /// Time: 11:46
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 12 / Dense: 26530.2 / Optimal: 13068.33 / Action: -243.751 / Forward: 1372.764 / Optimal: 12947.45 /// Time: 11:48
+Sparse: 11 / Dense: 26554.62 / Optimal: 13079.19 / Action: -244.0628 / Forward: 1376.117 / Optimal: 12963.22 /// Time: 11:48
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 26752.67 / Optimal: 13183.98 / Action: -245.7117 / Forward: 1391.184 / Optimal: 13062.17 /// Time: 11:49
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 11 / Dense: 26763.59 / Optimal: 13189.12 / Action: -245.8482 / Forward: 1392.675 / Optimal: 13069.7 /// Time: 11:49
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 26957.23 / Optimal: 13289.19 / Action: -247.5369 / Forward: 1405.141 / Optimal: 13166.72 /// Time: 11:51
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 13 / Dense: 27153.88 / Optimal: 13390.55 / Action: -249.3504 / Forward: 1416.295 / Optimal: 13265.45 /// Time: 11:52
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 12 / Dense: 27290.32 / Optimal: 13459.66 / Action: -250.7458 / Forward: 1416.141 / Optimal: 13339.08 /// Time: 11:53
+Sparse: 11 / Dense: 27292.78 / Optimal: 13458.64 / Action: -250.8849 / Forward: 1417.42 / Optimal: 13343.63 /// Time: 11:53
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 27497.8 / Optimal: 13564.17 / Action: -252.8462 / Forward: 1425.971 / Optimal: 13448.09 /// Time: 11:55
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 11 / Dense: 27647.79 / Optimal: 13636.45 / Action: -254.2467 / Forward: 1439.811 / Optimal: 13532.23 /// Time: 11:56
+Sparse: 10 / Dense: 27655.21 / Optimal: 13639.37 / Action: -254.3783 / Forward: 1441.149 / Optimal: 13537.86 /// Time: 11:56
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 27862.49 / Optimal: 13748.4 / Action: -256.2637 / Forward: 1444.369 / Optimal: 13645.91 /// Time: 11:57
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 10 / Dense: 27865.37 / Optimal: 13749.47 / Action: -256.3622 / Forward: 1443.968 / Optimal: 13648.89 /// Time: 11:57
+Sparse: 9 / Dense: 27867.82 / Optimal: 13750.64 / Action: -256.4043 / Forward: 1444.285 / Optimal: 13650.24 /// Time: 11:57
+Sparse: 8 / Dense: 27919.23 / Optimal: 13775.46 / Action: -256.9585 / Forward: 1449.058 / Optimal: 13681.17 /// Time: 11:58
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 9 / Dense: 28189.74 / Optimal: 13909.14 / Action: -259.4709 / Forward: 1466.922 / Optimal: 13819.25 /// Time: 12:00
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 28402.31 / Optimal: 14018.57 / Action: -261.5207 / Forward: 1471.821 / Optimal: 13932.76 /// Time: 12:02
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 9 / Dense: 28423.36 / Optimal: 14028.84 / Action: -261.743 / Forward: 1473.867 / Optimal: 13943.92 /// Time: 12:02
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 10 / Dense: 28658.29 / Optimal: 14150.15 / Action: -263.6954 / Forward: 1491.365 / Optimal: 14061.89 /// Time: 12:04
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 28884.88 / Optimal: 14262.89 / Action: -265.97 / Forward: 1501.832 / Optimal: 14178.52 /// Time: 12:05
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 29113.42 / Optimal: 14378.19 / Action: -268.2216 / Forward: 1508.558 / Optimal: 14298.4 /// Time: 12:07
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 11 / Dense: 29125.37 / Optimal: 14384.25 / Action: -268.3711 / Forward: 1509.921 / Optimal: 14305.76 /// Time: 12:07
+Sparse: 10 / Dense: 29127.22 / Optimal: 14384.06 / Action: -268.4669 / Forward: 1510.961 / Optimal: 14308.13 /// Time: 12:07
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 11 / Dense: 29355.14 / Optimal: 14502.25 / Action: -270.4232 / Forward: 1528.497 / Optimal: 14422.76 /// Time: 12:09
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 12 / Dense: 29552.2 / Optimal: 14604.59 / Action: -272.4883 / Forward: 1525.987 / Optimal: 14529.61 /// Time: 12:10
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 13 / Dense: 29750.6 / Optimal: 14703.06 / Action: -274.3483 / Forward: 1533.768 / Optimal: 14631.28 /// Time: 12:12
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 14 / Dense: 30008.11 / Optimal: 14834.55 / Action: -276.5949 / Forward: 1553.547 / Optimal: 14760.34 /// Time: 12:13
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 15 / Dense: 30205.54 / Optimal: 14937.96 / Action: -278.2526 / Forward: 1564.457 / Optimal: 14859.26 /// Time: 12:15
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 16 / Dense: 30437.57 / Optimal: 15055.25 / Action: -280.2816 / Forward: 1578.631 / Optimal: 14975.65 /// Time: 12:17
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 15 / Dense: 30591.49 / Optimal: 15130.74 / Action: -281.8566 / Forward: 1588.925 / Optimal: 15064.86 /// Time: 12:18
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 16 / Dense: 30789.05 / Optimal: 15233.37 / Action: -283.5511 / Forward: 1602.306 / Optimal: 15163.83 /// Time: 12:19
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 15 / Dense: 30791.39 / Optimal: 15233.74 / Action: -283.6093 / Forward: 1602.633 / Optimal: 15165.5 /// Time: 12:19
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 16 / Dense: 30993.72 / Optimal: 15335.43 / Action: -285.4572 / Forward: 1616.034 / Optimal: 15267.44 /// Time: 12:21
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 15 / Dense: 31017.81 / Optimal: 15346.78 / Action: -285.7328 / Forward: 1619.049 / Optimal: 15280.61 /// Time: 12:21
+Sparse: 14 / Dense: 31019.6 / Optimal: 15347.61 / Action: -285.772 / Forward: 1619.079 / Optimal: 15281.89 /// Time: 12:21
+Sparse: 13 / Dense: 31125.4 / Optimal: 15396.89 / Action: -286.9598 / Forward: 1626.95 / Optimal: 15346.72 /// Time: 12:22
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 14 / Dense: 31342.66 / Optimal: 15506.75 / Action: -288.8849 / Forward: 1639.973 / Optimal: 15456.43 /// Time: 12:24
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 15 / Dense: 31591.69 / Optimal: 15630.01 / Action: -291.1364 / Forward: 1654.797 / Optimal: 15584.23 /// Time: 12:25
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 14 / Dense: 31618.95 / Optimal: 15643.65 / Action: -291.393 / Forward: 1657.737 / Optimal: 15599.6 /// Time: 12:26
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 15 / Dense: 31890.34 / Optimal: 15780.63 / Action: -293.7766 / Forward: 1677.552 / Optimal: 15736.39 /// Time: 12:27
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 16 / Dense: 32111.6 / Optimal: 15892.61 / Action: -295.7424 / Forward: 1688.963 / Optimal: 15847.64 /// Time: 12:29
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 17 / Dense: 32322.54 / Optimal: 16003.1 / Action: -297.5233 / Forward: 1705.52 / Optimal: 15953.11 /// Time: 12:30
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 16 / Dense: 32504.21 / Optimal: 16090.7 / Action: -299.3954 / Forward: 1714.204 / Optimal: 16059.24 /// Time: 12:32
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 17 / Dense: 32712.49 / Optimal: 16198.81 / Action: -301.1113 / Forward: 1729.581 / Optimal: 16163.52 /// Time: 12:33
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 16 / Dense: 32766.5 / Optimal: 16226.2 / Action: -301.6373 / Forward: 1732.345 / Optimal: 16192.49 /// Time: 12:34
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 17 / Dense: 33054.29 / Optimal: 16323.1 / Action: -303.5121 / Forward: 1741.473 / Optimal: 16300 /// Time: 12:35
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 16 / Dense: 33107.14 / Optimal: 16340.41 / Action: -303.8703 / Forward: 1745.229 / Optimal: 16320.38 /// Time: 12:36
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 17 / Dense: 33396.24 / Optimal: 16456.34 / Action: -305.689 / Forward: 1760.712 / Optimal: 16413.85 /// Time: 12:37
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 18 / Dense: 33677.71 / Optimal: 16572.98 / Action: -307.4755 / Forward: 1770.76 / Optimal: 16484.66 /// Time: 12:39
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 17 / Dense: 33937.04 / Optimal: 16687.55 / Action: -309.0389 / Forward: 1786.575 / Optimal: 16550.39 /// Time: 12:40
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 18 / Dense: 34274.65 / Optimal: 16853.66 / Action: -311.0991 / Forward: 1806.279 / Optimal: 16634.79 /// Time: 12:42
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 19 / Dense: 34551.96 / Optimal: 16980.92 / Action: -312.8835 / Forward: 1805.92 / Optimal: 16706.67 /// Time: 12:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 18 / Dense: 34558.99 / Optimal: 16983.69 / Action: -312.9474 / Forward: 1806.621 / Optimal: 16708.82 /// Time: 12:43
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 19 / Dense: 34823.3 / Optimal: 17114.17 / Action: -314.7475 / Forward: 1808.577 / Optimal: 16776.08 /// Time: 12:45
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 18 / Dense: 35066.4 / Optimal: 17207.65 / Action: -316.314 / Forward: 1819.224 / Optimal: 16838.43 /// Time: 12:46
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 19 / Dense: 35353.77 / Optimal: 17345.53 / Action: -318.3039 / Forward: 1818.436 / Optimal: 16912.18 /// Time: 12:48
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 18 / Dense: 35473.73 / Optimal: 17391.68 / Action: -319.2486 / Forward: 1825.661 / Optimal: 16950.26 /// Time: 12:49
+Sparse: 17 / Dense: 35474.7 / Optimal: 17392.13 / Action: -319.268 / Forward: 1825.815 / Optimal: 16950.54 /// Time: 12:49
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 18 / Dense: 35867.14 / Optimal: 17542.58 / Action: -321.983 / Forward: 1824.696 / Optimal: 17051.05 /// Time: 12:51
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 19 / Dense: 36168.93 / Optimal: 17691.99 / Action: -323.958 / Forward: 1838.907 / Optimal: 17126.51 /// Time: 12:53
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 20 / Dense: 36455.53 / Optimal: 17834.71 / Action: -325.8712 / Forward: 1850.392 / Optimal: 17198.24 /// Time: 12:55
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 19 / Dense: 36557.71 / Optimal: 17872.61 / Action: -326.526 / Forward: 1857.595 / Optimal: 17225.53 /// Time: 12:55
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 20 / Dense: 36847.34 / Optimal: 18016.12 / Action: -328.4071 / Forward: 1870.033 / Optimal: 17297.93 /// Time: 12:57
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 19 / Dense: 37117.57 / Optimal: 18143.96 / Action: -330.1061 / Forward: 1877.645 / Optimal: 17367.23 /// Time: 12:58
+Sparse: 18 / Dense: 37133.47 / Optimal: 18151.24 / Action: -330.2393 / Forward: 1878.309 / Optimal: 17371.24 /// Time: 12:58
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 19 / Dense: 37455.29 / Optimal: 18310.43 / Action: -332.3064 / Forward: 1897.228 / Optimal: 17451.7 /// Time: 13:00
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 20 / Dense: 37739.18 / Optimal: 18452.24 / Action: -334.16 / Forward: 1913.455 / Optimal: 17522.67 /// Time: 13:01
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 21 / Dense: 38009.47 / Optimal: 18588.22 / Action: -335.9755 / Forward: 1915.253 / Optimal: 17591.5 /// Time: 13:03
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 22 / Dense: 38291.6 / Optimal: 18727.67 / Action: -337.8057 / Forward: 1928.834 / Optimal: 17662.03 /// Time: 13:04
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 21 / Dense: 38621 / Optimal: 18889.58 / Action: -339.9779 / Forward: 1946.189 / Optimal: 17744.9 /// Time: 13:06
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 22 / Dense: 38901.96 / Optimal: 19030.02 / Action: -341.7862 / Forward: 1956.37 / Optimal: 17815.2 /// Time: 13:07
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 21 / Dense: 38914.26 / Optimal: 19034.13 / Action: -341.8795 / Forward: 1957.343 / Optimal: 17818.39 /// Time: 13:07
+Sparse: 20 / Dense: 38918.78 / Optimal: 19036.38 / Action: -341.9191 / Forward: 1957.605 / Optimal: 17819.56 /// Time: 13:08
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 21 / Dense: 39202.48 / Optimal: 19177.25 / Action: -343.8387 / Forward: 1957.561 / Optimal: 17892.27 /// Time: 13:09
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 22 / Dense: 39479.98 / Optimal: 19315.77 / Action: -345.7167 / Forward: 1960.769 / Optimal: 17962.63 /// Time: 13:10
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 21 / Dense: 39481.5 / Optimal: 19316.14 / Action: -345.7452 / Forward: 1961.059 / Optimal: 17963.24 /// Time: 13:11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 22 / Dense: 39776.3 / Optimal: 19457.3 / Action: -347.67 / Forward: 1968.018 / Optimal: 18037.43 /// Time: 13:12
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 21 / Dense: 40071.43 / Optimal: 19585.58 / Action: -349.6173 / Forward: 1986.875 / Optimal: 18115.26 /// Time: 13:14
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 22 / Dense: 40427.17 / Optimal: 19756.11 / Action: -351.9384 / Forward: 2006.275 / Optimal: 18204.51 /// Time: 13:16
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 23 / Dense: 40780.45 / Optimal: 19926.8 / Action: -354.2097 / Forward: 2026.188 / Optimal: 18294.2 /// Time: 13:17
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 24 / Dense: 41065.6 / Optimal: 20068.81 / Action: -356.0306 / Forward: 2041.65 / Optimal: 18365.48 /// Time: 13:19
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 25 / Dense: 41324.96 / Optimal: 20198.16 / Action: -357.7253 / Forward: 2053.177 / Optimal: 18430.33 /// Time: 13:20
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 26 / Dense: 41613.05 / Optimal: 20336.44 / Action: -359.6003 / Forward: 2064.862 / Optimal: 18503.05 /// Time: 13:22
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 27 / Dense: 41920.41 / Optimal: 20462.57 / Action: -361.5041 / Forward: 2077.07 / Optimal: 18580.39 /// Time: 13:23
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 28 / Dense: 42227.69 / Optimal: 20613.18 / Action: -363.5552 / Forward: 2087.964 / Optimal: 18657.35 /// Time: 13:25
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 29 / Dense: 42478.41 / Optimal: 20705.32 / Action: -365.2299 / Forward: 2095.192 / Optimal: 18725.02 /// Time: 13:26
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 28 / Dense: 42502.71 / Optimal: 20711.73 / Action: -365.4698 / Forward: 2096.924 / Optimal: 18733.77 /// Time: 13:26
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 29 / Dense: 42796.77 / Optimal: 20852.74 / Action: -367.4118 / Forward: 2100.502 / Optimal: 18808.27 /// Time: 13:28
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 30 / Dense: 43129.05 / Optimal: 21015.26 / Action: -369.5603 / Forward: 2117.813 / Optimal: 18891.48 /// Time: 13:30
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 31 / Dense: 43447.16 / Optimal: 21169.46 / Action: -371.4714 / Forward: 2133.746 / Optimal: 18971.01 /// Time: 13:31
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 30 / Dense: 43460.26 / Optimal: 21173.09 / Action: -371.6413 / Forward: 2135.621 / Optimal: 18976.88 /// Time: 13:32
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 31 / Dense: 43725.46 / Optimal: 21305.31 / Action: -373.345 / Forward: 2148.368 / Optimal: 19043.19 /// Time: 13:33
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 30 / Dense: 43762.05 / Optimal: 21322.21 / Action: -373.6297 / Forward: 2151.656 / Optimal: 19053.27 /// Time: 13:33
+Sparse: 29 / Dense: 43791.88 / Optimal: 21332.97 / Action: -373.8333 / Forward: 2153.467 / Optimal: 19061.06 /// Time: 13:33
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 30 / Dense: 44056.57 / Optimal: 21465.83 / Action: -375.5212 / Forward: 2159.846 / Optimal: 19127.63 /// Time: 13:35
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Sparse: 29 / Dense: 44062.41 / Optimal: 21467.48 / Action: -375.6027 / Forward: 2160 / Optimal: 19129.69 /// Time: 13:35
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 30 / Dense: 44347.59 / Optimal: 21605.75 / Action: -377.3316 / Forward: 2172.719 / Optimal: 19202.62 /// Time: 13:36
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 31 / Dense: 44668.13 / Optimal: 21765.3 / Action: -379.4431 / Forward: 2179.545 / Optimal: 19283.39 /// Time: 13:38
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 32 / Dense: 44988.98 / Optimal: 21923.43 / Action: -381.5802 / Forward: 2184.554 / Optimal: 19364.55 /// Time: 13:40
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 33 / Dense: 45244.66 / Optimal: 22051.21 / Action: -383.1194 / Forward: 2197.901 / Optimal: 19428.47 /// Time: 13:41
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 34 / Dense: 45541.05 / Optimal: 22199.41 / Action: -385.0164 / Forward: 2212.435 / Optimal: 19502.57 /// Time: 13:42
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 35 / Dense: 45884.15 / Optimal: 22368.06 / Action: -387.1256 / Forward: 2230.035 / Optimal: 19588.34 /// Time: 13:44
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 36 / Dense: 46182.27 / Optimal: 22513.3 / Action: -389.1094 / Forward: 2233.655 / Optimal: 19664.11 /// Time: 13:46
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+SUCCESSFUL / Sparse: 37 / Dense: 46458.56 / Optimal: 22651.87 / Action: -390.9572 / Forward: 2240.211 / Optimal: 19733.72 /// Time: 13:47
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Unable to save timers to file C:/Users/Yusuf/Documents/GitHub/AircraftAI/AircraftAI/BuildsForTraining/18/AircraftAI_Data\ML-Agents\Timers\Training_timers.json
+Setting up 4 worker threads for Enlighten.
+Memory Statistics:
+[ALLOC_TEMP_TLS] TLS Allocator
+  StackAllocators : 
+    [ALLOC_TEMP_MAIN]
+      Peak usage frame count: [4.0 KB-8.0 KB]: 78771 frames, [16.0 KB-32.0 KB]: 379326 frames, [2.0 MB-4.0 MB]: 1 frames
+      Initial Block Size 4.0 MB
+      Current Block Size 4.0 MB
+      Peak Allocated Bytes 2.1 MB
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 4]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Loading.PreloadManager]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 178.5 KB
+      Overflow Count 6
+    [ALLOC_TEMP_Background Job.worker 3]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 11]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 7]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 6]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 11]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.6 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 12]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 2]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 9]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 0]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.4 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 14]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 5]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 4]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 10]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 13]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 1]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_EnlightenWorker] x 4
+      Initial Block Size 64.0 KB
+      Current Block Size 64.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 1]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.8 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 3]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.8 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 5]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 8]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 12]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_AssetGarbageCollectorHelper] x 15
+      Initial Block Size 64.0 KB
+      Current Block Size 64.0 KB
+      Peak Allocated Bytes 138 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 13]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 15]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 2]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.6 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 10]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 7]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.6 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 9]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 0]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 6]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Job.worker 8]
+      Initial Block Size 256.0 KB
+      Current Block Size 256.0 KB
+      Peak Allocated Bytes 26.5 KB
+      Overflow Count 0
+    [ALLOC_TEMP_Background Job.worker 14]
+      Initial Block Size 32.0 KB
+      Current Block Size 32.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+    [ALLOC_TEMP_Loading.AsyncRead]
+      Initial Block Size 64.0 KB
+      Current Block Size 64.0 KB
+      Peak Allocated Bytes 366 B
+      Overflow Count 0
+    [ALLOC_TEMP_BatchDeleteObjects]
+      Initial Block Size 64.0 KB
+      Current Block Size 64.0 KB
+      Peak Allocated Bytes 54 B
+      Overflow Count 0
+[ALLOC_DEFAULT] Dual Thread Allocator
+  Peak main deferred allocation count 160
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 1.7 MB
+    [ALLOC_DEFAULT_MAIN]
+      Peak usage frame count: [8.0 MB-16.0 MB]: 458097 frames, [64.0 MB-128.0 MB]: 1 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 2
+      Peak Allocated memory 78.8 MB
+      Peak Large allocation bytes 64.0 MB
+    [ALLOC_DEFAULT_THREAD]
+      Peak usage frame count: [32.0 MB-64.0 MB]: 458098 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 2
+      Peak Allocated memory 35.8 MB
+      Peak Large allocation bytes 16.0 MB
+[ALLOC_TEMP_JOB_1_FRAME]
+  Initial Block Size 2.0 MB
+  Used Block Count 0
+  Overflow Count (too large) 0
+  Overflow Count (full) 0
+[ALLOC_TEMP_JOB_2_FRAMES]
+  Initial Block Size 2.0 MB
+  Used Block Count 0
+  Overflow Count (too large) 0
+  Overflow Count (full) 0
+[ALLOC_TEMP_JOB_4_FRAMES (JobTemp)]
+  Initial Block Size 2.0 MB
+  Used Block Count 1
+  Overflow Count (too large) 0
+  Overflow Count (full) 0
+[ALLOC_TEMP_JOB_ASYNC (Background)]
+  Initial Block Size 1.0 MB
+  Used Block Count 1
+  Overflow Count (too large) 0
+  Overflow Count (full) 0
+[ALLOC_GFX] Dual Thread Allocator
+  Peak main deferred allocation count 0
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 1.7 MB
+    [ALLOC_GFX_MAIN]
+      Peak usage frame count: [256.0 KB-0.5 MB]: 98 frames, [0.5 MB-1.0 MB]: 458000 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 1
+      Peak Allocated memory 0.6 MB
+      Peak Large allocation bytes 0 B
+    [ALLOC_GFX_THREAD]
+      Peak usage frame count: [256.0 KB-0.5 MB]: 458098 frames
+      Requested Block Size 16.0 MB
+      Peak Block count 1
+      Peak Allocated memory 321.8 KB
+      Peak Large allocation bytes 0 B
+[ALLOC_CACHEOBJECTS] Dual Thread Allocator
+  Peak main deferred allocation count 2
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 1.7 MB
+    [ALLOC_CACHEOBJECTS_MAIN]
+      Peak usage frame count: [1.0 MB-2.0 MB]: 458097 frames, [2.0 MB-4.0 MB]: 1 frames
+      Requested Block Size 4.0 MB
+      Peak Block count 1
+      Peak Allocated memory 2.9 MB
+      Peak Large allocation bytes 0 B
+    [ALLOC_CACHEOBJECTS_THREAD]
+      Peak usage frame count: [1.0 MB-2.0 MB]: 458097 frames, [4.0 MB-8.0 MB]: 1 frames
+      Requested Block Size 4.0 MB
+      Peak Block count 1
+      Peak Allocated memory 7.6 MB
+      Peak Large allocation bytes 3.9 MB
+[ALLOC_TYPETREE] Dual Thread Allocator
+  Peak main deferred allocation count 0
+    [ALLOC_BUCKET]
+      Large Block size 4.0 MB
+      Used Block count 1
+      Peak Allocated bytes 1.7 MB
+    [ALLOC_TYPETREE_MAIN]
+      Peak usage frame count: [8.0 KB-16.0 KB]: 458098 frames
+      Requested Block Size 2.0 MB
+      Peak Block count 1
+      Peak Allocated memory 9.2 KB
+      Peak Large allocation bytes 0 B
+    [ALLOC_TYPETREE_THREAD]
+      Peak usage frame count: [16.0 KB-32.0 KB]: 458098 frames
+      Requested Block Size 2.0 MB
+      Peak Block count 1
+      Peak Allocated memory 22.9 KB
+      Peak Large allocation bytes 0 B

@@ -1,0 +1,29 @@
+{
+    "AircraftLanding": {
+        "checkpoints": [
+            {
+                "steps": 5167,
+                "file_path": "results\\L1\\AircraftLanding\\AircraftLanding-5167.onnx",
+                "reward": -0.7828932826491919,
+                "creation_time": 1716834973.708226,
+                "auxillary_file_paths": [
+                    "results\\L1\\AircraftLanding\\AircraftLanding-5167.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5167,
+            "file_path": "results\\L1\\AircraftLanding.onnx",
+            "reward": -0.7828932826491919,
+            "creation_time": 1716834973.708226,
+            "auxillary_file_paths": [
+                "results\\L1\\AircraftLanding\\AircraftLanding-5167.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}

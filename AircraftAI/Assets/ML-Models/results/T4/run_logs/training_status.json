@@ -1,0 +1,29 @@
+{
+    "AircraftTakeOff": {
+        "checkpoints": [
+            {
+                "steps": 7250,
+                "file_path": "results\\T4\\AircraftTakeOff\\AircraftTakeOff-7250.onnx",
+                "reward": -0.1935332816049277,
+                "creation_time": 1716033015.7113984,
+                "auxillary_file_paths": [
+                    "results\\T4\\AircraftTakeOff\\AircraftTakeOff-7250.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 7250,
+            "file_path": "results\\T4\\AircraftTakeOff.onnx",
+            "reward": -0.1935332816049277,
+            "creation_time": 1716033015.7113984,
+            "auxillary_file_paths": [
+                "results\\T4\\AircraftTakeOff\\AircraftTakeOff-7250.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}
