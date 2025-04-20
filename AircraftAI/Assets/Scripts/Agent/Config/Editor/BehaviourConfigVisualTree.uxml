@@ -1,8 +1,0 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Scripts/USS/Header.uss?fileID=7433441132597879392&amp;guid=09031e3fd9287c14ab05bce11c4f6441&amp;type=3#Header" />
-    <Style src="project://database/Assets/Scripts/USS/Border.uss?fileID=7433441132597879392&amp;guid=34b53a4231ed06c4180d6f1e82f1d1f0&amp;type=3#Border" />
-    <Style src="project://database/Assets/Scripts/USS/Property.uss?fileID=7433441132597879392&amp;guid=bf7138d6e8d1079478a1f751a67b188f&amp;type=3#Property" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:Label text="Label" binding-path="behaviorName" name="Label" />
-    </ui:VisualElement>
-</ui:UXML>
