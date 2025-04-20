@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d450ff2ca42245a7bf665f70d436fa74, type: 3}
+  m_Name: BehaviourConfig_TakeOff
+  m_EditorClassIdentifier: Assembly-CSharp::AircraftBehaviorConfig
+  behaviorName: AircraftTakeOff
+  spaceSize: 51
+  actionSpecs:
+    m_NumContinuousActions: 3
+    BranchSizes: 
+  model: {fileID: 5022602860645237092, guid: 38ec8ff5e5dc1924481c73256624ff4b, type: 3}
+  decisionPeriod: 1
+  maxStep: 2500000
+  trainingMode: 0
+  numOfOptimalDirections: 1
+  gapBetweenOptimalDirections: 3
+  manoeuvreSpeed: 10
+  trainingAtmosphereData:
+    maxWindDirectionChangeSpeed: 170
+    maxWindSpeed: 20
+    maxTurbulence: 20
+  evaluateAtmosphereData:
+    maxWindDirectionChangeSpeed: 170
+    maxWindSpeed: 1
+    maxTurbulence: 1
