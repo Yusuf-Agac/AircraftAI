@@ -1,0 +1,75 @@
+.big-header {
+    align-items: auto;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    font-size: 32px;
+    -unity-text-align: upper-center;
+    -unity-text-outline-width: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -unity-text-outline-color: rgb(75, 75, 75);
+    letter-spacing: 10px;
+    word-spacing: 0;
+    -unity-font-style: normal;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-left: 2%;
+    margin-right: 2%;
+    -unity-font-definition: url("project://database/Assets/Plugins/Silantro/Common/Fonts/Futura/Futura%20Extra%20Black%20font.ttf?fileID=12800000&guid=a01d465d7c201fd41abb9320b66b0b99&type=3#Futura Extra Black font");
+}
+
+.normal-property {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+
+.normal-header {
+    margin-left: 2%;
+    font-size: 20px;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(75, 75, 75);
+    margin-bottom: 0;
+    margin-top: 10px;
+    -unity-text-align: upper-center;
+    background-image: url("project://database/Assets/Plugins/Silantro/Common/Textures/Radar/Radar%20Target.png?fileID=2800000&guid=967ef49a8b5a5ab4b93064f43c69dd63&type=3#Radar Target");
+    -unity-background-image-tint-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.06);
+    margin-right: 2%;
+    -unity-font-definition: url("project://database/Assets/Plugins/Silantro/Common/Fonts/OpenSans/OpenSansBold.ttf?fileID=12800000&guid=4780442ef4efbd64280183619bcd8cce&type=3#OpenSansBold");
+}
+
+.normal-property {
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.main-box {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-left-color: rgba(0, 0, 0, 0.57);
+    border-right-color: rgba(0, 0, 0, 0.57);
+    border-top-color: rgba(0, 0, 0, 0.57);
+    border-bottom-color: rgba(0, 0, 0, 0.57);
+    margin-top: 3px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    background-color: rgba(0, 0, 0, 0.11);
+}
+
+.sub-box {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    margin-bottom: 10px;
+}
