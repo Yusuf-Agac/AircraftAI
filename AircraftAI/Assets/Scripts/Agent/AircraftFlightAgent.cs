@@ -50,7 +50,7 @@ public class AircraftFlightAgent : AircraftAgent
     
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, evaluateAtmosphereData, DecisionRequester.DecisionPeriod);
+        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, aircraftBehaviourConfig.evaluateAtmosphereData, DecisionRequester.DecisionPeriod);
 
         CalculateDirectionsSimilarities();
         CalculateMovementVariables();
@@ -117,7 +117,7 @@ public class AircraftFlightAgent : AircraftAgent
             
             if (IsEpisodeSucceed())
             {
-                if (trainingMode)
+                if (aircraftBehaviourConfig.trainingMode)
                 {
                     SetSparseReward(true);
                     EndEpisode();
@@ -126,7 +126,7 @@ public class AircraftFlightAgent : AircraftAgent
             }
             else if (IsEpisodeFailed())
             {
-                if (trainingMode)
+                if (aircraftBehaviourConfig.trainingMode)
                 {
                     SetSparseReward(false);
                     EndEpisode();   
@@ -151,7 +151,7 @@ public class AircraftFlightAgent : AircraftAgent
     protected override bool IsEpisodeFailed()
     {
         var illegalAircraftRotation = DotLocalForwardGlobalUp is > 0.5f or < -0.5f || DotLocalUpGlobalDown > -0.5f;
-        return (NormalizedOptimalDistance > 0.99f || illegalAircraftRotation) && trainingMode && EpisodeStarted;
+        return (NormalizedOptimalDistance > 0.99f || illegalAircraftRotation) && aircraftBehaviourConfig.trainingMode && EpisodeStarted;
     }
 
     protected override bool IsEpisodeSucceed()

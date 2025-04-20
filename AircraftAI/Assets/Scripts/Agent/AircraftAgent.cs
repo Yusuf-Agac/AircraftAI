@@ -3,6 +3,7 @@ using Oyedoyin.FixedWing;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -21,16 +22,9 @@ public abstract partial class AircraftAgent : Agent
     public Slider pitchSlider;
     public Slider rollSlider;
     public Slider yawSlider;
-    
-    [SerializeField, Header("Configurations    General----------------------------------------------------------------------------------------------"), Space(10)] 
-    public bool trainingMode;
-    
-    [SerializeField, Header("Configurations    Atmosphere----------------------------------------------------------------------------------------------"), Space(10)] 
-    public AtmosphereData evaluateAtmosphereData;
-    public AtmosphereData trainingAtmosphereData;
-    
-    [SerializeField, Header("Configurations    Aircraft----------------------------------------------------------------------------------------------"), Space(10)] 
-    public AircraftBehaviourConfig aircraftBehaviourConfig;
+
+    [FormerlySerializedAs("aircraftBehaviorConfig")] [SerializeField, Header("Configurations    General----------------------------------------------------------------------------------------------"), Space(10)]
+    public AircraftBehaviorConfig aircraftBehaviourConfig;
     
     [Header("Configurations    Reward----------------------------------------------------------------------------------------------"), Space(10)] 
     [SerializeField] protected float sparseRewardMultiplier = 1f;
@@ -111,7 +105,7 @@ public abstract partial class AircraftAgent : Agent
     {
         EpisodeStarted = false;
         LazyEvaluation().Forget();
-        if (trainingMode)
+        if (aircraftBehaviourConfig && aircraftBehaviourConfig.trainingMode)
         {
             aircraftController.m_rigidbody.isKinematic = true;
             ResetAtmosphereBoundsForTraining();
@@ -121,9 +115,9 @@ public abstract partial class AircraftAgent : Agent
     
     private void ResetAtmosphereBoundsForTraining()
     {
-        evaluateAtmosphereData.maxWindSpeed = Random.Range(0, trainingAtmosphereData.maxWindSpeed);
-        evaluateAtmosphereData.maxTurbulence = Random.Range(0, trainingAtmosphereData.maxTurbulence);
-        evaluateAtmosphereData.maxWindDirectionChangeSpeed = Random.Range(0, trainingAtmosphereData.maxWindDirectionChangeSpeed);
+        aircraftBehaviourConfig.evaluateAtmosphereData.maxWindSpeed = Random.Range(0, aircraftBehaviourConfig.trainingAtmosphereData.maxWindSpeed);
+        aircraftBehaviourConfig.evaluateAtmosphereData.maxTurbulence = Random.Range(0, aircraftBehaviourConfig.trainingAtmosphereData.maxTurbulence);
+        aircraftBehaviourConfig.evaluateAtmosphereData.maxWindDirectionChangeSpeed = Random.Range(0, aircraftBehaviourConfig.trainingAtmosphereData.maxWindDirectionChangeSpeed);
     }
     
     protected void SetSparseReward(bool success)
@@ -180,10 +174,10 @@ public abstract partial class AircraftAgent : Agent
     
     protected void CalculateAtmosphere()
     {
-        NormalizedWind = AtmosphereUtility.NormalizedWind(aircraftController, trainingAtmosphereData);
+        NormalizedWind = AtmosphereUtility.NormalizedWind(aircraftController, aircraftBehaviourConfig.trainingAtmosphereData);
         WindAngle = NormalizedWind[0] * 360;
-        WindSpeed = NormalizedWind[1] * trainingAtmosphereData.maxWindSpeed;
-        Turbulence = NormalizedWind[2] * trainingAtmosphereData.maxTurbulence;
+        WindSpeed = NormalizedWind[1] * aircraftBehaviourConfig.trainingAtmosphereData.maxWindSpeed;
+        Turbulence = NormalizedWind[2] * aircraftBehaviourConfig.trainingAtmosphereData.maxTurbulence;
 
         UpdateWindObjects();
     }

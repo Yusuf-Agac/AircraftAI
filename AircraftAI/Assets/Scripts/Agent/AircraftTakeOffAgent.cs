@@ -59,7 +59,7 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, evaluateAtmosphereData, DecisionRequester.DecisionPeriod);
+        AtmosphereUtility.SmoothlyChangeWindAndTurbulence(aircraftController, aircraftBehaviourConfig.evaluateAtmosphereData, DecisionRequester.DecisionPeriod);
 
         CalculateDirectionsSimilarities();
         CalculateMovementVariables();
@@ -130,7 +130,7 @@ public class AircraftTakeOffAgent : AircraftAgent
         {
             if (IsEpisodeSucceed())
             {
-                if (trainingMode)
+                if (aircraftBehaviourConfig.trainingMode)
                 {
                     SetSparseReward(true);
                     EndEpisode();
@@ -139,7 +139,7 @@ public class AircraftTakeOffAgent : AircraftAgent
             }
             else if (IsEpisodeFailed())
             {
-                if (trainingMode)
+                if (aircraftBehaviourConfig.trainingMode)
                 {
                     SetSparseReward(false);
                     EndEpisode();
