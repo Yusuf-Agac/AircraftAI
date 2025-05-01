@@ -6,8 +6,8 @@ public partial class AirportNormalizer
     {
         if (!airportStartLeft.pivotTransform || airportStartRight == null || airportEndLeft == null || airportEndRight == null) return;
 
-        if (!trainingOn || showTrainingGizmos) GizmosDrawAirportDefaultBound();
-        if (trainingOn)
+        if (!trainingMode || showTrainingGizmos) GizmosDrawAirportDefaultBound();
+        if (trainingMode)
         {
             if (showTrainingGizmos) GizmosDrawAirportDefaultTrainSpawnBound();
             GizmosDrawAirportCurrentBound();
@@ -147,7 +147,7 @@ public partial class AirportNormalizer
 
     private void GizmosDrawAirportDefaultBound()
     {
-        Gizmos.color = trainingOn ? new Color(1, 0, 0, 0.2f) : Color.red;
+        Gizmos.color = trainingMode ? new Color(1, 0, 0, 0.2f) : Color.red;
 
         Gizmos.DrawLine(airportStartLeft.down, airportStartRight.down);
         Gizmos.DrawLine(airportEndLeft.down, airportEndRight.down);

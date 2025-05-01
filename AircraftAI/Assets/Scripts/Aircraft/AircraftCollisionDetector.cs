@@ -4,7 +4,6 @@ using UnityEngine;
 
 public partial class AircraftCollisionDetector : MonoBehaviour
 {
-    [Header("Configurations    General----------------------------------------------------------------------------------------------"), Space(10)]
     public float observationMultiplier = 5;
     public AircraftCollisionSensor[] sensors;
     

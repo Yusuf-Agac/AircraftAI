@@ -4,14 +4,13 @@ using UnityEngine;
 
 public abstract partial class PathNormalizer : MonoBehaviour
 {
+    public List<AircraftAgent> aircraftAgents;
+    
+    [SerializeField] protected int numberOfBezierPoints = 100;
+    [SerializeField] protected bool trainingMode = true;
+
     [HideInInspector] public Vector3[] bezierPoints;
     
-    [SerializeField, Header("Configurations    Path Normalizer----------------------------------------------------------------------------------------------"), Space(10)] 
-    protected int numberOfBezierPoints = 100;
-
-    [Space(10)]
-    public List<AircraftAgent> aircraftAgents;
-
     protected abstract Vector3 ArrivePosition { get; }
     protected abstract Vector3 SpawnPosition { get; }
     protected abstract Vector3 SpawnForward { get; }

@@ -8,37 +8,29 @@ public partial class AirportNormalizer : PathNormalizer
     private readonly AirportBezierData _airportTakeoffBezierData = new();
     private readonly AirportBezierData _airportLandingBezierData = new();
 
-    [Header("Configurations    Modes----------------------------------------------------------------------------------------------"), Space(10)]
-    [SerializeField] private bool trainingOn;
-    [SerializeField] private AirportMode mode;
-    
-    [Header("Configurations    Gizmo----------------------------------------------------------------------------------------------"), Space(10)] 
-    [SerializeField] private bool showBezierGizmos;
-    [SerializeField] private bool showTrainingGizmos;
-    [SerializeField] private bool showObservationsGizmos;
-    [SerializeField] private bool showZonesGizmos;
-    
-    [Header("Configurations    Physical----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private AirportEdgePositionData airportStartLeft;
     [SerializeField] private AirportEdgePositionData airportStartRight;
     [SerializeField] private AirportEdgePositionData airportEndLeft;
     [SerializeField] private AirportEdgePositionData airportEndRight;
     
-    [Space(10)]
+    [SerializeField] private AirportMode mode;
+    
+    [SerializeField] private bool showBezierGizmos;
+    [SerializeField] private bool showTrainingGizmos;
+    [SerializeField] private bool showObservationsGizmos;
+    [SerializeField] private bool showZonesGizmos;
+    
     [SerializeField] private float spawnForwardOffset = 45f;
     [SerializeField] private float exitBackwardOffset = 20f;
-    [SerializeField] private float exitVerticalOffset = 20f;
+    [SerializeField] private float exitUpwardOffset = 20f;
     
-    [Space(10)]
     [SerializeField] private float heightMultiplier = 0.07f;
     
-    [Space(10)]
     [SerializeField] private float safeContactZoneWidth = 1f;
     [SerializeField] private float safeContactZoneLength = 10f;
     
-    [Header("Configurations    Training Physical----------------------------------------------------------------------------------------------"), Space(10)]
-    [SerializeField] private float trainLengthBound = 1500f;
     [SerializeField] private float trainWidthBound = 35;
+    [SerializeField] private float trainLengthBound = 1500f;
     [SerializeField] private float trainRandomSpawnWidth = 15f;
     [SerializeField] private float trainRandomSpawnLength = 25f;
     
@@ -63,7 +55,7 @@ public partial class AirportNormalizer : PathNormalizer
         get
         {
             Vector3 resetPosition;
-            if (trainingOn)
+            if (trainingMode)
             {
                 var randomX = Random.Range(-trainRandomSpawnWidth, trainRandomSpawnWidth);
                 var randomZ = Random.Range(-trainRandomSpawnLength, trainRandomSpawnLength);
@@ -98,7 +90,6 @@ public partial class AirportNormalizer : PathNormalizer
     protected override float OptimalPathPenaltyRadius => (Vector3.Distance(airportStartLeft.downCurrent, airportStartRight.downCurrent) / 3f);
     protected override bool IsBezierDirectionForward => mode == AirportMode.TakeOff;
 
-    [InspectorButton("Reset Path")]
     public override void ResetPath()
     {
         UpdateEdgePositionsDown(airportStartLeft, 1, 1);
@@ -176,7 +167,7 @@ public partial class AirportNormalizer : PathNormalizer
         AirportPositionData.UpStart = (airportStartLeft.upCurrent + airportStartRight.upCurrent) / 2;
         AirportPositionData.UpEnd = (airportEndLeft.upCurrent + airportEndRight.upCurrent) / 2;
         
-        AirportPositionData.Exit = AirportPositionData.UpEnd - airportStartLeft.pivotTransform.forward * exitBackwardOffset - airportStartLeft.pivotTransform.up * exitVerticalOffset;
+        AirportPositionData.Exit = AirportPositionData.UpEnd - airportStartLeft.pivotTransform.forward * exitBackwardOffset - airportStartLeft.pivotTransform.up * exitUpwardOffset;
         
         _airportTakeoffBezierData.upBezierPosition1 = Vector3.Lerp(AirportPositionData.UpStart, AirportPositionData.UpEnd, _airportTakeoffBezierData.upBezierInterpolation1);
         _airportLandingBezierData.upBezierPosition1 = Vector3.Lerp(AirportPositionData.UpStart, AirportPositionData.UpEnd, _airportTakeoffBezierData.upBezierInterpolation1);
@@ -208,7 +199,7 @@ public partial class AirportNormalizer : PathNormalizer
     private void UpdateEdgePositionsDown(AirportEdgePositionData edgePositionData, int isStart, int isLeft)
     {
         edgePositionData.down = edgePositionData.pivotTransform.position;
-        edgePositionData.downCurrent = trainingOn ? 
+        edgePositionData.downCurrent = trainingMode ? 
             edgePositionData.down + edgePositionData.pivotTransform.right * (-isLeft * Random.Range(0f, 1f) * trainWidthBound) + edgePositionData.pivotTransform.forward * (-isStart * Random.Range(0f, 1f) * trainLengthBound) : 
             edgePositionData.pivotTransform.position;
         
