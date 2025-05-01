@@ -6,17 +6,17 @@ public partial class AirportNormalizer
     {
         if (!airportStartLeft.pivotTransform || airportStartRight == null || airportEndLeft == null || airportEndRight == null) return;
 
-        if (!trainingMode || showTrainingGizmos) GizmosDrawAirportDefaultBound();
+        GizmosDrawAirportDefaultBound();
         if (trainingMode)
         {
-            if (showTrainingGizmos) GizmosDrawAirportDefaultTrainSpawnBound();
+            GizmosDrawAirportDefaultTrainSpawnBound();
             GizmosDrawAirportCurrentBound();
         }
 
-        if (showZonesGizmos) GizmosDrawAirportSafeContactZone();
+        GizmosDrawAirportSafeContactZone();
         GizmosDrawAirportStartExit();
         GizmosDrawAirportOptimalPath();
-        if (showObservationsGizmos) GizmosDrawAgentsObservations();
+        GizmosDrawAgentsObservations();
     }
 
     private void GizmosDrawAirportStartExit()
@@ -29,8 +29,6 @@ public partial class AirportNormalizer
 
     private void GizmosDrawAirportOptimalPath()
     {
-        if (!showBezierGizmos) return;
-
         switch (mode == AirportMode.Landing)
         {
             case false:

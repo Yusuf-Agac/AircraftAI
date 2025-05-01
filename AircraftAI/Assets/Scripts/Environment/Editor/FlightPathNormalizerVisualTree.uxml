@@ -25,6 +25,10 @@
     </ui:VisualElement>
     <ui:VisualElement name="Settings" class="main-box" style="flex-grow: 1;">
         <ui:Label text="SETTINGS" name="Label_Settings" class="big-header" />
+        <ui:Label text="Mode" name="Label_Mode" class="normal-header" />
+        <ui:VisualElement name="Mode" class="sub-box" style="flex-grow: 1;">
+            <uie:PropertyField binding-path="trainingMode" name="TrainingMode" class="normal-property" />
+        </ui:VisualElement>
         <ui:Label text="Bezier" name="Label_Bezier" class="normal-header" />
         <ui:VisualElement name="Bezier" class="sub-box" style="flex-grow: 1;">
             <uie:PropertyField binding-path="numberOfBezierPoints" name="NumberOfBezier" class="normal-property" />

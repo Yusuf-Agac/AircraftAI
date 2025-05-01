@@ -21,13 +21,6 @@
             <uie:PropertyField binding-path="trainingMode" name="Training" class="normal-property" />
             <uie:PropertyField binding-path="mode" name="Mode" class="normal-property" />
         </ui:VisualElement>
-        <ui:Label text="Gizmos" name="Label_Gizmos" class="normal-header" />
-        <ui:VisualElement name="Gizmos" class="sub-box" style="flex-grow: 1;">
-            <uie:PropertyField binding-path="showBezierGizmos" name="Bezier" class="normal-property" />
-            <uie:PropertyField binding-path="showTrainingGizmos" name="Training" class="normal-property" />
-            <uie:PropertyField binding-path="showObservationsGizmos" name="Observation" class="normal-property" />
-            <uie:PropertyField binding-path="showZonesGizmos" name="Zones" class="normal-property" />
-        </ui:VisualElement>
         <ui:Label text="Bezier" name="Label_Bezier" class="normal-header" />
         <ui:VisualElement name="Bezier" class="sub-box" style="flex-grow: 1;">
             <uie:PropertyField binding-path="numberOfBezierPoints" name="NumberOfBezier" class="normal-property" />

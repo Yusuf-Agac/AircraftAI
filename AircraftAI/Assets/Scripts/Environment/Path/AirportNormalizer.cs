@@ -15,11 +15,6 @@ public partial class AirportNormalizer : PathNormalizer
     
     [SerializeField] private AirportMode mode;
     
-    [SerializeField] private bool showBezierGizmos;
-    [SerializeField] private bool showTrainingGizmos;
-    [SerializeField] private bool showObservationsGizmos;
-    [SerializeField] private bool showZonesGizmos;
-    
     [SerializeField] private float spawnForwardOffset = 45f;
     [SerializeField] private float exitBackwardOffset = 20f;
     [SerializeField] private float exitUpwardOffset = 20f;
