@@ -4,13 +4,11 @@ using Cysharp.Threading.Tasks;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AircraftTakeOffAgent : AircraftAgent
 {
-    [Header("Configurations    Takeoff Agent----------------------------------------------------------------------------------------------"), Space(10)] 
     public AirportNormalizer airportNormalizer;
-    [FormerlySerializedAs("sensors")] public AircraftCollisionDetector detector;
+    public AircraftCollisionDetector detector;
 
     private Vector3 _relativeVelocityDir;
 
@@ -161,15 +159,6 @@ public class AircraftTakeOffAgent : AircraftAgent
         rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward, ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward);
 
         PreviousActions = actionBuffers.ContinuousActions.ToArray();
-    }
-
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = pitchSlider.value;
-        continuousActionsOut[1] = rollSlider.value;
-        continuousActionsOut[2] = yawSlider.value;
-        aircraftController.m_input.SetAgentInputs(actionsOut, aircraftBehaviourConfig.manoeuvreSpeed);
     }
     
     private void CalculateCollisionSensors() => _normalizedCollisionSensors = detector.GetSensorData();

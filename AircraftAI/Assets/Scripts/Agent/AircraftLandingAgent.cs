@@ -10,19 +10,13 @@ using UnityEngine.UI;
 
 public class AircraftLandingAgent : AircraftAgent
 {
-    [Header("Configurations    Landing Agent----------------------------------------------------------------------------------------------"), Space(10)] 
     [SerializeField] private float velocityDecreaseReward = 750;
     [SerializeField] private float groundedReward = 8;
 
-    [Space(10)]
     [Range(0.1f, 25f)] public float throttleSpeed = 10f;
 
-    [Space(10)]
     public AirportNormalizer airportNormalizer;
     public AircraftCollisionDetector detector;
-
-    [Space(10)]
-    public Slider throttleSlider;
     
     private float _speedDecreaseReward;
     private float _groundedReward;
@@ -191,16 +185,6 @@ public class AircraftLandingAgent : AircraftAgent
         else aircraftController.m_input.SetAgentInputs();
         
         PreviousActions = actionBuffers.ContinuousActions.ToArray();
-    }
-
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = pitchSlider.value;
-        continuousActionsOut[1] = rollSlider.value;
-        continuousActionsOut[2] = yawSlider.value;
-        if(throttleSlider) continuousActionsOut[3] = throttleSlider.value;
-        aircraftController.m_input.SetAgentInputs(actionsOut, aircraftBehaviourConfig.manoeuvreSpeed, throttleSpeed);
     }
     
     private void SetMovementReward()

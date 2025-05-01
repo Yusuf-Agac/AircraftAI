@@ -9,39 +9,30 @@ using Random = UnityEngine.Random;
 
 public abstract partial class AircraftAgent : Agent
 {
-    [SerializeField, Header("Configurations    Dependencies----------------------------------------------------------------------------------------------"), Space(10)] 
     public MeshRenderer[] windArrowRenderers;
-    [Space(5)] 
-    public FixedController aircraftController;
-    [Space(5)]
     public AudioSource windAudioSource;
-    [Space(5)] 
+    
     public ObservationCanvas observationCanvas;
     public RewardCanvas rewardCanvas;
-    [Space(5)] 
-    public Slider pitchSlider;
-    public Slider rollSlider;
-    public Slider yawSlider;
+    
+    public FixedController aircraftController;
 
-    [FormerlySerializedAs("aircraftBehaviorConfig")] [SerializeField, Header("Configurations    General----------------------------------------------------------------------------------------------"), Space(10)]
     public AircraftBehaviorConfig aircraftBehaviourConfig;
     
-    [Header("Configurations    Reward----------------------------------------------------------------------------------------------"), Space(10)] 
     [SerializeField] protected float sparseRewardMultiplier = 1f;
     [SerializeField] protected float denseRewardMultiplier = 0.001f;
 
-    [Space(10)] 
     [SerializeField, Range(0, 5)] private int sparseWinReward = 1;
     [SerializeField, Range(0, -5)] private int sparseLoseReward = -1;
     
-    [Space(10)] 
     [SerializeField] protected float optimalDistanceReward = 8f;
     [SerializeField] protected float optimalDistancePenalty = 4f;
+    
     [SerializeField] protected float actionDifferencePenalty = 4f;
+    
     [SerializeField] protected float forwardVelocityDifferencePenalty = 4;
     [SerializeField] protected float optimalVelocityDifferencePenalty = 4;
     
-    [Space(10)] 
     [SerializeField, Range(0, 0.25f)] private float forwardVelocityDifferenceTolerance = 0.005f;
     [SerializeField, Range(0, 50f)] private float forwardVelocityDifferenceSensitivity = 30f;
     [SerializeField, Range(0, 0.25f)] private float optimalVelocityDifferenceTolerance = 0.12f;

@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class AircraftFlightAgent : AircraftAgent
 {
-    [SerializeField, Header("Configurations    Flight Agent----------------------------------------------------------------------------------------------"), Space(10)] 
     public FlightPathNormalizer flightPathNormalizer;
 
     protected override void Awake()
@@ -137,15 +136,6 @@ public class AircraftFlightAgent : AircraftAgent
         rewardCanvas.DisplayReward(SparseRewards, DenseRewards, OptimalDistanceRewards, ActionDifferenceReward, ForwardVelocityDifferenceReward, OptimalVelocityDifferenceReward);
 
         PreviousActions = actionBuffers.ContinuousActions.ToArray();
-    }
-    
-    public override void Heuristic(in ActionBuffers actionsOut)
-    {
-        var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = pitchSlider.value;
-        continuousActionsOut[1] = rollSlider.value;
-        continuousActionsOut[2] = yawSlider.value;
-        aircraftController.m_input.SetAgentInputs(actionsOut, aircraftBehaviourConfig.manoeuvreSpeed);
     }
 
     protected override bool IsEpisodeFailed()
