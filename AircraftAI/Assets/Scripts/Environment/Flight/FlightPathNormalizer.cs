@@ -4,27 +4,22 @@ using Random = UnityEngine.Random;
 
 public partial class FlightPathNormalizer : PathNormalizer
 {
-    [Header("Configurations    General----------------------------------------------------------------------------------------------"), Space(10)]
-    [SerializeField] private bool trainingMode = true;
-    
-    [Space(5)]
-    [SerializeField] protected float penaltyRadius = 55f;
-    [SerializeField] private float bezierPointsWeight = 1000;
-    
-    [Header("Configurations    Training----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private Transform boundsRotator;
     
-    [Header("Configurations    Departure----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private AirportNormalizer departureAirport;
-    [SerializeField] private Vector2 departureRandomRotationRange;
     [SerializeField] private Transform departureLerpFrom;
     [SerializeField] private Transform departureLerpTo;
     
-    [Header("Configurations    Arrival----------------------------------------------------------------------------------------------"), Space(10)]
     [SerializeField] private AirportNormalizer arrivalAirport;
-    [SerializeField] private Vector2 arrivalRandomRotationRange;
     [SerializeField] private Transform arrivalLerpFrom;
     [SerializeField] private Transform arrivalLerpTo;
+    
+    [SerializeField] private float bezierPointsWeight = 1000;
+    
+    [SerializeField] protected float penaltyRadius = 55f;
+    
+    [SerializeField] private Vector2 departureRandomRotationRange;
+    [SerializeField] private Vector2 arrivalRandomRotationRange;
 
     private readonly Vector3[] _bezierPoints = new Vector3[5];
     
@@ -35,7 +30,6 @@ public partial class FlightPathNormalizer : PathNormalizer
     protected override float OptimalPathPenaltyRadius => penaltyRadius;
     protected override bool IsBezierDirectionForward => true;
 
-    [InspectorButton("Reset Flight")]
     public override void ResetPath()
     {
         departureAirport.ResetPath();
