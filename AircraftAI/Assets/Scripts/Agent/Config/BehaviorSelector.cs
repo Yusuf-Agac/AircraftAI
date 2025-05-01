@@ -1,5 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using Unity.MLAgents;
 using UnityEngine;
 
 public class BehaviorSelector : MonoBehaviour

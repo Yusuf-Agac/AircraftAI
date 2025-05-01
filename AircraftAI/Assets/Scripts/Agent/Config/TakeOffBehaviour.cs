@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 public class TakeOffBehaviour : AircraftBehaviour
 {
-    [Header("-Configurations Takeoff-"), Space(10)] 
     [SerializeField] private AirportNormalizer airportNormalizer;
     [SerializeField] private AircraftCollisionDetector detector;
     

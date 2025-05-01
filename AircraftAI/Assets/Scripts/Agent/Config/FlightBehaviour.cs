@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 class FlightBehaviour : AircraftBehaviour
 {
-    [Header("-Configurations Flight-"), Space(10)] 
     [SerializeField] private FlightPathNormalizer flightPathNormalizer;
 
     private AircraftFlightAgent _aircraftFlightAgent;

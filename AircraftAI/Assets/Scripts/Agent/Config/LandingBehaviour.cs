@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 class LandingBehaviour : AircraftBehaviour
 {
-    [Header("-Configurations Landing-"), Space(10)] 
     [SerializeField] private AirportNormalizer airportNormalizer;
     [SerializeField] private AircraftCollisionDetector detector;
     private AircraftLandingAgent _aircraftLandingAgent;

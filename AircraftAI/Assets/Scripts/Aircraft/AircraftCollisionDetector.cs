@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -26,11 +25,4 @@ public partial class AircraftCollisionDetector : MonoBehaviour
         }
         return _sensorData;
     }
-}
-
-[Serializable]
-public class AircraftCollisionSensor
-{
-    public Transform transform;
-    public float maxDistance;
 }

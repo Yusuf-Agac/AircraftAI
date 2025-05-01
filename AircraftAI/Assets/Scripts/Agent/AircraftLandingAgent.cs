@@ -1,12 +1,10 @@
 using System;
 using System.Linq;
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using Oyedoyin.Common;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AircraftLandingAgent : AircraftAgent
 {

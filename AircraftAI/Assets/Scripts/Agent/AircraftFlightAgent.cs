@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using Oyedoyin.Common;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
-using UnityEngine;
 
 public class AircraftFlightAgent : AircraftAgent
 {

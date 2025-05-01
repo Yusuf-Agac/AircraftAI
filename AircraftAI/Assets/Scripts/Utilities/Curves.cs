@@ -42,29 +42,29 @@ public static class Curves
     
     private const float NaturalLOGOf2 = 0.693147181f;
     
-    public static float Linear(float value)
+    private static float Linear(float value)
     {
         return Mathf.Lerp(0, 1, value);
     }
 
-    public static float Spring(float value)
+    private static float Spring(float value)
     {
         value = Mathf.Clamp01(value);
         value = (Mathf.Sin(value * Mathf.PI * (0.2f + 2.5f * value * value * value)) * Mathf.Pow(1f - value, 2.2f) + value) * (1f + (1.2f * (1f - value)));
         return 0 + (1 - 0) * value;
     }
 
-    public static float EaseInQuad(float value)
+    private static float EaseInQuad(float value)
     {
         return 1 * value * value + 0;
     }
 
-    public static float EaseOutQuad(float value)
+    private static float EaseOutQuad(float value)
     {
         return -1 * value * (value - 2) + 0;
     }
 
-    public static float EaseInOutQuad(float value)
+    private static float EaseInOutQuad(float value)
     {
         value /= .5f;
         if (value < 1) return 1 * 0.5f * value * value + 0;
@@ -72,18 +72,18 @@ public static class Curves
         return -1 * 0.5f * (value * (value - 2) - 1) + 0;
     }
 
-    public static float EaseInCubic(float value)
+    private static float EaseInCubic(float value)
     {
         return 1 * value * value * value + 0;
     }
 
-    public static float EaseOutCubic(float value)
+    private static float EaseOutCubic(float value)
     {
         value--;
         return 1 * (value * value * value + 1) + 0;
     }
 
-    public static float EaseInOutCubic(float value)
+    private static float EaseInOutCubic(float value)
     {
         value /= .5f;
         if (value < 1) return 1 * 0.5f * value * value * value + 0;
@@ -91,18 +91,18 @@ public static class Curves
         return 1 * 0.5f * (value * value * value + 2) + 0;
     }
 
-    public static float EaseInQuart(float value)
+    private static float EaseInQuart(float value)
     {
         return 1 * value * value * value * value + 0;
     }
 
-    public static float EaseOutQuart(float value)
+    private static float EaseOutQuart(float value)
     {
         value--;
         return -1 * (value * value * value * value - 1) + 0;
     }
 
-    public static float EaseInOutQuart(float value)
+    private static float EaseInOutQuart(float value)
     {
         value /= .5f;
         if (value < 1) return 1 * 0.5f * value * value * value * value + 0;
@@ -110,18 +110,18 @@ public static class Curves
         return -1 * 0.5f * (value * value * value * value - 2) + 0;
     }
 
-    public static float EaseInQuint(float value)
+    private static float EaseInQuint(float value)
     {
         return 1 * value * value * value * value * value + 0;
     }
 
-    public static float EaseOutQuint(float value)
+    private static float EaseOutQuint(float value)
     {
         value--;
         return 1 * (value * value * value * value * value + 1) + 0;
     }
 
-    public static float EaseInOutQuint(float value)
+    private static float EaseInOutQuint(float value)
     {
         value /= .5f;
         if (value < 1) return 1 * 0.5f * value * value * value * value * value + 0;
@@ -129,32 +129,32 @@ public static class Curves
         return 1 * 0.5f * (value * value * value * value * value + 2) + 0;
     }
 
-    public static float EaseInSine(float value)
+    private static float EaseInSine(float value)
     {
         return -1 * Mathf.Cos(value * (Mathf.PI * 0.5f)) + 1 + 0;
     }
 
-    public static float EaseOutSine(float value)
+    private static float EaseOutSine(float value)
     {
         return 1 * Mathf.Sin(value * (Mathf.PI * 0.5f)) + 0;
     }
 
-    public static float EaseInOutSine(float value)
+    private static float EaseInOutSine(float value)
     {
         return -1 * 0.5f * (Mathf.Cos(Mathf.PI * value) - 1) + 0;
     }
 
-    public static float EaseInExpo(float value)
+    private static float EaseInExpo(float value)
     {
         return 1 * Mathf.Pow(2, 10 * (value - 1)) + 0;
     }
 
-    public static float EaseOutExpo(float value)
+    private static float EaseOutExpo(float value)
     {
         return 1 * (-Mathf.Pow(2, -10 * value) + 1) + 0;
     }
 
-    public static float EaseInOutExpo(float value)
+    private static float EaseInOutExpo(float value)
     {
         value /= .5f;
         if (value < 1) return 1 * 0.5f * Mathf.Pow(2, 10 * (value - 1)) + 0;
@@ -162,18 +162,18 @@ public static class Curves
         return 1 * 0.5f * (-Mathf.Pow(2, -10 * value) + 2) + 0;
     }
 
-    public static float EaseInCirc(float value)
+    private static float EaseInCirc(float value)
     {
         return -1 * (Mathf.Sqrt(1 - value * value) - 1) + 0;
     }
 
-    public static float EaseOutCirc(float value)
+    private static float EaseOutCirc(float value)
     {
         value--;
         return 1 * Mathf.Sqrt(1 - value * value) + 0;
     }
 
-    public static float EaseInOutCirc(float value)
+    private static float EaseInOutCirc(float value)
     {
         value /= .5f;
         if (value < 1) return -1 * 0.5f * (Mathf.Sqrt(1 - value * value) - 1) + 0;
@@ -181,13 +181,13 @@ public static class Curves
         return 1 * 0.5f * (Mathf.Sqrt(1 - value * value) + 1) + 0;
     }
 
-    public static float EaseInBounce(float value)
+    private static float EaseInBounce(float value)
     {
-        float d = 1f;
+        var d = 1f;
         return 1 - EaseOutBounce(d - value) + 0;
     }
 
-    public static float EaseOutBounce(float value)
+    private static float EaseOutBounce(float value)
     {
         value /= 1f;
         if (value < (1 / 2.75f))
@@ -211,30 +211,30 @@ public static class Curves
         }
     }
 
-    public static float EaseInOutBounce(float value)
+    private static float EaseInOutBounce(float value)
     {
-        float d = 1f;
+        var d = 1f;
         if (value < d * 0.5f) return EaseInBounce(value * 2) * 0.5f + 0;
         else return EaseOutBounce(value * 2 - d) * 0.5f + 1 * 0.5f + 0;
     }
 
-    public static float EaseInBack(float value)
+    private static float EaseInBack(float value)
     {
         value /= 1;
-        float s = 1.70158f;
+        var s = 1.70158f;
         return 1 * (value) * value * ((s + 1) * value - s) + 0;
     }
 
-    public static float EaseOutBack(float value)
+    private static float EaseOutBack(float value)
     {
-        float s = 1.70158f;
+        var s = 1.70158f;
         value = (value) - 1;
         return 1 * ((value) * value * ((s + 1) * value + s) + 1) + 0;
     }
 
-    public static float EaseInOutBack(float value)
+    private static float EaseInOutBack(float value)
     {
-        float s = 1.70158f;
+        var s = 1.70158f;
         value /= .5f;
         if ((value) < 1)
         {
@@ -247,11 +247,11 @@ public static class Curves
         return 1 * 0.5f * ((value) * value * (((s) + 1) * value + s) + 2) + 0;
     }
 
-    public static float EaseInElastic(float value)
+    private static float EaseInElastic(float value)
     {
 
-        float d = 1f;
-        float p = d * .3f;
+        var d = 1f;
+        var p = d * .3f;
         float s;
         float a = 0;
 
@@ -272,11 +272,11 @@ public static class Curves
         return -(a * Mathf.Pow(2, 10 * (value -= 1)) * Mathf.Sin((value * d - s) * (2 * Mathf.PI) / p)) + 0;
     }
 
-    public static float EaseOutElastic(float value)
+    private static float EaseOutElastic(float value)
     {
 
-        float d = 1f;
-        float p = d * .3f;
+        var d = 1f;
+        var p = d * .3f;
         float s;
         float a = 0;
 
@@ -297,11 +297,11 @@ public static class Curves
         return (a * Mathf.Pow(2, -10 * value) * Mathf.Sin((value * d - s) * (2 * Mathf.PI) / p) + 1 + 0);
     }
 
-    public static float EaseInOutElastic(float value)
+    private static float EaseInOutElastic(float value)
     {
 
-        float d = 1f;
-        float p = d * .3f;
+        var d = 1f;
+        var p = d * .3f;
         float s;
         float a = 0;
 
@@ -323,22 +323,22 @@ public static class Curves
         return a * Mathf.Pow(2, -10 * (value -= 1)) * Mathf.Sin((value * d - s) * (2 * Mathf.PI) / p) * 0.5f + 1 + 0;
     }
 
-    public static float LinearD(float value)
+    private static float LinearD(float value)
     {
         return 1 - 0;
     }
 
-    public static float EaseInQuadD(float value)
+    private static float EaseInQuadD(float value)
     {
         return 2f * (1 - 0) * value;
     }
 
-    public static float EaseOutQuadD(float value)
+    private static float EaseOutQuadD(float value)
     {
         return -1 * value - 1 * (value - 2);
     }
 
-    public static float EaseInOutQuadD(float value)
+    private static float EaseInOutQuadD(float value)
     {
         value /= .5f;
 
@@ -352,18 +352,18 @@ public static class Curves
         return 1 * (1 - value);
     }
 
-    public static float EaseInCubicD(float value)
+    private static float EaseInCubicD(float value)
     {
         return 3f * (1 - 0) * value * value;
     }
 
-    public static float EaseOutCubicD(float value)
+    private static float EaseOutCubicD(float value)
     {
         value--;
         return 3f * 1 * value * value;
     }
 
-    public static float EaseInOutCubicD(float value)
+    private static float EaseInOutCubicD(float value)
     {
         value /= .5f;
 
@@ -377,18 +377,18 @@ public static class Curves
         return (3f / 2f) * 1 * value * value;
     }
 
-    public static float EaseInQuartD(float value)
+    private static float EaseInQuartD(float value)
     {
         return 4f * (1 - 0) * value * value * value;
     }
 
-    public static float EaseOutQuartD(float value)
+    private static float EaseOutQuartD(float value)
     {
         value--;
         return -4f * 1 * value * value * value;
     }
 
-    public static float EaseInOutQuartD(float value)
+    private static float EaseInOutQuartD(float value)
     {
         value /= .5f;
 
@@ -402,18 +402,18 @@ public static class Curves
         return -2f * 1 * value * value * value;
     }
 
-    public static float EaseInQuintD(float value)
+    private static float EaseInQuintD(float value)
     {
         return 5f * (1 - 0) * value * value * value * value;
     }
 
-    public static float EaseOutQuintD(float value)
+    private static float EaseOutQuintD(float value)
     {
         value--;
         return 5f * 1 * value * value * value * value;
     }
 
-    public static float EaseInOutQuintD(float value)
+    private static float EaseInOutQuintD(float value)
     {
         value /= .5f;
 
@@ -427,32 +427,32 @@ public static class Curves
         return (5f / 2f) * 1 * value * value * value * value;
     }
 
-    public static float EaseInSineD(float value)
+    private static float EaseInSineD(float value)
     {
         return (1 - 0) * 0.5f * Mathf.PI * Mathf.Sin(0.5f * Mathf.PI * value);
     }
 
-    public static float EaseOutSineD(float value)
+    private static float EaseOutSineD(float value)
     {
         return (Mathf.PI * 0.5f) * 1 * Mathf.Cos(value * (Mathf.PI * 0.5f));
     }
 
-    public static float EaseInOutSineD(float value)
+    private static float EaseInOutSineD(float value)
     {
         return 1 * 0.5f * Mathf.PI * Mathf.Sin(Mathf.PI * value);
     }
 
-    public static float EaseInExpoD(float value)
+    private static float EaseInExpoD(float value)
     {
         return (10f * NaturalLOGOf2 * (1 - 0) * Mathf.Pow(2f, 10f * (value - 1)));
     }
 
-    public static float EaseOutExpoD(float value)
+    private static float EaseOutExpoD(float value)
     {
         return 5f * NaturalLOGOf2 * 1 * Mathf.Pow(2f, 1f - 10f * value);
     }
 
-    public static float EaseInOutExpoD(float value)
+    private static float EaseInOutExpoD(float value)
     {
         value /= .5f;
 
@@ -466,18 +466,18 @@ public static class Curves
         return (5f * NaturalLOGOf2 * 1) / (Mathf.Pow(2f, 10f * value));
     }
 
-    public static float EaseInCircD(float value)
+    private static float EaseInCircD(float value)
     {
         return ((1 - 0) * value) / Mathf.Sqrt(1f - value * value);
     }
 
-    public static float EaseOutCircD(float value)
+    private static float EaseOutCircD(float value)
     {
         value--;
         return (-1 * value) / Mathf.Sqrt(1f - value * value);
     }
 
-    public static float EaseInOutCircD(float value)
+    private static float EaseInOutCircD(float value)
     {
         value /= .5f;
 
@@ -491,14 +491,14 @@ public static class Curves
         return (-1 * value) / (2f * Mathf.Sqrt(1f - value * value));
     }
 
-    public static float EaseInBounceD(float value)
+    private static float EaseInBounceD(float value)
     {
-        float d = 1f;
+        var d = 1f;
 
         return EaseOutBounceD(d - value);
     }
 
-    public static float EaseOutBounceD(float value)
+    private static float EaseOutBounceD(float value)
     {
         value /= 1f;
 
@@ -523,9 +523,9 @@ public static class Curves
         }
     }
 
-    public static float EaseInOutBounceD(float value)
+    private static float EaseInOutBounceD(float value)
     {
-        float d = 1f;
+        var d = 1f;
 
         if (value < d * 0.5f)
         {
@@ -537,24 +537,24 @@ public static class Curves
         }
     }
 
-    public static float EaseInBackD(float value)
+    private static float EaseInBackD(float value)
     {
-        float s = 1.70158f;
+        var s = 1.70158f;
 
         return 3f * (s + 1f) * (1 - 0) * value * value - 2f * s * (1 - 0) * value;
     }
 
-    public static float EaseOutBackD(float value)
+    private static float EaseOutBackD(float value)
     {
-        float s = 1.70158f;
+        var s = 1.70158f;
         value = (value) - 1;
 
         return 1 * ((s + 1f) * value * value + 2f * value * ((s + 1f) * value + s));
     }
 
-    public static float EaseInOutBackD(float value)
+    private static float EaseInOutBackD(float value)
     {
-        float s = 1.70158f;
+        var s = 1.70158f;
         value /= .5f;
 
         if ((value) < 1)
@@ -568,16 +568,16 @@ public static class Curves
         return 0.5f * 1 * ((s + 1) * value * value + 2f * value * ((s + 1f) * value + s));
     }
 
-    public static float EaseInElasticD(float value)
+    private static float EaseInElasticD(float value)
     {
         return EaseOutElasticD(1f - value);
     }
 
-    public static float EaseOutElasticD(float value)
+    private static float EaseOutElasticD(float value)
     {
 
-        float d = 1f;
-        float p = d * .3f;
+        var d = 1f;
+        var p = d * .3f;
         float s;
         float a = 0;
 
@@ -596,11 +596,11 @@ public static class Curves
             Mathf.Pow(2f, 1f - 10f * value) * Mathf.Sin((2f * Mathf.PI * (d * value - s)) / p);
     }
 
-    public static float EaseInOutElasticD(float value)
+    private static float EaseInOutElasticD(float value)
     {
 
-        float d = 1f;
-        float p = d * .3f;
+        var d = 1f;
+        var p = d * .3f;
         float s;
         float a = 0;
 
@@ -628,7 +628,7 @@ public static class Curves
                5f * NaturalLOGOf2 * a * Mathf.Sin(2f * Mathf.PI * (d * value - s) / p) / (Mathf.Pow(2f, 10f * value));
     }
 
-    public static float SpringD(float value)
+    private static float SpringD(float value)
     {
         value = Mathf.Clamp01(value);
         return 1 * (6f * (1f - value) / 5f + 1f) * (-2.2f * Mathf.Pow(1f - value, 1.2f) *
@@ -721,7 +721,7 @@ public static class Curves
     }
     
     [CanBeNull]
-    public static Function GetEasingFunctionDerivative(Ease easingFunction)
+    private static Function GetEasingFunctionDerivative(Ease easingFunction)
     {
         return EasingFunctionDerivativeMap.TryGetValue(easingFunction, out var derivative) ? derivative : null;
     }
