@@ -30,5 +30,5 @@ MonoBehaviour:
     maxTurbulence: 20
   evaluateAtmosphereData:
     maxWindDirectionChangeSpeed: 170
-    maxWindSpeed: 1
-    maxTurbulence: 1
+    maxWindSpeed: 10
+    maxTurbulence: 10
