@@ -1,6 +1,6 @@
 ﻿using System;
+using Unity.Barracuda;
 using Unity.MLAgents.Actuators;
-using Unity.Sentis;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BehaviorConfig", menuName = "Behavior Config")]
@@ -9,7 +9,7 @@ public class AircraftBehaviorConfig : ScriptableObject
     public string behaviorName;
     public int spaceSize;
     public ActionSpec actionSpecs;
-    public ModelAsset model;
+    public NNModel model;
     [Range(1, 25)] public int decisionPeriod = 1;
     public int maxStep = 2500000;
 

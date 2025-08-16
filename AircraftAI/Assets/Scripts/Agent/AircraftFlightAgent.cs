@@ -9,9 +9,8 @@ public class AircraftFlightAgent : AircraftAgent
 {
     public FlightPathNormalizer flightPathNormalizer;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         PreviousActions = new float[] { 0, 0, 0 };
     }
 

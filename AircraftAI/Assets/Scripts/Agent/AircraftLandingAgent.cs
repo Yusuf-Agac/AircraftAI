@@ -33,9 +33,8 @@ public class AircraftLandingAgent : AircraftAgent
 
     private float _normalizedCurrentThrottle;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         PreviousActions = new float[] { 0, 0, 0, 0 };
     }
 

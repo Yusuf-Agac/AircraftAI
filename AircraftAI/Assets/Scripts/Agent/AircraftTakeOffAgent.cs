@@ -19,9 +19,8 @@ public class AircraftTakeOffAgent : AircraftAgent
 
     private float[] _normalizedCollisionSensors;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         PreviousActions = new float[] { 0, 0, 0 };
     }
 

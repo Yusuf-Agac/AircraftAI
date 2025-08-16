@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public abstract partial class AircraftAgent : Agent
 {
+    private static readonly int EmissionColor = Shader.PropertyToID("_EmissiveColor");
+    
     public MeshRenderer[] windArrowRenderers;
     public AudioSource windAudioSource;
     
@@ -175,12 +177,15 @@ public abstract partial class AircraftAgent : Agent
     {
         if (windArrowRenderers != null)
         {
-            windArrowRenderers[0].transform.localEulerAngles = new Vector3(0, WindAngle, 0);
-            windArrowRenderers[1].transform.localEulerAngles = new Vector3(0, WindAngle, 0);
             foreach (var windArrow in windArrowRenderers)
             {
+                windArrow.transform.localEulerAngles = new Vector3(0, WindAngle, 0);
+                
                 var material = windArrow.material;
-                material.color = Color.Lerp(Color.green, Color.red, NormalizedWind[1]);
+                
+                var color = Color.Lerp(Color.green, Color.red, NormalizedWind[1]);
+                material.color = color;
+                
                 windArrow.material = material;
             }
         }
