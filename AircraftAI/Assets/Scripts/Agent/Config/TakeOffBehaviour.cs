@@ -23,7 +23,6 @@ public class TakeOffBehaviour : AircraftBehaviour
         _aircraftTakeOffAgent.detector = detector;
         _aircraftTakeOffAgent.observationCanvas = dependencies.observationCanvas;
         _aircraftTakeOffAgent.rewardCanvas = dependencies.rewardCanvas;
-        _aircraftTakeOffAgent.windArrowRenderers = dependencies.windArrows;
         _aircraftTakeOffAgent.windAudioSource = dependencies.windAudioSource;
         
         AddDecisionRequester(transform);

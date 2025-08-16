@@ -22,7 +22,6 @@ class LandingBehaviour : AircraftBehaviour
         _aircraftLandingAgent.detector = detector;
         _aircraftLandingAgent.observationCanvas = dependencies.observationCanvas;
         _aircraftLandingAgent.rewardCanvas = dependencies.rewardCanvas;
-        _aircraftLandingAgent.windArrowRenderers = dependencies.windArrows;
         _aircraftLandingAgent.windAudioSource = dependencies.windAudioSource;
         
         AddDecisionRequester(transform);

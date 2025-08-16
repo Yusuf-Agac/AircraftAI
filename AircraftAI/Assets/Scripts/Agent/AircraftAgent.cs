@@ -9,7 +9,6 @@ public abstract partial class AircraftAgent : Agent
 {
     private static readonly int EmissionColor = Shader.PropertyToID("_EmissiveColor");
     
-    public MeshRenderer[] windArrowRenderers;
     public AudioSource windAudioSource;
     
     public ObservationCanvas observationCanvas;
@@ -175,21 +174,6 @@ public abstract partial class AircraftAgent : Agent
 
     private void UpdateWindObjects()
     {
-        if (windArrowRenderers != null)
-        {
-            foreach (var windArrow in windArrowRenderers)
-            {
-                windArrow.transform.localEulerAngles = new Vector3(0, WindAngle, 0);
-                
-                var material = windArrow.material;
-                
-                var color = Color.Lerp(Color.green, Color.red, NormalizedWind[1]);
-                material.color = color;
-                
-                windArrow.material = material;
-            }
-        }
-
         if (windAudioSource)
         {
             windAudioSource.volume = Mathf.Lerp(0.1f, 1f, NormalizedWind[1]);

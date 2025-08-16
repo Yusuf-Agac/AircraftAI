@@ -21,7 +21,6 @@ class FlightBehaviour : AircraftBehaviour
         
         _aircraftFlightAgent.observationCanvas = dependencies.observationCanvas;
         _aircraftFlightAgent.rewardCanvas = dependencies.rewardCanvas;
-        _aircraftFlightAgent.windArrowRenderers = dependencies.windArrows;
         _aircraftFlightAgent.windAudioSource = dependencies.windAudioSource;
         
         AddDecisionRequester(transform);

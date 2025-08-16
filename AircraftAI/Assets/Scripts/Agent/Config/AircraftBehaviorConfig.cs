@@ -29,7 +29,6 @@ public class AircraftBehaviorConfig : ScriptableObject
 [Serializable]
 public class BehaviourDependencies
 {
-    public MeshRenderer[] windArrows;
     public AudioSource windAudioSource;
     public ObservationCanvas observationCanvas;
     public RewardCanvas rewardCanvas;
