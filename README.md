@@ -10,6 +10,14 @@ The project runs inside **Unity Engine** with a focus on realism, dynamic traini
 
 ---
 
+**Author:** Yusuf AĞAÇ, Dr. Eyüp Emre ÜLKÜ
+yusufagacofficial@gmail.com
+
+---
+
+<img width="2210" height="1234" alt="Ekran görüntüsü 2025-09-28 132150" src="https://github.com/user-attachments/assets/c75dbbbe-de52-4cb1-a3d5-05d9f93ffb2b" />
+---
+
 ## 🚀 Features
 
 ### ✅ Evaluation
@@ -59,17 +67,13 @@ The project runs inside **Unity Engine** with a focus on realism, dynamic traini
 
 ## 📸 Preview
 <img width="2203" height="1232" alt="Ekran görüntüsü 2025-09-28 131950" src="https://github.com/user-attachments/assets/a69e0463-b9cd-4f56-96c9-4c07126ed4f0" />
+
 <img width="2214" height="1232" alt="Ekran görüntüsü 2025-09-28 131933" src="https://github.com/user-attachments/assets/58f07819-2222-45b1-8756-42636480308d" />
+
 <img width="2197" height="1228" alt="Ekran görüntüsü 2025-09-28 132035" src="https://github.com/user-attachments/assets/6cec373d-cbd1-4b75-b785-82498a8d9066" />
-<img width="2210" height="1234" alt="Ekran görüntüsü 2025-09-28 132150" src="https://github.com/user-attachments/assets/c75dbbbe-de52-4cb1-a3d5-05d9f93ffb2b" />
+
 <img width="2205" height="1236" alt="Ekran görüntüsü 2025-09-28 132212" src="https://github.com/user-attachments/assets/57d81a73-dfd5-4e9c-a67b-79743a370cd4" />
+
 <img width="2202" height="1234" alt="Ekran görüntüsü 2025-09-28 132225" src="https://github.com/user-attachments/assets/d93b3460-b082-4f0a-ad9f-cadd1c2d007e" />
+
 <img width="2216" height="1235" alt="Ekran görüntüsü 2025-09-28 132003" src="https://github.com/user-attachments/assets/f877acc2-e29b-4bac-bdbc-90856a39b3b8" />
-
-
----
-
-**Author:** Yusuf AĞAÇ, Dr. Eyüp Emre ÜLKÜ
-yusufagacofficial@gmail.com
-
----
